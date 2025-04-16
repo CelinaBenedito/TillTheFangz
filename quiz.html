@@ -20,11 +20,34 @@
             <a href="ficha.html">Crie sua ficha</a>
             <a href="bestiario.html">Bestiário</a>
             <a href="livro.html">Livro</a>
+            <a href="cadastro.html">Cadastrar</a>
         </div>
 </header>
+    <div class="container">
+        <div class="quiz" id="div_quiz"></div>
+        <button onclick="quiz()">Iniciar quiz</button>
 
+        <div id="card">
+        </div>
+
+    </div>
 <footer>
     Created by: Celina dos Santos Benedito
 </footer>
 </body>
 </html>
+<script>
+function quiz(){
+    card.innerHTML = `
+    <div>
+    <div class="titulo"><h1>Primeira Pergunta</h1></div>    
+    </div>
+    <div class="buttons">
+        <button id="botaoProximo" onclick="passarPergunta()">Proxima pergunta</button>
+
+        <button id="botaoAnterior" onclick="voltarPergunta()">Pergunta anterior</button>
+    </div>`
+}
+   
+
+</script>

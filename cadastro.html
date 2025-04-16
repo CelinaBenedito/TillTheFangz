@@ -11,19 +11,35 @@
 <body>
     <br><br>
     <div class="card">
-        <div class="nome">
-            <input type="text" placeholder="Nome...">
-            <input type="text" placeholder="Sobrenome...">
+        <div>
+            <img src="assets/logoBranca.png" alt="">
         </div>
-        <select>
-            <option value="0">Gênero:</option>
-            <option value="1">Feminino</option>
-            <option value="2">Masculino</option>
-            <option value="3">Outro</option>
-        </select>
+        <div class="conteudo item">
+            <input type="text" placeholder="Nome..." id="ipt_nome">
+            <input type="text" placeholder="Sobrenome..." id="ipt_sobrenome">
+        </div>
+        <div class="conteudo select">
+            <select id="select_genero">
+                <option value="#">Gênero:</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro</option>
+                <option value="nao">Prefiro não dizer</option>
+            </select>
+        </div>
+        <div class="conteudo item">
+            <input type="text" placeholder="Email..." id="ipt_email">
+            <input type="text" placeholder="Confirmar Email..." id="ipt_confEmail">
+        </div>
 
-
+        <div class="conteudo item">
+            <input type="password" placeholder="Senha..." id="ipt_senha">
+            <input type="password" placeholder="Confirmar senha..." id="ipt_confSenha">
+        </div>
+        <div class="buttons">
+            <button onclick="validarCadastro()">Cadastrar</button>
+        </div>
     </div>
-
 </body>
 </html>
+<script src="main.js"></script>

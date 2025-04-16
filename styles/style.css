@@ -31,15 +31,13 @@ header{
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.562);
 }
 header .itens a{
-    border-right: 2px solid;
-    border-radius: 20px;
     padding: 10px;
     text-decoration: none;
     color: white;
     font-family: Land;
 }
 header .itens a:hover{
-    font-size: 60px;
+    color: red;
 }
 .itens{
     margin-right:50px;
@@ -66,7 +64,7 @@ header img{
 }
 .setinha{
     font-size: 50px;
-    margin: 86vh;
+    margin: 78vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +73,7 @@ header img{
 .container{
     padding: 100px;
     color: white;
-    font-size:70px;
+    font-size:40px;
 }
 .titulo{
     font-family: Engravers;
