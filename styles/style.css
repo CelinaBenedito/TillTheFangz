@@ -1,0 +1,96 @@
+@font-face{
+    font-family: Land;
+    src: url(../assets/fonts/Enchanted\ Land.otf);
+}
+@font-face {
+    font-family: Ancient;
+    src: url(../assets/fonts/Ancient\ Medium.ttf);
+}
+@font-face {
+    font-family: Engravers;
+    src: url(../assets/fonts/OPTIEngraversOldEnglish.otf);
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+/*---------------------------------------------------------------------------BODY---------------------------------------------------------------------------*/
+header{
+    align-items: center;
+    font-size: 50px;
+    width: 100%;
+    margin: 0;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content:space-between;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.562);
+}
+header .itens a{
+    border-right: 2px solid;
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: Land;
+}
+header .itens a:hover{
+    font-size: 60px;
+}
+.itens{
+    margin-right:50px;
+}
+header img{
+    width: 200px;
+}
+
+/*--------------------------------------------------------------------------- IMAGEM DO FUNDO ---------------------------------------------------------------------------*/
+.backgroundImage{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../assets/Till\ the\ Fangz.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.637);
+}
+/*--------------------------------------------------------------------------- SETINHA ---------------------------------------------------------------------------*/
+.bx {
+    color: white;
+}
+.bx:hover {
+    font-size: 110px;
+}
+.setinha{
+    font-size: 50px;
+    margin: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*--------------------------------------------------------------------------- CONTAINER ---------------------------------------------------------------------------*/
+.container{
+    padding: 100px;
+    color: white;
+    font-size:70px;
+}
+.titulo{
+    font-family: Engravers;
+    margin-left: 120px;
+    width: 50%;
+}
+/*FOOTER*/
+footer{
+    color:white;
+    height:50px;
+    background-color: rgb(114, 114, 114);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.377);
+}
