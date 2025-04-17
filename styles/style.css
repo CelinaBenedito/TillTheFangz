@@ -75,7 +75,7 @@ header img{
     color: white;
     font-size:40px;
 }
-.titulo{
+.container .titulo{
     font-family: Engravers;
     margin-left: 120px;
     width: 50%;
@@ -91,4 +91,31 @@ footer{
     width: 100%;
     margin: 0;
     box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.377);
+}
+.card .imagens{
+    margin : 100px;
+    display: flex;
+}
+.card .imagens img{
+    width: 200px;
+}
+.card .imagens  img:hover{
+    width: 250px;
+}
+.card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.card .titulo{
+    font-size:large;
+    color:white;
+    font-family: Engravers;
+    margin-top: 200px;
+    margin-bottom: -100px;
+}
+.card .cartao{
+    margin: 5px;
 }
