@@ -36,7 +36,7 @@ function validarCadastro(){
 
     console.log("Esta página diz:" + nome);
    
-    if(nome  == undefined || sobrenome == null || genero == '#' || email == null || Confemail == NaN){
+    if(nome  == false || sobrenome == false || genero == '#' || email == false || Confemail == false){
         alert('Por favor preencha todos os campos');
         return;
     }
