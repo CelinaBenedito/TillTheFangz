@@ -3,7 +3,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/Till\ the\ Fangz.jpg");
+
+    background-image: url("../assets/fundo.jpg");
     background-repeat:no-repeat;
     background-size: cover;
 }
@@ -33,19 +34,30 @@ input::placeholder{
 .conteudo{
     margin:10px
 }
-.select{
-    margin-right: 60%;
+.conteudo input{
+    margin: 0px 10px;
 }
-.select select{
+.selects .conteudo{
+    display: flex;
+}
+
+ select{
     outline: none;
 }
 .card .item{
     display: flex;
-    justify-content: space-evenly;
     width: 100%;
+    justify-content: center;
 }
 .buttons button:hover{
     background-color: black;
     border: solid 2px white;
     color: white;
+}
+.selects{
+    display: flex;
+    width: 80%;
+}
+.selects .item{
+    margin: 10px;
 }
