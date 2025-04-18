@@ -1,4 +1,4 @@
-@font-face{
+I'm@font-face{
     font-family: Land;
     src: url(../assets/fonts/Enchanted\ Land.otf);
 }
@@ -44,7 +44,8 @@ header .itens a:hover{
     margin-right:50px;
 }
 header img{
-    width: 50%;
+    width: 5
+20%;
 }
 
 /*--------------------------------------------------------------------------- IMAGEM DO FUNDO ---------------------------------------------------------------------------*/
