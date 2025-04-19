@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Quiz</title>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -22,32 +24,47 @@
             <a href="livro.html">Livro</a>
             <a href="cadastro.html">Cadastrar</a>
         </div>
-</header>
-    <div class="container">
-        <div class="quiz" id="div_quiz"></div>
-        <button onclick="quiz()">Iniciar quiz</button>
+    </header>
 
-        <div id="card">
+    <div class="container">
+        <div class="quiz">
+            <div id="card">
+            </div>
+        </div>
+        <div id="botao">
+            <button onclick="quiz()">Iniciar quiz</button>
         </div>
 
+       
+
     </div>
-<footer>
-    Created by: Celina dos Santos Benedito
-</footer>
+    <footer>
+        Created by: Celina dos Santos Benedito
+    </footer>
 </body>
+
 </html>
 <script>
-function quiz(){
-    card.innerHTML = `
-    <div>
-    <div class="titulo"><h1>Primeira Pergunta</h1></div>    
+
+    function quiz() {
+        botao.innerHTML = ""
+        card.innerHTML = `
+    <div class="questao">
+    <div class="titulo"><h3>Primeira Pergunta</h3></div>  
+      <div class="opcoes">
+        <p>Qual seu tipo de filme favorito?</p>
+        <div class="opcao"><button>Terror</button></div>
+        <div class="opcao"><button>Romance</button></div>
+        <div class="opcao"><button>Comédia</button></div>
+        <div class="opcao"><button>Triller</button></div>
+      </div>
     </div>
     <div class="buttons">
-        <button id="botaoProximo" onclick="passarPergunta()">Proxima pergunta</button>
 
         <button id="botaoAnterior" onclick="voltarPergunta()">Pergunta anterior</button>
+
+        <button id="botaoProximo" onclick="passarPergunta()">Proxima pergunta</button>
     </div>`
-}
-   
+    }
 
 </script>
