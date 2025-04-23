@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/ficha.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Ficha</title>
 </head>
@@ -25,7 +26,7 @@
             <a href="cadastro.html">Cadastrar</a>
         </div>
     </header>
-    <div>
+    <div class="containerTotal">
         <h1>
             Crie seu personagem
         </h1>
@@ -42,71 +43,72 @@
 
                 <input type="number" placeholder="Idade...">
             </div>
-
-        </div>
-
-    </div>
-    <div>
-        <input type="number" placeholder="Pontos sombrios">
-        <input type="number" placeholder="Pontos de luz">
-    </div>
-    <div>
-        <input type="number" placeholder="Defesa" id="ipt_defesa">
-        <input type="number" placeholder="Sanidade" id="ipt_sanidade">
-    </div>
-    <div class="containerAtributos">
-        <p id="pontos_totais"></p>
-        <div class="atributo carisma">
-            <p>Carisma</p>
-            <p id="qtd_carisma"></p>
-            <div class="botoes">
-                <button onclick="adicionarCarisma()">+</button>
-                <button onclick="removerCarisma()">-</button>
+            <div>
+                <input type="number" placeholder="Pontos sombrios">
+                <input type="number" placeholder="Pontos de luz">
+            </div>
+            <div>
+                <input type="number" placeholder="Defesa" id="ipt_defesa">
+                <input type="number" placeholder="Sanidade" id="ipt_sanidade">
             </div>
         </div>
 
-            <div class="atributo inteligencia">
-            <p>Inteligência</p>
-            <p id="qtd_inteligencia"></p>
-            <div class="botoes">
-                <button onclick="adicionarInteligencia()">+</button>
-                <button onclick="removerIntelligencia()">-</button>
+        <div class="containerLadoaLado">
+            <div class="containerAtributos">
+                <p id="pontos_totais"></p>
+                <div class="atributo carisma">
+                    <p>Carisma</p>
+                    <p id="qtd_carisma"></p>
+                    <div class="botoes">
+                        <button onclick="adicionarCarisma()">+</button>
+                        <button onclick="removerCarisma()">-</button>
+                    </div>
+                </div>
+
+                <div class="atributo inteligencia">
+                    <p>Inteligência</p>
+                    <p id="qtd_inteligencia"></p>
+                    <div class="botoes">
+                        <button onclick="adicionarInteligencia()">+</button>
+                        <button onclick="removerIntelligencia()">-</button>
+                    </div>
+                </div>
+                <div class="atributo agilidade">
+                    <p>Agilidade</p>
+                    <p id="qtd_agilidade"></p>
+                    <div class="botoes">
+                        <button onclick="adicionarAgilidade()">+</button>
+                        <button onclick="removerAgilidade()">-</button>
+                    </div>
+                </div>
+                <div class="atributo vigor">
+                    <p>Vigor</p>
+                    <p id="qtd_vigor"></p>
+                    <div class="botoes">
+                        <button onclick="adicionarVigor()">+</button>
+                        <button onclick="removerVigor()">-</button>
+                    </div>
+                </div>
+                <div class="atributo sangueAncestral">
+                    <p>Sangue Ancestral</p>
+                    <p id="qtd_sangue_ancestral"></p>
+                    <div class="botoes">
+                        <button onclick="adicionarSangueAncestral()">+</button>
+                        <button onclick="removerSangueAncestral()">-</button>
+                    </div>
+                </div>
+
             </div>
-        </div>
-       <div class="atributo agilidade">
-            <p>Agilidade</p>
-            <p id="qtd_agilidade"></p>
-            <div class="botoes">
-                <button onclick="adicionarAgilidade()">+</button>
-                <button onclick="removerAgilidade()">-</button>
-            </div>
-        </div>
-        <div class="atributo vigor">
-            <p>Vigor</p>
-            <p id="qtd_vigor"></p>
-            <div class="botoes">
-                <button onclick="adicionarVigor()">+</button>
-                <button onclick="removerVigor()">-</button>
-            </div>
-        </div>
-        <div class="atributo sangueAncestral">
-            <p>Sangue Ancestral</p>
-            <p id="qtd_sangue_ancestral"></p>
-            <div class="botoes">
-                <button onclick="adicionarSangueAncestral()">+</button>
-                <button onclick="removerSangueAncestral()">-</button>
+            <div class="detalhes">
+                <input type="text" placeholder="História do personagem" id="ipt_historia" class="campo">
+                <input type="text" placeholder="Características do personagem" class="campo">
             </div>
         </div>
 
-    </div>
-    <div>
-        <input type="text" placeholder="História do personagem" id="ipt_historia">
-        <input type="text" placeholder="Características do personagem">
-    </div>
 
-    <footer>
-        Created by: Celina dos Santos Benedito
-    </footer>
+        <footer>
+            Created by: Celina dos Santos Benedito
+        </footer>
 </body>
 
 </html>
@@ -120,19 +122,19 @@
 
 
 
-        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
-        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
-        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
-        qtd_vigor.innerHTML = `${quantidadeVigor}`;
-        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
-        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+    qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+    qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+    qtd_vigor.innerHTML = `${quantidadeVigor}`;
+    qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+    pontos_totais.innerHTML = `${pontosAtributosTotais}`;
 
     function adicionarCarisma() {
         if (quantidadeCarisma >= 5) {
             alert("Quantidade de carisma maximo alcançado")
             return;
         }
-        if(pontosAtributosTotais<=0){
+        if (pontosAtributosTotais <= 0) {
             alert("Quantidade de pontos total acabou")
             return;
         }
@@ -141,8 +143,8 @@
         qtd_carisma.innerHTML = `${quantidadeCarisma}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
-    function removerCarisma(){
-        if(quantidadeCarisma<=0){
+    function removerCarisma() {
+        if (quantidadeCarisma <= 0) {
             alert("Quantidade de carisma minima alcançado")
             return;
         }
@@ -150,15 +152,15 @@
         quantidadeCarisma--
         qtd_carisma.innerHTML = `${quantidadeCarisma}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
-       
+
     }
 
-    function adicionarInteligencia(){
+    function adicionarInteligencia() {
         if (quantidadeInteligencia >= 5) {
             alert("Quantidade de inteligência maxima alcançada")
             return;
         }
-        if(pontosAtributosTotais<=0){
+        if (pontosAtributosTotais <= 0) {
             alert("Quantidade de pontos total acabou")
             return;
         }
@@ -167,8 +169,8 @@
         qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
-    function removerIntelligencia(){
-    if(quantidadeInteligencia<=0){
+    function removerIntelligencia() {
+        if (quantidadeInteligencia <= 0) {
             alert("Quantidade de inteligência miníma alcançado")
             return;
         }
@@ -176,15 +178,15 @@
         quantidadeInteligencia--
         qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
-       
+
     }
 
-    function adicionarAgilidade(){
+    function adicionarAgilidade() {
         if (quantidadeAgilidade >= 5) {
             alert("Quantidade de agilidade maxima alcançada")
             return;
         }
-        if(pontosAtributosTotais<=0){
+        if (pontosAtributosTotais <= 0) {
             alert("Quantidade de pontos total acabou")
             return;
         }
@@ -193,8 +195,8 @@
         qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
-    function removerAgilidade(){
-        if(quantidadeAgilidade<=0){
+    function removerAgilidade() {
+        if (quantidadeAgilidade <= 0) {
             alert("Quantidade de inteligência miníma alcançado")
             return;
         }
@@ -204,12 +206,12 @@
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
 
-    function adicionarVigor(){
-        if (quantidadeVigor>= 5) {
+    function adicionarVigor() {
+        if (quantidadeVigor >= 5) {
             alert("Quantidade de vigor maxima alcançada")
             return;
         }
-        if(pontosAtributosTotais<=0){
+        if (pontosAtributosTotais <= 0) {
             alert("Quantidade de pontos total acabou")
             return;
         }
@@ -218,8 +220,8 @@
         qtd_vigor.innerHTML = `${quantidadeVigor}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
-    function removerVigor(){
-        if(quantidadeVigor<=0){
+    function removerVigor() {
+        if (quantidadeVigor <= 0) {
             alert("Quantidade de vigor minímo alcançado")
             return;
         }
@@ -229,12 +231,12 @@
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
 
-    function adicionarSangueAncestral(){
-        if (quantidadeSangueAncestral>= 5) {
+    function adicionarSangueAncestral() {
+        if (quantidadeSangueAncestral >= 5) {
             alert("Quantidade de vigor maxima alcançada")
             return;
         }
-        if(pontosAtributosTotais<=0){
+        if (pontosAtributosTotais <= 0) {
             alert("Quantidade de pontos total acabou")
             return;
         }
@@ -243,8 +245,8 @@
         qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
-    function removerSangueAncestral(){
-        if(quantidadeSangueAncestral<=0){
+    function removerSangueAncestral() {
+        if (quantidadeSangueAncestral <= 0) {
             alert("Quantidade de vigor minímo alcançado")
             return;
         }

@@ -1,0 +1,27 @@
+.containerLadoaLado{
+    display: flex;
+    flex-direction: row;
+}
+.detalhes{
+    display: flex;
+    flex-direction: column;
+}
+.detalhes .campo{
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+    align-items: start;
+    text-align: start;
+}
+.camposiniciais input{
+    background: transparent;
+    border: none;
+    color: white;
+    border-bottom: black solid 2px;
+}
+.camposiniciais input::placeholder{
+    color: white;
+}
+.containerTotal{
+    margin: 20px;
+}
