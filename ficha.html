@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Ficha</title>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -22,9 +24,133 @@
             <a href="livro.html">Livro</a>
             <a href="cadastro.html">Cadastrar</a>
         </div>
-</header>
-<footer>
-    Created by: Celina dos Santos Benedito
-</footer>
+    </header>
+    <div>
+        <h1>
+            Crie seu personagem
+        </h1>
+        <div id="campos" class="camposiniciais">
+            <input type="text" placeholder="Nome..." id="ipt_nome">
+
+            <div>
+                <input type="number" placeholder="Altura..." id="ipt_altura">
+                <input type="text" placeholder="Gênero..." id="ipt_genero">
+
+            </div>
+            <div>
+                <input type="number" placeholder="Peso..." id="ipt_peso">
+
+                <input type="number" placeholder="Idade...">
+            </div>
+
+        </div>
+
+    </div>
+    <div>
+        <input type="number" placeholder="Pontos sombrios">
+        <input type="number" placeholder="Pontos de luz">
+    </div>
+    <div>
+        <input type="number" placeholder="Defesa" id="ipt_defesa">
+        <input type="number" placeholder="Sanidade" id="ipt_sanidade">
+    </div>
+    <div class="containerAtributos">
+        <p id="pontos_totais"></p>
+        <div class="atributo carisma">
+            <p>Carisma</p>
+            <p id="qtd_carisma"></p>
+            <div class="botoes">
+                <button onclick="adicionarCarisma()">+</button>
+                <button onclick="removerCarisma()">-</button>
+            </div>
+        </div>
+        <div class="atributo inteligência">
+            <p id="qtd_inteligencia"></p>
+            <p>Inteligência</p>
+            <div class="botoes">
+                <button onclick="adicionarInteligencia()">+</button>
+                <button onclick="removerIntelligencia()">-</button>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <input type="text" placeholder="História do personagem" id="ipt_historia">
+        <input type="text" placeholder="Características do personagem">
+    </div>
+
+    <footer>
+        Created by: Celina dos Santos Benedito
+    </footer>
 </body>
+
 </html>
+<script>
+    let pontosAtributosTotais = 10;
+    var quantidadeCarisma = 0;
+    let quantidadeInteligencia = 0;
+    let quantidadeAgilidade = 0;
+    let quantidadeVigor = 0;
+    let quantidadeSangueAncestral = 0;
+
+
+
+        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+
+    function adicionarCarisma() {
+        if (quantidadeCarisma >= 5) {
+            alert("Quantidade de carisma maximo alcançado")
+            return;
+        }
+        quantidadeCarisma++;
+        pontosAtributosTotais--;
+        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+    function removerCarisma(){
+        if(quantidadeCarisma<=0){
+            alert("Quantidade de carisma minima alcançado")
+            return;
+        }
+        pontosAtributosTotais++
+        quantidadeCarisma--
+        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+       
+    }
+
+    function adicionarInteligencia(){
+        if (quantidadeInteligencia >= 5) {
+            alert("Quantidade de inteligência maxima alcançada")
+            return;
+        }
+        quantidadeInteligencia++
+        pontosAtributosTotais--
+        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+    function removerIntelligencia(){
+    if(quantidadeInteligencia<=0){
+            alert("Quantidade de inteligência miníma alcançado")
+            return;
+        }
+        pontosAtributosTotais++
+        quantidadeInteligencia--
+        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+       
+    }
+
+    function adicionarAgilidade(){
+        if (quantidadeAgilidade >= 5) {
+            alert("Quantidade de agilidade maxima alcançada")
+            return;
+        }
+        quantidadeAgilidade++;
+        pontosAtributosTotais--;
+        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+</script>
