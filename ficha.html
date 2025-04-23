@@ -64,12 +64,37 @@
                 <button onclick="removerCarisma()">-</button>
             </div>
         </div>
-        <div class="atributo inteligência">
-            <p id="qtd_inteligencia"></p>
+
+            <div class="atributo inteligencia">
             <p>Inteligência</p>
+            <p id="qtd_inteligencia"></p>
             <div class="botoes">
                 <button onclick="adicionarInteligencia()">+</button>
                 <button onclick="removerIntelligencia()">-</button>
+            </div>
+        </div>
+       <div class="atributo agilidade">
+            <p>Agilidade</p>
+            <p id="qtd_agilidade"></p>
+            <div class="botoes">
+                <button onclick="adicionarAgilidade()">+</button>
+                <button onclick="removerAgilidade()">-</button>
+            </div>
+        </div>
+        <div class="atributo vigor">
+            <p>Vigor</p>
+            <p id="qtd_vigor"></p>
+            <div class="botoes">
+                <button onclick="adicionarVigor()">+</button>
+                <button onclick="removerVigor()">-</button>
+            </div>
+        </div>
+        <div class="atributo sangueAncestral">
+            <p>Sangue Ancestral</p>
+            <p id="qtd_sangue_ancestral"></p>
+            <div class="botoes">
+                <button onclick="adicionarSangueAncestral()">+</button>
+                <button onclick="removerSangueAncestral()">-</button>
             </div>
         </div>
 
@@ -97,11 +122,18 @@
 
         qtd_carisma.innerHTML = `${quantidadeCarisma}`;
         qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+        qtd_vigor.innerHTML = `${quantidadeVigor}`;
+        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
 
     function adicionarCarisma() {
         if (quantidadeCarisma >= 5) {
             alert("Quantidade de carisma maximo alcançado")
+            return;
+        }
+        if(pontosAtributosTotais<=0){
+            alert("Quantidade de pontos total acabou")
             return;
         }
         quantidadeCarisma++;
@@ -126,6 +158,10 @@
             alert("Quantidade de inteligência maxima alcançada")
             return;
         }
+        if(pontosAtributosTotais<=0){
+            alert("Quantidade de pontos total acabou")
+            return;
+        }
         quantidadeInteligencia++
         pontosAtributosTotais--
         qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
@@ -148,9 +184,74 @@
             alert("Quantidade de agilidade maxima alcançada")
             return;
         }
+        if(pontosAtributosTotais<=0){
+            alert("Quantidade de pontos total acabou")
+            return;
+        }
         quantidadeAgilidade++;
         pontosAtributosTotais--;
         qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
+    function removerAgilidade(){
+        if(quantidadeAgilidade<=0){
+            alert("Quantidade de inteligência miníma alcançado")
+            return;
+        }
+        pontosAtributosTotais++
+        quantidadeAgilidade--
+        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+
+    function adicionarVigor(){
+        if (quantidadeVigor>= 5) {
+            alert("Quantidade de vigor maxima alcançada")
+            return;
+        }
+        if(pontosAtributosTotais<=0){
+            alert("Quantidade de pontos total acabou")
+            return;
+        }
+        quantidadeVigor++;
+        pontosAtributosTotais--;
+        qtd_vigor.innerHTML = `${quantidadeVigor}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+    function removerVigor(){
+        if(quantidadeVigor<=0){
+            alert("Quantidade de vigor minímo alcançado")
+            return;
+        }
+        pontosAtributosTotais++
+        quantidadeVigor--
+        qtd_vigor.innerHTML = `${quantidadeVigor}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+
+    function adicionarSangueAncestral(){
+        if (quantidadeSangueAncestral>= 5) {
+            alert("Quantidade de vigor maxima alcançada")
+            return;
+        }
+        if(pontosAtributosTotais<=0){
+            alert("Quantidade de pontos total acabou")
+            return;
+        }
+        quantidadeSangueAncestral++;
+        pontosAtributosTotais--;
+        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+    function removerSangueAncestral(){
+        if(quantidadeSangueAncestral<=0){
+            alert("Quantidade de vigor minímo alcançado")
+            return;
+        }
+        pontosAtributosTotais++
+        quantidadeSangueAncestral--
+        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+        pontos_totais.innerHTML = `${pontosAtributosTotais}`;
+    }
+
 </script>
