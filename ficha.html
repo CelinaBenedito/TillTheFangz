@@ -137,7 +137,8 @@
     let pontosAtributosTotais = 10;
     var ultimaclasse;
     var classe;
-    let qtdClasse=0;
+    let qtdClasse = 0;
+
     let pontos = {
         carisma: 0,
         inteligencia: 0,
@@ -145,172 +146,158 @@
         vigor: 0,
         sangue: 0,
     };
-    qtd_carisma.innerHTML = `${pontos.carisma}`;
-    qtd_inteligencia.innerHTML = `${pontos.inteligencia}`;
-    qtd_agilidade.innerHTML = `${pontos.agilidade}`;
-    qtd_vigor.innerHTML = `${pontos.vigor}`;
-    qtd_sangue_ancestral.innerHTML = `${pontos.sangue}`;
-    pontos_totais.innerHTML = `${pontosAtributosTotais}`;
-   
-   
-function pontuação(numero, atributo){
-    if (numero == 1 && pontos[atributo] >= 5) {
-            alert("Quantidade maxima alcançada")
-            return;
-        }
-    if(numero == -1 && pontos[atributo] <=0){
-        alert("Quantidade minima alcançada")
-        return;
-    }
-    if(pontosAtributosTotais<=0){
-        alert("Quantidade de pontos total acabou")
-        return;
-    }
-    pontosAtributosTotais-=numero
-    pontos[atributo]+=numero
+
     qtd_carisma.innerHTML = pontos.carisma;
     qtd_inteligencia.innerHTML = pontos.inteligencia;
     qtd_agilidade.innerHTML = pontos.agilidade;
     qtd_vigor.innerHTML = pontos.vigor;
     qtd_sangue_ancestral.innerHTML = pontos.sangue;
-    pontos_totais.innerHTML = `${pontosAtributosTotais}`;
-   
+    pontos_totais.innerHTML = pontosAtributosTotais;
 
-}
+
+    function pontuação(numero, atributo) {
+        if (numero == 1 && pontos[atributo] >= 5) {
+            alert("Quantidade maxima alcançada")
+            return;
+        }
+        if (numero == -1 && pontos[atributo] <= 0) {
+            alert("Quantidade minima alcançada")
+            return;
+        }
+        if (pontosAtributosTotais <= 0) {
+            alert("Quantidade de pontos total acabou")
+            return;
+        }
+        pontosAtributosTotais -= numero
+        pontos[atributo] += numero
+        qtd_carisma.innerHTML = pontos.carisma;
+        qtd_inteligencia.innerHTML = pontos.inteligencia;
+        qtd_agilidade.innerHTML = pontos.agilidade;
+        qtd_vigor.innerHTML = pontos.vigor;
+        qtd_sangue_ancestral.innerHTML = pontos.sangue;
+        pontos_totais.innerHTML = pontosAtributosTotais;
+    }
 
     function salvarClasse() {
         classe = select_classe.value;
-        if(classe == '#'){
+        if (classe == '#') {
             alert("Você não selecionou uma classe")
             return;
         }
-        if(qtdClasse>=1){
+        if (qtdClasse >= 1) {
             alert("Você já escolheu uma classe")
             return;
         }
         ultimaclasse = classe;
 
         if (classe == 1) {
-            quantidadeAgilidade += 3;
-            quantidadeSangueAncestral += 2;
-            quantidadeCarisma -= 2;
+            pontos.agilidade += 3;
+            pontos.sangue += 2;
+            pontos.carisma -= 2;
             qtdClasse++
         }
         if (classe == 2) {
-            quantidadeInteligencia += 2
-            quantidadeSangueAncestral += 2
+            pontos.inteligencia += 2
+            pontos.sangue += 2
             qtdClasse++
         }
         if (classe == 3) {
-            quantidadeInteligencia -= 2;
-            quantidadeVigor += 2
+            pontos.inteligencia -= 2;
+            pontos.vigor += 2
             qtdClasse++
         }
         if (classe == 4) {
-            quantidadeCarisma += 2;
-            quantidadeInteligencia += 2;
-            quantidadeVigor -= 3;
+            pontos.carisma += 2;
+            pontos.inteligencia += 2;
+            pontos.vigor -= 3;
             qtdClasse++
         }
         if (classe == 5) {
-            quantidadeInteligencia += 1;
-            quantidadeSangueAncestral += 2;
-            quantidadeCarisma -= 1;
+            pontos.inteligencia += 1;
+            pontos.sangue += 2;
+            pontos.carisma -= 1;
             qtdClasse++
         }
         if (classe == 6) {
-            quantidadeCarisma += 2;
-            quantidadeInteligencia += 1;
-            quantidadeSangueAncestral -=5;
+            pontos.carisma += 2;
+            pontos.inteligencia += 1;
+            pontos.sangue -= 5;
             qtdClasse++
         }
         if (classe == 7) {
-            quantidadeCarisma -= 1;
-            quantidadeSangueAncestral += 3;
-            quantidadeAgilidade +=1;
+            pontos.carisma -= 1;
+            pontos.sangue += 3;
+            pontos.agilidade += 1;
             qtdClasse++
         }
         if (classe == 8) {
-            quantidadeCarisma -= 2;
-            quantidadeSangueAncestral += 3;
+            pontos.carisma -= 2;
+            pontos.sangue += 3;
             qtdClasse++
         }
 
-        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
-        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
-        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
-        qtd_vigor.innerHTML = `${quantidadeVigor}`;
-        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+        qtd_carisma.innerHTML = pontos.carisma;
+        qtd_inteligencia.innerHTML = pontos.inteligencia;
+        qtd_agilidade.innerHTML = pontos.agilidade;
+        qtd_vigor.innerHTML = pontos.vigor;
+        qtd_sangue_ancestral.innerHTML = pontos.sangue;
 
         botao_limpar.innerHTML = `<button onclick="limparClasse()">Limpar pontos da classe</button>`
     }
-    function limparClasse(){
-        if(qtdClasse<1){
+    function limparClasse() {
+        if (qtdClasse < 1) {
             alert("Não a classe para ser limpar")
             return;
         }
-        selesctclasse.innerHTML = `
-                 <select name="Classe" id="select_classe">
-                <option value="#">Selecione uma classe</option>
-                <option value="1">Caçador Sombrio</option>
-                <option value="2">Senhor das Sombras</option>
-                <option value="3">Bárbaro Noturno</option>
-                <option value="4">Ilusionista Vampírico</option>
-                <option value="5">Vampiro cultista</option>
-                <option value="6">Vampiro iluminado</option>
-                <option value="7">Vampiro flagelador</option>
-                <option value="8">Vampiro Canibal</option>
-            </select>
-        `
         if (ultimaclasse == 1) {
-            quantidadeAgilidade -= 3;
-            quantidadeSangueAncestral - 2;
-            quantidadeCarisma += 2;
+            pontos.agilidade -= 3;
+            pontos.sangue -= 2;
+            pontos.carisma += 2;
             qtdClasse--;
         }
         if (ultimaclasse == 2) {
-            quantidadeInteligencia -= 2
-            quantidadeSangueAncestral -= 2
+            pontos.inteligencia -= 2
+            pontos.sangue -= 2
             qtdClasse--;
         }
         if (ultimaclasse == 3) {
-            quantidadeInteligencia += 2;
-            quantidadeVigor -= 2
+            pontos.inteligencia += 2;
+            pontos.vigor -= 2
             qtdClasse--;
         }
         if (ultimaclasse == 4) {
-            quantidadeCarisma -= 2;
-            quantidadeInteligencia -= 2;
-            quantidadeVigor += 3;
+            pontos.carisma -= 2;
+            pontos.inteligencia -= 2;
+            pontos.vigor += 3;
             qtdClasse--;
         }
         if (ultimaclasse == 5) {
-            quantidadeInteligencia -= 1;
+            pontos.inteligencia -= 1;
             quantidadeSangueAncestral -= 2;
-            quantidadeCarisma += 1;
+            pontos.carisma += 1;
             qtdClasse--;
         }
         if (ultimaclasse == 6) {
-            quantidadeCarisma -= 2;
-            quantidadeInteligencia -= 1;
-            quantidadeSangueAncestral +=5;
+            pontos.carisma -= 2;
+            pontos.inteligencia -= 1;
+            pontos.sangue += 5;
             qtdClasse--;
         }
         if (ultimaclasse == 7) {
-            quantidadeCarisma += 1;
-            quantidadeSangueAncestral -= 3;
-            quantidadeAgilidade -=1;
+            pontos.carisma += 1;
+            pontos.sangue -= 3;
+            pontos.agilidade -= 1;
             qtdClasse--;
         }
         if (ultimaclasse == 8) {
-            quantidadeCarisma += 2;
-            quantidadeSangueAncestral -= 3;
+            pontos.carisma += 2;
+            pontos.sangue -= 3;
             qtdClasse--;
         }
-        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
-        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
-        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
-        qtd_vigor.innerHTML = `${quantidadeVigor}`;
-        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+        qtd_carisma.innerHTML = pontos.carisma;
+        qtd_inteligencia.innerHTML = pontos.inteligencia;
+        qtd_agilidade.innerHTML = pontos.agilidade;
+        qtd_vigor.innerHTML = pontos.vigor;
+        qtd_sangue_ancestral.innerHTML = pontos.sangue;
     }
 </script>
