@@ -31,7 +31,9 @@
             Crie seu personagem
         </h1>
         <div id="campos" class="camposiniciais">
-            <input type="text" placeholder="Nome..." id="ipt_nome">
+            <div class="nome">
+                <input type="text" placeholder="Nome..." id="ipt_nome">
+            </div>
 
             <div>
                 <input type="number" placeholder="Altura..." id="ipt_altura">
@@ -64,7 +66,6 @@
                         <button onclick="removerCarisma()">-</button>
                     </div>
                 </div>
-
                 <div class="atributo inteligencia">
                     <p>Inteligência</p>
                     <p id="qtd_inteligencia"></p>
@@ -104,11 +105,23 @@
                 <input type="text" placeholder="Características do personagem" class="campo">
             </div>
         </div>
+        <select name="Classe" id="select_classe">
+            <option value="#">Selecione uma classe</option>
+            <option value="1">Caçador Sombrio</option>
+            <option value="2">Senhor das Sombras</option>
+            <option value="3">Bárbaro Noturno</option>
+            <option value="4">Ilusionista Vampírico</option>
+            <option value="5">Vampiro cultista</option>
+            <option value="6">Vampiro iluminado</option>
+            <option value="7">Vampiro flagelador</option>
+            <option value="8">Vampiro Canibal</option>
+        </select>
+        <h1>Habilidades</h1>
+    </div>
 
-
-        <footer>
-            Created by: Celina dos Santos Benedito
-        </footer>
+    <footer>
+        Created by: Celina dos Santos Benedito
+    </footer>
 </body>
 
 </html>
