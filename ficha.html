@@ -105,17 +105,24 @@
                 <input type="text" placeholder="Características do personagem" class="campo">
             </div>
         </div>
-        <select name="Classe" id="select_classe">
-            <option value="#">Selecione uma classe</option>
-            <option value="1">Caçador Sombrio</option>
-            <option value="2">Senhor das Sombras</option>
-            <option value="3">Bárbaro Noturno</option>
-            <option value="4">Ilusionista Vampírico</option>
-            <option value="5">Vampiro cultista</option>
-            <option value="6">Vampiro iluminado</option>
-            <option value="7">Vampiro flagelador</option>
-            <option value="8">Vampiro Canibal</option>
-        </select>
+        <div id="selesctclasse">
+            <select name="Classe" id="select_classe">
+                <option value="#">Selecione uma classe</option>
+                <option value="1">Caçador Sombrio</option>
+                <option value="2">Senhor das Sombras</option>
+                <option value="3">Bárbaro Noturno</option>
+                <option value="4">Ilusionista Vampírico</option>
+                <option value="5">Vampiro cultista</option>
+                <option value="6">Vampiro iluminado</option>
+                <option value="7">Vampiro flagelador</option>
+                <option value="8">Vampiro Canibal</option>
+            </select>
+        </div>
+
+        <button onclick="salvarClasse()">Salvar classe</button>
+        <div id="botao_limpar"></div>
+
+
         <h1>Habilidades</h1>
     </div>
     <button onclick="adicionar()">Salvar ficha</button>
@@ -269,8 +276,118 @@
         qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
         pontos_totais.innerHTML = `${pontosAtributosTotais}`;
     }
+    var ultimaclasse;
 
-    function adicionar(){
-        
+    var classe = select_classe.value;
+
+    function salvarClasse() {
+        if(classe == '#'){
+            alert("Você não selecionou uma classe")
+            return;
+        }
+        ultimaclasse = classe;
+
+        if (classe == 1) {
+            quantidadeAgilidade += 3;
+            quantidadeSangueAncestral += 2;
+            quantidadeCarisma -= 2;
+        }
+        if (classe == 2) {
+            quantidadeInteligencia += 2
+            quantidadeSangueAncestral += 2
+        }
+        if (classe == 3) {
+            quantidadeInteligencia -= 2;
+            quantidadeVigor += 2
+        }
+        if (classe == 4) {
+            quantidadeCarisma += 2;
+            quantidadeInteligencia += 2;
+            quantidadeVigor -= 3;
+        }
+        if (classe == 5) {
+            quantidadeInteligencia += 1;
+            quantidadeSangueAncestral += 2;
+            quantidadeCarisma -= 1;
+        }
+        if (classe == 6) {
+            quantidadeCarisma += 2;
+            quantidadeInteligencia += 1;
+            quantidadeSangueAncestral -=5;
+        }
+        if (classe == 7) {
+            quantidadeCarisma -= 1;
+            quantidadeSangueAncestral += 3;
+            quantidadeAgilidade +=1;
+        }
+        if (classe == 8) {
+            quantidadeCarisma -= 2;
+            quantidadeSangueAncestral += 3;
+        }
+
+        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+        qtd_vigor.innerHTML = `${quantidadeVigor}`;
+        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
+
+        botao_limpar.innerHTML = `<button onclick="limparClasse()">Limpar pontos da classe</button>`
+    }
+    function limparClasse(){
+        selesctclasse.innerHTML = `
+                 <select name="Classe" id="select_classe">
+                <option value="#">Selecione uma classe</option>
+                <option value="1">Caçador Sombrio</option>
+                <option value="2">Senhor das Sombras</option>
+                <option value="3">Bárbaro Noturno</option>
+                <option value="4">Ilusionista Vampírico</option>
+                <option value="5">Vampiro cultista</option>
+                <option value="6">Vampiro iluminado</option>
+                <option value="7">Vampiro flagelador</option>
+                <option value="8">Vampiro Canibal</option>
+            </select>
+        `
+        if (ultimaclasse == 1) {
+            quantidadeAgilidade -= 3;
+            quantidadeSangueAncestral -= 2;
+            quantidadeCarisma += 2;
+        }
+        if (ultimaclasse == 2) {
+            quantidadeInteligencia -= 2
+            quantidadeSangueAncestral -= 2
+        }
+        if (ultimaclasse == 3) {
+            quantidadeInteligencia += 2;
+            quantidadeVigor -= 2
+        }
+        if (ultimaclasse == 4) {
+            quantidadeCarisma -= 2;
+            quantidadeInteligencia -= 2;
+            quantidadeVigor += 3;
+        }
+        if (ultimaclasse == 5) {
+            quantidadeInteligencia -= 1;
+            quantidadeSangueAncestral -= 2;
+            quantidadeCarisma += 1;
+        }
+        if (ultimaclasse == 6) {
+            quantidadeCarisma -= 2;
+            quantidadeInteligencia -= 1;
+            quantidadeSangueAncestral +=5;
+        }
+        if (ultimaclasse == 7) {
+            quantidadeCarisma += 1;
+            quantidadeSangueAncestral -= 3;
+            quantidadeAgilidade -=1;
+        }
+        if (ultimaclasse == 8) {
+            quantidadeCarisma += 2;
+            quantidadeSangueAncestral -= 3;
+        }
+        qtd_carisma.innerHTML = `${quantidadeCarisma}`;
+        qtd_inteligencia.innerHTML = `${quantidadeInteligencia}`;
+        qtd_agilidade.innerHTML = `${quantidadeAgilidade}`;
+        qtd_vigor.innerHTML = `${quantidadeVigor}`;
+        qtd_sangue_ancestral.innerHTML = `${quantidadeSangueAncestral}`;
     }
 </script>
