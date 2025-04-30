@@ -33,3 +33,35 @@
 .nome{
     margin: 10px 0px
 }
+.habilidadeGeral{
+    display: flex;
+}
+.ramificacao{
+    display: flex;
+    flex-direction: column-reverse;
+    margin:10px;
+}
+.garras button{
+    margin:10px;
+    border-radius: 100px;
+    border: none;
+    padding: 10px;
+
+}
+.garras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Voo button{
+    margin:10px;
+    border-radius: 100px;
+    border: none;
+    padding: 10px;
+
+}
+.Voo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
