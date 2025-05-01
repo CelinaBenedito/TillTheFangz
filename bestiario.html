@@ -30,17 +30,37 @@
     </div>
     <div class="imagens">
         <div>
-            <img src="assets/adaga.png" alt="Adaga" class="cartao">
+            <a onclick="modal('adaga')">
+                <img src="assets/card_adaga.png" alt="Adaga" class="cartao">
+            </a>
+         
+            <dialog id="adaga">
+                <div id="desc_adaga" class="modal"></div>
+            </dialog>
         </div>
         <div>
-            <img src="assets/besta.png" alt="Besta" class="cartao">
+            <a onclick="modal('besta')">
+            <img src="assets/card_besta.png" alt="Besta" class="cartao">
+        </a>
+        <dialog id="besta">
+            <div id="desc_besta" class="modal"></div>
+        </dialog>
         </div>
         <div>
-            <img src="assets/Estaca.png" alt="Estaca" class="cartao">
-
+            <a onclick="modal('estaca')">
+                <img src="assets/card_estaca.png" alt="Estaca" class="cartao">
+            </a>
+            <dialog id="estaca">
+                <div id="desc_estaca" class="modal"></div>
+            </dialog>
         </div>
         <div>
-            <img src="assets/rosário.png" alt="Rosario" class="cartao">
+            <a onclick="modal('rosario')">
+            <img src="assets/card_rosario.png" alt="Rosario" class="cartao">
+            </a>
+            <dialog id="rosario">
+                <div id="desc_rosario" class="modal"></div>
+            </dialog>
         </div>
     </div>
 
@@ -51,3 +71,68 @@
 </footer>
 </body>
 </html>
+<script>
+let itens = {
+    adaga: document.getElementById('adaga'),
+    besta: document.getElementById('besta'),
+    estaca: document.getElementById('estaca'),
+    rosario: document.getElementById('rosario')
+}
+function modal(item){
+
+    itens[item].showModal()
+    if(itens['adaga']){
+        desc_adaga.innerHTML = `
+            <h1>Adaga Cerimonial</h1>
+         <p>
+            Adaga geralmente usada para matar vampiros e fazer rituais
+        </p>
+         <p>
+            dano perfurante: 1d6
+        </p>
+         <button onclick="fechar('adaga')">Fechar</button>
+    `
+    }
+    if(itens['besta']){
+        desc_besta.innerHTML = `
+         <h1>Besta Equiparavel</h1>
+        <p>
+            Uma besta feita para caçadores, mas ainda sim simples para o uso comum
+        </p>
+        <p>
+        dano perfurante: 1d6 por flecha     
+        </p>
+         <button onclick="fechar('besta')">Fechar</button>
+        `
+    }
+    if(itens['estaca']){
+        desc_estaca.innerHTML = `
+         <h1>Estaca mata-vampiro</h1>
+        <p>
+            A estaca que pertenceu a diversos assasinos de vampiros, um verdadeiro amuleto da sorte
+        </p>
+        <p>
+        dano perfurante: 1d12     
+        </p>
+         <button onclick="fechar('estaca')">Fechar</button>
+        `
+    }
+    if(itens['rosario']){
+        desc_rosario.innerHTML = `
+         <h1>Rosário sombrio</h1>
+        <p>
+            Um rosário sombrio imbuído em magia obscura
+            utilizado para matar anjos  
+        </p>
+
+        <p>
+        dano 1D12 dano sombrio     
+        </p>
+         <button onclick="fechar('rosario')">Fechar</button>
+        `
+    }
+} 
+function fechar(item){
+    itens[item].close()
+}
+</script>

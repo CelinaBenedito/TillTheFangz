@@ -26,38 +26,40 @@
             <a href="cadastro.html">Cadastrar</a>
         </div>
     </header>
-    <div class="containerTotal">
-        <div class="ladinho">
-            <h1>
-                Crie seu personagem
-            </h1>
-            <div id="campos" class="camposiniciais">
+    <h1>
+        Crie seu personagem
+    </h1>
+    <div id="campos" class="camposiniciais">
 
-                <div>
-                    <div class="nome">
-                        <input type="text" placeholder="Nome..." id="ipt_nome">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="Altura..." id="ipt_altura">
-                        <input type="text" placeholder="Gênero..." id="ipt_genero">
-
-                    </div>
-                    <div>
-                        <input type="number" placeholder="Peso..." id="ipt_peso">
-
-                        <input type="number" placeholder="Idade...">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="Pontos sombrios">
-                        <input type="number" placeholder="Pontos de luz">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="Defesa" id="ipt_defesa">
-                        <input type="number" placeholder="Sanidade" id="ipt_sanidade">
-                    </div>
-
-                </div>
+        <div>
+            <div class="nome">
+                <input type="text" placeholder="Nome..." id="ipt_nome">
             </div>
+            <div>
+                <input type="number" placeholder="Altura..." id="ipt_altura">
+                <input type="text" placeholder="Gênero..." id="ipt_genero">
+
+            </div>
+            <div>
+                <input type="number" placeholder="Peso..." id="ipt_peso">
+
+                <input type="number" placeholder="Idade...">
+            </div>
+            <div>
+                <input type="number" placeholder="Pontos sombrios">
+                <input type="number" placeholder="Pontos de luz">
+            </div>
+            <div>
+                <input type="number" placeholder="Defesa" id="ipt_defesa">
+                <input type="number" placeholder="Sanidade" id="ipt_sanidade">
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="containerTotal">
+
+        <div class="ladinho">
 
             <div class="containerLadoaLado">
                 <div class="containerAtributos">
@@ -129,13 +131,13 @@
 
         <div class="ladinho">
             <h1>Habilidades Gerais</h1>
-            <p id="pontos_Habilidade"></p>
-            <button onclick="abrirModal()">Habilidades</button>
-                <dialog id="modal">
-                    <div id="conteudo"></div>
+           <p>escolha as habilidades que seu personagem ira ter</p>
+            <button onclick="abrirModal()">Habilidades Gerais</button>
+            <dialog id="modal">
+                <div id="conteudo"></div>
             </dialog>
-            
-            <h1>Transformações</h1>
+
+            <h1>Transformações</h1
             <div class="transformacoes">
                 <div class="transformacao">
                     <div class="item inicial">
@@ -181,51 +183,63 @@
         modal.showModal()
         conteudo.innerHTML = `
         <div class="habilidades">
-                <div class="garras">
-                    <div class="habilidadeGeral">
-                        <div class="ramificacao lado1">
-                            <button onclick="habilidades(-2)">Corte rápido</button>
-                            <button onclick="habilidades(-3)">Frenesi de garras</button>
-                            <button onclick="habilidades(-4)">Rasgo da destruição</button>
-                        </div>
-
-                        <div class="ramificacao lado2">
-                            <button onclick="habilidades(-2)">Garras envenedadas</button>
-                            <button onclick="habilidades(-3)">Destruidor de armaduras</button>
-                            <button onclick="habilidades(-4)">Rasgo Sombrio</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="botoes">
-                            <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
-                            <button>Garras</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Voo">
-                    <div class="habilidadeGeral">
-                        <div class="ramificacao lado1">
-                            <button onclick="habilidades(-3)">Mergulho aéreo</button>
-                            <button onclick="habilidades(-4)">Teleporte sombrio</button>
-                        </div>
-                        <div class="ramificacao lado2">
-                            <button onclick="habilidades(-3)">Investida aérea</button>
-                            <button onclick="habilidades(-4)">Voô profano</button>
-                        </div>
-                    </div>
-                    <div class="botoes">
-                        <button onclick="habilidades(-2)">Flutuar</button>
-                        <button onclick="habilidades(-1)">Super Salto</button>
-                        <button>Voô</button>
-                    </div>
-                </div>
-            </div>
-            <button onclick="fecharModal()">fechar Modal</button>
+                    <p id="pontos_Habilidade"></p>
+                       <div class="garras">
+                           <div class="habilidadeGeral">
+                               <div class="ramificacao lado1">
+                                   <button onclick="habilidades(-2)">Corte rápido</button>
+                                   <button onclick="habilidades(-3)">Frenesi de garras</button>
+                                   <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                               </div>
+       
+                               <div class="ramificacao lado2">
+                                   <button onclick="habilidades(-2)">Garras envenedadas</button>
+                                   <button onclick="habilidades(-3)">Destruidor de armaduras</button>
+                                   <button onclick="habilidades(-4)">Rasgo Sombrio</button>
+                               </div>
+                           </div>
+                           <div>
+                               <div class="botoes">
+                                   <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+                                   <button onclick="abrirGarras()">Garras</button>
+                                   <dialog id="garras">
+                                    <div id="container_garras"></div>
+                                    </dialog>
+                               </div>
+                           </div>
+                       </div>
+       
+                       <div class="Voo">
+                           <div class="habilidadeGeral">
+                               <div class="ramificacao lado1">
+                                   <button onclick="habilidades(-3)">Mergulho aéreo</button>
+                                   <button onclick="habilidades(-4)">Teleporte sombrio</button>
+                               </div>
+                               <div class="ramificacao lado2">
+                                   <button onclick="habilidades(-3)">Investida aérea</button>
+                                   <button onclick="habilidades(-4)">Voô profano</button>
+                               </div>
+                           </div>
+                           <div class="botoes">
+                               <button onclick="habilidades(-2)">Flutuar</button>
+                               <button onclick="habilidades(-1)">Super Salto</button>
+                               <button>Voô</button>
+                           </div>
+                       </div>
+                   </div>
+                   <button onclick="fecharModal()">fechar</button>
         `
     }
-    function fecharModal(){
-		modal.close()
+    function abrirGarras(){
+        garras.showModal()
+        container_garras.innerHTML = `Funciona oh meu deus
+        <button onclick="fecharGarras()">Fechar</button>`
+    }
+    function fecharGarras(){
+        garras.close()
+    }
+    function fecharModal() {
+        modal.close()
     }
 
     let pontosAtributosTotais = 10;
