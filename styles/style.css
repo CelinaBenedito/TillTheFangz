@@ -113,6 +113,16 @@ footer {
     display: flex;
 }
 
+.card .imagens .modal img:hover{
+    width: 200px;
+}
+.modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
 .card .imagens img {
     width: 200px;
 }
@@ -195,7 +205,10 @@ footer {
     background-color: red;
 
 }
-
+.livro{
+    margin: 40px;
+    color: white;
+}
 /* Estilos para telas médias (tablets) */
 @media screen and (max-width: 768px) {
     .backgroundImage {
@@ -212,8 +225,4 @@ footer {
         background-position: top center;
         background-size: contain;
     }
-}
-.livro{
-    margin: 40px;
-    color: white;
 }
