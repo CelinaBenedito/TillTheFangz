@@ -13,6 +13,9 @@
     align-items: start;
     text-align: start;
 }
+.camposiniciais{
+    display:flex;
+}
 .camposiniciais input{
     background: transparent;
     border: none;
@@ -25,7 +28,7 @@
 }
 .containerTotal{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 20px;
@@ -35,6 +38,7 @@
 }
 .habilidadeGeral{
     display: flex;
+    justify-content: space-evenly;
 }
 .ramificacao{
     display: flex;
@@ -64,4 +68,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.habilidades{
+    display: flex;
+    justify-content: space-evenly;
+}
+.botoes{
+    display: flex;
+    flex-direction: column;
+}
+.transformacoes{
+    display:flex;
+}
+.transformacoes button:hover{
+    background-color: gray;
+    border: white solid 1px;
+    color: white;
+}
+.transformacao{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.vertical{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.horizontal{
+    display: flex;    
+}
+.item button{
+    margin: 10px;
+    padding:10px;
+    border-radius: 100px;
+    border: none;
+}
+.ladinho{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
 }
