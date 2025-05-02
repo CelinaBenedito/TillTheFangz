@@ -26,45 +26,83 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="quiz">
-            <div id="card">
+    <div class="containerQuiz">
+        <div class="quiz"> 
+            <h1 class="titulo">Área de Quiz</h1>
+        <p>
+            Explore diversos quizzes que, se desejar, podem ser salvos diretamente no seu perfil. Eles podem ser usados tanto por você quanto por um personagem seu, e podem ser refeitos quantas vezes quiser, da forma que preferir.<br>
+            Ao final de cada quiz, você encontrará duas perguntas rápidas — mas muito importantes — que ajudarão nossa equipe a aprimorar ainda mais sua experiência.
+        </p>
+            <input type="search" placeholder="Pesquisar Quiz" id="ipt_pesquisa" oninput="pesquisar()">
+            <div class="quizes">
+                <div class="conteudo">
+                    <button onclick="abrirModal('classe')">Descubra sua classe</button>
+                    <dialog id="classe">
+                        <div id="quiz">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('raca')">Qual a raça que mais combina com você?</button>
+                    <dialog id="raca">
+                        <div id="quiz">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('atributo')">Qual seu principal atributo?</button>
+                    <dialog id="atributo">
+                        <div id="quiz">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('habilidade')">Qual habilidade combina mais com você</button>
+                    <dialog id="habilidade">
+                        <div id="quiz">
+
+                        </div>
+                    </dialog>
+                </div>
+
             </div>
         </div>
-        <div id="botao">
-            <button onclick="quiz()">Iniciar quiz</button>
-        </div>
-
-
-
     </div>
     <footer>
-        Created by: Celina dos Santos Benedito
+        <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="/sobre.html">Sobre</a></li>
+                <li><a href="/termos.html">Termos de Serviço</a></li>
+                <li><a href="/privacidade.html">Política de Privacidade</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 
 </html>
 <script>
-
-    function quiz() {
-        botao.innerHTML = ""
-        card.innerHTML = `
-    <div class="questao">
-    <div class="titulo"><h3>Primeira Pergunta</h3></div>  
-      <div class="opcoes">
-        <p>Qual seu tipo de filme favorito?</p>
-        <div class="opcao"><button>Terror</button></div>
-        <div class="opcao"><button>Romance</button></div>
-        <div class="opcao"><button>Comédia</button></div>
-        <div class="opcao"><button>Triller</button></div>
-      </div>
-    </div>
-    <div class="buttons">
-
-        <button id="botaoAnterior" onclick="voltarPergunta()">Pergunta anterior</button>
-
-        <button id="botaoProximo" onclick="passarPergunta()">Proxima pergunta</button>
-    </div>`
+    let quizes = {
+        classe: document.getElementById('classe'),
+        raca: document.getElementById('raca'),
+        atributo: document.getElementById('atributo'),
+        habilidade: document.getElementById('habilidade')
     }
+    function abrirModal(item){
+        quizes[item].showModal();
+    }
+    function pesquisar() {
+        let pesquisa = ipt_pesquisa.value;
 
+    }
 </script>

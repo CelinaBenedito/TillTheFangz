@@ -26,154 +26,168 @@
             <a href="login.html" class="login"><img src="assets/vampireUser.png" alt="user"> Login</a>
         </div>
 </header>
-    <h1>
-        Crie seu personagem
-    </h1>
-    <div id="campos" class="camposiniciais">
-
-        <div>
-            <div class="nome">
-                <input type="text" placeholder="Nome..." id="ipt_nome">
-            </div>
-            <div>
-                <input type="number" placeholder="Altura..." id="ipt_altura">
-                <input type="text" placeholder="Gênero..." id="ipt_genero">
-
-            </div>
-            <div>
-                <input type="number" placeholder="Peso..." id="ipt_peso">
-
-                <input type="number" placeholder="Idade...">
-            </div>
-            <div>
-                <input type="number" placeholder="Pontos sombrios">
-                <input type="number" placeholder="Pontos de luz">
-            </div>
-            <div>
-                <input type="number" placeholder="Defesa" id="ipt_defesa">
-                <input type="number" placeholder="Sanidade" id="ipt_sanidade">
-            </div>
-
-        </div>
-    </div>
+    <div class="ContainerFicha">
+        <h1>
+            Crie seu personagem
+        </h1>
+        <div id="campos" class="camposiniciais">
     
-    <div class="containerTotal">
-
-        <div class="ladinho">
-
-            <div class="containerLadoaLado">
-                <div class="containerAtributos">
-                    <p id="pontos_totais"></p>
-                    <div class="atributo carisma">
-                        <p>Carisma</p>
-                        <p id="qtd_carisma"></p>
-                        <div class="botoes">
-                            <button onclick="pontuação(1, 'carisma')">+</button>
-                            <button onclick="pontuação(-1, 'carisma')">-</button>
-                        </div>
-                    </div>
-                    <div class="atributo inteligencia">
-                        <p>Inteligência</p>
-                        <p id="qtd_inteligencia"></p>
-                        <div class="botoes">
-                            <button onclick="pontuação(1, 'inteligencia')">+</button>
-                            <button onclick="pontuação(-1, 'inteligencia')">-</button>
-                        </div>
-                    </div>
-                    <div class="atributo agilidade">
-                        <p>Agilidade</p>
-                        <p id="qtd_agilidade"></p>
-                        <div class="botoes">
-                            <button onclick="pontuação(1, 'agilidade')">+</button>
-                            <button onclick="pontuação(-1, 'agilidade')">-</button>
-                        </div>
-                    </div>
-                    <div class="atributo vigor">
-                        <p>Vigor</p>
-                        <p id="qtd_vigor"></p>
-                        <div class="botoes">
-                            <button onclick="pontuação(1, 'vigor')">+</button>
-                            <button onclick="pontuação(-1, 'vigor')">-</button>
-                        </div>
-                    </div>
-                    <div class="atributo sangueAncestral">
-                        <p>Sangue Ancestral</p>
-                        <p id="qtd_sangue_ancestral"></p>
-                        <div class="botoes">
-                            <button onclick="pontuação(1, 'sangue')">+</button>
-                            <button onclick="pontuação(-1, 'sangue')">-</button>
-                        </div>
-                    </div>
-
+            <div>
+                <div class="nome">
+                    <input type="text" placeholder="Nome..." id="ipt_nome">
                 </div>
-                <div class="detalhes">
-                    <input type="text" placeholder="História do personagem" id="ipt_historia" class="campo">
-                    <input type="text" placeholder="Características do personagem" class="campo">
+                <div>
+                    <input type="number" placeholder="Altura..." id="ipt_altura">
+                    <input type="text" placeholder="Gênero..." id="ipt_genero">
+    
                 </div>
+                <div>
+                    <input type="number" placeholder="Peso..." id="ipt_peso">
+    
+                    <input type="number" placeholder="Idade...">
+                </div>
+                <div>
+                    <input type="number" placeholder="Pontos sombrios">
+                    <input type="number" placeholder="Pontos de luz">
+                </div>
+                <div>
+                    <input type="number" placeholder="Defesa" id="ipt_defesa">
+                    <input type="number" placeholder="Sanidade" id="ipt_sanidade">
+                </div>
+    
             </div>
-            <div id="selesctclasse">
-                <select name="Classe" id="select_classe">
-                    <option value="#">Selecione uma classe</option>
-                    <option value="1">Caçador Sombrio</option>
-                    <option value="2">Senhor das Sombras</option>
-                    <option value="3">Bárbaro Noturno</option>
-                    <option value="4">Ilusionista Vampírico</option>
-                    <option value="5">Vampiro cultista</option>
-                    <option value="6">Vampiro iluminado</option>
-                    <option value="7">Vampiro flagelador</option>
-                    <option value="8">Vampiro Canibal</option>
-                </select>
-            </div>
-
-            <button onclick="salvarClasse()">Salvar classe</button>
-            <div id="botao_limpar"></div>
         </div>
-
-        <div class="ladinho">
-            <h1>Habilidades Gerais</h1>
-           <p>escolha as habilidades que seu personagem ira ter</p>
-            <button onclick="abrirModal()">Habilidades Gerais</button>
-            <dialog id="modal">
-                <div id="conteudo"></div>
-            </dialog>
-
-            <h1>Transformações</h1
-            <div class="transformacoes">
-                <div class="transformacao">
-                    <div class="item inicial">
-                        <button>Lobo</button>
+        
+        <div class="containerTotal">
+    
+            <div class="ladinho">
+    
+                <div class="containerLadoaLado">
+                    <div class="containerAtributos">
+                        <p id="pontos_totais"></p>
+                        <div class="atributo carisma">
+                            <p>Carisma</p>
+                            <p id="qtd_carisma"></p>
+                            <div class="botoes">
+                                <button onclick="pontuação(1, 'carisma')">+</button>
+                                <button onclick="pontuação(-1, 'carisma')">-</button>
+                            </div>
+                        </div>
+                        <div class="atributo inteligencia">
+                            <p>Inteligência</p>
+                            <p id="qtd_inteligencia"></p>
+                            <div class="botoes">
+                                <button onclick="pontuação(1, 'inteligencia')">+</button>
+                                <button onclick="pontuação(-1, 'inteligencia')">-</button>
+                            </div>
+                        </div>
+                        <div class="atributo agilidade">
+                            <p>Agilidade</p>
+                            <p id="qtd_agilidade"></p>
+                            <div class="botoes">
+                                <button onclick="pontuação(1, 'agilidade')">+</button>
+                                <button onclick="pontuação(-1, 'agilidade')">-</button>
+                            </div>
+                        </div>
+                        <div class="atributo vigor">
+                            <p>Vigor</p>
+                            <p id="qtd_vigor"></p>
+                            <div class="botoes">
+                                <button onclick="pontuação(1, 'vigor')">+</button>
+                                <button onclick="pontuação(-1, 'vigor')">-</button>
+                            </div>
+                        </div>
+                        <div class="atributo sangueAncestral">
+                            <p>Sangue Ancestral</p>
+                            <p id="qtd_sangue_ancestral"></p>
+                            <div class="botoes">
+                                <button onclick="pontuação(1, 'sangue')">+</button>
+                                <button onclick="pontuação(-1, 'sangue')">-</button>
+                            </div>
+                        </div>
+    
                     </div>
-                    <div class="item vertical">
-                        <button>Sentidos aprimorados</button>
-                        <button>Velocidade lupina</button>
-                    </div>
-                    <div class="item horizontal">
-                        <button>Furia lupina</button>
-                        <button>Caninos sombrios</button>
+                    <div class="detalhes">
+                        <input type="text" placeholder="História do personagem" id="ipt_historia" class="campo">
+                        <input type="text" placeholder="Características do personagem" class="campo">
                     </div>
                 </div>
-
-                <div class="transformacao">
-                    <div class="item inicial">
-                        <button>Gato</button>
-                    </div>
-                    <div class="item vertical">
-                        <button>Agilidade Felina</button>
-                        <button>Furtividade animal</button>
-                    </div>
-                    <div class="item horizontal">
-                        <button>Olhos do Predador</button>
-                        <button>Garras Venenosas</button>
-                    </div>
+                <div id="selesctclasse">
+                    <select name="Classe" id="select_classe">
+                        <option value="#">Selecione uma classe</option>
+                        <option value="1">Caçador Sombrio</option>
+                        <option value="2">Senhor das Sombras</option>
+                        <option value="3">Bárbaro Noturno</option>
+                        <option value="4">Ilusionista Vampírico</option>
+                        <option value="5">Vampiro cultista</option>
+                        <option value="6">Vampiro iluminado</option>
+                        <option value="7">Vampiro flagelador</option>
+                        <option value="8">Vampiro Canibal</option>
+                    </select>
                 </div>
+    
+                <button onclick="salvarClasse()">Salvar classe</button>
+                <div id="botao_limpar"></div>
             </div>
-
+    
+            <div class="ladinho">
+                <h1>Habilidades Gerais</h1>
+               <p>escolha as habilidades que seu personagem ira ter</p>
+                <button onclick="abrirModal()">Habilidades Gerais</button>
+                <dialog id="modal">
+                    <div id="conteudo"></div>
+                </dialog>
+    
+                <h1>Transformações</h1
+                <div class="transformacoes">
+                    <div class="transformacao">
+                        <div class="item inicial">
+                            <button>Lobo</button>
+                        </div>
+                        <div class="item vertical">
+                            <button>Sentidos aprimorados</button>
+                            <button>Velocidade lupina</button>
+                        </div>
+                        <div class="item horizontal">
+                            <button>Furia lupina</button>
+                            <button>Caninos sombrios</button>
+                        </div>
+                    </div>
+    
+                    <div class="transformacao">
+                        <div class="item inicial">
+                            <button>Gato</button>
+                        </div>
+                        <div class="item vertical">
+                            <button>Agilidade Felina</button>
+                            <button>Furtividade animal</button>
+                        </div>
+                        <div class="item horizontal">
+                            <button>Olhos do Predador</button>
+                            <button>Garras Venenosas</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
         </div>
+        <button onclick="adicionar()">Salvar ficha</button>
     </div>
-    <button onclick="adicionar()">Salvar ficha</button>
+
 
     <footer>
-        Created by: Celina dos Santos Benedito
+        <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="/sobre.html">Sobre</a></li>
+                <li><a href="/termos.html">Termos de Serviço</a></li>
+                <li><a href="/privacidade.html">Política de Privacidade</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 

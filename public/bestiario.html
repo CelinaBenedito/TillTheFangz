@@ -63,11 +63,33 @@
             </dialog>
         </div>
     </div>
-
+<div class="titulo">
+<h1>Inimigos iniciais</h1>
+</div>
+<div class="imagens">
+    <div>
+       <img src="assets/vampiro_perdido.png" alt="" class="cartao"> 
+    </div>
+    <div>
+       <img src="assets/falso_vampiro.png" alt="" class="cartao"> 
+    </div>
+    
+</div>   
 </div>
 
 <footer>
-    Created by: Celina dos Santos Benedito
+    <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+            <li><a href="/sobre.html">Sobre</a></li>
+            <li><a href="/termos.html">Termos de Serviço</a></li>
+            <li><a href="/privacidade.html">Política de Privacidade</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
+    </div>
 </footer>
 </body>
 </html>
@@ -84,7 +106,7 @@ function modal(item){
     if(itens['adaga']){
         desc_adaga.innerHTML = `
         <img src="assets/adaga.png">
-            <h1>Adaga Cerimonial</h1>
+            <h1 class="tituloBest">Adaga Cerimonial</h1>
          <p>
             Adaga geralmente usada para matar vampiros e fazer rituais
         </p>
@@ -97,7 +119,7 @@ function modal(item){
     if(itens['besta']){
         desc_besta.innerHTML = `
         <img src="assets/besta.png">
-         <h1>Besta Equiparavel</h1>
+         <h1 class="tituloBest">Besta Equiparavel</h1>
         <p>
             Uma besta feita para caçadores, mas ainda sim simples para o uso comum
         </p>
@@ -110,7 +132,7 @@ function modal(item){
     if(itens['estaca']){
         desc_estaca.innerHTML = `
         <img src="assets/estaca.png">
-         <h1>Estaca mata-vampiro</h1>
+         <h1 class="tituloBest">Estaca mata-vampiro</h1>
         <p>
             A estaca que pertenceu a diversos assasinos de vampiros, um verdadeiro amuleto da sorte
         </p>
@@ -123,7 +145,7 @@ function modal(item){
     if(itens['rosario']){
         desc_rosario.innerHTML = `
         <img src="assets/rosario.png">
-         <h1>Rosário sombrio</h1>
+         <h1 class="tituloBest">Rosário sombrio</h1>
         <p>
             Um rosário sombrio imbuído em magia obscura
             utilizado para matar anjos  
