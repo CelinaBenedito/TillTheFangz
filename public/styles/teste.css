@@ -1,0 +1,117 @@
+/* === FONTS GÓTICAS === */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=UnifrakturCook:wght@700&family=EB+Garamond&display=swap');
+
+/* === RESET BASE === */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'EB Garamond', serif;
+    background: url('../assets/old-paper.jpg') repeat;
+    background-color: #0a0a0a;
+    color: #e0d4c5;
+    line-height: 1.6;
+}
+
+/* === HEADER === */
+header {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6b1e2b;
+}
+
+header .itens a {
+    color: #e0d4c5;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+header .itens a:hover {
+    color: #8b0000;
+}
+
+/* === BACKGROUND IMAGE SETA === */
+.backgroundImage {
+    background: url('../assets/fundo-gotico.png') center/cover no-repeat;
+    height: 60vh;
+    position: relative;
+}
+
+.setinha {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.setinha h1 {
+    font-size: 3rem;
+    color: #e0d4c5;
+}
+
+/* === TÍTULOS === */
+.titulo h1, h2, h3 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 2.5rem;
+    color: #c2b280;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* === CONTAINER PRINCIPAL === */
+.container {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(10, 10, 10, 0.85);
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    border: 1px solid #6b1e2b;
+    border-radius: 12px;
+}
+
+/* === LISTAS === */
+ul {
+    list-style-type: '☥ ';
+    padding-left: 1.5rem;
+}
+
+ul li {
+    padding-bottom: 0.8rem;
+}
+
+/* === SEPARADORES === */
+.separacao {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+.separado {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #5c5470;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 45%;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+.separado:hover {
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.08);
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    background: #0a0a0a;
+    border-top: 1px solid #6b1e2b;
+    font-family: 'Cinzel Decorative', cursive;
+}

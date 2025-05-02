@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=UnifrakturCook:wght@700&family=EB+Garamond&display=swap');
+
 @font-face {
     font-family: Land;
     src: url(../assets/fonts/Enchanted\ Land.otf);
 }
+
 
 @font-face {
     font-family: Ancient;
@@ -12,15 +15,16 @@
     font-family: Engravers;
     src: url(../assets/fonts/OPTIEngraversOldEnglish.otf);
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     display: flex;
     flex-direction: column;
     background-color: gray;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /*---------------------------------------------------------------------------BODY---------------------------------------------------------------------------*/
@@ -34,13 +38,20 @@ header {
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.562);
+    border-bottom:white solid 1px;
+}
+header .itens{
+    display: flex;
+    align-items: center;
 }
 
-header .itens a {
+header a {
     padding: 10px;
     text-decoration: none;
     color: white;
     font-family: Land;
+    transition:color 0.2s;
+    transition: 1s;
 }
 
 header .itens a:hover {
@@ -52,25 +63,40 @@ header .itens a:hover {
 }
 
 header img {
-    width: 50%;
+   width: 50%;
+}
+header .login img{
+    width: 40%;
+    margin: 0px 0px 0px 20px;
+    border-radius: 100%;
+}
+header .login{
+    margin:0px;
+    padding: 5px;
+    width:100px;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    border: solid white 1px;
 }
 
 /*--------------------------------------------------------------------------- IMAGEM DO FUNDO ---------------------------------------------------------------------------*/
 .backgroundImage {
     width: 100%;
     height: 100vh;
-    background-image: url("../assets/Till\ the\ Fangz.jpg");
+    background-image: url("../assets/Till_the_Fangz.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.637);
 }
 
 /*--------------------------------------------------------------------------- SETINHA ---------------------------------------------------------------------------*/
-.bx {
+.setinha .bx {
     color: white;
+    transition: 0.2s;
 }
 
-.bx:hover {
+.setinha .bx:hover {
     font-size: 110px;
 }
 
@@ -80,21 +106,25 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 1s;
 }
 
 /*--------------------------------------------------------------------------- CONTAINER ---------------------------------------------------------------------------*/
 .container {
     padding: 100px;
     color: white;
-    font-size: 40px;
+    border: white solid 2px;
 }
 
 .container .titulo {
-    font-family: Engravers;
-    margin-left: 120px;
-    width: 50%;
+    font-family: 'UnifrakturCook', cursive;
+    margin-left: 5%;
 }
-
+/*-------------------------------------------------LISTA------------------------------------------------------*/
+ul {
+    list-style-type: '☥ ';
+    padding-left: 1.5rem;
+}
 /*FOOTER*/
 footer {
     color: white;
@@ -112,7 +142,6 @@ footer {
     margin: 100px;
     display: flex;
 }
-
 .card .imagens .modal img:hover{
     width: 200px;
 }
@@ -209,6 +238,44 @@ footer {
     margin: 40px;
     color: white;
 }
+.separacao .bx:hover{
+width: 100px;
+}
+.separacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.separacao a{ 
+    color:white;
+    text-decoration: none;
+}
+.separacao .bx{
+    font-size: 100px;
+}
+.separado:hover{
+    transform: scale(1.05);
+}
+.separado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(68, 68, 68);
+    transition: 0.3s;
+}
+.subtitulo-transicao {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #ccc;
+    font-style: italic;
+}
+
 /* Estilos para telas médias (tablets) */
 @media screen and (max-width: 768px) {
     .backgroundImage {
@@ -217,7 +284,6 @@ footer {
         background-size: contain;  
     }
 }
-
 /* Estilos para telas pequenas (smartphones) */
 @media screen and (max-width: 480px) {
     .backgroundImage {
