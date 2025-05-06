@@ -1,127 +1,188 @@
-.ContainerFicha{
+.ContainerFicha {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
+    padding: 20px;
 }
-.containerLadoaLado{
+
+.containerLadoaLado {
     display: flex;
     flex-direction: row;
 }
-.detalhes{
-    display: flex;
-    flex-direction: column;
-}
-.detalhes .campo{
+
+.detalhes .campo {
     margin: 10px;
     width: 300px;
     height: 300px;
     align-items: start;
-    text-align: start;
+    padding: 10px;
+    color: white;
+    background: transparent;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    border-radius: 8px;
 }
-.camposiniciais{
-    display:flex;
+.containerAtributos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.camposiniciais input{
+.atributo, .atributo p{
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+.atributo p{
+    width: 100px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.troca {
+    transition: transform 0.3s, color 0.3s;
+    color: red;
+    transform: scale(1.5);
+  }
+    
+.atributo button {
+    border-radius: 100px;
+    font-size: larger;
+    background-color: transparent;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    color: rgb(90, 0, 0);
+    margin: 5px;
+}
+.botoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.camposiniciais {
+    display: flex;
+}
+
+.camposiniciais input, textarea {
     background: transparent;
     border: none;
     color: white;
     border-bottom: black solid 2px;
     margin: 2px 10px;
 }
-.camposiniciais input::placeholder{
+
+.camposiniciais input::placeholder {
     color: white;
 }
-.containerTotal{
+
+.containerTotal {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 20px;
 }
-.nome{
+
+.nome {
     margin: 10px 0px
 }
-.habilidadeGeral{
+
+.habilidadeGeral {
     display: flex;
     justify-content: space-evenly;
 }
-.ramificacao{
+
+.ramificacao {
     display: flex;
     flex-direction: column-reverse;
-    margin:10px;
+    margin: 10px;
 }
-.garras button{
-    margin:10px;
+
+.garras button {
+    margin: 10px;
     border-radius: 100px;
     border: none;
     padding: 10px;
 
 }
-.garras{
+
+.garras {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.Voo button{
-    margin:10px;
+
+.Voo button {
+    margin: 10px;
     border-radius: 100px;
     border: none;
     padding: 10px;
 
 }
-.Voo{
+
+.Voo {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.habilidades{
+
+.habilidades {
     display: flex;
     justify-content: space-evenly;
 }
-.botoes{
+
+.transformacoes {
     display: flex;
-    flex-direction: column;
 }
-.transformacoes{
-    display:flex;
-}
-.transformacoes button:hover{
+
+.transformacoes button:hover {
     background-color: gray;
     border: white solid 1px;
     color: white;
 }
-.transformacao{
+
+.transformacao {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-evenly;
     align-items: center;
 }
-.vertical{
+
+.vertical {
     display: flex;
     flex-direction: column-reverse;
 }
-.horizontal{
-    display: flex;    
+
+.horizontal {
+    display: flex;
 }
-.item button{
+
+.item button {
     margin: 10px;
-    padding:10px;
+    padding: 10px;
     border-radius: 100px;
     border: none;
 }
-.ladinho{
-    display:flex;
+
+.ladinho {
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
-.habilidades button:hover{
-background-color: gray;
-border: white solid 1px;
+
+.habilidades button:hover {
+    background-color: gray;
+    border: white solid 1px;
 }
-dialog{
+
+dialog {
     overflow: hidden;
     overflow-x: hidden;
     border-radius: 10px;
     border: none;
-    padding:10px;
+    padding: 10px;
 }

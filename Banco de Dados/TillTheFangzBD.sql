@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS personagem(
   fkUsuario INT,
   nome VARCHAR(50) ,
   idade INT,
-  peseo INT,
+  peso INT,
   genero VARCHAR(17),
   altura INT,
   pontosSombrios INT,

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/ficha.css">
+    <link rel="stylesheet" href="styles/novaFicha.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Ficha</title>
 </head>
@@ -25,401 +25,99 @@
             <a href="ficha.html">Ficha</a>
             <a href="login.html" class="login"><img src="assets/vampireUser.png" alt="user"> Login</a>
         </div>
-</header>
-    <div class="ContainerFicha">
-        <h1>
-            Crie seu personagem
-        </h1>
-        <div id="campos" class="camposiniciais">
-    
-            <div>
-                <div class="nome">
-                    <input type="text" placeholder="Nome..." id="ipt_nome">
-                </div>
-                <div>
-                    <input type="number" placeholder="Altura..." id="ipt_altura">
-                    <input type="text" placeholder="Gênero..." id="ipt_genero">
-    
-                </div>
-                <div>
-                    <input type="number" placeholder="Peso..." id="ipt_peso">
-    
-                    <input type="number" placeholder="Idade...">
-                </div>
-                <div>
-                    <input type="number" placeholder="Pontos sombrios">
-                    <input type="number" placeholder="Pontos de luz">
-                </div>
-                <div>
-                    <input type="number" placeholder="Defesa" id="ipt_defesa">
-                    <input type="number" placeholder="Sanidade" id="ipt_sanidade">
-                </div>
-    
-            </div>
+    </header>
+
+    <div class="conteudo" id="div_conteudo">
+        <div class="inicial">
+            <h2>Nenhum personagem encontrado!</h2>
+        <button onclick="inicio()">Criar Personagem</button> 
         </div>
-        
-        <div class="containerTotal">
-    
-            <div class="ladinho">
-    
-                <div class="containerLadoaLado">
-                    <div class="containerAtributos">
-                        <p id="pontos_totais"></p>
-                        <div class="atributo carisma">
-                            <p>Carisma</p>
-                            <p id="qtd_carisma"></p>
-                            <div class="botoes">
-                                <button onclick="pontuação(1, 'carisma')">+</button>
-                                <button onclick="pontuação(-1, 'carisma')">-</button>
-                            </div>
-                        </div>
-                        <div class="atributo inteligencia">
-                            <p>Inteligência</p>
-                            <p id="qtd_inteligencia"></p>
-                            <div class="botoes">
-                                <button onclick="pontuação(1, 'inteligencia')">+</button>
-                                <button onclick="pontuação(-1, 'inteligencia')">-</button>
-                            </div>
-                        </div>
-                        <div class="atributo agilidade">
-                            <p>Agilidade</p>
-                            <p id="qtd_agilidade"></p>
-                            <div class="botoes">
-                                <button onclick="pontuação(1, 'agilidade')">+</button>
-                                <button onclick="pontuação(-1, 'agilidade')">-</button>
-                            </div>
-                        </div>
-                        <div class="atributo vigor">
-                            <p>Vigor</p>
-                            <p id="qtd_vigor"></p>
-                            <div class="botoes">
-                                <button onclick="pontuação(1, 'vigor')">+</button>
-                                <button onclick="pontuação(-1, 'vigor')">-</button>
-                            </div>
-                        </div>
-                        <div class="atributo sangueAncestral">
-                            <p>Sangue Ancestral</p>
-                            <p id="qtd_sangue_ancestral"></p>
-                            <div class="botoes">
-                                <button onclick="pontuação(1, 'sangue')">+</button>
-                                <button onclick="pontuação(-1, 'sangue')">-</button>
-                            </div>
-                        </div>
-    
-                    </div>
-                    <div class="detalhes">
-                        <input type="text" placeholder="História do personagem" id="ipt_historia" class="campo">
-                        <input type="text" placeholder="Características do personagem" class="campo">
-                    </div>
-                </div>
-                <div id="selesctclasse">
-                    <select name="Classe" id="select_classe">
-                        <option value="#">Selecione uma classe</option>
-                        <option value="1">Caçador Sombrio</option>
-                        <option value="2">Senhor das Sombras</option>
-                        <option value="3">Bárbaro Noturno</option>
-                        <option value="4">Ilusionista Vampírico</option>
-                        <option value="5">Vampiro cultista</option>
-                        <option value="6">Vampiro iluminado</option>
-                        <option value="7">Vampiro flagelador</option>
-                        <option value="8">Vampiro Canibal</option>
-                    </select>
-                </div>
-    
-                <button onclick="salvarClasse()">Salvar classe</button>
-                <div id="botao_limpar"></div>
-            </div>
-    
-            <div class="ladinho">
-                <h1>Habilidades Gerais</h1>
-               <p>escolha as habilidades que seu personagem ira ter</p>
-                <button onclick="abrirModal()">Habilidades Gerais</button>
-                <dialog id="modal">
-                    <div id="conteudo"></div>
-                </dialog>
-    
-                <h1>Transformações</h1
-                <div class="transformacoes">
-                    <div class="transformacao">
-                        <div class="item inicial">
-                            <button>Lobo</button>
-                        </div>
-                        <div class="item vertical">
-                            <button>Sentidos aprimorados</button>
-                            <button>Velocidade lupina</button>
-                        </div>
-                        <div class="item horizontal">
-                            <button>Furia lupina</button>
-                            <button>Caninos sombrios</button>
-                        </div>
-                    </div>
-    
-                    <div class="transformacao">
-                        <div class="item inicial">
-                            <button>Gato</button>
-                        </div>
-                        <div class="item vertical">
-                            <button>Agilidade Felina</button>
-                            <button>Furtividade animal</button>
-                        </div>
-                        <div class="item horizontal">
-                            <button>Olhos do Predador</button>
-                            <button>Garras Venenosas</button>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-        <button onclick="adicionar()">Salvar ficha</button>
+       
     </div>
+    <script>
+        function inicio(){
+            div_conteudo.innerHTML = `
+                <div class="navbar">
+                    <ul>
+                        <li><a onclick="inicio()">Inicio</a></li>
+                        <li><a onclick="classe()">Classe</a></li>
+                        <li><a onclick="atributos()">Atributos</a></li>
+                        <li><a onclick="habilidades()">Habilidades</a></li>
+                    <ul>
+                </div>
 
+                <h2>Seja bem vindo ao criador de personagem!
+                <br> Vamos começar pelo básico</h2>
 
-    <footer>
-        <div class="footer-links">
-            <h4>Links Rápidos</h4>
-            <ul>
-                <li><a href="/sobre.html">Sobre</a></li>
-                <li><a href="/termos.html">Termos de Serviço</a></li>
-                <li><a href="/privacidade.html">Política de Privacidade</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-            </ul>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-</body>
-
-</html>
-<script>
-    function abrirModal(){
-        modal.showModal()
-        conteudo.innerHTML = `
-        <div class="habilidades">
-                    <p id="pontos_Habilidade"></p>
-                       <div class="garras">
-                           <div class="habilidadeGeral">
-                               <div class="ramificacao lado1">
-                                   <button onclick="habilidades(-2)">Corte rápido</button>
-                                   <button onclick="habilidades(-3)">Frenesi de garras</button>
-                                   <button onclick="habilidades(-4)">Rasgo da destruição</button>
-                               </div>
-       
-                               <div class="ramificacao lado2">
-                                   <button onclick="habilidades(-2)">Garras envenedadas</button>
-                                   <button onclick="habilidades(-3)">Destruidor de armaduras</button>
-                                   <button onclick="habilidades(-4)">Rasgo Sombrio</button>
-                               </div>
-                           </div>
-                           <div>
-                               <div class="botoes">
-                                   <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
-                                   <button onclick="abrirGarras()">Garras</button>
-                                   <dialog id="garras">
-                                    <div id="container_garras"></div>
-                                    </dialog>
-                               </div>
-                           </div>
-                       </div>
-       
-                       <div class="Voo">
-                           <div class="habilidadeGeral">
-                               <div class="ramificacao lado1">
-                                   <button onclick="habilidades(-3)">Mergulho aéreo</button>
-                                   <button onclick="habilidades(-4)">Teleporte sombrio</button>
-                               </div>
-                               <div class="ramificacao lado2">
-                                   <button onclick="habilidades(-3)">Investida aérea</button>
-                                   <button onclick="habilidades(-4)">Voô profano</button>
-                               </div>
-                           </div>
-                           <div class="botoes">
-                               <button onclick="habilidades(-2)">Flutuar</button>
-                               <button onclick="habilidades(-1)">Super Salto</button>
-                               <button>Voô</button>
-                           </div>
-                       </div>
-                   </div>
-                   <button onclick="fecharModal()">fechar</button>
-        `
-    }
-    function abrirGarras(){
-        garras.showModal()
-        container_garras.innerHTML = `Funciona oh meu deus
-        <button onclick="fecharGarras()">Fechar</button>`
-    }
-    function fecharGarras(){
-        garras.close()
-    }
-    function fecharModal() {
-        modal.close()
-    }
-
-    let pontosAtributosTotais = 10;
-    var ultimaclasse;
-    var classe;
-    let qtdClasse = 0;
-
-    let pontos = {
-        carisma: 0,
-        inteligencia: 0,
-        agilidade: 0,
-        vigor: 0,
-        sangue: 0,
-    };
-
-    qtd_carisma.innerHTML = pontos.carisma;
-    qtd_inteligencia.innerHTML = pontos.inteligencia;
-    qtd_agilidade.innerHTML = pontos.agilidade;
-    qtd_vigor.innerHTML = pontos.vigor;
-    qtd_sangue_ancestral.innerHTML = pontos.sangue;
-    pontos_totais.innerHTML = pontosAtributosTotais;
-
-
-    function pontuação(numero, atributo) {
-        if (numero == 1 && pontos[atributo] >= 5) {
-            alert("Quantidade maxima alcançada")
-            return;
+                <div id="campos" class="camposiniciais">
+                    <div class="inicio">
+                        <div class="coluna1">
+                            <input rows="1" placeholder="Nome..." id="ipt_nome" class="campo">  
+                            <input type="number" placeholder="Altura..." id="ipt_altura" class="campo" >
+                            <input type="number" placeholder="Peso..." id="ipt_peso" class="campo">
+                            <input type="number" placeholder="Pontos sombrios" class="campo">
+                            <input type="number" placeholder="Defesa" id="ipt_defesa" class="campo">
+                        </div>
+                        <div class="coluna2">
+                            <input type="text" placeholder="Apelido..." id="ipt_apelido" class="campo">
+                            <select id="select_genero" class="campo" >
+                                    <option value="#">Gênero:</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="outro">Outro</option>
+                                    <option value="nao">Prefiro não dizer</option>
+                            </select>
+                            <input type="number" placeholder="Idade..." id="ipt_idade" class="campo" >
+                            <input type="number" placeholder="Pontos de luz" class="campo">
+                            <input type="number" placeholder="Sanidade" id="ipt_sanidade" class="campo">
+                        </div>
+                    </div>
+                     <div class="detalhes">
+                        <textarea placeholder="História do personagem" id="ipt_historia" class="campo"></textarea>
+                        <textarea placeholder="Características do personagem" id="" class="campo"></textarea>
+                    </div>
+                </div>
+            ` 
         }
-        if (numero == -1 && pontos[atributo] <= 0) {
-            alert("Quantidade minima alcançada")
-            return;
+    
+        function classe(){
+            div_conteudo.innerHTML = `
+                <div class="navbar">
+                    <ul>
+                        <li><a onclick="inicio()">Inicio</a></li>
+                        <li><a onclick="classe()">Classe</a></li>
+                        <li><a onclick="atributos()">Atributos</a></li>
+                        <li><a onclick="habilidades()">Habilidades</a></li>
+                    <ul>
+                </div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Caçador Sombrio</h3>
+                    <img src="" alt="Imagem da classe caçador sombrio">
+                    <p> 
+                        Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se deleita no
+                        jogo da caça. Ele rastreia suas presas por dias, até semanas, estudando cada movimento antes de atacar. Seus
+                        sentidos, já sobre-humanos, foram aguçados ao ponto de perceber o menor sussurro no vento ou o mais tênue
+                        cheiro de medo.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Senhor das Sombras</h3>
+                    <img src="" alt="">
+                    <p>
+                        Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside
+                        o Senhor das Sombras. Ele não apenas abraçou a noite — tornou-se parte dela. Seu 
+                        domínio sobre as trevas vai além da simples ausência de luz; as sombras sussurram 
+                        segredos proibidos, escondem-no de olhos indesejados e dobram-se à sua vontade.
+                    </p>    
+                </div>
+                <div class="card">
+                    <h3>Bárabaro Noturno</h3>
+                <p>
+                    O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é uma força imparável no campo de batalha, utilizando sua força bruta e resiliência sobrenatural para esmagar inimigos e resistir a ataques devastadores. Alimentado pela escuridão, sua fúria aumenta à medida que o combate se intensifica.
+                </p>    
+                </div>
+            </div>    
+            `
         }
-        if (numero == 1 && pontosAtributosTotais <= 0) {
-            alert("Quantidade de pontos total acabou")
-            return;
-        }
-        pontosAtributosTotais -= numero
-        pontos[atributo] += numero
-        qtd_carisma.innerHTML = pontos.carisma;
-        qtd_inteligencia.innerHTML = pontos.inteligencia;
-        qtd_agilidade.innerHTML = pontos.agilidade;
-        qtd_vigor.innerHTML = pontos.vigor;
-        qtd_sangue_ancestral.innerHTML = pontos.sangue;
-        pontos_totais.innerHTML = pontosAtributosTotais;
-    }
-
-    function salvarClasse() {
-        classe = select_classe.value;
-        if (classe == '#') {
-            alert("Você não selecionou uma classe")
-            return;
-        }
-        if (qtdClasse >= 1) {
-            alert("Você já escolheu uma classe")
-            return;
-        }
-        ultimaclasse = classe;
-
-        if (classe == 1) {
-            pontos.agilidade += 3;
-            pontos.sangue += 2;
-            pontos.carisma -= 2;
-            qtdClasse++
-        }
-        if (classe == 2) {
-            pontos.inteligencia += 2
-            pontos.sangue += 2
-            qtdClasse++
-        }
-        if (classe == 3) {
-            pontos.inteligencia -= 2;
-            pontos.vigor += 2
-            qtdClasse++
-        }
-        if (classe == 4) {
-            pontos.carisma += 2;
-            pontos.inteligencia += 2;
-            pontos.vigor -= 3;
-            qtdClasse++
-        }
-        if (classe == 5) {
-            pontos.inteligencia += 1;
-            pontos.sangue += 2;
-            pontos.carisma -= 1;
-            qtdClasse++
-        }
-        if (classe == 6) {
-            pontos.carisma += 2;
-            pontos.inteligencia += 1;
-            pontos.sangue -= 5;
-            qtdClasse++
-        }
-        if (classe == 7) {
-            pontos.carisma -= 1;
-            pontos.sangue += 3;
-            pontos.agilidade += 1;
-            qtdClasse++
-        }
-        if (classe == 8) {
-            pontos.carisma -= 2;
-            pontos.sangue += 3;
-            qtdClasse++
-        }
-
-        qtd_carisma.innerHTML = pontos.carisma;
-        qtd_inteligencia.innerHTML = pontos.inteligencia;
-        qtd_agilidade.innerHTML = pontos.agilidade;
-        qtd_vigor.innerHTML = pontos.vigor;
-        qtd_sangue_ancestral.innerHTML = pontos.sangue;
-
-        botao_limpar.innerHTML = `<button onclick="limparClasse()">Limpar pontos da classe</button>`
-    }
-    function limparClasse() {
-        if (qtdClasse < 1) {
-            alert("Não a classe para ser limpar")
-            return;
-        }
-        if (ultimaclasse == 1) {
-            pontos.agilidade -= 3;
-            pontos.sangue -= 2;
-            pontos.carisma += 2;
-            qtdClasse--;
-        }
-        if (ultimaclasse == 2) {
-            pontos.inteligencia -= 2
-            pontos.sangue -= 2
-            qtdClasse--;
-        }
-        if (ultimaclasse == 3) {
-            pontos.inteligencia += 2;
-            pontos.vigor -= 2
-            qtdClasse--;
-        }
-        if (ultimaclasse == 4) {
-            pontos.carisma -= 2;
-            pontos.inteligencia -= 2;
-            pontos.vigor += 3;
-            qtdClasse--;
-        }
-        if (ultimaclasse == 5) {
-            pontos.inteligencia -= 1;
-            quantidadeSangueAncestral -= 2;
-            pontos.carisma += 1;
-            qtdClasse--;
-        }
-        if (ultimaclasse == 6) {
-            pontos.carisma -= 2;
-            pontos.inteligencia -= 1;
-            pontos.sangue += 5;
-            qtdClasse--;
-        }
-        if (ultimaclasse == 7) {
-            pontos.carisma += 1;
-            pontos.sangue -= 3;
-            pontos.agilidade -= 1;
-            qtdClasse--;
-        }
-        if (ultimaclasse == 8) {
-            pontos.carisma += 2;
-            pontos.sangue -= 3;
-            qtdClasse--;
-        }
-        qtd_carisma.innerHTML = pontos.carisma;
-        qtd_inteligencia.innerHTML = pontos.inteligencia;
-        qtd_agilidade.innerHTML = pontos.agilidade;
-        qtd_vigor.innerHTML = pontos.vigor;
-        qtd_sangue_ancestral.innerHTML = pontos.sangue;
-    }
-</script>
+    </script>

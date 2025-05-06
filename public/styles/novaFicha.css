@@ -1,0 +1,106 @@
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.navbar li{
+    justify-content: space-evenly;
+    margin: 50px;
+}
+.navbar li:hover{
+    transition: 0.3s;
+    transform: scale(1.3);
+    color: rgb(90, 0, 0);
+    text-shadow:  0px 0px 15px rgba(170, 49, 49, 0.6);
+}
+.navbar a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.inicial{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.inicial button{
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: larger;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    color: rgb(90, 0, 0);
+}
+.camposiniciais{
+    padding: 20px;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.campo{
+    margin: 10px;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    color: white;
+     outline: none;
+}
+.campo option{
+    color: rgb(90, 0, 0) ;
+}
+.detalhes .campo {
+    width: 300px;
+    height: 300px;
+    align-items: start;
+    padding: 10px;
+    color: white;
+    background: transparent;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    border-radius: 8px;
+}
+.coluna1 input , .coluna2 input{
+    border: none;
+    border-bottom: rgb(90, 0, 0) solid 2px;
+    box-shadow: none;
+}
+.inicio{
+    display: flex;
+}
+.coluna1{
+    display: flex;
+    flex-direction: column;
+}
+.coluna2{
+    display: flex;
+    flex-direction: column;
+}
+.cards{
+    display: flex;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    margin:10px;
+}
