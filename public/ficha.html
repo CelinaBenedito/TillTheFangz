@@ -30,12 +30,13 @@
     <div class="conteudo" id="div_conteudo">
         <div class="inicial">
             <h2>Nenhum personagem encontrado!</h2>
-        <button onclick="inicio()">Criar Personagem</button> 
+            <button onclick="inicio()">Criar Personagem</button>
         </div>
-       
+
     </div>
     <script>
-        function inicio(){
+        let classes = {};
+        function inicio() {
             div_conteudo.innerHTML = `
                 <div class="navbar">
                     <ul>
@@ -77,10 +78,10 @@
                         <textarea placeholder="Características do personagem" id="" class="campo"></textarea>
                     </div>
                 </div>
-            ` 
+            `
         }
-    
-        function classe(){
+
+        function classe() {
             div_conteudo.innerHTML = `
                 <div class="navbar">
                     <ul>
@@ -93,35 +94,24 @@
             <div class="cards">
                 <div class="card">
                     <h3>Caçador Sombrio</h3>
-                    <img src="" alt="Imagem da classe caçador sombrio">
-                    <p> 
-                        Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se deleita no
-                        jogo da caça. Ele rastreia suas presas por dias, até semanas, estudando cada movimento antes de atacar. Seus
-                        sentidos, já sobre-humanos, foram aguçados ao ponto de perceber o menor sussurro no vento ou o mais tênue
-                        cheiro de medo.
-                    </p>
-                <button>Ver especificações</button>
-                <dialog>
-                    <div class="modal" id="cacador">
+                    <img src="assets/vampiroCacador.png">
+                <button onclick="aparecer('cacador')">Ver especificações</button>
+                <dialog id="cacador">
+                    <div class="modal" >
                     
                     </div>
                 </dialog>
                 <br>
                 <button>Escolher Este</button> 
                 </div>
+
                 <div class="card">
                     <h3>Senhor das Sombras</h3>
                     <img src="" alt="">
-                    <p>
-                        Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside
-                        o Senhor das Sombras. Ele não apenas abraçou a noite — tornou-se parte dela. Seu 
-                        domínio sobre as trevas vai além da simples ausência de luz; as sombras sussurram 
-                        segredos proibidos, escondem-no de olhos indesejados e dobram-se à sua vontade.
-                    </p>
-                <button>Ver especificações</button>
-                <dialog>
-                    <div class="modal" id="senhor">
-                    
+                <button onclick="aparecer('senhor')">Ver especificações</button>
+                <dialog id="senhor">
+                    <div class="modal" >
+    
                     </div>
                 </dialog>
                 <br>
@@ -132,12 +122,9 @@
                 <div class="card">
                     <h3>Bárabaro Noturno</h3>
                     <img src="" alt="">
-                <p>
-                    O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é uma força imparável no campo de batalha, utilizando sua força bruta e resiliência sobrenatural para esmagar inimigos e resistir a ataques devastadores. Alimentado pela escuridão, sua fúria aumenta à medida que o combate se intensifica.
-                </p>
-                <button>Ver especificações</button>
-                <dialog>
-                    <div class="modal" id="barbaro">
+                <button onclick="aparecer('barbaro')">Ver especificações</button>
+                <dialog id="barbaro">
+                    <div class="modal" >
                     
                     </div>
                 </dialog>
@@ -145,7 +132,215 @@
                 <button>Escolher Este</button> 
 
                 </div>
+                <div class="card">
+                <h3>Ilusionista Vampírico</h3>
+                <img src="" alt="">
+
+                <button onclick="aparecer('ilusionista')">Ver especificações</button>
+                <dialog id="ilusionista">
+                    <div class="modal" >
+                    
+                    </div>
+                </dialog>
+                <br>
+                <button>Escolher Este</button> 
+                </div>
+
+                <div class="card">
+                    <h3>Vampiro Cultista</h3>
+                    <img src="" alt="">
+
+                <button onclick="aparecer('cultista')">Ver especificações</button>
+                <dialog id="cultista">
+                    <div class="modal">
+                    
+                    </div>
+                </dialog>
+                <br>
+                <button>Escolher Este</button> 
+                </div>
+
+                <div class="card">
+                    <h3>Vampiro iluminado</h3>
+                    <img src="" alt="">
+                    <button onclick="aparecer('iluminado')">Ver especificações</button>
+                    <dialog id="iluminado">
+                        <div class="modal" >
+                        
+                        </div>
+                    </dialog>
+                    <br>
+                    <button>Escolher Este</button> 
+                </div>
+                <div class="card">
+                    <h3>Vampiro Flagelador</h3>
+                    <img src="" alt="">
+                    <button onclick="aparecer('flagelador')">Ver especificações</button>
+                    <dialog id="flagelador">
+                        <div class="modal" >
+                        
+                        </div>
+                    </dialog>
+                    <br>
+                    <button>Escolher Este</button> 
+                </div>
+                <div class="card">
+                    <h3>Vampiro Canibal</h3>
+                    <img src="" alt="">
+                    <button onclick="aparecer('canibal')">Ver especificações</button>
+                    <dialog id="canibal">
+                        <div class="modal">
+                        
+                        </div>
+                    </dialog>
+                    <br>
+                    <button>Escolher Este</button> 
+                </div>
             </div>    
             `
+
+            classes = {
+                cacador: document.getElementById('cacador'),
+                barabaro: document.getElementById('barbaro'),
+                ilusionista: document.getElementById('ilusionista'),
+                senhor: document.getElementById('senhor'),
+                cultista: document.getElementById('cultista'),
+                iluminado: document.getElementById('iluminado'),
+                flagelador: document.getElementById('flagelador'),
+                canibal: document.getElementById('canibal')
+            };
         }
+
+
+        function aparecer(item) {
+            classes[item].showModal()
+
+        }
+        function fechar(item) {
+            classes[item].close()
+        }
+        let pontosAtributosTotais = 10;
+
+// Objeto para armazenar os valores
+let pontos = {
+    carisma: 0,
+    inteligencia: 0,
+    agilidade: 0,
+    vigor: 0,
+    sangue: 0,
+};
+
+// Objeto para armazenar os elementos DOM que mostram os valores
+let elementos = {};
+
+function atributos() {
+    div_conteudo.innerHTML = `
+    <div class="navbar">
+                    <ul>
+                        <li><a onclick="inicio()">Inicio</a></li>
+                        <li><a onclick="classe()">Classe</a></li>
+                        <li><a onclick="atributos()">Atributos</a></li>
+                        <li><a onclick="habilidades()">Habilidades</a></li>
+                    <ul>
+                </div>
+        <h3>Pontos Totais</h3>
+        <p id="pontos_totais"></p>
+        <h3>Atributos</h3>
+
+        <div class="atributo carisma">
+            <p>Carisma</p>
+            <p id="qtd_carisma"></p>
+            <div class="botoes">
+                <button onclick="pontuação(1, 'carisma')">+</button>
+                <button onclick="pontuação(-1, 'carisma')">-</button>
+            </div>
+        </div>
+
+        <div class="atributo inteligencia">
+            <p>Inteligência</p>
+            <p id="qtd_inteligencia"></p>
+            <div class="botoes">
+                <button onclick="pontuação(1, 'inteligencia')">+</button>
+                <button onclick="pontuação(-1, 'inteligencia')">-</button>
+            </div>
+        </div>
+
+        <div class="atributo agilidade">
+            <p>Agilidade</p>
+            <p id="qtd_agilidade"></p>
+            <div class="botoes">
+                <button onclick="pontuação(1, 'agilidade')">+</button>
+                <button onclick="pontuação(-1, 'agilidade')">-</button>
+            </div>
+        </div>
+
+        <div class="atributo vigor">
+            <p>Vigor</p>
+            <p id="qtd_vigor"></p>
+            <div class="botoes">
+                <button onclick="pontuação(1, 'vigor')">+</button>
+                <button onclick="pontuação(-1, 'vigor')">-</button>
+            </div>
+        </div>
+
+        <div class="atributo sangueAncestral">
+            <p>Sangue Ancestral</p>
+            <p id="qtd_sangue_ancestral"></p>
+            <div class="botoes">
+                <button onclick="pontuação(1, 'sangue')">+</button>
+                <button onclick="pontuação(-1, 'sangue')">-</button>
+            </div>
+        </div>`;
+
+    // Agora atribuimos os elementos aos campos
+    elementos = {
+        carisma: document.getElementById('qtd_carisma'),
+        inteligencia: document.getElementById('qtd_inteligencia'),
+        agilidade: document.getElementById('qtd_agilidade'),
+        vigor: document.getElementById('qtd_vigor'),
+        sangue: document.getElementById('qtd_sangue_ancestral'),
+        totais: document.getElementById('pontos_totais')
+    };
+
+    // Atualiza os valores iniciais na tela
+    atualizarExibicao();
+}
+
+function atualizarExibicao() {
+    elementos.carisma.innerHTML = pontos.carisma;
+    elementos.inteligencia.innerHTML = pontos.inteligencia;
+    elementos.agilidade.innerHTML = pontos.agilidade;
+    elementos.vigor.innerHTML = pontos.vigor;
+    elementos.sangue.innerHTML = pontos.sangue;
+    elementos.totais.innerHTML = pontosAtributosTotais;
+}
+
+function pontuação(numero, atributo) {
+    if (numero === 1 && pontos[atributo] >= 5) {
+        alert("Quantidade máxima alcançada");
+        return;
+    }
+    if (numero === -1 && pontos[atributo] <= 0) {
+        alert("Quantidade mínima alcançada");
+        return;
+    }
+    if (numero === 1 && pontosAtributosTotais <= 0) {
+        alert("Quantidade de pontos total acabou");
+        return;
+    }
+
+    pontosAtributosTotais -= numero;
+    pontos[atributo] += numero;
+
+    atualizarExibicao();
+
+    // Animação
+    let elementoAlterado = elementos[atributo];
+    elementoAlterado.classList.add("troca");
+    setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
+    elementos.totais.classList.add("troca");
+    setTimeout(() => elementos.totais.classList.remove("troca"), 300);
+}
+
+
     </script>
