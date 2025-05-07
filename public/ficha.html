@@ -48,17 +48,23 @@
 
         </div>
     </div>
+    <div class="conteudo">
+        <div class="inicial" id="div_conteudoHabilidades">
+
+        </div>
+    </div>
 
 
     <script>
         let gerarInicio = false;
         let classes = {};
         function inicio() {
-
-            div_conteudoInicio.style.display = ""
             div_conteudo.style.display = "none"
+            
+            div_conteudoInicio.style.display = ""
             div_conteudoClasse.style.display = "none"
             div_conteudoAtributos.style.display = "none"
+            div_conteudoHabilidades.style.display = "none"
             if (gerarInicio == false) {
                 gerarInicio = true;
 
@@ -110,6 +116,7 @@
         function classe() {
             div_conteudoInicio.style.display = "none"
             div_conteudoAtributos.style.display = "none"
+            div_conteudoHabilidades.style.display = "none"
             div_conteudoClasse.style.display = ""
             div_conteudoClasse.innerHTML = `
                 <div class="navbar">
@@ -355,7 +362,9 @@
         function atributos() {
             div_conteudoClasse.style.display = "none"
             div_conteudoInicio.style.display = "none"
+            div_conteudoHabilidades.style.display = "none"
             div_conteudoAtributos.style.display = ""
+
             div_conteudoAtributos.innerHTML = `
     <div class="navbar">
                     <ul>
@@ -492,5 +501,105 @@
             setTimeout(() => elementos.totais.classList.remove("troca"), 300);
         }
 
+        function habilidades() {
+            div_conteudoHabilidades.style.display = ""
+            div_conteudoAtributos.style.display = "none"
+            div_conteudoClasse.style.display = "none"
+            div_conteudoInicio.style.display = "none"
 
+
+            div_conteudoHabilidades.innerHTML =
+            `
+            <div class="navbar">
+                    <ul>
+                        <li><a onclick="inicio()">Inicio</a></li>
+                        <li><a onclick="classe()">Classe</a></li>
+                        <li><a onclick="atributos()">Atributos</a></li>
+                        <li><a onclick="habilidades()">Habilidades</a></li>
+                    <ul>
+            </div>
+                        <div class="habilidades">
+                <h1>Habilidades Gerais</h1>
+                <p>escolha as habilidades que seu personagem ira ter</p>
+                <div class="habilidades">
+                    <p id="pontos_Habilidade"></p>
+                    <div class="garras">
+                        <div class="habilidadeGeral">
+                            <div class="ramificacao lado1">
+                                <button onclick="habilidades(-2)">Corte rápido</button>
+                                <button onclick="habilidades(-3)">Frenesi de garras</button>
+                                <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                            </div>
+
+                            <div class="ramificacao lado2">
+                                <button onclick="habilidades(-2)">Garras envenedadas</button>
+                                <button onclick="habilidades(-3)">Destruidor de armaduras</button>
+                                <button onclick="habilidades(-4)">Rasgo Sombrio</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="botoes">
+                                <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+                                <button onclick="abrirGarras()">Garras</button>
+                                <dialog id="garras">
+                                    <div id="container_garras"></div>
+                                </dialog>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Voo">
+                        <div class="habilidadeGeral">
+                            <div class="ramificacao lado1">
+                                <button onclick="habilidades(-3)">Mergulho aéreo</button>
+                                <button onclick="habilidades(-4)">Teleporte sombrio</button>
+                            </div>
+                            <div class="ramificacao lado2">
+                                <button onclick="habilidades(-3)">Investida aérea</button>
+                                <button onclick="habilidades(-4)">Voô profano</button>
+                            </div>
+                        </div>
+                        <div class="botoes">
+                            <button onclick="habilidades(-2)">Flutuar</button>
+                            <button onclick="habilidades(-1)">Super Salto</button>
+                            <button>Voô</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h1>Transformações</h1>
+                <div class="transformacoes">
+                    <div class="transformacao">
+                        <div class="item inicial">
+                            <button>Lobo</button>
+                        </div>
+                        <div class="item vertical">
+                            <button>Sentidos aprimorados</button>
+                            <button>Velocidade lupina</button>
+                        </div>
+                        <div class="item horizontal">
+                            <button>Furia lupina</button>
+                            <button>Caninos sombrios</button>
+                        </div>
+                    </div>
+
+                    <div class="transformacao">
+                        <div class="item inicial">
+                            <button>Gato</button>
+                        </div>
+                        <div class="item vertical">
+                            <button>Agilidade Felina</button>
+                            <button>Furtividade animal</button>
+                        </div>
+                        <div class="item horizontal">
+                            <button>Olhos do Predador</button>
+                            <button>Garras Venenosas</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            `
+        }
     </script>
