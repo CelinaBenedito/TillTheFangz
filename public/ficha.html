@@ -365,55 +365,58 @@
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
     </div>
-        <h3>Pontos Totais</h3>
-        <p id="pontos_totais"></p>
-        <h3>Atributos</h3>
+    <div class="Horizontal">
+        <div class="ConteudoAtributo">
+            <h3>Pontos Totais</h3>
+            <p id="pontos_totais"></p>
+            <h3>Atributos</h3>
 
-        <div class="atributo carisma">
-            <p>Carisma</p>
-            <p id="qtd_carisma"></p>
-            <div class="botoes">
-                <button onclick="pontuação(1, 'carisma')">+</button>
-                <button onclick="pontuação(-1, 'carisma')">-</button>
+            <div class="atributo carisma">
+                <p>Carisma</p>
+                <p id="qtd_carisma"></p>
+                <div class="botoes">
+                    <button onclick="pontuação(1, 'carisma')">+</button>
+                    <button onclick="pontuação(-1, 'carisma')">-</button>
+                </div>
+            </div>
+
+            <div class="atributo inteligencia">
+                <p>Inteligência</p>
+                <p id="qtd_inteligencia"></p>
+                <div class="botoes">
+                    <button onclick="pontuação(1, 'inteligencia')">+</button>
+                    <button onclick="pontuação(-1, 'inteligencia')">-</button>
+                </div>
+            </div>
+
+            <div class="atributo agilidade">
+                <p>Agilidade</p>
+                <p id="qtd_agilidade"></p>
+                <div class="botoes">
+                    <button onclick="pontuação(1, 'agilidade')">+</button>
+                    <button onclick="pontuação(-1, 'agilidade')">-</button>
+                </div>
+            </div>
+
+            <div class="atributo vigor">
+                <p>Vigor</p>
+                <p id="qtd_vigor"></p>
+                <div class="botoes">
+                    <button onclick="pontuação(1, 'vigor')">+</button>
+                    <button onclick="pontuação(-1, 'vigor')">-</button>
+                </div>
+            </div>
+
+            <div class="atributo sangueAncestral">
+                <p>Sangue Ancestral</p>
+                <p id="qtd_sangue_ancestral"></p>
+                <div class="botoes">
+                    <button onclick="pontuação(1, 'sangue')">+</button>
+                    <button onclick="pontuação(-1, 'sangue')">-</button>
+                </div>
             </div>
         </div>
-
-        <div class="atributo inteligencia">
-            <p>Inteligência</p>
-            <p id="qtd_inteligencia"></p>
-            <div class="botoes">
-                <button onclick="pontuação(1, 'inteligencia')">+</button>
-                <button onclick="pontuação(-1, 'inteligencia')">-</button>
-            </div>
-        </div>
-
-        <div class="atributo agilidade">
-            <p>Agilidade</p>
-            <p id="qtd_agilidade"></p>
-            <div class="botoes">
-                <button onclick="pontuação(1, 'agilidade')">+</button>
-                <button onclick="pontuação(-1, 'agilidade')">-</button>
-            </div>
-        </div>
-
-        <div class="atributo vigor">
-            <p>Vigor</p>
-            <p id="qtd_vigor"></p>
-            <div class="botoes">
-                <button onclick="pontuação(1, 'vigor')">+</button>
-                <button onclick="pontuação(-1, 'vigor')">-</button>
-            </div>
-        </div>
-
-        <div class="atributo sangueAncestral">
-            <p>Sangue Ancestral</p>
-            <p id="qtd_sangue_ancestral"></p>
-            <div class="botoes">
-                <button onclick="pontuação(1, 'sangue')">+</button>
-                <button onclick="pontuação(-1, 'sangue')">-</button>
-            </div>
-        </div>
-        <div>
+        <div class="ConteudoAtributo">
             <h3>Pontos de vida</h3>
             <p id="qtd_vida"></p>
 
@@ -422,7 +425,8 @@
 
             <h3>Pontos de Defesa</h3>
             <p id="qtd_defesa"></p>
-        </div>`;
+        </div>
+    </div>`;
 
             // Agora atribuimos os elementos aos campos
             elementos = {
@@ -486,9 +490,6 @@
             setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
             elementos.totais.classList.add("troca");
             setTimeout(() => elementos.totais.classList.remove("troca"), 300);
-            
-
-
         }
 
 
