@@ -1,3 +1,6 @@
+body{
+    /*overflow: hidden;*/
+}
 
 .conteudo{
     display: flex;
@@ -6,6 +9,7 @@
     justify-content: center;
     text-align: center;
     width: 100%;
+   
 }
 .navbar{
     width: 100%;
@@ -35,6 +39,7 @@
     text-decoration: none;
 }
 .inicial{
+    
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -49,6 +54,7 @@
     border: rgb(90, 0, 0) solid 2px;
     box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
     color: rgb(90, 0, 0);
+    
 }
 .camposiniciais{
     padding: 20px;
@@ -99,6 +105,8 @@
     flex-direction: column;
 }
 .cards{
+    width: 75%;
+   /* overflow-x: scroll;*/
     display: flex;
     flex-direction: row;
     padding: 10px;
