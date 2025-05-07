@@ -43,18 +43,26 @@
 
         </div>
     </div>
+    <div class="conteudo">
+        <div class="inicial" id="div_conteudoAtributos">
+
+        </div>
+    </div>
 
 
     <script>
-
+        let gerarInicio = false;
         let classes = {};
         function inicio() {
-            
+
             div_conteudoInicio.style.display = ""
             div_conteudo.style.display = "none"
             div_conteudoClasse.style.display = "none"
+            div_conteudoAtributos.style.display = "none"
+            if (gerarInicio == false) {
+                gerarInicio = true;
 
-            div_conteudoInicio.innerHTML = `
+                div_conteudoInicio.innerHTML = `
                 <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -74,7 +82,7 @@
                             <input type="number" placeholder="Altura..." id="ipt_altura" class="campo" >
                             <input type="number" placeholder="Peso..." id="ipt_peso" class="campo">
                             <input type="number" placeholder="Pontos sombrios" class="campo">
-                            <input type="number" placeholder="Defesa" id="ipt_defesa" class="campo">
+
                         </div>
                         <div class="coluna2">
                             <input type="text" placeholder="Apelido..." id="ipt_apelido" class="campo">
@@ -87,7 +95,7 @@
                             </select>
                             <input type="number" placeholder="Idade..." id="ipt_idade" class="campo" >
                             <input type="number" placeholder="Pontos de luz" class="campo">
-                            <input type="number" placeholder="Sanidade" id="ipt_sanidade" class="campo">
+
                         </div>
                     </div>
                      <div class="detalhes">
@@ -96,10 +104,12 @@
                     </div>
                 </div>
             `
+            }
         }
 
         function classe() {
             div_conteudoInicio.style.display = "none"
+            div_conteudoAtributos.style.display = "none"
             div_conteudoClasse.style.display = ""
             div_conteudoClasse.innerHTML = `
                 <div class="navbar">
@@ -326,8 +336,11 @@
             classes[item].close()
         }
         let pontosAtributosTotais = 10;
+        let pontosVida = 20;
+        let pontosSanidade = 20;
+        let pontosDefesa = 5;
+        let armadura = 0;
 
-        // Objeto para armazenar os valores
         let pontos = {
             carisma: 0,
             inteligencia: 0,
@@ -340,7 +353,10 @@
         let elementos = {};
 
         function atributos() {
-            div_conteudo.innerHTML = `
+            div_conteudoClasse.style.display = "none"
+            div_conteudoInicio.style.display = "none"
+            div_conteudoAtributos.style.display = ""
+            div_conteudoAtributos.innerHTML = `
     <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -399,7 +415,13 @@
         </div>
         <div>
             <h3>Pontos de vida</h3>
+            <p id="qtd_vida"></p>
 
+            <h3>Pontos de Sanidade</h3>
+            <p id="qtd_sanidade"></p>
+
+            <h3>Pontos de Defesa</h3>
+            <p id="qtd_defesa"></p>
         </div>`;
 
             // Agora atribuimos os elementos aos campos
@@ -409,7 +431,10 @@
                 agilidade: document.getElementById('qtd_agilidade'),
                 vigor: document.getElementById('qtd_vigor'),
                 sangue: document.getElementById('qtd_sangue_ancestral'),
-                totais: document.getElementById('pontos_totais')
+                totais: document.getElementById('pontos_totais'),
+                vida: document.getElementById('qtd_vida'),
+                sanidade: document.getElementById('qtd_sanidade'),
+                defesa: document.getElementById('qtd_defesa')
             };
 
             // Atualiza os valores iniciais na tela
@@ -423,9 +448,13 @@
             elementos.vigor.innerHTML = pontos.vigor;
             elementos.sangue.innerHTML = pontos.sangue;
             elementos.totais.innerHTML = pontosAtributosTotais;
+            elementos.vida.innerHTML = pontosVida;
+            elementos.sanidade.innerHTML = pontosSanidade;
+            elementos.defesa.innerHTML = pontosDefesa;
         }
 
         function pontuação(numero, atributo) {
+
             if (numero === 1 && pontos[atributo] >= 5) {
                 alert("Quantidade máxima alcançada");
                 return;
@@ -441,15 +470,25 @@
 
             pontosAtributosTotais -= numero;
             pontos[atributo] += numero;
-
+            pontosVida = 20 * pontos.vigor;
+            pontosSanidade = 20 + (10 * pontos.inteligencia)
+            pontosDefesa = 5 + pontos.agilidade;
+            console.log(pontosVida);
+            if (pontosVida == 0) {
+                pontosVida = 20;
+            }
             atualizarExibicao();
 
             // Animação
             let elementoAlterado = elementos[atributo];
+
             elementoAlterado.classList.add("troca");
             setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
             elementos.totais.classList.add("troca");
             setTimeout(() => elementos.totais.classList.remove("troca"), 300);
+            
+
+
         }
 
 
