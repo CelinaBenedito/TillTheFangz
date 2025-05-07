@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/heade&footer.css">
     <link rel="stylesheet" href="styles/novaFicha.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Ficha</title>
@@ -32,12 +32,29 @@
             <h2>Nenhum personagem encontrado!</h2>
             <button onclick="inicio()">Criar Personagem</button>
         </div>
-
     </div>
+    <div class="conteudo">
+        <div id="div_conteudoInicio" class="inicial">
+
+        </div>
+    </div>
+    <div class="conteudo">
+        <div class="inicial" id="div_conteudoClasse">
+
+        </div>
+    </div>
+
+
     <script>
+
         let classes = {};
         function inicio() {
-            div_conteudo.innerHTML = `
+            
+            div_conteudoInicio.style.display = ""
+            div_conteudo.style.display = "none"
+            div_conteudoClasse.style.display = "none"
+
+            div_conteudoInicio.innerHTML = `
                 <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -82,7 +99,9 @@
         }
 
         function classe() {
-            div_conteudo.innerHTML = `
+            div_conteudoInicio.style.display = "none"
+            div_conteudoClasse.style.display = ""
+            div_conteudoClasse.innerHTML = `
                 <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -94,15 +113,15 @@
             <div class="cards">
                 <div class="card">
                     <h3>Caçador Sombrio</h3>
-                    <img src="assets/vampiroCacador.png">
+                    <img src="assets/cacadorSombrio.png">
                 <button onclick="aparecer('cacador')">Ver especificações</button>
                 <dialog id="cacador">
-                    <div class="modal" >
+                    <div class="modal" id="desc_cacador">
                     
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button> 
+                <button>Escolher Este</button>
                 </div>
 
                 <div class="card">
@@ -110,7 +129,7 @@
                     <img src="" alt="">
                 <button onclick="aparecer('senhor')">Ver especificações</button>
                 <dialog id="senhor">
-                    <div class="modal" >
+                    <div class="modal" id="desc_senhor">
     
                     </div>
                 </dialog>
@@ -120,11 +139,11 @@
                 </div>
 
                 <div class="card">
-                    <h3>Bárabaro Noturno</h3>
+                    <h3>Bárbaro Noturno</h3>
                     <img src="" alt="">
                 <button onclick="aparecer('barbaro')">Ver especificações</button>
                 <dialog id="barbaro">
-                    <div class="modal" >
+                    <div class="modal" id="desc_barbaro">
                     
                     </div>
                 </dialog>
@@ -138,7 +157,7 @@
 
                 <button onclick="aparecer('ilusionista')">Ver especificações</button>
                 <dialog id="ilusionista">
-                    <div class="modal" >
+                    <div class="modal" id="desc_ilusionista">
                     
                     </div>
                 </dialog>
@@ -152,7 +171,7 @@
 
                 <button onclick="aparecer('cultista')">Ver especificações</button>
                 <dialog id="cultista">
-                    <div class="modal">
+                    <div class="modal" id="desc_cultista">
                     
                     </div>
                 </dialog>
@@ -165,7 +184,7 @@
                     <img src="" alt="">
                     <button onclick="aparecer('iluminado')">Ver especificações</button>
                     <dialog id="iluminado">
-                        <div class="modal" >
+                        <div class="modal" id="iluminado">
                         
                         </div>
                     </dialog>
@@ -177,7 +196,7 @@
                     <img src="" alt="">
                     <button onclick="aparecer('flagelador')">Ver especificações</button>
                     <dialog id="flagelador">
-                        <div class="modal" >
+                        <div class="modal" id="desc_flagelador">
                         
                         </div>
                     </dialog>
@@ -189,7 +208,7 @@
                     <img src="" alt="">
                     <button onclick="aparecer('canibal')">Ver especificações</button>
                     <dialog id="canibal">
-                        <div class="modal">
+                        <div class="modal" id="desc_canibal">
                         
                         </div>
                     </dialog>
@@ -213,28 +232,115 @@
 
 
         function aparecer(item) {
-            classes[item].showModal()
+            classes[item].showModal();
+
+            if (classes['cacador']) {
+                desc_cacador.innerHTML = `
+                <h3>Caçador Sombrio</h3>
+        <p>
+            Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se deleita no
+            jogo da caça. Ele rastreia suas presas por dias, até semanas, estudando cada movimento antes de atacar. Seus
+            sentidos, já sobre-humanos, foram aguçados ao ponto de perceber o menor sussurro no vento ou o mais tênue
+            cheiro de medo.
+        </p>
+        <ul>
+            <li>
+                Agilidade aumentada: Aumenta a chance de esquiva e ataques furtivos.[+3 pontos de agilidade]
+            </li>
+            <li>
+                Habilidade de perseguição: Pode rastrear presas com facilidade, seus sentidos foram treinados ao
+                máximo.[vantagem nas trilhas sensoriais, qualquer teste sensorial tem vantagem.]
+            </li>
+            <li>
+                Resistência a ataques furtivos: Difícil de ser pego de surpresa por outros vampiros ou caçadores. [+2
+                pontos de Sangue Ancestral]
+            </li>
+        </ul>
+        <h4>Desvantagens:</h4>
+        <p>
+            Obcecado pela Caça: O Caçador Sombrio não consegue resistir ao impulso de caçar. Sempre que está diante de
+            uma presa em potencial, precisa realizar um teste de Inteligência para evitar persegui-la, independentemente
+            da situação. Falhar no teste pode colocá-lo e seus aliados em risco.
+        </p>
+        <p>
+            Isolamento Natural: A natureza predatória do Caçador Sombrio o torna antissocial. Ele tem dificuldade em
+            formar laços ou cooperar com outros. [-2 de carisma]
+        </p>
+        <h3>Resumo:</h3>
+        <div class="grid">
+            <div class="caixa">+3 de agilidade</div>
+            <div class="caixa">+2 sangue ancestral</div>
+            <div class="caixa">vantagem na trilha sensorial</div>
+            <div class="caixa">-2 carisma</div>
+        </div>
+        <br>
+        <button onclick="fechar('cacador')">Fechar</button>
+                `
+            }
+
+            if (classes['senhor']) {
+                desc_senhor.innerHTML = `<h3>Senhor das Sombras</h3>
+        <p>
+            Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside o Senhor das Sombras.
+            Ele não apenas abraçou a noite — tornou-se parte dela. Seu domínio sobre as trevas vai além da simples
+            ausência de luz; as sombras sussurram segredos proibidos, escondem-no de olhos indesejados e dobram-se à sua
+            vontade.
+        </p>
+        <ul>
+            <li>
+                Controle mental aprimorado: Facilita a manipulação de criaturas fracas ou até humanos, forçando-os a
+                fazer sua vontade.[vantagem na trilha da habilidade mental]
+            </li>
+            <li>
+                as sombras o protegem e o ajudam a se defender contra os mal intencionados que tentam descobrir os seus
+                segredos por meio de invasões[+2 pontos de inteligência e sangue ancestral]
+            </li>
+            <li>
+                Transformação em névoa ou sombra: o senhor das sombras tem uma facilidade maior com todo o obscuro, ele
+                ouve as sombras sussurrando em seu ouvido[vantagem na trilha das transformações de névoa e sombra]
+            </li>
+        </ul>
+        <h4>Desvantagens:</h4>
+        <p>
+            Eco Sombrio – As sombras o ouvem tanto quanto ele as ouve. Seu constante contato com a escuridão perturba
+            sua mente, tornando difícil distinguir realidade de ilusão. Sempre que tenta usar sua habilidade de Controle
+            Mental ou Transformação Sombria, deve fazer um teste de Inteligência. Se falhar, escutará sussurros
+            incoerentes ou falsas visões que podem levá-lo a tomar decisões erradas, ou até mesmo traí-lo no momento
+            mais crucial.
+        </p>
+        <h3>Resumo:</h3>
+        <div class="grid">
+            <div class="caixa">+2 de inteligência</div>
+            <div class="caixa">+2 sangue ancestral</div>
+            <div class="caixa">vantagem na trilha da habilidade mental</div>
+            <div class="caixa">vantagem na trilha das transformações de névoa e sombra</div>
+        </div>
+        <br>
+        <button onclick="fechar('senhor')">Fechar</button>
+        `
+            }
 
         }
+
         function fechar(item) {
             classes[item].close()
         }
         let pontosAtributosTotais = 10;
 
-// Objeto para armazenar os valores
-let pontos = {
-    carisma: 0,
-    inteligencia: 0,
-    agilidade: 0,
-    vigor: 0,
-    sangue: 0,
-};
+        // Objeto para armazenar os valores
+        let pontos = {
+            carisma: 0,
+            inteligencia: 0,
+            agilidade: 0,
+            vigor: 0,
+            sangue: 0,
+        };
 
-// Objeto para armazenar os elementos DOM que mostram os valores
-let elementos = {};
+        // Objeto para armazenar os elementos DOM que mostram os valores
+        let elementos = {};
 
-function atributos() {
-    div_conteudo.innerHTML = `
+        function atributos() {
+            div_conteudo.innerHTML = `
     <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -242,7 +348,7 @@ function atributos() {
                         <li><a onclick="atributos()">Atributos</a></li>
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
-                </div>
+    </div>
         <h3>Pontos Totais</h3>
         <p id="pontos_totais"></p>
         <h3>Atributos</h3>
@@ -290,57 +396,61 @@ function atributos() {
                 <button onclick="pontuação(1, 'sangue')">+</button>
                 <button onclick="pontuação(-1, 'sangue')">-</button>
             </div>
+        </div>
+        <div>
+            <h3>Pontos de vida</h3>
+
         </div>`;
 
-    // Agora atribuimos os elementos aos campos
-    elementos = {
-        carisma: document.getElementById('qtd_carisma'),
-        inteligencia: document.getElementById('qtd_inteligencia'),
-        agilidade: document.getElementById('qtd_agilidade'),
-        vigor: document.getElementById('qtd_vigor'),
-        sangue: document.getElementById('qtd_sangue_ancestral'),
-        totais: document.getElementById('pontos_totais')
-    };
+            // Agora atribuimos os elementos aos campos
+            elementos = {
+                carisma: document.getElementById('qtd_carisma'),
+                inteligencia: document.getElementById('qtd_inteligencia'),
+                agilidade: document.getElementById('qtd_agilidade'),
+                vigor: document.getElementById('qtd_vigor'),
+                sangue: document.getElementById('qtd_sangue_ancestral'),
+                totais: document.getElementById('pontos_totais')
+            };
 
-    // Atualiza os valores iniciais na tela
-    atualizarExibicao();
-}
+            // Atualiza os valores iniciais na tela
+            atualizarExibicao();
+        }
 
-function atualizarExibicao() {
-    elementos.carisma.innerHTML = pontos.carisma;
-    elementos.inteligencia.innerHTML = pontos.inteligencia;
-    elementos.agilidade.innerHTML = pontos.agilidade;
-    elementos.vigor.innerHTML = pontos.vigor;
-    elementos.sangue.innerHTML = pontos.sangue;
-    elementos.totais.innerHTML = pontosAtributosTotais;
-}
+        function atualizarExibicao() {
+            elementos.carisma.innerHTML = pontos.carisma;
+            elementos.inteligencia.innerHTML = pontos.inteligencia;
+            elementos.agilidade.innerHTML = pontos.agilidade;
+            elementos.vigor.innerHTML = pontos.vigor;
+            elementos.sangue.innerHTML = pontos.sangue;
+            elementos.totais.innerHTML = pontosAtributosTotais;
+        }
 
-function pontuação(numero, atributo) {
-    if (numero === 1 && pontos[atributo] >= 5) {
-        alert("Quantidade máxima alcançada");
-        return;
-    }
-    if (numero === -1 && pontos[atributo] <= 0) {
-        alert("Quantidade mínima alcançada");
-        return;
-    }
-    if (numero === 1 && pontosAtributosTotais <= 0) {
-        alert("Quantidade de pontos total acabou");
-        return;
-    }
+        function pontuação(numero, atributo) {
+            if (numero === 1 && pontos[atributo] >= 5) {
+                alert("Quantidade máxima alcançada");
+                return;
+            }
+            if (numero === -1 && pontos[atributo] <= 0) {
+                alert("Quantidade mínima alcançada");
+                return;
+            }
+            if (numero === 1 && pontosAtributosTotais <= 0) {
+                alert("Quantidade de pontos total acabou");
+                return;
+            }
 
-    pontosAtributosTotais -= numero;
-    pontos[atributo] += numero;
+            pontosAtributosTotais -= numero;
+            pontos[atributo] += numero;
 
-    atualizarExibicao();
+            atualizarExibicao();
 
-    // Animação
-    let elementoAlterado = elementos[atributo];
-    elementoAlterado.classList.add("troca");
-    setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
-    elementos.totais.classList.add("troca");
-    setTimeout(() => elementos.totais.classList.remove("troca"), 300);
-}
+            // Animação
+            let elementoAlterado = elementos[atributo];
+            elementoAlterado.classList.add("troca");
+            setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
+            elementos.totais.classList.add("troca");
+            setTimeout(() => elementos.totais.classList.remove("troca"), 300);
+        }
 
 
     </script>
