@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Cadastro</title>
 </head>
-<body>
+
+<body onload="listar()">
     <br><br>
     <div class="card">
         <h1>Cadastro</h1>
@@ -20,7 +22,7 @@
 
         </div>
         <div class=" selects">
-            <select id="select_genero" class="item" >
+            <select id="select_genero" class="item">
                 <option value="#">Gênero:</option>
                 <option value="feminino">Feminino</option>
                 <option value="masculino">Masculino</option>
@@ -33,7 +35,7 @@
                 <option value="2">Sou player</option>
                 <option value="3">Outro</option>
             </select>
- 
+
         </div>
         <div class="conteudo item">
             <input type="text" placeholder="Email..." id="ipt_email">
@@ -45,10 +47,87 @@
             <input type="password" placeholder="Confirmar senha..." id="ipt_confSenha">
         </div>
         <div class="buttons">
-            <button onclick="validarCadastro()">Cadastrar</button>
+            <button onclick="cadastrar()">Cadastrar</button>
         </div>
         <div>Já possui um cadastro? <a href="login.html">Login</a></div>
     </div>
 </body>
+
 </html>
-<script src="js/main.js"></script>
+<script>
+    function cadastrar() {
+        var nomeVar = ipt_nome.value;
+        var sobrenomeVar = ipt_sobrenome.value;
+        var generoVar = select_genero.value;
+        var emailVar = ipt_email.value;
+        var confEmailVar = ipt_confEmail.value;
+        var senhaVar = ipt_senha.value;
+        var confSenhaVar = ipt_confSenha.value;
+
+        if (emailVar != confEmailVar) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Os emails não batem"
+            finalizarAguardar();
+            return false;
+        }
+        if (senhaVar != confSenhaVar) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "As senhas não batem"
+            finalizarAguardar();
+            return false;
+        }
+        /*Verificando se todos os campos foram preenchidos*/
+        if (nomeVar == false || sobrenomeVar == false || generoVar == '#' || emailVar == false || ConfemailVar == false) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Campos em branco por favor preencha";
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                sobrenomeServer: sobrenomeVar,
+                generoServer: generoVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+</script>
