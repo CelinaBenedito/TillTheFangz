@@ -142,9 +142,9 @@ header .login {
 
 .ferramentas {
     margin-top: 50px;
-    width: 50%;
+    width: 45%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 
