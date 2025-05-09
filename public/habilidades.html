@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/habilidades.css">
+    <link rel="stylesheet" href="styles/heade&footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Habilidades</title>
+</head>
+
+<body>
+    <a onclick="aparicoes(1)">
+        <div class="cabecalho gerais">
+            <h3><i class='bx bx-chevron-down'></i>Habilidades Gerais</h3>
+        </div>
+    </a>
+
+    <div class="containerTotalHabilidades" id="div_containerhabilidadesGerais">
+        <h1>Habilidades Gerais</h1>
+        <p>Todos os jogadores começam com 4 pontos de habilidades para distribuir</p>
+        <div class="pontos">
+            <h3>Pontos de habilidade</h3>
+            <p id="pontos_Habilidade">4</p>
+        </div>
+
+        <div class="habilidadesGerais">
+
+            <div class="container">
+                <div class="habilidadeGeral">
+                    <div class="ramificacao lado1">
+                        <button onclick="habilidades(-2)">Corte rápido</button>
+                        <button onclick="habilidades(-3)">Frenesi de garras</button>
+                        <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                    </div>
+
+                    <div class="ramificacao lado2">
+                        <button onclick="habilidades(-2)">Garras envenedadas</button>
+                        <button onclick="habilidades(-3)">Destruidor de armaduras</button>
+                        <button onclick="habilidades(-4)">Rasgo Sombrio</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="botoes">
+                        <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+                        <button onclick="abrirGarras()">Descrição Garras</button>
+                        <dialog id="garras">
+                            <div id="container_garras"></div>
+                        </dialog>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="habilidadeGeral">
+                    <div class="ramificacao lado1">
+                        <button onclick="habilidades(-3)">Mergulho aéreo</button>
+                        <button onclick="habilidades(-4)">Teleporte sombrio</button>
+                    </div>
+                    <div class="ramificacao lado2">
+                        <button onclick="habilidades(-3)">Investida aérea</button>
+                        <button onclick="habilidades(-4)">Voô profano</button>
+                    </div>
+                </div>
+                <div class="botoes">
+                    <button onclick="habilidades(-2)">Flutuar</button>
+                    <button onclick="habilidades(-1)">Super Salto</button>
+                    <button>Descrição Voô</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a onclick="aparicoes(2)">
+        <div class="cabecalho transforma">
+            <h3><i class='bx bx-chevron-down'></i>Transformações</h3>
+        </div>
+    </a>
+
+
+    <div class="containerTotalTransformacoes" id="div_containerTransformacoes">
+        <h1>Transformações</h1>
+        <p>Desde o momento em que ingressam no mundo das trevas, os vampiros despertam um poder ancestral: a habilidade
+            de se transformar. Essa metamorfose não é apenas física, mas espiritual — um elo entre o instinto da
+            criatura e sua vontade.
+        </p>
+        <div class="pontos">
+            <h3>Pontos de Transformação</h3>
+            <p id="pontos_Transformacao">2</p>
+        </div>
+        <div class="transformacoes">
+            <div class="container">
+                <div class="item horizontal">
+                    <button>Furia lupina</button>
+                    <button>Caninos sombrios</button>
+                </div>
+                <div class="item vertical">
+                    <button>Sentidos aprimorados</button>
+                    <button>Velocidade lupina</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Lobo</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="item horizontal">
+                    <button>Olhos do Predador</button>
+                    <button>Garras Venenosas</button>
+                </div>
+                <div class="item vertical">
+                    <button>Agilidade Felina</button>
+                    <button>Furtividade animal</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Gato</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="item horizontal">
+                    <button>Convocar enxame</button>
+                    <button>Mestre das sombras</button>
+                </div>
+                <div class="item vertical">
+                    <button>Asas noturnas</button>
+                    <button>Frenesi do morcego</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Morcego</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <a onclick="aparicoes(3)">
+        <div class="cabecalho sensitivas">
+            <h3><i class='bx bx-chevron-down'></i>Habilidades Sensoriais</h3>
+        </div>
+    </a>
+
+
+    <div class="containerTotalSensoriais" id="div_containerSensoriais">
+        <h1>Evolução Sensorial</h1>
+        <p>Em Till the FangZ, os vampiros não apenas veem, ouvem e sentem — eles vivenciam o mundo de forma ampliada,
+            quase mística. Seus sentidos vão além dos limites mortais, despertando gradualmente à medida que mergulham
+            mais fundo em sua natureza sombria.</p>
+        <div class="pontos">
+            <h3>Pontos Sensoriais</h3>
+            <p id="pontos_Habilidade">6</p>
+        </div>
+        <div class="sensoriais">
+            <div class="container">
+                <div class="item vertical">
+                    <button>Toque refinado</button>
+                    <button>Detecção por vibração </button>
+                    <button>Controle do toque</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Tato</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="item vertical">
+                    <button>Rastreamento olfativo</button>
+                    <button>Identificação de presa</button>
+                    <button>Perfume mortal</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Olfato</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="item vertical">
+                    <button>Atenção focada</button>
+                    <button>Audição amplificada</button>
+                    <button>Expansão auditiva</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Audição</button>
+                </div>
+            </div>
+        </div>
+        <div class="sensoriais">
+            <div class="container">
+                <div class="item vertical">
+                    <button>Ajuda das sombras</button>
+                    <button>Percepção de energias</button>
+                    <button>Olhar hipnótico </button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Visão</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="item vertical">
+                    <button>Sussurros sombrios</button>
+                    <button>Berro ensurdecedor</button>
+                    <button>Onda sonora</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Fala</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="item vertical">
+                    <button>Pressentimento </button>
+                    <button>Empatia vampirica </button>
+                    <button>Domínio sobrenatural</button>
+                </div>
+                <div class="item inicial">
+                    <button>Descrição Sensação</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let cliquesGeral = 0;
+    let cliquesTrans = 0;
+    let cliquesSensiveis = 0;
+    div_containerTransformacoes.style.display = "none"
+    div_containerhabilidadesGerais.style.display = "none"
+    div_containerSensoriais.style.display = "none"
+    function aparicoes(item) {
+        if (item == 1 && cliquesGeral == 0) {
+            cliquesGeral++
+            div_containerhabilidadesGerais.style.display = ""
+        }
+        else if (item == 1 && cliquesGeral == 1) {
+            cliquesGeral = 0;
+            div_containerhabilidadesGerais.style.display = "none"
+        }
+        if (item == 2 && cliquesTrans == 0) {
+            cliquesTrans++
+            div_containerTransformacoes.style.display = ""
+        }
+        else if (item == 2 && cliquesTrans == 1) {
+            cliquesTrans = 0;
+            div_containerTransformacoes.style.display = "none"
+        }
+        if(item == 3 && cliquesSensiveis==0){
+            cliquesSensiveis++
+                div_containerSensoriais.style.display = ""
+        }
+        else if(item == 3 && cliquesSensiveis == 1){
+            cliquesSensiveis = 0;
+                div_containerSensoriais.style.display = "none"
+        }
+    }
+</script>

@@ -55,62 +55,23 @@
         </div>
     </div>
 
-
+    <script src="js/inners.js"></script>
     <script>
+        let cliquesGeral = 0;
+        let cliquesTrans = 0;
+        let cliquesSensiveis = 0;
         let gerarInicio = false;
+        let gerarClasse = false;
         let classes = {};
         function inicio() {
             div_conteudo.style.display = "none"
-            
             div_conteudoInicio.style.display = ""
             div_conteudoClasse.style.display = "none"
             div_conteudoAtributos.style.display = "none"
             div_conteudoHabilidades.style.display = "none"
             if (gerarInicio == false) {
                 gerarInicio = true;
-
-                div_conteudoInicio.innerHTML = `
-                <div class="navbar">
-                    <ul>
-                        <li><a onclick="inicio()">Inicio</a></li>
-                        <li><a onclick="classe()">Classe</a></li>
-                        <li><a onclick="atributos()">Atributos</a></li>
-                        <li><a onclick="habilidades()">Habilidades</a></li>
-                    <ul>
-                </div>
-
-                <h2>Seja bem vindo ao criador de personagem!
-                <br> Vamos começar pelo básico</h2>
-
-                <div id="campos" class="camposiniciais">
-                    <div class="inicio">
-                        <div class="coluna1">
-                            <input rows="1" placeholder="Nome..." id="ipt_nome" class="campo">  
-                            <input type="number" placeholder="Altura..." id="ipt_altura" class="campo" >
-                            <input type="number" placeholder="Peso..." id="ipt_peso" class="campo">
-                            <input type="number" placeholder="Pontos sombrios" class="campo">
-
-                        </div>
-                        <div class="coluna2">
-                            <input type="text" placeholder="Apelido..." id="ipt_apelido" class="campo">
-                            <select id="select_genero" class="campo" >
-                                    <option value="#">Gênero:</option>
-                                    <option value="feminino">Feminino</option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="outro">Outro</option>
-                                    <option value="nao">Prefiro não dizer</option>
-                            </select>
-                            <input type="number" placeholder="Idade..." id="ipt_idade" class="campo" >
-                            <input type="number" placeholder="Pontos de luz" class="campo">
-
-                        </div>
-                    </div>
-                     <div class="detalhes">
-                        <textarea placeholder="História do personagem" id="ipt_historia" class="campo"></textarea>
-                        <textarea placeholder="Características do personagem" id="" class="campo"></textarea>
-                    </div>
-                </div>
-            `
+                div_conteudoInicio.innerHTML = textoInicio
             }
         }
 
@@ -119,123 +80,10 @@
             div_conteudoAtributos.style.display = "none"
             div_conteudoHabilidades.style.display = "none"
             div_conteudoClasse.style.display = ""
-            div_conteudoClasse.innerHTML = `
-                <div class="navbar">
-                    <ul>
-                        <li><a onclick="inicio()">Inicio</a></li>
-                        <li><a onclick="classe()">Classe</a></li>
-                        <li><a onclick="atributos()">Atributos</a></li>
-                        <li><a onclick="habilidades()">Habilidades</a></li>
-                    <ul>
-                </div>
-            <div class="cards">
-                <div class="card">
-                    <h3>Caçador Sombrio</h3>
-                    <img src="assets/cacadorSombrio.png">
-                <button onclick="aparecer('cacador')">Ver especificações</button>
-                <dialog id="cacador">
-                    <div class="modal" id="desc_cacador">
-                    
-                    </div>
-                </dialog>
-                <br>
-                <button>Escolher Este</button>
-                </div>
-
-                <div class="card">
-                    <h3>Senhor das Sombras</h3>
-                    <img src="" alt="">
-                <button onclick="aparecer('senhor')">Ver especificações</button>
-                <dialog id="senhor">
-                    <div class="modal" id="desc_senhor">
-    
-                    </div>
-                </dialog>
-                <br>
-                <button>Escolher Este</button> 
-
-                </div>
-
-                <div class="card">
-                    <h3>Bárbaro Noturno</h3>
-                    <img src="" alt="">
-                <button onclick="aparecer('barbaro')">Ver especificações</button>
-                <dialog id="barbaro">
-                    <div class="modal" id="desc_barbaro">
-                    
-                    </div>
-                </dialog>
-                <br>
-                <button>Escolher Este</button> 
-
-                </div>
-                <div class="card">
-                <h3>Ilusionista Vampírico</h3>
-                <img src="" alt="">
-
-                <button onclick="aparecer('ilusionista')">Ver especificações</button>
-                <dialog id="ilusionista">
-                    <div class="modal" id="desc_ilusionista">
-                    
-                    </div>
-                </dialog>
-                <br>
-                <button>Escolher Este</button> 
-                </div>
-
-                <div class="card">
-                    <h3>Vampiro Cultista</h3>
-                    <img src="" alt="">
-
-                <button onclick="aparecer('cultista')">Ver especificações</button>
-                <dialog id="cultista">
-                    <div class="modal" id="desc_cultista">
-                    
-                    </div>
-                </dialog>
-                <br>
-                <button>Escolher Este</button> 
-                </div>
-
-                <div class="card">
-                    <h3>Vampiro iluminado</h3>
-                    <img src="" alt="">
-                    <button onclick="aparecer('iluminado')">Ver especificações</button>
-                    <dialog id="iluminado">
-                        <div class="modal" id="iluminado">
-                        
-                        </div>
-                    </dialog>
-                    <br>
-                    <button>Escolher Este</button> 
-                </div>
-                <div class="card">
-                    <h3>Vampiro Flagelador</h3>
-                    <img src="" alt="">
-                    <button onclick="aparecer('flagelador')">Ver especificações</button>
-                    <dialog id="flagelador">
-                        <div class="modal" id="desc_flagelador">
-                        
-                        </div>
-                    </dialog>
-                    <br>
-                    <button>Escolher Este</button> 
-                </div>
-                <div class="card">
-                    <h3>Vampiro Canibal</h3>
-                    <img src="" alt="">
-                    <button onclick="aparecer('canibal')">Ver especificações</button>
-                    <dialog id="canibal">
-                        <div class="modal" id="desc_canibal">
-                        
-                        </div>
-                    </dialog>
-                    <br>
-                    <button>Escolher Este</button> 
-                </div>
-            </div>    
-            `
-
+            if (gerarClasse == false) {
+                gerarClasse = true
+                div_conteudoClasse.innerHTML = textoClasse
+            }
             classes = {
                 cacador: document.getElementById('cacador'),
                 barabaro: document.getElementById('barbaro'),
@@ -348,6 +196,7 @@
         let pontosSanidade = 20;
         let pontosDefesa = 5;
         let armadura = 0;
+        let pontosHabilidade = 4;
 
         let pontos = {
             carisma: 0,
@@ -366,77 +215,7 @@
             div_conteudoHabilidades.style.display = "none"
             div_conteudoAtributos.style.display = ""
 
-            div_conteudoAtributos.innerHTML = `
-    <div class="navbar">
-                    <ul>
-                        <li><a onclick="inicio()">Inicio</a></li>
-                        <li><a onclick="classe()">Classe</a></li>
-                        <li><a onclick="atributos()">Atributos</a></li>
-                        <li><a onclick="habilidades()">Habilidades</a></li>
-                    <ul>
-    </div>
-    <div class="Horizontal">
-        <div class="ConteudoAtributo">
-            <h3>Pontos Totais</h3>
-            <p id="pontos_totais"></p>
-            <h3>Atributos</h3>
-
-            <div class="atributo carisma">
-                <p>Carisma</p>
-                <p id="qtd_carisma"></p>
-                <div class="botoes">
-                    <button onclick="pontuação(1, 'carisma')">+</button>
-                    <button onclick="pontuação(-1, 'carisma')">-</button>
-                </div>
-            </div>
-
-            <div class="atributo inteligencia">
-                <p>Inteligência</p>
-                <p id="qtd_inteligencia"></p>
-                <div class="botoes">
-                    <button onclick="pontuação(1, 'inteligencia')">+</button>
-                    <button onclick="pontuação(-1, 'inteligencia')">-</button>
-                </div>
-            </div>
-
-            <div class="atributo agilidade">
-                <p>Agilidade</p>
-                <p id="qtd_agilidade"></p>
-                <div class="botoes">
-                    <button onclick="pontuação(1, 'agilidade')">+</button>
-                    <button onclick="pontuação(-1, 'agilidade')">-</button>
-                </div>
-            </div>
-
-            <div class="atributo vigor">
-                <p>Vigor</p>
-                <p id="qtd_vigor"></p>
-                <div class="botoes">
-                    <button onclick="pontuação(1, 'vigor')">+</button>
-                    <button onclick="pontuação(-1, 'vigor')">-</button>
-                </div>
-            </div>
-
-            <div class="atributo sangueAncestral">
-                <p>Sangue Ancestral</p>
-                <p id="qtd_sangue_ancestral"></p>
-                <div class="botoes">
-                    <button onclick="pontuação(1, 'sangue')">+</button>
-                    <button onclick="pontuação(-1, 'sangue')">-</button>
-                </div>
-            </div>
-        </div>
-        <div class="ConteudoAtributo">
-            <h3>Pontos de vida</h3>
-            <p id="qtd_vida"></p>
-
-            <h3>Pontos de Sanidade</h3>
-            <p id="qtd_sanidade"></p>
-
-            <h3>Pontos de Defesa</h3>
-            <p id="qtd_defesa"></p>
-        </div>
-    </div>`;
+            div_conteudoAtributos.innerHTML = textoAtributos
 
             // Agora atribuimos os elementos aos campos
             elementos = {
@@ -503,101 +282,47 @@
         }
 
         function habilidades() {
+
             div_conteudoHabilidades.style.display = ""
             div_conteudoAtributos.style.display = "none"
             div_conteudoClasse.style.display = "none"
             div_conteudoInicio.style.display = "none"
 
 
-            div_conteudoHabilidades.innerHTML =
-            `
-            <div class="navbar">
-                    <ul>
-                        <li><a onclick="inicio()">Inicio</a></li>
-                        <li><a onclick="classe()">Classe</a></li>
-                        <li><a onclick="atributos()">Atributos</a></li>
-                        <li><a onclick="habilidades()">Habilidades</a></li>
-                    <ul>
-            </div>
-                <h1>Habilidades Gerais</h1>
-                <p>escolha as habilidades que seu personagem ira ter</p>
-                <div class="habilidades">
-                    <p id="pontos_Habilidade"></p>
-                    <div class="garras">
-                        <div class="habilidadeGeral">
-                            <div class="ramificacao lado1">
-                                <button onclick="habilidades(-2)">Corte rápido</button>
-                                <button onclick="habilidades(-3)">Frenesi de garras</button>
-                                <button onclick="habilidades(-4)">Rasgo da destruição</button>
-                            </div>
+            div_conteudoHabilidades.innerHTML = textoHabilidades;
+            atualizarPontosHabilidades()
+        }
+        function atualizarPontosHabilidades() {
+            div_containerTransformacoes.style.display = "none";
+            div_containerhabilidadesGerais.style.display = "none";
+            div_containerSensoriais.style.display = "none";
+            pontos_Habilidade.innerHTML = pontosHabilidade
+        }
 
-                            <div class="ramificacao lado2">
-                                <button onclick="habilidades(-2)">Garras envenedadas</button>
-                                <button onclick="habilidades(-3)">Destruidor de armaduras</button>
-                                <button onclick="habilidades(-4)">Rasgo Sombrio</button>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="botoes">
-                                <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
-                                <button onclick="abrirGarras()">Garras</button>
-                                <dialog id="garras">
-                                    <div id="container_garras"></div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="Voo">
-                        <div class="habilidadeGeral">
-                            <div class="ramificacao lado1">
-                                <button onclick="habilidades(-3)">Mergulho aéreo</button>
-                                <button onclick="habilidades(-4)">Teleporte sombrio</button>
-                            </div>
-                            <div class="ramificacao lado2">
-                                <button onclick="habilidades(-3)">Investida aérea</button>
-                                <button onclick="habilidades(-4)">Voô profano</button>
-                            </div>
-                        </div>
-                        <div class="botoes">
-                            <button onclick="habilidades(-2)">Flutuar</button>
-                            <button onclick="habilidades(-1)">Super Salto</button>
-                            <button>Voô</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <h1>Transformações</h1>
-                <div class="transformacoes">
-                    <div class="transformacao">
-                        <div class="item inicial">
-                            <button>Lobo</button>
-                        </div>
-                        <div class="item vertical">
-                            <button>Sentidos aprimorados</button>
-                            <button>Velocidade lupina</button>
-                        </div>
-                        <div class="item horizontal">
-                            <button>Furia lupina</button>
-                            <button>Caninos sombrios</button>
-                        </div>
-                    </div>
-
-                    <div class="transformacao">
-                        <div class="item inicial">
-                            <button>Gato</button>
-                        </div>
-                        <div class="item vertical">
-                            <button>Agilidade Felina</button>
-                            <button>Furtividade animal</button>
-                        </div>
-                        <div class="item horizontal">
-                            <button>Olhos do Predador</button>
-                            <button>Garras Venenosas</button>
-                        </div>
-                    </div>
-                </div>
-            `
+        function aparicoes(item) {
+            if (item == 1 && cliquesGeral == 0) {
+                cliquesGeral++
+                div_containerhabilidadesGerais.style.display = ""
+            }
+            else if (item == 1 && cliquesGeral == 1) {
+                cliquesGeral = 0;
+                div_containerhabilidadesGerais.style.display = "none"
+            }
+            if (item == 2 && cliquesTrans == 0) {
+                cliquesTrans++
+                div_containerTransformacoes.style.display = ""
+            }
+            else if (item == 2 && cliquesTrans == 1) {
+                cliquesTrans = 0;
+                div_containerTransformacoes.style.display = "none"
+            }
+            if (item == 3 && cliquesSensiveis == 0) {
+                cliquesSensiveis++
+                div_containerSensoriais.style.display = ""
+            }
+            else if (item == 3 && cliquesSensiveis == 1) {
+                cliquesSensiveis = 0;
+                div_containerSensoriais.style.display = "none"
+            }
         }
     </script>

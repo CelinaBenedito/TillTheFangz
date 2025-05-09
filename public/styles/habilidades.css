@@ -1,0 +1,98 @@
+.container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    color: white;
+    background: transparent;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+}
+.cabecalho{
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    transition: all 0.5s;
+}
+.habilidadesGerais{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+.habilidadeGeral{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.ramificacao{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+.botoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+.containerTotalHabilidades{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pontos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pontos p {
+    margin-top: -10px;
+}
+.containerTotalTransformacoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.transformacoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item{
+    gap:10px;
+    margin: 10px;
+}
+.horizontal{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.vertical{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.containerTotalSensoriais{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sensoriais{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
