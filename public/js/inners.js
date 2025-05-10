@@ -123,7 +123,7 @@ let textoClasse = `
                     <img src="" alt="">
                     <button onclick="aparecer('iluminado')">Ver especificações</button>
                     <dialog id="iluminado">
-                        <div class="modal" id="iluminado">
+                        <div class="modal" id="desc_iluminado">
                         
                         </div>
                     </dialog>
@@ -255,21 +255,24 @@ let textoHabilidades = `
 
             <div class="container">
                 <div class="habilidadeGeral">
-                    <div class="ramificacao lado1">
+                    <div class="item vertical">
                         <button onclick="habilidades(-2)">Corte rápido</button>
                         <button onclick="habilidades(-3)">Frenesi de garras</button>
                         <button onclick="habilidades(-4)">Rasgo da destruição</button>
                     </div>
 
-                    <div class="ramificacao lado2">
+                    <div class="item vertical">
                         <button onclick="habilidades(-2)">Garras envenedadas</button>
                         <button onclick="habilidades(-3)">Destruidor de armaduras</button>
                         <button onclick="habilidades(-4)">Rasgo Sombrio</button>
                     </div>
                 </div>
                 <div>
-                    <div class="botoes">
+                    <div class="item vertical">
                         <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+
+                    </div>
+                    <div class="item inicial">
                         <button onclick="abrirGarras()">Descrição Garras</button>
                         <dialog id="garras">
                             <div id="container_garras"></div>
@@ -280,18 +283,20 @@ let textoHabilidades = `
 
             <div class="container">
                 <div class="habilidadeGeral">
-                    <div class="ramificacao lado1">
+                    <div class="item vertical">
                         <button onclick="habilidades(-3)">Mergulho aéreo</button>
                         <button onclick="habilidades(-4)">Teleporte sombrio</button>
                     </div>
-                    <div class="ramificacao lado2">
+                    <div class="item vertical">
                         <button onclick="habilidades(-3)">Investida aérea</button>
                         <button onclick="habilidades(-4)">Voô profano</button>
                     </div>
                 </div>
-                <div class="botoes">
+                <div class="item vertical">
                     <button onclick="habilidades(-2)">Flutuar</button>
                     <button onclick="habilidades(-1)">Super Salto</button>
+                </div>
+                <div class="item inicial">
                     <button>Descrição Voô</button>
                 </div>
             </div>

@@ -27,514 +27,811 @@
             <a href="login.html" class="login"><img src="assets/vampireUser.png" alt="user"> Login</a>
         </div>
     </header>
-    <div class="botoes">
-        <div class="botaoSubir">
-            <a href="#inicio">
-                <button><i class='bx bx-up-arrow-alt'></i></button>
-            </a>
-        </div>
-        <div class="botaoDescer">
-            <a href="">
-                <button><i class='bx bx-down-arrow-alt'></i></button>
-            </a>
-        </div>
-    </div>
 
+    </div>
+    <div class="navbar">
+        <ul>
+            <li>
+                <a onclick="mostrarIntroducao()">Introdução</a>
+            </li>
+            <li>
+                <a onclick="mostrarJogabilidade()">Jogabilidade</a>
+            </li>
+            <li>
+                <a onclick="mostrarAtributos()">Atributos</a>
+            </li>
+            <li><a onclick="mostrarSistemas()">Sistemas</a></li>
+            <li>
+                <a onclick="mostrarSangue()">Sangue</a>
+            </li>
+            <li>
+                <a onclick="mostrarDano()">Tipos de Dano</a>
+            </li>
+            <li>
+                <a onclick="mostrarClasses()">Classes</a>
+            </li>
+        </ul>
+    </div>
 
     <div class="livro">
+        <div id="introducao">
+            <h1>Till the fangz</h1>
+            <p>Till the FangZ é um RPG de vampiros original, criado para ser
+                acessível, dinâmico e envolvente. O sistema foi pensado para
+                que qualquer pessoa, independentemente da experiência com
+                RPGs, possa jogar de forma prática e intuitiva. Com regras
+                versáteis e mecânicas que incentivam a criatividade, a proposta
+                é oferecer uma experiência divertida e imersiva, permitindo que
+                cada jogador explore o mundo sombrio e fascinante dos
+                vampiros do seu próprio jeito.</p>
+        </div>
+        <div id="jogabilidade">
+            <h1>Jogabilidade</h1>
+            <p>A jogabilidade é simples e intuitiva. Cada personagem começa no
+                nível 1 e pode evoluir até o nível 20. O progresso acontece
+                através da experiência (XP), adquirida ao derrotar monstros – a
+                quantidade de XP varia conforme a criatura enfrentada<br> A cada nível, os jogadores ganham pontos para
+                aprimorar suas
+                habilidades. No início da campanha, cada personagem recebe:</p>
+            <ul>
+                <li>6 pontos para distribuir entre as habilidades sensoriais
+                    (relacionadas aos sentidos);
+                </li>
+                <li>
+                    4 pontos para habilidades gerais.
+                </li>
+                <li>
+                    10 pontos para os atributos
+                </li>
+            </ul>
+            <p>Com essa estrutura, cada jogador pode desenvolver seu
+                vampiro de forma única, equilibrando poder, estratégia e
+                personalização</p>
+        </div>
+        <div id="atributos">
+            <h1>Atributos</h1>
+            <p>Os vampiros possuem cinco atributos principais, cada um
+                desempenhando um papel essencial na definição de suas
+                habilidades e características.<br>
+                No início do jogo, o jogador recebe 10 pontos para distribuir
+                entre os atributos, respeitando os seguintes limites:</p>
+            <ul>
+                <li>
+                    Nenhum atributo pode ultrapassar 5 pontos no início.
+                </li>
+                <li>
+                    O nível mínimo de um atributo é 0 e o máximo possível
+                    ao longo do jogo é 20.
+                </li>
+            </ul>
+            <h2>
+                Carisma
+            </h2>
+            <p>O Carisma influencia a capacidade do vampiro em
+                interações sociais, persuasão e manipulação. Sempre que
+                uma ação exigir influência sobre outros, role 1D20 +
+                Carisma.</p>
+            <h2>Inteligência</h2>
+            <p>
+                A Inteligência representa o conhecimento e a capacidade de
+                raciocínio do vampiro. Esse atributo é usado para:
+            </p>
+            <ul>
+                <li>
+                    Lembrar de eventos e informações importantes.
+                </li>
+                <li>
+                    Compreender textos antigos, grimórios e símbolos.
+                </li>
+                <li>
+                    Identificar criaturas e reconhecer ameaças.
+                </li>
+                <li>
+                    Resistir a controle mental e manipulações.
+                </li>
+                <li>
+                    Controlar o frenesi em momentos de sede extrema.
+                </li>
+            </ul>
+            <h2>Agilidade</h2>
+            <p>
+                A Agilidade mede a destreza e reflexos do vampiro. Ela
+                influencia:
+            </p>
+            <ul>
+                <li>
+                    Ações furtivas e ataques rápidos.
+                </li>
+                <li>
+                    Esquivas e reações ágeis em combate.
+                </li>
+                <li>
+                    Velocidade e movimentação eficiente.
+                </li>
+            </ul>
+            <h2>Vigor</h2>
+            <p>
+                O Vigor está diretamente relacionado à vida do vampiro, sua
+                capacidade de regeneração e sua disposição física. Ele
+                determina quanto o vampiro pode resistir a danos e o quanto
+                consegue aguentar esforços físicos sem sofrer exaustão.
+            </p>
+            <h2>Sangue Ancestral</h2>
+            <p>
+                O Sangue Ancestral é a essência do vampiro, representando sua ligação com sua natureza sombria. Esse
+                atributo
+                define:
+            </p>
+            <ul>
+                <li>
+                    A capacidade de transformação do vampiro.
+                </li>
+                <li>
+                    Aumento na percepção do vampiro.
+                </li>
+                <li>
+                    Outras características sobrenaturais ligadas à sua linhagem
+                </li>
+            </ul>
+            <p>
+                Diferente dos outros atributos, o Sangue Ancestral pode ser aumentado ao beber sangue, tornando-se um
+                recurso essencial para a evolução do vampiro.
+            </p>
+        </div>
+        <div id="sistemas">
+            <h1>
+                Sistema de Defesa
+            </h1>
+            <p>
+                A defesa de todos os vampiros é calculada com base na fórmula: 5 + Armadura + Agilidade. Esse valor pode
+                ser
+                ajustado dependendo da classe escolhida, que pode proporcionar modificações específicas à defesa, seja
+                por
+                habilidades especiais ou por características próprias da classe.
+            </p>
+            <h1>Sistema de sanidade</h1>
+            <p>A sanidade é um aspecto crucial no mundo de Till the FangZ. Se o vampiro perder a sanidade, algo terrível
+                poderá ocorrer. Ela pode ser perturbada por diversos fatores, como o frenesi ou invasões mentais. A
+                quantidade de sanidade de um vampiro é determinada por seu atributo de Inteligência, sendo 20 +(10 x
+                inteligência).</p>
+            <h1>Sistema de vida</h1>
+            <p>Para calcular a vida do jogador, multiplique o valor inicial que é 20 pelos pontos de vigor. O resultado
+                será
+                a base para a vida do personagem, que poderá ser ajustada para mais ou para menos, dependendo da classe
+                escolhida.</p>
+            <h1>Absorção de Sangue</h1>
+            <p>
+                Caso o vampiro perca vida, para recuperá-la será necessário sugar sangue. O vampiro deve encontrar uma
+                presa
+                e tentar se alimentar. Role 1D20 para determinar o sucesso da mordida:
+            </p>
+            <ul>
+                <li>
+                    Sucesso Crítico (20) → Sugamento total, recupera mais vida ou ganha um buff temporário.
+                </li>
+                <li>
+                    Sucesso Alto (15-19) → Sugamento eficiente, recupera vida normal.
+                </li>
+                <li>
+                    Sucesso baixo (10-14) → Sugamento parcial, recupera menos vida.
+                </li>
+                <li>
+                    Falha (2-9) → O alvo resiste, e nada acontece.
+                </li>
+                <li>
+                    Falha Crítica (1) → O vampiro perde vida, sendo ou por conta do alvo reagir de maneira violenta ou
+                    por
+                    seu sangue ser tão nojento e viscoso.
+                </li>
+            </ul>
+        </div>
+        <div id="sangue">
+            <h1>
+                Tipos de sangue
+            </h1>
+            <p>Diferentes criaturas possuem diferentes efeitos ao terem seu sangue sugado:</p>
+            <ul>
+                <li>
+                    Humanos normais → Cura básica.
+                </li>
+                <li>
+                    Humanos especiais (caçadores, místicos, etc.) → Pode conceder buffs ou debuffs.
+                </li>
+                <li>
+                    Criaturas sobrenaturais → Pode ser venenoso ou amplificar poderes.
+                </li>
+                <li>
+                    Vampiros → Pode ser viciante ou aumentar temporariamente habilidades.
+                </li>
+            </ul>
+            <h1>Frenesi</h1>
+            <p>Caso o vampiro fique muito tempo sem se alimentar ou perca muita vida, ele entra em Frenesi. Nesse
+                momento, o
+                jogador deve rolar 1D20 + Inteligência para determinar o controle sobre si mesmo:</p>
+            <ul>
+                <li>
+                    Falha (1-10) → O vampiro entra em Frenesi, atacando sem distinguir aliados e inimigos.
+                </li>
+                <li>
+                    Sucesso (11-20) → Ele se controla e pode esperar um pouco mais, mas caso não consuma sangue logo,
+                    deverá
+                    fazer o teste novamente.
+                </li>
+            </ul>
 
-        <h1 id="inicio">Till the fangz</h1>
-        <p>Till the FangZ é um RPG de vampiros original, criado para ser
-            acessível, dinâmico e envolvente. O sistema foi pensado para
-            que qualquer pessoa, independentemente da experiência com
-            RPGs, possa jogar de forma prática e intuitiva. Com regras
-            versáteis e mecânicas que incentivam a criatividade, a proposta
-            é oferecer uma experiência divertida e imersiva, permitindo que
-            cada jogador explore o mundo sombrio e fascinante dos
-            vampiros do seu próprio jeito.</p>
-        <h1>Jogabilidade</h1>
-        <p>A jogabilidade é simples e intuitiva. Cada personagem começa no
-            nível 1 e pode evoluir até o nível 20. O progresso acontece
-            através da experiência (XP), adquirida ao derrotar monstros – a
-            quantidade de XP varia conforme a criatura enfrentada<br> A cada nível, os jogadores ganham pontos para
-            aprimorar suas
-            habilidades. No início da campanha, cada personagem recebe:</p>
-        <ul>
-            <li>6 pontos para distribuir entre as habilidades sensoriais
-                (relacionadas aos sentidos);
-            </li>
-            <li>
-                4 pontos para habilidades gerais.
-            </li>
-            <li>
-                10 pontos para os atributos
-            </li>
-        </ul>
-        <p>Com essa estrutura, cada jogador pode desenvolver seu
-            vampiro de forma única, equilibrando poder, estratégia e
-            personalização</p>
-        <h1>Atributos</h1>
-        <p>Os vampiros possuem cinco atributos principais, cada um
-            desempenhando um papel essencial na definição de suas
-            habilidades e características.<br>
-            No início do jogo, o jogador recebe 10 pontos para distribuir
-            entre os atributos, respeitando os seguintes limites:</p>
-        <ul>
-            <li>
-                Nenhum atributo pode ultrapassar 5 pontos no início.
-            </li>
-            <li>
-                O nível mínimo de um atributo é 0 e o máximo possível
-                ao longo do jogo é 20.
-            </li>
-        </ul>
-        <h2>
-            Carisma
-        </h2>
-        <p>O Carisma influencia a capacidade do vampiro em
-            interações sociais, persuasão e manipulação. Sempre que
-            uma ação exigir influência sobre outros, role 1D20 +
-            Carisma.</p>
-        <h2>Inteligência</h2>
-        <p>
-            A Inteligência representa o conhecimento e a capacidade de
-            raciocínio do vampiro. Esse atributo é usado para:
-        </p>
-        <ul>
-            <li>
-                Lembrar de eventos e informações importantes.
-            </li>
-            <li>
-                Compreender textos antigos, grimórios e símbolos.
-            </li>
-            <li>
-                Identificar criaturas e reconhecer ameaças.
-            </li>
-            <li>
-                Resistir a controle mental e manipulações.
-            </li>
-            <li>
-                Controlar o frenesi em momentos de sede extrema.
-            </li>
-        </ul>
-        <h2>Agilidade</h2>
-        <p>
-            A Agilidade mede a destreza e reflexos do vampiro. Ela
-            influencia:
-        </p>
-        <ul>
-            <li>
-                Ações furtivas e ataques rápidos.
-            </li>
-            <li>
-                Esquivas e reações ágeis em combate.
-            </li>
-            <li>
-                Velocidade e movimentação eficiente.
-            </li>
-        </ul>
-        <h2>Vigor</h2>
-        <p>
-            O Vigor está diretamente relacionado à vida do vampiro, sua
-            capacidade de regeneração e sua disposição física. Ele
-            determina quanto o vampiro pode resistir a danos e o quanto
-            consegue aguentar esforços físicos sem sofrer exaustão.
-        </p>
-        <h2>Sangue Ancestral</h2>
-        <p>
-            O Sangue Ancestral é a essência do vampiro, representando sua ligação com sua natureza sombria. Esse
-            atributo
-            define:
-        </p>
-        <ul>
-            <li>
-                A capacidade de transformação do vampiro.
-            </li>
-            <li>
-                Aumento na percepção do vampiro.
-            </li>
-            <li>
-                Outras características sobrenaturais ligadas à sua linhagem
-            </li>
-        </ul>
-        <p>
-            Diferente dos outros atributos, o Sangue Ancestral pode ser aumentado ao beber sangue, tornando-se um
-            recurso essencial para a evolução do vampiro.
-        </p>
-        <h1>
-            Sistema de Defesa
-        </h1>
-        <p>
-            A defesa de todos os vampiros é calculada com base na fórmula: 5 + Armadura + Agilidade. Esse valor pode ser
-            ajustado dependendo da classe escolhida, que pode proporcionar modificações específicas à defesa, seja por
-            habilidades especiais ou por características próprias da classe.
-        </p>
-        <h1>Sistema de sanidade</h1>
-        <p>A sanidade é um aspecto crucial no mundo de Till the FangZ. Se o vampiro perder a sanidade, algo terrível
-            poderá ocorrer. Ela pode ser perturbada por diversos fatores, como o frenesi ou invasões mentais. A
-            quantidade de sanidade de um vampiro é determinada por seu atributo de Inteligência, sendo 20 +(10 x
-            inteligência).</p>
-        <h1>Sistema de vida</h1>
-        <p>Para calcular a vida do jogador, multiplique o valor inicial que é 20 pelos pontos de vigor. O resultado será
-            a base para a vida do personagem, que poderá ser ajustada para mais ou para menos, dependendo da classe
-            escolhida.</p>
-        <h1>Absorção de Sangue</h1>
-        <p>
-            Caso o vampiro perca vida, para recuperá-la será necessário sugar sangue. O vampiro deve encontrar uma presa
-            e tentar se alimentar. Role 1D20 para determinar o sucesso da mordida:
-        </p>
-        <ul>
-            <li>
-                Sucesso Crítico (20) → Sugamento total, recupera mais vida ou ganha um buff temporário.
-            </li>
-            <li>
-                Sucesso Alto (15-19) → Sugamento eficiente, recupera vida normal.
-            </li>
-            <li>
-                Sucesso baixo (10-14) → Sugamento parcial, recupera menos vida.
-            </li>
-            <li>
-                Falha (2-9) → O alvo resiste, e nada acontece.
-            </li>
-            <li>
-                Falha Crítica (1) → O vampiro perde vida, sendo ou por conta do alvo reagir de maneira violenta ou por
-                seu sangue ser tão nojento e viscoso.
-            </li>
-        </ul>
-        <h1>
-            Tipos de sangue
-        </h1>
-        <p>Diferentes criaturas possuem diferentes efeitos ao terem seu sangue sugado:</p>
-        <ul>
-            <li>
-                Humanos normais → Cura básica.
-            </li>
-            <li>
-                Humanos especiais (caçadores, místicos, etc.) → Pode conceder buffs ou debuffs.
-            </li>
-            <li>
-                Criaturas sobrenaturais → Pode ser venenoso ou amplificar poderes.
-            </li>
-            <li>
-                Vampiros → Pode ser viciante ou aumentar temporariamente habilidades.
-            </li>
-        </ul>
-        <h1>Frenesi</h1>
-        <p>Caso o vampiro fique muito tempo sem se alimentar ou perca muita vida, ele entra em Frenesi. Nesse momento, o
-            jogador deve rolar 1D20 + Inteligência para determinar o controle sobre si mesmo:</p>
-        <ul>
-            <li>
-                Falha (1-10) → O vampiro entra em Frenesi, atacando sem distinguir aliados e inimigos.
-            </li>
-            <li>
-                Sucesso (11-20) → Ele se controla e pode esperar um pouco mais, mas caso não consuma sangue logo, deverá
-                fazer o teste novamente.
-            </li>
-        </ul>
-        <h1>Tipos de dano</h1>
-        <h3>Dano físico:</h3>
-        <ul>
-            <li>
-                Corte: Espadas, facas e garras.
-            </li>
-            <li>
-                Perfuração: Lanças, flechas, estacas.
-            </li>
-            <li>
-                Esmagamento: Martelos, socos, quedas.
-            </li>
-        </ul>
-        <h3>Dano elemental:</h3>
-        <ul>
-            <li>
-                Fogo: Queimaduras contínuas, ideal contra criaturas vulneráveis a calor.
-            </li>
-            <li>
-                Gelo: Ralentamento e congelamento parcial, reduzindo a agilidade.
-            </li>
-            <li>
-                Raio: Ataques elétricos que podem paralisar ou causar dano em área.
-            </li>
-        </ul>
-        <h3>Dano mágico:</h3>
-        <ul>
-            <li>
-                Luz: Eficaz contra criaturas sombrias e vampiros. Vampiros Iluminados sofrem menos dano deste tipo.
-            </li>
-            <li>
-                Sombra: Magias sombrias, eficazes contra seres de luz e humanos. Vampiros Cultistas têm afinidade aqui.
-            </li>
-        </ul>
-        <h3>Dano Psíquico:</h3>
-        <ul>
-            <li>
-                Afeta a mente, causando confusão, medo ou perda de sanidade. O Ilusionista Vampírico pode causar ou
-                resistir bem a este dano.
-            </li>
-        </ul>
-        <h3>Dano por Veneno:</h3>
-        <ul>
-            <li>
-                Dano contínuo ao longo do tempo, podendo reduzir atributos temporariamente.
-            </li>
-        </ul>
-        <h3>Dano Sagrado:</h3>
-        <ul>
-            <li>Provém de armas abençoadas ou magias divinas. Vampiros são geralmente vulneráveis a esse tipo de dano,
-                exceto o Vampiro Iluminado, que sofre menos.
-            </li>
-        </ul>
-        <h3>Dano Demoníaco:</h3>
-        <ul>
-            <li>
-                Ligado a forças infernais. O Vampiro Cultista é mais resistente e causa mais dano deste tipo.
-            </li>
-        </ul>
-        <h3>Dano Vital:</h3>
-        <ul>
-            <li>
-                Afeta diretamente a essência do ser, ignorando defesas físicas e mágicas. causado por grimórios e
-                canibais
-            </li>
-        </ul>
-        <h1>Classes</h1>
-        <p>
-            As classes são uma parte opcional sendo muito vantajosas caso as queira usar, melhorando diversos atributos
-            e
-            dando vantagens em diversas habilidades
-        </p>
 
-        <h3>Caçador Sombrio</h3>
-        <p>
-            Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se deleita no
-            jogo da caça. Ele rastreia suas presas por dias, até semanas, estudando cada movimento antes de atacar. Seus
-            sentidos, já sobre-humanos, foram aguçados ao ponto de perceber o menor sussurro no vento ou o mais tênue
-            cheiro de medo.
-        </p>
-        <ul>
-            <li>
-                Agilidade aumentada: Aumenta a chance de esquiva e ataques furtivos.[+3 pontos de agilidade]
-            </li>
-            <li>
-                Habilidade de perseguição: Pode rastrear presas com facilidade, seus sentidos foram treinados ao
-                máximo.[vantagem nas trilhas sensoriais, qualquer teste sensorial tem vantagem.]
-            </li>
-            <li>
-                Resistência a ataques furtivos: Difícil de ser pego de surpresa por outros vampiros ou caçadores. [+2
-                pontos de Sangue Ancestral]
-            </li>
-        </ul>
-        <h4>Desvantagens:</h4>
-        <p>
-            Obcecado pela Caça: O Caçador Sombrio não consegue resistir ao impulso de caçar. Sempre que está diante de
-            uma presa em potencial, precisa realizar um teste de Inteligência para evitar persegui-la, independentemente
-            da situação. Falhar no teste pode colocá-lo e seus aliados em risco.
-        </p>
-        <p>
-            Isolamento Natural: A natureza predatória do Caçador Sombrio o torna antissocial. Ele tem dificuldade em
-            formar laços ou cooperar com outros. [-2 de carisma]
-        </p>
-        <h3>Resumo:</h3>
-        <div class="grid">
-            <div class="caixa">+3 de agilidade</div>
-            <div class="caixa">+2 sangue ancestral</div>
-            <div class="caixa">vantagem na trilha sensorial</div>
-            <div class="caixa">-2 carisma</div>
         </div>
-        <h3>Senhor das Sombras</h3>
-        <p>
-            Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside o Senhor das Sombras.
-            Ele não apenas abraçou a noite — tornou-se parte dela. Seu domínio sobre as trevas vai além da simples
-            ausência de luz; as sombras sussurram segredos proibidos, escondem-no de olhos indesejados e dobram-se à sua
-            vontade.
-        </p>
-        <ul>
-            <li>
-                Controle mental aprimorado: Facilita a manipulação de criaturas fracas ou até humanos, forçando-os a
-                fazer sua vontade.[vantagem na trilha da habilidade mental]
-            </li>
-            <li>
-                as sombras o protegem e o ajudam a se defender contra os mal intencionados que tentam descobrir os seus
-                segredos por meio de invasões[+2 pontos de inteligência e sangue ancestral]
-            </li>
-            <li>
-                Transformação em névoa ou sombra: o senhor das sombras tem uma facilidade maior com todo o obscuro, ele
-                ouve as sombras sussurrando em seu ouvido[vantagem na trilha das transformações de névoa e sombra]
-            </li>
-        </ul>
-        <h4>Desvantagens:</h4>
-        <p>
-            Eco Sombrio – As sombras o ouvem tanto quanto ele as ouve. Seu constante contato com a escuridão perturba
-            sua mente, tornando difícil distinguir realidade de ilusão. Sempre que tenta usar sua habilidade de Controle
-            Mental ou Transformação Sombria, deve fazer um teste de Inteligência. Se falhar, escutará sussurros
-            incoerentes ou falsas visões que podem levá-lo a tomar decisões erradas, ou até mesmo traí-lo no momento
-            mais crucial.
-        </p>
-        <h3>Resumo:</h3>
-        <div class="grid">
-            <div class="caixa">+2 de inteligência</div>
-            <div class="caixa">+2 sangue ancestral</div>
-            <div class="caixa">vantagem na trilha da habilidade mental</div>
-            <div class="caixa">vantagem na trilha das transformações de névoa e sombra</div>
+        <div id="danos">
+            <h1>Tipos de dano</h1>
+            <h3>Dano físico:</h3>
+            <ul>
+                <li>
+                    Corte: Espadas, facas e garras.
+                </li>
+                <li>
+                    Perfuração: Lanças, flechas, estacas.
+                </li>
+                <li>
+                    Esmagamento: Martelos, socos, quedas.
+                </li>
+            </ul>
+            <h3>Dano elemental:</h3>
+            <ul>
+                <li>
+                    Fogo: Queimaduras contínuas, ideal contra criaturas vulneráveis a calor.
+                </li>
+                <li>
+                    Gelo: Ralentamento e congelamento parcial, reduzindo a agilidade.
+                </li>
+                <li>
+                    Raio: Ataques elétricos que podem paralisar ou causar dano em área.
+                </li>
+            </ul>
+            <h3>Dano mágico:</h3>
+            <ul>
+                <li>
+                    Luz: Eficaz contra criaturas sombrias e vampiros. Vampiros Iluminados sofrem menos dano deste
+                    tipo.
+                </li>
+                <li>
+                    Sombra: Magias sombrias, eficazes contra seres de luz e humanos. Vampiros Cultistas têm
+                    afinidade
+                    aqui.
+                </li>
+            </ul>
+            <h3>Dano Psíquico:</h3>
+            <ul>
+                <li>
+                    Afeta a mente, causando confusão, medo ou perda de sanidade. O Ilusionista Vampírico pode causar
+                    ou
+                    resistir bem a este dano.
+                </li>
+            </ul>
+            <h3>Dano por Veneno:</h3>
+            <ul>
+                <li>
+                    Dano contínuo ao longo do tempo, podendo reduzir atributos temporariamente.
+                </li>
+            </ul>
+            <h3>Dano Sagrado:</h3>
+            <ul>
+                <li>Provém de armas abençoadas ou magias divinas. Vampiros são geralmente vulneráveis a esse tipo de
+                    dano,
+                    exceto o Vampiro Iluminado, que sofre menos.
+                </li>
+            </ul>
+            <h3>Dano Demoníaco:</h3>
+            <ul>
+                <li>
+                    Ligado a forças infernais. O Vampiro Cultista é mais resistente e causa mais dano deste tipo.
+                </li>
+            </ul>
+            <h3>Dano Vital:</h3>
+            <ul>
+                <li>
+                    Afeta diretamente a essência do ser, ignorando defesas físicas e mágicas. causado por grimórios
+                    e
+                    canibais
+                </li>
+            </ul>
         </div>
-        <h3>Bárbaro Noturno</h3>
-        <p>
-            O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é uma
-            força imparável no campo de batalha, utilizando sua força bruta e resiliência sobrenatural para esmagar
-            inimigos e resistir a ataques devastadores. Alimentado pela escuridão, sua fúria aumenta à medida que o
-            combate se intensifica.
-        </p>
-        <h2>Vantagnes:</h2>
-        <ul>
-            <li>
-                +2 Vigor (aumenta a vida e a resistência a ataques)
-            </li>
-            <li>
-                vantagem na trilha da habilidade Força (dano físico aprimorado)
-            </li>
-        </ul>
-        <h4>Desvantagens:</h4>
-        <ul>
-            <li>
-                -2 Inteligência (impulsivo e focado na brutalidade)
-            </li>
-        </ul>
-        <p>
-            Força da Noite: Ataques físicos causam 1D4 de dano durante a noite ou em ambientes escuros.
-            Pele de Ferro Sombria: A sua velocidade e defesa aumentam por sua vontade e ânsia pela batalha +5 de
-            agilidade.
-        </p>
-        <h3>Resumo:</h3>
-        <div class="grid">
-            <div class="caixa">+2 de vigor</div>
-            <div class="caixa">-2 de inteligência</div>
-            <div class="caixa">vantagem na trilha da habilidade Força </div>
-            <div class="caixa">1D4 de dano durante a noite</div>
-        </div>
-        <h3>Ilusionista Vampírico</h3>
-        <p>
-            O Ilusionista Vampírico é um mestre da manipulação mental e do engano. Capaz de distorcer a realidade e
-            controlar as mentes daqueles ao seu redor, este vampiro utiliza suas habilidades para confundir inimigos,
-            criar ilusões e assumir o controle do campo de batalha sem levantar um dedo. Suas artes sombrias são tanto
-            uma arma quanto uma defesa, tornando-o um oponente imprevisível.
-        </p>
-        <ul>
-            <li>
-                +2 Inteligência (melhora o controle mental e resistência a manipulação)
-            </li>
-            <li>
-                +2 Carisma (aperfeiçoa interações sociais e o poder de persuasão)
-            </li>
-            <li>
-                O vampiro tem dificuldades com armas de combate físico e se dá melhor com armas e magias.
-            </li>
-        </ul>
-        <p>
-            Manipulação das Emoções: Capacidade de alterar os sentimentos e pensamentos de outras criaturas. [vantagem
-            em testes de controle mental e persuasão].
-        </p>
-        <h4>Desvantagens:</h4>
-        <p>
-            Fragilidade Física: Menor resistência a ataques físicos<br>[-3 de vigor]
-        </p>
-        <h4>Itens iniciais</h4>
-        <ul>
-            <li>
-                Um baralho completo
-            </li>
-            <li>
-                Um pendulo
-            </li>
-            <li>
-                2 moedas de ouro
-            </li>
-        </ul>
-        <h3>Resumo:</h3>
-        <div class="grid">
-            <div class="caixa">+2 de Carisma</div>
-            <div class="caixa">+2 de Inteligência</div>
-            <div class="caixa">Vantagem em testes de controle mental e persuasão</div>
-            <div class="caixa">Dificuldades com armas de combate físico</div>
-            <div class="caixa">-3 vigor</div>
-            <div class="caixa">Se dá melhor com armas e magias.</div>
-        </div>
-        <h3>Vampiro Cultista</h3>
-        <p>
-            O Vampiro Cultista trilha o caminho das trevas, dedicando-se a forças malignas em busca de poder absoluto.
-            Essa devoção concede acesso a magias sombrias, transformações demoníacas e uma conexão natural com armas
-            demoníacas. No entanto, essa aliança cobra seu preço, afetando sua sanidade e tornando-o vulnerável a luz
-            sagrada.
-        </p>
-        <ul>
-            <li>
-                +2 Sangue Ancestral (pela conexão com as forças malignas)
-            </li>
-            <li>
-                +1 Inteligência (pela manipulação de magias e rituais)
-            </li>
-        </ul>
-        <p>
-            Afinidade Demoníaca: Armas demoníacas causam +2 de dano e não exigem testes de afinidade para uso.
-            Mente Corrompida: Recebe vantagem em resistir a controle mental de outras criaturas, mas sofre desvantagem
-            contra magias de luz e sagrada.
-        </p>
-        <p>
-            Rituais de Sangue: Pode usar o próprio sangue para realizar rituais sombrios, sacrificando pontos de vida
-            para ganhar bônus temporários em transformações ou habilidades.
-        </p>
-        <h4>Desvantagens</h4>
-        <ul>
-            <li>
-                -1 Carisma (devido à aura perturbadora que emana)
-            </li>
-            <li>
-                Caso fique muito tempo longe de sua divindade ele irá perder sanidade.
-            </li>
-        </ul>
-        <h3>Divindades:</h3>
-        <h4>Cthulhu, o caos</h4>
-        <p>
-            um monstro abissal, que apenas o pensar sobre já o enlouquece, os vampiros que o seguem adoram o caos e
-            fazem as suas vontades.
-        </p>
-        <h4>Velka, a Senhora dos Lamentos</h4>
-        <p>
-            Deusa da tristeza e do amor perdido. Dizem que ela chora por cada alma condenada a vagar eternamente. Muitos
-            vampiros românticos a veneram, buscando conforto ou redenção.
-        </p>
-        <h4>Draeven, o Devorador de Almas </h4>
-        <p>
-            Deus do terror e da loucura. Ele corrompe vampiros e mortais, transformando-os em criaturas bestiais.
-            Adorado por cultistas que desejam se fundir com a escuridão absoluta.
-        </p>
-        <h4>Nytheris, a Dama do Eclipse</h4>
-        <p>
-            Deusa da noite eterna e do silêncio. Seus seguidores acreditam que a escuridão é um santuário e buscam viver
-            na sombra.
-        </p>
-        <h4>Sanguara, a Guardiã da Maldição</h4>
-        <p>
+        <div id="classe">
+            <h1>Classes</h1>
+            <p>
+                As classes são uma parte opcional sendo muito vantajosas caso as queira usar, melhorando diversos
+                atributos
+                e
+                dando vantagens em diversas habilidades
+            </p>
+            <a onclick="mostrar('cacador')"></a>
+            <div class="cacadorSombrioCabecalho">
+                Caçador Sombrio
+            </div>
+            <div id="cacador">
+                <h3>Caçador Sombrio</h3>
+                <p>
+                    Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se
+                    deleita
+                    no
+                    jogo da caça. Ele rastreia suas presas por dias, até semanas, estudando cada movimento antes de
+                    atacar.
+                    Seus
+                    sentidos, já sobre-humanos, foram aguçados ao ponto de perceber o menor sussurro no vento ou o mais
+                    tênue
+                    cheiro de medo.
+                </p>
+                <ul>
+                    <li>
+                        Agilidade aumentada: Aumenta a chance de esquiva e ataques furtivos.[+3 pontos de agilidade]
+                    </li>
+                    <li>
+                        Habilidade de perseguição: Pode rastrear presas com facilidade, seus sentidos foram treinados ao
+                        máximo.[vantagem nas trilhas sensoriais, qualquer teste sensorial tem vantagem.]
+                    </li>
+                    <li>
+                        Resistência a ataques furtivos: Difícil de ser pego de surpresa por outros vampiros ou
+                        caçadores.
+                        [+2
+                        pontos de Sangue Ancestral]
+                    </li>
+                </ul>
+                <h4>Desvantagens:</h4>
+                <p>
+                    Obcecado pela Caça: O Caçador Sombrio não consegue resistir ao impulso de caçar. Sempre que está
+                    diante
+                    de
+                    uma presa em potencial, precisa realizar um teste de Inteligência para evitar persegui-la,
+                    independentemente
+                    da situação. Falhar no teste pode colocá-lo e seus aliados em risco.
+                </p>
+                <p>
+                    Isolamento Natural: A natureza predatória do Caçador Sombrio o torna antissocial. Ele tem
+                    dificuldade em
+                    formar laços ou cooperar com outros. [-2 de carisma]
+                </p>
+                <h3>Resumo:</h3>
+                <div class="grid">
+                    <div class="caixa">+3 de agilidade</div>
+                    <div class="caixa">+2 sangue ancestral</div>
+                    <div class="caixa">vantagem na trilha sensorial</div>
+                    <div class="caixa">-2 carisma</div>
+                </div>
+            </div>
+            <div id="senhor">
+                <h3>Senhor das Sombras</h3>
+                <p>
+                    Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside o Senhor das
+                    Sombras.
+                    Ele não apenas abraçou a noite — tornou-se parte dela. Seu domínio sobre as trevas vai além da
+                    simples
+                    ausência de luz; as sombras sussurram segredos proibidos, escondem-no de olhos indesejados e
+                    dobram-se à
+                    sua
+                    vontade.
+                </p>
+                <ul>
+                    <li>
+                        Controle mental aprimorado: Facilita a manipulação de criaturas fracas ou até humanos,
+                        forçando-os a
+                        fazer sua vontade.[vantagem na trilha da habilidade mental]
+                    </li>
+                    <li>
+                        as sombras o protegem e o ajudam a se defender contra os mal intencionados que tentam descobrir
+                        os
+                        seus
+                        segredos por meio de invasões[+2 pontos de inteligência e sangue ancestral]
+                    </li>
+                    <li>
+                        Transformação em névoa ou sombra: o senhor das sombras tem uma facilidade maior com todo o
+                        obscuro,
+                        ele
+                        ouve as sombras sussurrando em seu ouvido[vantagem na trilha das transformações de névoa e
+                        sombra]
+                    </li>
+                </ul>
+                <h4>Desvantagens:</h4>
+                <p>
+                    Eco Sombrio – As sombras o ouvem tanto quanto ele as ouve. Seu constante contato com a escuridão
+                    perturba
+                    sua mente, tornando difícil distinguir realidade de ilusão. Sempre que tenta usar sua habilidade de
+                    Controle
+                    Mental ou Transformação Sombria, deve fazer um teste de Inteligência. Se falhar, escutará sussurros
+                    incoerentes ou falsas visões que podem levá-lo a tomar decisões erradas, ou até mesmo traí-lo no
+                    momento
+                    mais crucial.
+                </p>
+                <h3>Resumo:</h3>
+                <div class="grid">
+                    <div class="caixa">+2 de inteligência</div>
+                    <div class="caixa">+2 sangue ancestral</div>
+                    <div class="caixa">vantagem na trilha da habilidade mental</div>
+                    <div class="caixa">vantagem na trilha das transformações de névoa e sombra</div>
+                </div>
+            </div>
+            <div id="barbaro">
+                <h3>Bárbaro Noturno</h3>
+                <p>
+                    O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é
+                    uma
+                    força imparável no campo de batalha, utilizando sua força bruta e resiliência sobrenatural para
+                    esmagar
+                    inimigos e resistir a ataques devastadores. Alimentado pela escuridão, sua fúria aumenta à medida
+                    que o
+                    combate se intensifica.
+                </p>
+                <h2>Vantagnes:</h2>
+                <ul>
+                    <li>
+                        +2 Vigor (aumenta a vida e a resistência a ataques)
+                    </li>
+                    <li>
+                        vantagem na trilha da habilidade Força (dano físico aprimorado)
+                    </li>
+                </ul>
+                <h4>Desvantagens:</h4>
+                <ul>
+                    <li>
+                        -2 Inteligência (impulsivo e focado na brutalidade)
+                    </li>
+                </ul>
+                <p>
+                    Força da Noite: Ataques físicos causam 1D4 de dano durante a noite ou em ambientes escuros.
+                    Pele de Ferro Sombria: A sua velocidade e defesa aumentam por sua vontade e ânsia pela batalha +5 de
+                    agilidade.
+                </p>
+                <h3>Resumo:</h3>
+                <div class="grid">
+                    <div class="caixa">+2 de vigor</div>
+                    <div class="caixa">-2 de inteligência</div>
+                    <div class="caixa">vantagem na trilha da habilidade Força </div>
+                    <div class="caixa">1D4 de dano durante a noite</div>
+                </div>
+            </div>
+            <div id="ilusionista">
+                <h3>Ilusionista Vampírico</h3>
+                <p>
+                    O Ilusionista Vampírico é um mestre da manipulação mental e do engano. Capaz de distorcer a
+                    realidade e
+                    controlar as mentes daqueles ao seu redor, este vampiro utiliza suas habilidades para confundir
+                    inimigos,
+                    criar ilusões e assumir o controle do campo de batalha sem levantar um dedo. Suas artes sombrias são
+                    tanto
+                    uma arma quanto uma defesa, tornando-o um oponente imprevisível.
+                </p>
+                <ul>
+                    <li>
+                        +2 Inteligência (melhora o controle mental e resistência a manipulação)
+                    </li>
+                    <li>
+                        +2 Carisma (aperfeiçoa interações sociais e o poder de persuasão)
+                    </li>
+                    <li>
+                        O vampiro tem dificuldades com armas de combate físico e se dá melhor com armas e magias.
+                    </li>
+                </ul>
+                <p>
+                    Manipulação das Emoções: Capacidade de alterar os sentimentos e pensamentos de outras criaturas.
+                    [vantagem
+                    em testes de controle mental e persuasão].
+                </p>
+                <h4>Desvantagens:</h4>
+                <p>
+                    Fragilidade Física: Menor resistência a ataques físicos<br>[-3 de vigor]
+                </p>
+                <h4>Itens iniciais</h4>
+                <ul>
+                    <li>
+                        Um baralho completo
+                    </li>
+                    <li>
+                        Um pendulo
+                    </li>
+                    <li>
+                        2 moedas de ouro
+                    </li>
+                </ul>
+                <h3>Resumo:</h3>
+                <div class="grid">
+                    <div class="caixa">+2 de Carisma</div>
+                    <div class="caixa">+2 de Inteligência</div>
+                    <div class="caixa">Vantagem em testes de controle mental e persuasão</div>
+                    <div class="caixa">Dificuldades com armas de combate físico</div>
+                    <div class="caixa">-3 vigor</div>
+                    <div class="caixa">Se dá melhor com armas e magias.</div>
+                </div>
+            </div>
+            <div id="cultista">
+                <h3>Vampiro Cultista</h3>
+                <p>
+                    O Vampiro Cultista trilha o caminho das trevas, dedicando-se a forças malignas em busca de poder
+                    absoluto.
+                    Essa devoção concede acesso a magias sombrias, transformações demoníacas e uma conexão natural com
+                    armas
+                    demoníacas. No entanto, essa aliança cobra seu preço, afetando sua sanidade e tornando-o vulnerável
+                    a
+                    luz
+                    sagrada.
+                </p>
+                <ul>
+                    <li>
+                        +2 Sangue Ancestral (pela conexão com as forças malignas)
+                    </li>
+                    <li>
+                        +1 Inteligência (pela manipulação de magias e rituais)
+                    </li>
+                </ul>
+                <p>
+                    Afinidade Demoníaca: Armas demoníacas causam +2 de dano e não exigem testes de afinidade para uso.
+                    Mente Corrompida: Recebe vantagem em resistir a controle mental de outras criaturas, mas sofre
+                    desvantagem
+                    contra magias de luz e sagrada.
+                </p>
+                <p>
+                    Rituais de Sangue: Pode usar o próprio sangue para realizar rituais sombrios, sacrificando pontos de
+                    vida
+                    para ganhar bônus temporários em transformações ou habilidades.
+                </p>
+                <h4>Desvantagens</h4>
+                <ul>
+                    <li>
+                        -1 Carisma (devido à aura perturbadora que emana)
+                    </li>
+                    <li>
+                        Caso fique muito tempo longe de sua divindade ele irá perder sanidade.
+                    </li>
+                </ul>
+                <h3>Divindades:</h3>
+                <h4>Cthulhu, o caos</h4>
+                <p>
+                    um monstro abissal, que apenas o pensar sobre já o enlouquece, os vampiros que o seguem adoram o
+                    caos e
+                    fazem as suas vontades.
+                </p>
+                <h4>Velka, a Senhora dos Lamentos</h4>
+                <p>
+                    Deusa da tristeza e do amor perdido. Dizem que ela chora por cada alma condenada a vagar
+                    eternamente.
+                    Muitos
+                    vampiros românticos a veneram, buscando conforto ou redenção.
+                </p>
+                <h4>Draeven, o Devorador de Almas </h4>
+                <p>
+                    Deus do terror e da loucura. Ele corrompe vampiros e mortais, transformando-os em criaturas
+                    bestiais.
+                    Adorado por cultistas que desejam se fundir com a escuridão absoluta.
+                </p>
+                <h4>Nytheris, a Dama do Eclipse</h4>
+                <p>
+                    Deusa da noite eterna e do silêncio. Seus seguidores acreditam que a escuridão é um santuário e
+                    buscam
+                    viver
+                    na sombra.
+                </p>
+                <h4>Sanguara, a Guardiã da Maldição</h4>
+                <p>
 
-            Deusa que criou o primeiro vampiro. Seus seguidores acreditam que os vampiros são tanto um fardo quanto uma
-            dádiva. Alguns a veneram buscando redenção, enquanto outros abraçam sua maldição.
-        </p>
-        <h4>Itens iniciais:</h4>
-        <ul>
-            <li>
-                Um papel com algumas escritas antigas
-            </li>
-            <li>
-                Sangue para ritual
-            </li>
-            <li>
-                5 moedas de ouro
-            </li>
-            <li>
-                Uma túnica surrada
-            </li>
-        </ul>
+                    Deusa que criou o primeiro vampiro. Seus seguidores acreditam que os vampiros são tanto um fardo
+                    quanto
+                    uma
+                    dádiva. Alguns a veneram buscando redenção, enquanto outros abraçam sua maldição.
+                </p>
+                <h4>Itens iniciais:</h4>
+                <ul>
+                    <li>
+                        Um papel com algumas escritas antigas
+                    </li>
+                    <li>
+                        Sangue para ritual
+                    </li>
+                    <li>
+                        5 moedas de ouro
+                    </li>
+                    <li>
+                        Uma túnica surrada
+                    </li>
+                </ul>
+                <h3>Resumo:</h3>
+                <div class="grid">
+                    <div class="caixa">+2 sangue ancestral</div>
+                    <div class="caixa">+ 1 de inteligência</div>
+                    <div class="caixa">-1 carisma</div>
+                    <div class="caixa">+2 de dano com armas demoníacas</div>
+                    <div class="caixa">Fraco a danos sagrados e de luz</div>
+                    <div class="caixa">Vantagens em testes de resistência a controle mental</div>
+                </div>
+            </div>
+
+            <h3>Vampiro iluminado</h3>
+            <p>
+                O Vampiro Iluminado carrega consigo a fé e os princípios de sua vida passada. Lutando contra a corrupção
+                inerente da maldição vampírica, ele busca manter sua humanidade e usar sua condição para proteger outros
+                dos
+                horrores que enfrentou. Sua conexão com o sagrado é única, permitindo-lhe empunhar armas abençoadas e
+                resistir melhor a ataques de luz, mas sua relutância em aceitar a verdadeira natureza vampírica o torna
+                menos poderoso em habilidades sombrias.
+            </p>
+            <ul>
+                <li>+2 Carisma (pela presença inspiradora e aura de fé)</li>
+                <li>
+                    +1 Inteligência (pela sabedoria acumulada de sua fé)
+                </li>
+                <li>
+                    -5 Sangue Ancestral (pela rejeição às forças malignas que alimentam o poder vampírico)
+                </li>
+            </ul>
+            <p>
+                <strong>Resistência Sagrada:</strong> Recebe 1d4 a menos de dano de ataques sagrados e de luz.
+                <strong>Afinidade Abençoada:</strong> Armas abençoadas causam +2 de dano e podem ser imbuídas com
+                efeitos de
+                luz.
+                <strong>Humanidade Preservada:</strong> Testes para resistir ao frenesi ou impulsos bestiais têm
+                vantagem.
+                Além disso, o Vampiro Iluminado mantém sua aparência mais humana, passando despercebido em ambientes
+                sociais.
+                a cada habilidade sombria adquirida o jogador deve rolar um teste para saber se Deus ainda o vê
+            </p>
+            <p>
+                Sempre que o Vampiro Iluminado adquirir ou utilizar uma habilidade sombria, deve realizar um Teste de Fé
+                para determinar se ainda mantém a conexão com sua divindade.
+            </p>
+            <ul>
+                <li>
+                    Teste de Fé: 1D20 + Carisma
+                </li>
+                <li>
+                    Resultado 15 ou mais: A divindade ainda o vê com compaixão, sem penalidades.
+                </li>
+                <li>
+                    Resultado entre 10 e 14: A conexão enfraquece. O personagem perde 5 de sanidade.
+                </li>
+                <li>
+                    Resultado abaixo de 10: O personagem perde temporariamente as habilidades sagradas e recebe
+                    desvantagem
+                    em testes relacionados à fé até realizar um ritual de redenção.
+                </li>
+            </ul>
+            <h4>Itens iniciais</h4>
+            <ul>
+                <li>
+                    um par de luvas brancas
+                </li>
+                <li>
+                    Uma bíblia de bolso
+                </li>
+                <li>
+                    5 moedas de ouro
+                </li>
+            </ul>
+            <h3>Resumo:</h3>
+            <div class="grid">
+                <div class="caixa">+2 de carisma</div>
+                <div class="caixa">+ 1 de inteligência</div>
+                <div class="caixa">-5 de sangue ancestral</div>
+                <div class="caixa"> Armas abençoadas causam +2 de dano</div>
+                <div class="caixa">Testes para resistir ao frenesi ou impulsos bestiais têm vantagem</div>
+                <div class="caixa">Sempre que o Vampiro Iluminado adquirir ou utilizar uma habilidade sombria, deve
+                    realizar
+                    um Teste de Fé</div>
+            </div>
+            <h3>Vampiro flagelador
+            </h3>
+            <p>
+                Para o Vampiro Flagelador, a dor não é um fardo, mas uma fonte de poder. Cada ferida, cada gota de
+                sangue
+                derramada é um catalisador que transforma sofrimento em força bruta. Eles são mestres em utilizar o
+                próprio
+                corpo como arma, infligindo dor a si mesmos para liberar habilidades devastadoras. Suas cicatrizes
+                contam
+                histórias de batalhas onde a agonia foi sua maior aliada.
+            </p>
+            <ul>
+                <li>
+                    +3 Sangue Ancestral (capacidade de suportar e transformar dor em poder)
+                </li>
+                <li>
+                    +1 Agilidade (reflexos rápidos para ataques precisos e auto-flagelação controlada)
+                </li>
+                <li>
+                    -1 Carisma (a aparência macabra e comportamento perturbador afastam os outros)
+                </li>
+            </ul>
+            <p>
+                <strong>Dor Revigorante:</strong> Sempre que o Vampiro Flagelador recebe dano, ele dará +1 de dano no
+                próximo turno.
+                <strong>Tolerância Sobrenatural:</strong> Imune a efeitos de dor ou atordoamento que afetariam o foco ou
+                movimento.
+            </p>
+            <h4>Desvantagens:</h4>
+            <p>
+                <strong>Dependente da Dor:</strong> Habilidades causam menos dano ou falham caso o Vampiro Flagelador
+                esteja
+                com vida cheia.
+                <strong>Instabilidade Mental:</strong> Testes para resistir a efeitos mentais têm desvantagem, pois o
+                sofrimento constante o deixa vulnerável a manipulações.
+            </p>
+            <h4>Itens Iniciais:</h4>
+            <ul>
+                <li>
+                    faca desgastada - 1d4 de dano
+                </li>
+                <li>
+                    frasco vazio
+                </li>
+                <li>
+                    3 moedas de bronze
+                </li>
+            </ul>
+            <h3>Resumo: </h3>
+            <div class="grid">
+                <div class="caixa">+3 de sangue ancestral</div>
+                <div class="caixa">+ 1 de agilidade</div>
+                <div class="caixa">-1 de carisma</div>
+                <div class="caixa">Recebeu um dano, dará +1 de dano no próximo turno</div>
+                <div class="caixa">Imune a efeitos de dor ou atordoamento</div>
+                <div class="caixa">Testes para resistir a efeitos mentais têm desvantagem</div>
+            </div>
+            <h3>Vampiro Canibal</h3>
+            <p>
+                O Vampiro Canibal é uma criatura temida até mesmo entre os da sua espécie. Alimenta-se do sangue de
+                outros
+                vampiros, extraindo deles não apenas sua vitalidade, mas também parte de seus poderes. No entanto, cada
+                gota
+                consumida o aproxima da loucura. Este vampiro vive no limite entre o poder absoluto e a autodestruição.
+            </p>
+            <h4>Bônus de Atributos:</h4>
+            <ul>
+                <li>+3 Sangue Ancestral e vigor(fortalece suas transformações e resistência)</li>
+                <li>
+                    -2 Carisma (sua natureza predatória o torna assustador e repulsivo para outros vampiros)
+                </li>
+                <li>
+                    A classe canibal é uma das únicas que inflige o dano vital
+                </li>
+            </ul>
+            <p>
+                <strong>Predador da Noite:</strong> Ao consumir o sangue de outros vampiros, recupera rapidamente vida e
+                ganha um bônus temporário diversos tipos de teste por 2 turnos.
+                <strong>Fome Eterna:</strong> Sempre que um vampiro inimigo estiver a menos de 5 metros, o Vampiro
+                Canibal
+                sente sua presença e tem vantagem em rastreá-lo.
+            </p>
+            <h4>Desvantagens:</h4>
+            <p>
+                <strong>Perda de Sanidade:</strong> A cada vez que consome sangue vampírico, deve realizar um teste de
+                Inteligência. Falhar no teste faz com que o Vampiro Canibal perca parte de sua sanidade.
+                <strong>Rejeição Social:</strong> Outros vampiros percebem sua natureza predatória, tornando interações
+                sociais com sua espécie extremamente difíceis.
+            </p>
+            <h4>Itens Iniciais:</h4>
+            <ul>
+                <li>
+                    Faca desgastada - 1d4 de dano
+
+                </li>
+                <li>
+                    Frasco vazio
+                </li>
+                <li>
+                    3 moedas de bronze
+                </li>
+            </ul>
+            <h3>Resumo: </h3>
+            <div class="grid">
+                <div class="caixa">+3 de sangue ancestral</div>
+                <div class="caixa">-2 de carisma</div>
+                <div class="caixa">Inflige o dano vital</div>
+                <div class="caixa">Sangue de vampiro recupera vida</div>
+                <div class="caixa">Beber sangue de vampiro, teste de sanidade</div>
+                <div class="caixa">Vantagem em rastreio</div>
+            </div>
+            <h1>Recado Final - Classes</h1>
+            <p>
+                Reforçando, as classes não são obrigatórias, mas podem adicionar profundidade ao personagem e oferecer
+                diversas vantagens ao vampiro.
+            </p>
+        </div>
+
     </div>
-
     <footer>
         <div class="footer-links">
             <h4>Links Rápidos</h4>
@@ -552,3 +849,96 @@
 </body>
 
 </html>
+<script>
+    jogabilidade.style.display = "none"
+    atributos.style.display = "none"
+    sistemas.style.display = "none"
+    sangue.style.display = "none"
+    danos.style.display = "none"
+    classe.style.display = "none"
+
+    classes = {
+        cacador: document.getElementById('cacador'),
+        barbaro: document.getElementById('barbaro'),
+        ilusionista: document.getElementById('ilusionista'),
+        senhor: document.getElementById('senhor'),
+        cultista: document.getElementById('cultista'),
+        iluminado: document.getElementById('iluminado'),
+        flagelador: document.getElementById('flagelador'),
+        canibal: document.getElementById('canibal')
+    };
+
+    function mostrarIntroducao() {
+        introducao.style.display = ""
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classe.style.display = "none"
+    }
+
+    function mostrarJogabilidade() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = ""
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classe.style.display = "none"
+    }
+
+    function mostrarAtributos() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = ""
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classe.style.display = "none"
+    }
+
+    function mostrarSistemas() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = ""
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classes.style.display = "none"
+    }
+
+    function mostrarSangue() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = ""
+        danos.style.display = "none"
+        classe.style.display = "none"
+    }
+
+    function mostrarDano() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = ""
+        classes.style.display = "none"
+    }
+
+    function mostrarClasses() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classe.style.display = ""
+    }
+    function mostrar(item) {
+
+        classes[item].style.display = ""
+    }
+</script>

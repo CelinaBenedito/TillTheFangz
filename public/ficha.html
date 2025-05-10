@@ -31,7 +31,7 @@
     <div class="conteudo" id="div_conteudo">
         <div class="inicial">
             <h2>Nenhum personagem encontrado!</h2>
-            <button onclick="inicio()">Criar Personagem</button>
+            <button onclick="inicio()"><i class='bx bx-plus-medical'></i> Criar Personagem</button>
         </div>
     </div>
     <div class="conteudo">
@@ -86,7 +86,7 @@
             }
             classes = {
                 cacador: document.getElementById('cacador'),
-                barabaro: document.getElementById('barbaro'),
+                barbaro: document.getElementById('barbaro'),
                 ilusionista: document.getElementById('ilusionista'),
                 senhor: document.getElementById('senhor'),
                 cultista: document.getElementById('cultista'),
@@ -184,6 +184,381 @@
         <br>
         <button onclick="fechar('senhor')">Fechar</button>
         `
+            }
+
+            if (classes['barbaro']) {
+                desc_barbaro.innerHTML = `
+                <h3>Bárbaro Noturno</h3>
+        <p>
+            O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é uma
+            força imparável no campo de batalha, utilizando sua força bruta e resiliência sobrenatural para esmagar
+            inimigos e resistir a ataques devastadores. Alimentado pela escuridão, sua fúria aumenta à medida que o
+            combate se intensifica.
+        </p>
+        <h2>Vantagnes:</h2>
+        <ul>
+            <li>
+                +2 Vigor (aumenta a vida e a resistência a ataques)
+            </li>
+            <li>
+                vantagem na trilha da habilidade Força (dano físico aprimorado)
+            </li>
+        </ul>
+        <h4>Desvantagens:</h4>
+        <ul>
+            <li>
+                -2 Inteligência (impulsivo e focado na brutalidade)
+            </li>
+        </ul>
+        <p>
+            Força da Noite: Ataques físicos causam 1D4 de dano durante a noite ou em ambientes escuros.
+            Pele de Ferro Sombria: A sua velocidade e defesa aumentam por sua vontade e ânsia pela batalha +5 de
+            agilidade.
+        </p>
+        <h3>Resumo:</h3>
+        <div class="grid">
+            <div class="caixa">+2 de vigor</div>
+            <div class="caixa">-2 de inteligência</div>
+            <div class="caixa">vantagem na trilha da habilidade Força </div>
+            <div class="caixa">1D4 de dano durante a noite</div>
+        </div>
+                <button onclick="fechar('barbaro')">Fechar</button>`
+            }
+
+            if (classes['ilusionista']) {
+                desc_ilusionista.innerHTML = `
+                <h3>Ilusionista Vampírico</h3>
+        <p>
+            O Ilusionista Vampírico é um mestre da manipulação mental e do engano. Capaz de distorcer a realidade e
+            controlar as mentes daqueles ao seu redor, este vampiro utiliza suas habilidades para confundir inimigos,
+            criar ilusões e assumir o controle do campo de batalha sem levantar um dedo. Suas artes sombrias são tanto
+            uma arma quanto uma defesa, tornando-o um oponente imprevisível.
+        </p>
+        <ul>
+            <li>
+                +2 Inteligência (melhora o controle mental e resistência a manipulação)
+            </li>
+            <li>
+                +2 Carisma (aperfeiçoa interações sociais e o poder de persuasão)
+            </li>
+            <li>
+                O vampiro tem dificuldades com armas de combate físico e se dá melhor com armas e magias.
+            </li>
+        </ul>
+        <p>
+            Manipulação das Emoções: Capacidade de alterar os sentimentos e pensamentos de outras criaturas. [vantagem
+            em testes de controle mental e persuasão].
+        </p>
+        <h4>Desvantagens:</h4>
+        <p>
+            Fragilidade Física: Menor resistência a ataques físicos<br>[-3 de vigor]
+        </p>
+        <h4>Itens iniciais</h4>
+        <ul>
+            <li>
+                Um baralho completo
+            </li>
+            <li>
+                Um pendulo
+            </li>
+            <li>
+                2 moedas de ouro
+            </li>
+        </ul>
+        <h3>Resumo:</h3>
+        <div class="grid">
+            <div class="caixa">+2 de Carisma</div>
+            <div class="caixa">+2 de Inteligência</div>
+            <div class="caixa">Vantagem em testes de controle mental e persuasão</div>
+            <div class="caixa">Dificuldades com armas de combate físico</div>
+            <div class="caixa">-3 vigor</div>
+            <div class="caixa">Se dá melhor com armas e magias.</div>
+        </div>
+        <button onclick="fechar('ilusionista')">Fechar</button>
+                `
+            }
+
+            if (classes['cultista']) {
+                desc_cultista.innerHTML = `
+            <h3>Vampiro Cultista</h3>
+        <p>
+            O Vampiro Cultista trilha o caminho das trevas, dedicando-se a forças malignas em busca de poder absoluto.
+            Essa devoção concede acesso a magias sombrias, transformações demoníacas e uma conexão natural com armas
+            demoníacas. No entanto, essa aliança cobra seu preço, afetando sua sanidade e tornando-o vulnerável a luz
+            sagrada.
+        </p>
+        <ul>
+            <li>
+                +2 Sangue Ancestral (pela conexão com as forças malignas)
+            </li>
+            <li>
+                +1 Inteligência (pela manipulação de magias e rituais)
+            </li>
+        </ul>
+        <p>
+            Afinidade Demoníaca: Armas demoníacas causam +2 de dano e não exigem testes de afinidade para uso.
+            Mente Corrompida: Recebe vantagem em resistir a controle mental de outras criaturas, mas sofre desvantagem
+            contra magias de luz e sagrada.
+        </p>
+        <p>
+            Rituais de Sangue: Pode usar o próprio sangue para realizar rituais sombrios, sacrificando pontos de vida
+            para ganhar bônus temporários em transformações ou habilidades.
+        </p>
+        <h4>Desvantagens</h4>
+        <ul>
+            <li>
+                -1 Carisma (devido à aura perturbadora que emana)
+            </li>
+            <li>
+                Caso fique muito tempo longe de sua divindade ele irá perder sanidade.
+            </li>
+        </ul>
+        <h3>Divindades:</h3>
+        <h4>Cthulhu, o caos</h4>
+        <p>
+            um monstro abissal, que apenas o pensar sobre já o enlouquece, os vampiros que o seguem adoram o caos e
+            fazem as suas vontades.
+        </p>
+        <h4>Velka, a Senhora dos Lamentos</h4>
+        <p>
+            Deusa da tristeza e do amor perdido. Dizem que ela chora por cada alma condenada a vagar eternamente. Muitos
+            vampiros românticos a veneram, buscando conforto ou redenção.
+        </p>
+        <h4>Draeven, o Devorador de Almas </h4>
+        <p>
+            Deus do terror e da loucura. Ele corrompe vampiros e mortais, transformando-os em criaturas bestiais.
+            Adorado por cultistas que desejam se fundir com a escuridão absoluta.
+        </p>
+        <h4>Nytheris, a Dama do Eclipse</h4>
+        <p>
+            Deusa da noite eterna e do silêncio. Seus seguidores acreditam que a escuridão é um santuário e buscam viver
+            na sombra.
+        </p>
+        <h4>Sanguara, a Guardiã da Maldição</h4>
+        <p>
+
+            Deusa que criou o primeiro vampiro. Seus seguidores acreditam que os vampiros são tanto um fardo quanto uma
+            dádiva. Alguns a veneram buscando redenção, enquanto outros abraçam sua maldição.
+        </p>
+        <h4>Itens iniciais:</h4>
+        <ul>
+            <li>
+                Um papel com algumas escritas antigas
+            </li>
+            <li>
+                Sangue para ritual
+            </li>
+            <li>
+                5 moedas de ouro
+            </li>
+            <li>
+                Uma túnica surrada
+            </li>
+        </ul>
+        <h3>Resumo:</h3>
+                <div class="grid">
+            <div class="caixa">+2 sangue ancestral</div>
+            <div class="caixa">+ 1 de inteligência</div>
+            <div class="caixa">-1 carisma</div>
+            <div class="caixa">+2 de dano com armas demoníacas</div>
+            <div class="caixa">Fraco a danos sagrados e de luz</div>
+            <div class="caixa">Vantagens em testes de resistência a controle mental</div>
+    </div>
+    <br>
+
+        <button onclick="fechar('cultista')">Fechar</button>
+            `
+            }
+           
+            if (classes['iluminado']) {
+                desc_iluminado.innerHTML = `
+                        <h3>Vampiro iluminado</h3>
+        <p>
+            O Vampiro Iluminado carrega consigo a fé e os princípios de sua vida passada. Lutando contra a corrupção
+            inerente da maldição vampírica, ele busca manter sua humanidade e usar sua condição para proteger outros dos
+            horrores que enfrentou. Sua conexão com o sagrado é única, permitindo-lhe empunhar armas abençoadas e
+            resistir melhor a ataques de luz, mas sua relutância em aceitar a verdadeira natureza vampírica o torna
+            menos poderoso em habilidades sombrias.
+        </p>
+        <ul>
+            <li>+2 Carisma (pela presença inspiradora e aura de fé)</li>
+            <li>
+                +1 Inteligência (pela sabedoria acumulada de sua fé)
+            </li>
+            <li>
+                -5 Sangue Ancestral (pela rejeição às forças malignas que alimentam o poder vampírico)
+            </li>
+        </ul>
+        <p>
+            <strong>Resistência Sagrada:</strong> Recebe 1d4 a menos de dano de ataques sagrados e de luz.
+            <strong>Afinidade Abençoada:</strong> Armas abençoadas causam +2 de dano e podem ser imbuídas com efeitos de
+            luz.
+            <strong>Humanidade Preservada:</strong> Testes para resistir ao frenesi ou impulsos bestiais têm vantagem.
+            Além disso, o Vampiro Iluminado mantém sua aparência mais humana, passando despercebido em ambientes
+            sociais.
+            a cada habilidade sombria adquirida o jogador deve rolar um teste para saber se Deus ainda o vê
+        </p>
+        <p>
+            Sempre que o Vampiro Iluminado adquirir ou utilizar uma habilidade sombria, deve realizar um Teste de Fé
+            para determinar se ainda mantém a conexão com sua divindade.
+        </p>
+        <ul>
+            <li>
+                Teste de Fé: 1D20 + Carisma
+            </li>
+            <li>
+                Resultado 15 ou mais: A divindade ainda o vê com compaixão, sem penalidades.
+            </li>
+            <li>
+                Resultado entre 10 e 14: A conexão enfraquece. O personagem perde 5 de sanidade.
+            </li>
+            <li>
+                Resultado abaixo de 10: O personagem perde temporariamente as habilidades sagradas e recebe desvantagem
+                em testes relacionados à fé até realizar um ritual de redenção.
+            </li>
+        </ul>
+        <h4>Itens iniciais</h4>
+        <ul>
+            <li>
+                um par de luvas brancas
+            </li>
+            <li>
+                Uma bíblia de bolso
+            </li>
+            <li>
+                5 moedas de ouro
+            </li>
+        </ul>
+        <h3>Resumo:</h3>
+        <div class="grid">
+            <div class="caixa">+2 de carisma</div>
+            <div class="caixa">+ 1 de inteligência</div>
+            <div class="caixa">-5 de sangue ancestral</div>
+            <div class="caixa"> Armas abençoadas causam +2 de dano</div>
+            <div class="caixa">Testes para resistir ao frenesi ou impulsos bestiais têm vantagem</div>
+            <div class="caixa">Sempre que o Vampiro Iluminado adquirir ou utilizar uma habilidade sombria, deve realizar um Teste de Fé</div>
+            <br>
+            <button onclick="fechar('iluminado')">Fechar</button>
+                `
+            }
+            
+            if (classes['flagelador']) {
+                desc_flagelador.innerHTML = `
+                        <h3>Vampiro flagelador
+        </h3>
+        <p>
+            Para o Vampiro Flagelador, a dor não é um fardo, mas uma fonte de poder. Cada ferida, cada gota de sangue
+            derramada é um catalisador que transforma sofrimento em força bruta. Eles são mestres em utilizar o próprio
+            corpo como arma, infligindo dor a si mesmos para liberar habilidades devastadoras. Suas cicatrizes contam
+            histórias de batalhas onde a agonia foi sua maior aliada.
+        </p>
+        <ul>
+            <li>
+                +3 Sangue Ancestral (capacidade de suportar e transformar dor em poder)
+            </li>
+            <li>
+                +1 Agilidade (reflexos rápidos para ataques precisos e auto-flagelação controlada)
+            </li>
+            <li>
+                -1 Carisma (a aparência macabra e comportamento perturbador afastam os outros)
+            </li>
+        </ul>
+        <p>
+            <strong>Dor Revigorante:</strong> Sempre que o Vampiro Flagelador recebe dano, ele dará +1 de dano no
+            próximo turno.
+            <strong>Tolerância Sobrenatural:</strong> Imune a efeitos de dor ou atordoamento que afetariam o foco ou
+            movimento.
+        </p>
+        <h4>Desvantagens:</h4>
+        <p>
+            <strong>Dependente da Dor:</strong> Habilidades causam menos dano ou falham caso o Vampiro Flagelador esteja
+            com vida cheia.
+            <strong>Instabilidade Mental:</strong> Testes para resistir a efeitos mentais têm desvantagem, pois o
+            sofrimento constante o deixa vulnerável a manipulações.
+        </p>
+        <h4>Itens Iniciais:</h4>
+        <ul>
+            <li>
+                faca desgastada - 1d4 de dano
+            </li>
+            <li>
+                frasco vazio
+            </li>
+            <li>
+                3 moedas de bronze
+            </li>
+        </ul>
+        <h3>Resumo: </h3>
+        <div class="grid">
+            <div class="caixa">+3 de sangue ancestral</div>
+            <div class="caixa">+ 1 de agilidade</div>
+            <div class="caixa">-1 de carisma</div>
+            <div class="caixa">Recebeu um dano, dará +1 de dano no próximo turno</div>
+            <div class="caixa">Imune a efeitos de dor ou atordoamento</div>
+            <div class="caixa">Testes para resistir a efeitos mentais têm desvantagem</div>
+        </div>
+            <br>
+
+        <button onclick="fechar('flagelador')">Fechar</button>
+                `
+            }
+           
+            if (classes['canibal']) {
+                desc_canibal.innerHTML = `
+                            <h3>Vampiro Canibal</h3>
+        <p>
+            O Vampiro Canibal é uma criatura temida até mesmo entre os da sua espécie. Alimenta-se do sangue de outros
+            vampiros, extraindo deles não apenas sua vitalidade, mas também parte de seus poderes. No entanto, cada gota
+            consumida o aproxima da loucura. Este vampiro vive no limite entre o poder absoluto e a autodestruição.
+        </p>
+        <h4>Bônus de Atributos:</h4>
+        <ul>
+            <li>+3 Sangue Ancestral e vigor(fortalece suas transformações e resistência)</li>
+            <li>
+                -2 Carisma (sua natureza predatória o torna assustador e repulsivo para outros vampiros)
+            </li>
+            <li>
+                A classe canibal é uma das únicas que inflige o dano vital
+            </li>
+        </ul>
+        <p>
+            <strong>Predador da Noite:</strong> Ao consumir o sangue de outros vampiros, recupera rapidamente vida e
+            ganha um bônus temporário diversos tipos de teste por 2 turnos.
+            <strong>Fome Eterna:</strong> Sempre que um vampiro inimigo estiver a menos de 5 metros, o Vampiro Canibal
+            sente sua presença e tem vantagem em rastreá-lo.
+        </p>
+        <h4>Desvantagens:</h4>
+        <p>
+            <strong>Perda de Sanidade:</strong> A cada vez que consome sangue vampírico, deve realizar um teste de
+            Inteligência. Falhar no teste faz com que o Vampiro Canibal perca parte de sua sanidade.
+            <strong>Rejeição Social:</strong> Outros vampiros percebem sua natureza predatória, tornando interações
+            sociais com sua espécie extremamente difíceis.
+        </p>
+        <h4>Itens Iniciais:</h4>
+        <ul>
+            <li>
+                Faca desgastada - 1d4 de dano
+
+            </li>
+            <li>
+                Frasco vazio
+            </li>
+            <li>
+                3 moedas de bronze
+            </li>
+        </ul>
+         <h3>Resumo: </h3>
+        <div class="grid">
+            <div class="caixa">+3 de sangue ancestral</div>
+            <div class="caixa">-2 de carisma</div>
+            <div class="caixa">Inflige o dano vital</div>
+            <div class="caixa">Sangue de vampiro recupera vida</div>
+            <div class="caixa">Beber sangue de vampiro, teste de sanidade</div>
+            <div class="caixa">Vantagem em rastreio</div>
+        </div>
+                <br>
+                <button onclick="fechar('canibal')">Fechar</button>
+                `
             }
 
         }
