@@ -165,7 +165,13 @@ width: 10%;
 .quebraDelinha img{
     width:20%;
 }
-
+.fraseDeEfeito strong{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
 @media screen and (max-width: 768px) {
     .livro {
         margin: 20px;
