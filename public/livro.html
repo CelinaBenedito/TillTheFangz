@@ -1118,12 +1118,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="quebraDelinha">
-                                <br>
-                                <hr><img src="assets/morcegoVermelho.png">
-                                <hr>
-                                <br>
-                            </div>
                         </div>
                         <div class="quebraDelinha">
                             <br>
@@ -1137,72 +1131,249 @@
                     <div class="cabecalho">
                         <i class='bx bx-chevron-down'></i>Habilidades Especiais
                     </div>
-                    <div id="especiais">
-                        <h1>Habilidades Especiais</h1>
+                </a>
+                <div id="especiais">
+                    <h1>Habilidades Especiais</h1>
+                    <p>
+                        As habilidades especiais só se tornam disponíveis quando o vampiro atinge o nível 5. No
+                        entanto, algumas delas podem exigir requisitos adicionais ou levar mais tempo para serem
+                        desbloqueadas. Os pontos necessários para adquiri-las serão distribuídos gradualmente,
+                        conforme o progresso da campanha, permitindo que os jogadores desenvolvam seus personagens
+                        de forma estratégica ao longo da jornada
+                    </p>
+                    <a onclick="mostrarH('velocidade')">
+                        <div class="cabecalho">
+                            <i class='bx bx-chevron-down'></i>Trilha da Velocidade
+                        </div>
+                    </a>
+                    <div id="velocidade" class="habilidade">
+                        <h1>Trilha da Velocidade</h1>
+                        <h4>Esquematização:</h4>
+                        <img src="assets/TrilhaVelocidade.png">
+                        <h4>
+                            Nível 1:
+                        </h4>
+                        <p><strong>Velocidade sobrenatural:</strong> Aumenta a velocidade do vampiro, permitindo
+                            movimentação rápida e ataques ligeiros. </p>
+                        <h4>Nível 2:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Evasão Sombria:</strong> Permite ao vampiro desviar rapidamente de
+                                    ataques ou escapar de zonas perigosas
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Passo silencioso:</strong> Movimentação rápida e silenciosa,
+                                    dificultando que inimigos detectem o vampiro.
+                                </p>
+                            </div>
+                        </div>
+                        <h4>Nível 3:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Rastro devastador:</strong> Durantre a corrida, o vampiro pode causar
+                                    dano em uma linha reta, atigindo múltiplos inimigos.
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Investida rápida:</strong> Permite ao vampiro correr rapidamente em
+                                    direcao ao inimigo e ataca-lo com forca aumentada
+                                </p>
+                            </div>
+                        </div>
+                        <h4>
+                            Nível 4:
+                        </h4>
                         <p>
-                            As habilidades especiais só se tornam disponíveis quando o vampiro atinge o nível 5. No
-                            entanto, algumas delas podem exigir requisitos adicionais ou levar mais tempo para serem
-                            desbloqueadas. Os pontos necessários para adquiri-las serão distribuídos gradualmente,
-                            conforme o progresso da campanha, permitindo que os jogadores desenvolvam seus personagens
-                            de forma estratégica ao longo da jornada
+                            <strong>Impacto Veloz:</strong> Golpes rápidos em sequencia, dificultando que o inimigo
+                            reaja.
                         </p>
-                        <a onclick="mostrarH('velocidade')">
-                            <div class="cabecalho">
-                                <i class='bx bx-chevron-down'></i>Trilha da Velocidade
-                            </div>
-                        </a>
-                        <div id="velocidade" class="habilidade">
-                            <h1>Trilha da Velocidade</h1>
-                            <h4>Esquematização:</h4>
-                            <img src="assets/TrilhaVelocidade.png">
-                            <h4>
-                                Nível 1:
-                            </h4>
-                            <p><strong>Velocidade sobrenatural:</strong> Aumenta a velocidade do vampiro, permitindo movimentação rápida e ataques ligeiros. </p>
-                            <h4>Nível 2:</h4>
-                            <div class="opcoes">
-                                <div class="opcao">
-                                    <strong>Opção 1:</strong>
-                                    <p>
-                                        <strong>Evasão Sombria:</strong> Permite ao vampiro desviar rapidamente de ataques ou escapar de zonas perigosas
-                                    </p>
-                                </div>
-                                <hr>
-                                <strong>OU</strong>
-                                <hr>
-                                <div class="opcao">
-                                    <strong>Opção 2:</strong>
-                                    <p>
-                                        <strong>Passo silencioso:</strong> Movimentação rápida e silenciosa, dificultando que inimigos detectem o vampiro.
-                                    </p>
-                                </div>
-                            </div>
-                            
+                        <div class="quebraDelinha">
+                            <br>
+                            <hr><img src="assets/morcegoVermelho.png">
+                            <hr>
+                            <br>
                         </div>
+                    </div>
+                    <a onclick="mostrarH('mental')">
+                        <div class="cabecalho">
+                            <i class='bx bx-chevron-down'></i>Trilha Mental
+                        </div>
+                    </a>
+                    <div id="mental" class="habilidade">
+                        <h1>Trilha Mental</h1>
+                        <h4>Esquematização</h4>
+                        <img src="assets/TrilhaMental.png">
+                        <h4>Nível 1:</h4>
+                        <p>
+                            <strong>Percepção expandida:</strong> O vampiro amplia sua consciencia mental,
+                            percebendo emocoes ou intencoes superficiais dde pesoas proximas.
+                        </p>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Comunicação telepática:</strong> O vampiro pode estabelecer um elo
+                                    mental com aliados ou inimigos, trocando mensagens diretamente na mente.
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Sugestão mental:</strong> Permite plantar ideias simples na mente de um
+                                    alvo, influenciando suas ações.
+                                </p>
+                            </div>
+                        </div>
+                        <h4>Nível 3:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <Strong>Invasão mental:</Strong> Permite explorar as memorias de um alvo,
+                                    revelando segredos ou pontos fracos.
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Dominação:</strong> O vampiro pode assumir o controle temporário do
+                                    corpo de um alvo, forçando-o a lutar ou agir conforme sua vontade
+                                </p>
+                            </div>
+                        </div>
+                        <h4>Nível 4:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Rede mental:</strong> O vampiro cria uma conexão mental entre vários
+                                    aliados e inimigos, compartilhando informações ou sobrecarregando as mentes
+                                    adversárias, causando dano psíquico.
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Controle de massas:</strong> Estende o poder de dominação para múltiplos
+                                    alvos próximos, causando caos ou coordenando aliados controlados
+                                </p>
+                            </div>
+                        </div>
+                        <div class="quebraDelinha">
+                            <br>
+                            <hr><img src="assets/morcegoVermelho.png">
+                            <hr>
+                            <br>
+                        </div>
+                    </div>
+                    <a onclick="mostrarH('forca')">
+                        <div class="cabecalho">
+                            <i class='bx bx-chevron-down'></i>Trilha da Força
+                        </div>
+                    </a>
+                    <div id="forca" class="habilidade">
+                        <h1>Trilha da Força</h1>
+                        <h4>Esquematização</h4>
+                        <img src="assets/TrilhaForca.png">
+                        <h4>Nivel 1:</h4>
+                        <p>
+                            <strong>Força sobrenatural:</strong> Aumenta a Força do vampiro, permitindo erguer
+                            objetos pesados ou causar dano maior em combate corpo a corpo.
+                        </p>
+                        <h4>Nível 2:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Impacto sísmico:</strong> O vampiro golpeia o chão com tamanha força que
+                                    cria ondas de choque, desequilibrando ou danificando vários inimigos ao redor.
+                                </p>
+                            </div>
+                            <hr>
+                            <strong>OU</strong>
+                            <hr>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Golpe brutal:</strong> O vampiro pode concentrar sua força em um único
+                                    golpe, causando dano massivo a inimigos ou quebrando barreiras.
+                                </p>
+                            </div>
 
-                        <div class="quebraDelinha">
-                            <br>
-                            <hr><img src="assets/morcegoVermelho.png">
-                            <hr>
-                            <br>
                         </div>
-                    </div>
-                    <div id="transformacao">
-                        <div class="quebraDelinha">
-                            <br>
-                            <hr><img src="assets/morcegoVermelho.png">
+                        <h4>Nível 3:</h4>
+                        <div class="opcoes">
+                            <div class="opcao">
+                                <strong>Opção 1:</strong>
+                                <p>
+                                    <strong>Resistência física:</strong> Além de força , o vampiro desenvolve
+                                    músculos mais resistentes, reduzindo danos de ataques físicos.
+                                </p>
+                            </div>
                             <hr>
-                            <br>
-                        </div>
-                    </div>
-                    <div id="sensoriais">
-                        <div class="quebraDelinha">
-                            <br>
-                            <hr><img src="assets/morcegoVermelho.png">
+                            <strong>OU</strong>
                             <hr>
-                            <br>
+                            <div class="opcao">
+                                <strong>Opção 2:</strong>
+                                <p>
+                                    <strong>Desmembramento rápido:</strong> O vampiro utiliza força e velocidade
+                                    para desmontar armaduras ou incapacitar inimigos em combates diretos.
+                                </p>
+                            </div>
                         </div>
+                        <h4>Nível 4:</h4>
+                        <p>
+                            <strong>Domínio da força:</strong> O vampiro pode erguer estruturas inteiras, esmagar
+                            inimigos com facilidade ou criar destruição em massa com golpes precisos
+                        </p>
                     </div>
+                    <div class="quebraDelinha">
+                        <br>
+                        <hr><img src="assets/morcegoVermelho.png">
+                        <hr>
+                        <br>
+                    </div>
+                </div>
+                <div id="transformacao">
+                    <div class="quebraDelinha">
+                        <br>
+                        <hr><img src="assets/morcegoVermelho.png">
+                        <hr>
+                        <br>
+                    </div>
+                </div>
+                <div id="sensoriais">
+                    <div class="quebraDelinha">
+                        <br>
+                        <hr><img src="assets/morcegoVermelho.png">
+                        <hr>
+                        <br>
+                    </div>
+                </div>
 
         </div>
     </div>
@@ -1250,6 +1421,8 @@
     garras.style.display = "none"
     voo.style.display = "none"
     velocidade.style.display = "none"
+    mental.style.display = "none"
+    forca.style.display = "none"
 
     classes = {
         cacador: document.getElementById('cacador'),
@@ -1268,7 +1441,9 @@
         sensoriais: document.getElementById('sensoriais'),
         voo: document.getElementById('voo'),
         garras: document.getElementById('garras'),
-        velocidade: document.getElementById('velocidade')
+        velocidade: document.getElementById('velocidade'),
+        mental: document.getElementById('mental'),
+        forca: document.getElementById('forca')
     }
     cliques = {
         cacador: 0,
@@ -1285,7 +1460,9 @@
         sensoriais: 0,
         voo: 0,
         garras: 0,
-        velocidade: 0
+        velocidade: 0,
+        mental: 0,
+        forca: 0
     }
 
     function mostrarIntroducao() {
