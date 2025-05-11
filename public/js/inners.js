@@ -50,7 +50,7 @@ let textoClasse = `
             <div class="cards">
                 <div class="card">
                     <h3>Caçador Sombrio</h3>
-                    <img src="assets/cacadorSombrio.png">
+                    <img src="assets/img/cacadorSombrio.png">
                 <button onclick="aparecer('cacador')">Ver especificações</button>
                 <dialog id="cacador">
                     <div class="modal" id="desc_cacador">
