@@ -17,7 +17,6 @@ let textoInicio = `
                             <input rows="1" placeholder="Nome..." id="ipt_nome" class="campo">  
                             <input type="number" placeholder="Altura..." id="ipt_altura" class="campo" >
                             <input type="number" placeholder="Peso..." id="ipt_peso" class="campo">
-                            <input type="number" placeholder="Pontos sombrios" class="campo">
 
                         </div>
                         <div class="coluna2">
@@ -30,7 +29,6 @@ let textoInicio = `
                                     <option value="nao">Prefiro não dizer</option>
                             </select>
                             <input type="number" placeholder="Idade..." id="ipt_idade" class="campo" >
-                            <input type="number" placeholder="Pontos de luz" class="campo">
 
                         </div>
                     </div>

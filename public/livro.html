@@ -31,6 +31,7 @@
     </div>
     <div class="navbar">
         <ul>
+
             <li>
                 <a onclick="mostrarIntroducao()">Introdução</a>
             </li>
@@ -45,10 +46,13 @@
                 <a onclick="mostrarSangue()">Sangue</a>
             </li>
             <li>
-                <a onclick="mostrarDano()">Tipos de Dano</a>
+                <a onclick="mostrarDano()">Dano</a>
             </li>
             <li>
                 <a onclick="mostrarClasses()">Classes</a>
+            </li>
+            <li>
+                <a onclick="mostrarHabilidades()">Habilidades</a>
             </li>
         </ul>
     </div>
@@ -199,6 +203,9 @@
                 será
                 a base para a vida do personagem, que poderá ser ajustada para mais ou para menos, dependendo da classe
                 escolhida.</p>
+
+        </div>
+        <div id="sangue">
             <h1>Absorção de Sangue</h1>
             <p>
                 Caso o vampiro perca vida, para recuperá-la será necessário sugar sangue. O vampiro deve encontrar uma
@@ -224,8 +231,6 @@
                     seu sangue ser tão nojento e viscoso.
                 </li>
             </ul>
-        </div>
-        <div id="sangue">
             <h1>
                 Tipos de sangue
             </h1>
@@ -398,6 +403,7 @@
                     <div class="caixa">-2 carisma</div>
                 </div>
             </div>
+
             <a onclick="mostrar('senhor')">
                 <div class="cabecalho">
                     <i class='bx bx-chevron-down'></i>Senhor das Sombras
@@ -457,6 +463,7 @@
                     <div class="caixa">vantagem na trilha das transformações de névoa e sombra</div>
                 </div>
             </div>
+
             <a onclick="mostrar('barbaro')">
                 <div class="cabecalho">
                     <i class='bx bx-chevron-down'></i>Bárbaro Noturno
@@ -505,6 +512,7 @@
                     <div class="caixa">1D4 de dano durante a noite</div>
                 </div>
             </div>
+
             <a onclick="mostrar('ilusionista')">
                 <div class="cabecalho">
                     <i class='bx bx-chevron-down'></i>Ilusionista Vampírico
@@ -567,6 +575,7 @@
                     <div class="caixa">Se dá melhor com armas e magias.</div>
                 </div>
             </div>
+
             <a onclick="mostrar('cultista')">
                 <div class="cabecalho">
                     <i class='bx bx-chevron-down'></i>Vampiro Cultista
@@ -681,7 +690,7 @@
                     <div class="caixa">Vantagens em testes de resistência a controle mental</div>
                 </div>
             </div>
-            
+
             <a onclick="mostrar('iluminado')">
                 <div class="cabecalho">
                     <i class='bx bx-chevron-down'></i>Vampiro iluminado
@@ -926,8 +935,197 @@
             </div>
 
         </div>
+        <div id="habilidade">
+            <h1>Habilidades</h1>
+            <p>
+                Todas as habilidades estão disponíveis para todos os vampiros, mas só podem ser desbloqueadas conforme o
+                personagem evoluí. As habilidades gerais estão disponíveis desde o primeiro momento e as espéciais só
+                são liberadas a partir do nível 5. Como o sistema de level up já foi explicado anteriormente, vamos
+                direto para a explicação das habilidades.
+            </p>
+            <a onclick="mostrarH('gerais')">
+                <div class="cabecalho">
+                    <i class='bx bx-chevron-down'></i>Habilidades Gerais
+                </div>
 
+                <div id="gerais">
+                    <h1>Habilidades Gerais</h1>
+                    <p>As Habilidades Gerais são acessíveis assim que a campanha se inicia. Todos os jogadores começam
+                        com 4 pontos de habilidades para distribuir</p>
+                    <a onclick="mostrarH('garras')">
+                        <div class="cabecalho">
+                            <i class='bx bx-chevron-down'></i>Trilha das garras
+                        </div>
+                        <div id="garras" class="habilidade">
+                            <h2>Trilha das Garras</h2>
+                            <h4>Esquematização</h4>
+                            <img src="assets/TrilhaGarras.png">
+                            <h4>Nível 1:</h4>
+                            <p>
+                                <strong>Garras Sobrenaturais:</strong> Você sente uma mudança em seu corpo — suas unhas
+                                crescem e se tornam afiadas como lâminas, respondendo à sua vontade. Agora, elas são uma
+                                extensão natural do seu ser, prontas para rasgar carne e ossos.
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Dano:</strong> Cortante 1D12.
+                                </li>
+                                <li>
+                                    <strong>Crítico:</strong> Multiplicador adicional de 1D4.
+                                </li>
+                            </ul>
+                            <h4>Nível 2:</h4>
+                            <div class="opcoes">
+                                <div class="opcao">
+                                    <strong>Opção 1:</strong>
+                                    <p>
+                                        <strong>Garras Envenenadas:</strong> Os ataques do vampiro causam veneno sobrenatural, drenando
+                                        lentamente a vida dos inimigos.
+                                        
+                                    </p>
+                                    <ul>
+                                        <li>
+                                          <strong>Dano:</strong> cortante 1D12.  
+                                        </li>
+                                        <li>
+                                            <strong>Crítico: </strong>1D4 multiplicador. rodadas: 1D4.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <STRONG>OU</STRONG>
+                                <HR>
+                                <div class="opcao">
+                                    <strong>Opção 2:</strong>
+
+                                    <p>
+                                        <strong>Corte Rápido:</strong> O vampiro ataca com golpes em alta velocidade,
+                                        atingindo múltiplos
+                                        inimigos em um curto intervalo. (5 golpes seguidos)
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Dano:</strong> cortante 1D4.
+                                        </li>
+                                        <li>
+                                            <strong>Crítico:</strong> adiciona mais 3 golpes.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4>Nível 3:</h4>
+                            <div class="opcoes">
+                                <div class="opcao">
+                                    <strong>Opção 1:</strong>
+                                    <p>
+                                        <strong>Destruidor de armaduras:</strong> As garras podem atravessar armaduras ou barreiras mágicas, atigindo diretamente o alvo
+                                    </p>
+                                </div>
+                                <hr>
+                                <strong>OU</strong>
+                                <hr>
+                                <div class="opcao">
+                                    <strong>Opção 2:</strong>
+                                    <p>
+                                        <strong>Frenesi de garras:</strong> O vampiro entra em um estado de furia, aumentando a cadencia e o dano dos ataques enquanto ignora parte da defesa do inimigo
+                                    </p>
+                                </div>
+                            </div>
+                            <h4>Nível 4:</h4>
+                            <div class="opcoes">
+                                <div class="opcao">
+                                    <Strong>Opção 1:</Strong>
+                                    <p>
+                                        <strong>Rasgo sombrio:</strong> Os ataques do vampiro liberam energia sombria que causa dano adicional em inimigos próximos ao impacto
+                                    </p>
+                                </div>
+                                <hr>
+                                <strong>OU</strong>
+                                <div class="opcao">
+                                    <Strong>Opção 2:</Strong>
+                                    <p>
+                                        <strong>Rasgo da destruição:</strong> O vampiro desfere um atsaaque massivo em área, destruindo inimigos ao redor e dexando um terreno devastado
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <a onclick="mostrarH('voo')">
+                            <div class="cabecalho">
+                                <i class='bx bx-chevron-down'></i>Trilha do voô
+                            </div> 
+                        </a>
+                            <div id="voo" class="habilidade">
+                                <h2>Trilha do voô</h2>
+                                <h4>Esquematização</h4>
+                                <img src="assets/TrilhaVoo.png">
+                                <h4><strong>Nível 1:</strong></h4>
+                                <p><strong>Super salto:</strong> O vampiro pode saltar mais alto e por distâncias
+                                    maiores</p>
+                                <h4>Nível 2:</h4>
+                                <p><strong>Flutuar:</strong> O vampiro sente as sombras o auxiliando, agora se pode
+                                    planar por pequenas distâncias e um curto período de tempo</p>
+                                <h4>Nível 3:</h4>
+                                <div class="opcoes">
+                                    <div class="opcao">
+                                        <strong>Opção 1:</strong>
+                                        <p>
+                                            <strong>Investida aérea:</strong> O vampiro quando estando no ar pode lançar
+                                            a si mesmo na direção desejada de maneira rápida
+                                        </p>
+
+                                    </div>
+                                    <hr>
+                                    <strong>OU</strong>
+                                    <hr>
+                                    <div class="opcao">
+                                        <strong>Opção 2:</strong>
+                                        <p>
+                                            <strong>Mergulho aéreo:</strong> O vampiro quando estando no ar pode dar uma
+                                            investida poderosa em direção ao chão
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <h4>Nível 4:</h4>
+                                <div class="opcoes">
+                                    <div class="opcao">
+                                        <Strong>Opção 1:</Strong>
+                                        <p><strong>Vôo profano:</strong> As forças sombrias o reconhecem e lhe concedem
+                                            o poder de se impor pelos céus como bem entender, o vampiro agora pode voar
+                                            por tempo indeterminado e por distâncias inimagináveis</p>
+                                    </div>
+                                    <hr>
+                                    <strong>OU</strong>
+                                    <hr>
+                                    <div class="opcao">
+                                        <strong>Opção 2:</strong>
+                                        <p>
+                                            <strong>Teleporte sombrio:</strong> Você sente as trevas fluírem por suas
+                                            veias, você se tornou um com a escuridão. O vampiro pode teleportar para
+                                            todos os lugares no alcance de sua visão
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <a onclick="mostrarH('especiais')">
+                <div class="cabecalho">
+                    <i class='bx bx-chevron-down'></i>Habilidades Especiais
+                </div>
+                <div id="especiais">
+                    <h1>Habilidades Especiais</h1>
+                    <p>As habilidades especiais só se tornam disponíveis quando o vampiro atinge o nível 5. No entanto, algumas delas podem exigir requisitos adicionais ou levar mais tempo para serem desbloqueadas. Os pontos necessários para adquiri-las serão distribuídos gradualmente, conforme o progresso da campanha, permitindo que os jogadores desenvolvam seus personagens de forma estratégica ao longo da jornada</p>
+                </div>
+                <div id="transformacao">
+
+                </div>
+                <div id="sensoriais">
+
+                </div>
+            
+        </div>
     </div>
+
     <footer>
         <div class="footer-links">
             <h4>Links Rápidos</h4>
@@ -952,6 +1150,7 @@
     sangue.style.display = "none"
     danos.style.display = "none"
     classe.style.display = "none"
+    habilidade.style.display = "none"
 
 
     cacador.style.display = "none"
@@ -962,6 +1161,10 @@
     iluminado.style.display = "none"
     flagelador.style.display = "none"
     canibal.style.display = "none"
+    gerais.style.display = "none"
+    especiais.style.display = "none"
+    garras.style.display = "none"
+    voo.style.display = "none"
     classes = {
         cacador: document.getElementById('cacador'),
         barbaro: document.getElementById('barbaro'),
@@ -972,6 +1175,14 @@
         flagelador: document.getElementById('flagelador'),
         canibal: document.getElementById('canibal')
     };
+    habilidades = {
+        gerais: document.getElementById('gerais'),
+        especiais: document.getElementById('especiais'),
+        transformacao: document.getElementById('transformacao'),
+        sensoriais: document.getElementById('sensoriais'),
+        voo: document.getElementById('voo'),
+        garras: document.getElementById('garras')
+    }
     cliques = {
         cacador: 0,
         barbaro: 0,
@@ -980,7 +1191,13 @@
         cultista: 0,
         iluminado: 0,
         flagelador: 0,
-        canibal: 0
+        canibal: 0,
+        gerais: 0,
+        especiais: 0,
+        transformacao: 0,
+        sensoriais: 0,
+        voo: 0,
+        garras: 0
     }
 
     function mostrarIntroducao() {
@@ -991,6 +1208,7 @@
         sangue.style.display = "none"
         danos.style.display = "none"
         classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarJogabilidade() {
@@ -1001,6 +1219,7 @@
         sangue.style.display = "none"
         danos.style.display = "none"
         classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarAtributos() {
@@ -1011,6 +1230,7 @@
         sangue.style.display = "none"
         danos.style.display = "none"
         classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarSistemas() {
@@ -1020,7 +1240,8 @@
         sistemas.style.display = ""
         sangue.style.display = "none"
         danos.style.display = "none"
-        classes.style.display = "none"
+        classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarSangue() {
@@ -1031,6 +1252,7 @@
         sangue.style.display = ""
         danos.style.display = "none"
         classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarDano() {
@@ -1040,7 +1262,8 @@
         sistemas.style.display = "none"
         sangue.style.display = "none"
         danos.style.display = ""
-        classes.style.display = "none"
+        classe.style.display = "none"
+        habilidade.style.display = "none"
     }
 
     function mostrarClasses() {
@@ -1051,15 +1274,40 @@
         sangue.style.display = "none"
         danos.style.display = "none"
         classe.style.display = ""
+        habilidade.style.display = "none"
     }
+
+    function mostrarHabilidades() {
+        introducao.style.display = "none"
+        jogabilidade.style.display = "none"
+        atributos.style.display = "none"
+        sistemas.style.display = "none"
+        sangue.style.display = "none"
+        danos.style.display = "none"
+        classe.style.display = "none"
+        habilidade.style.display = ""
+    }
+
     function mostrar(item) {
         if (cliques[item] == 0) {
             cliques[item] = 1;
             classes[item].style.display = ""
+
         }
         else if (cliques[item] == 1) {
             cliques[item] = 0;
             classes[item].style.display = "none"
+
+        }
+    }
+    function mostrarH(item) {
+        if (cliques[item] == 0) {
+            cliques[item] = 1
+            habilidades[item].style.display = ""
+        }
+        else if (cliques[item] == 1) {
+            cliques[item] = 0
+            habilidades[item].style.display = "none"
         }
     }
 </script>
