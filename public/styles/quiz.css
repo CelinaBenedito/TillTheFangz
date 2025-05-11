@@ -1,0 +1,80 @@
+
+/*-------------------------------------------------QUIZ-------------------------------------------------*/
+.respostas {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 10px;
+
+}
+
+.respostas button {
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(92, 10, 10, 0.6);
+    margin: 5px;
+    transition: 0.3s;
+    background-color: #000000;
+    color: #bbb;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.respostas button:hover {
+    background-color: rgb(90, 0, 0);
+    color: white;
+    font-size: 30px;
+
+}
+
+.modal {
+    width: 100%;
+}
+
+.quiz {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.quiz .titulo {
+    font-family: Engravers;
+    width: auto;
+}
+
+.containerQuiz {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+.containerQuiz p {
+    width: 55%;
+}
+
+.conteudo {
+    margin: 10px;
+}
+
+/* Estilos para telas médias (tablets) */
+@media screen and (max-width: 768px) {
+    .backgroundImage {
+        height: 80vh;
+        background-position: top center;
+        background-size: contain;
+    }
+}
+
+/* Estilos para telas pequenas (smartphones) */
+@media screen and (max-width: 480px) {
+    .backgroundImage {
+        height: 60vh;
+        background-position: top center;
+        background-size: contain;
+    }
+}

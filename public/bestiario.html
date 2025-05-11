@@ -14,7 +14,7 @@
     <header>
         <div class="logo">
             <a href="">
-                <img src="assets/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
+                <img src="assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
             </a>
         </div>
         <div class="itens">
@@ -24,7 +24,7 @@
             <a href="quiz.html">Quiz</a>
             <a href="ficha.html">Ficha</a>
             <a href="feed.html">Feed</a>
-            <a href="login.html" class="login"><img src="assets/vampireUser.png" alt="user"> Login</a>
+            <a href="login.html" class="login"><img src="assets/img/vampireUser.png" alt="user"> Login</a>
         </div>
     </header>
 
@@ -35,12 +35,12 @@
         <div class="imagens">
             <div>
                 <a onclick="modal('adaga')">
-                    <img src="assets/card_adaga.png" alt="Adaga" class="cartao">
+                    <img src="assets/img/card_adaga.png" alt="Adaga" class="cartao">
                 </a>
 
                 <dialog id="adaga">
                     <div id="desc_adaga" class="modal">
-                        <img src="assets/adaga.png">
+                        <img src="assets/img/adaga.png">
                         <h1 class="tituloBest">Adaga Cerimonial</h1>
                         <p>
                             Adaga geralmente usada para matar vampiros e fazer rituais
@@ -57,18 +57,18 @@
             </div>
             <div>
                 <a onclick="modal('besta')">
-                    <img src="assets/card_besta.png" alt="Besta" class="cartao">
+                    <img src="assets/img/card_besta.png" alt="Besta" class="cartao">
                 </a>
                 <dialog id="besta">
                     <div id="desc_besta" class="modal">
-                        <img src="assets/besta.png">
+                        <img src="assets/img/besta.png">
                         <h1 class="tituloBest">Besta Equiparavel</h1>
                         <p>
                             Uma besta feita para caçadores, mas ainda sim simples para o uso comum
                         </p>
                         <ul>
                             <li>
-                                Dano perfurante: 1d6 por flecha 
+                                Dano perfurante: 1d6 por flecha
                             </li>
                         </ul>
                         <button onclick="fechar('besta')">Fechar</button>
@@ -77,11 +77,11 @@
             </div>
             <div>
                 <a onclick="modal('estaca')">
-                    <img src="assets/card_estaca.png" alt="Estaca" class="cartao">
+                    <img src="assets/img/card_estaca.png" alt="Estaca" class="cartao">
                 </a>
                 <dialog id="estaca">
                     <div id="desc_estaca" class="modal">
-                        <img src="assets/estaca.png">
+                        <img src="assets/img/estaca.png">
                         <h1 class="tituloBest">Estaca mata-vampiro</h1>
                         <p>
                             A estaca que pertenceu a diversos assasinos de vampiros, um verdadeiro amuleto da sorte
@@ -97,11 +97,11 @@
             </div>
             <div>
                 <a onclick="modal('rosario')">
-                    <img src="assets/card_rosario.png" alt="Rosario" class="cartao">
+                    <img src="assets/img/card_rosario.png" alt="Rosario" class="cartao">
                 </a>
                 <dialog id="rosario">
                     <div id="desc_rosario" class="modal">
-                        <img src="assets/rosario.png">
+                        <img src="assets/img/rosario.png">
                         <h1 class="tituloBest">Rosário sombrio</h1>
                         <p>
                             Um rosário sombrio imbuído em magia obscura
@@ -123,10 +123,11 @@
         <div class="imagens">
             <div>
                 <a onclick="modal('perdido')">
-                    <img src="assets/vampiro_perdido.png" alt="" class="cartao">
+                    <img src="assets/img/vampiro_perdido.png" alt="" class="cartao">
                 </a>
                 <dialog id="perdido">
                     <div class="modal">
+                        <img src="assets/img/perdido.png" alt="">
                         <h1>Vampiro Perdido</h1>
                         <p>
                             Esse vampiro era um ávido canibal e um flagelador fervoroso. Ele se perdeu em sua
@@ -143,7 +144,28 @@
                 </dialog>
             </div>
             <div>
-                <img src="assets/falso_vampiro.png" alt="" class="cartao">
+                <a onclick="modal('falso')">
+                    <img src="assets/img/falso_vampiro.png" alt="" class="cartao">
+                </a>
+                <dialog id="falso">
+                   
+                    <div class="modal"> 
+                        <img src="assets/img/falso.png">
+                        <h1>Falso Vampiro</h1>
+                        <p>
+                            Esse tipo de vampiro é extremamente raro. Diferente da maioria, ele não foi criado
+                            diretamente pelo Vampiro Original. Apenas alguns vampiros além dele possuem a capacidade de
+                            transformar alguém—e, quando conseguem, o resultado é essa aberração.
+                            
+                        </p>
+                        <ul>
+                            <li>
+                               30 de HP 
+                            </li>
+                        </ul>
+                         <button onclick="fechar('falso')">Fechar</button>
+                    </div>
+                </dialog>
             </div>
 
         </div>
@@ -172,7 +194,8 @@
         besta: document.getElementById('besta'),
         estaca: document.getElementById('estaca'),
         rosario: document.getElementById('rosario'),
-        perdido: document.getElementById('perdido')
+        perdido: document.getElementById('perdido'),
+        falso: document.getElementById('falso')
     }
     function modal(item) {
         itens[item].showModal()
