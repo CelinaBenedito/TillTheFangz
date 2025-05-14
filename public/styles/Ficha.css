@@ -202,13 +202,19 @@ body {
 }
 
 .atributo button {
-    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
     font-size: larger;
     background-color: transparent;
     border: rgb(90, 0, 0) solid 2px;
     box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
     color: rgb(90, 0, 0);
     margin: 5px;
+}
+.atributo button:hover{
+    color: white;
+    border: white 2px solid;
 }
 
 .botoes {
@@ -302,6 +308,7 @@ dialog {
     width: 125px;
     height: 125px;
     background: transparent;
+    color:#5c0a0a;
     border: rgb(90, 0, 0) solid 2px;
     box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
    cursor: pointer;

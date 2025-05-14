@@ -436,7 +436,7 @@ let textoHabilidades = `
             </div>
             <div class="container">
                 <div class="item vertical">
-                    <button>Pressentimento </button>
+                    <button>Pressentir</button>
                     <button>Empatia vampirica </button>
                     <button>Domínio sobrenatural</button>
                 </div>
