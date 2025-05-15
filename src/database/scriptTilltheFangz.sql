@@ -4,7 +4,7 @@ USE TillTheFangz;
 -- -----------------------------------------------------
 -- Tabela usuario
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS usuario(
+CREATE TABLE IF NOT EXISTS TillTheFangz.usuario(
   id INT  PRIMARY KEY AUTO_INCREMENT,
   nickname varchar(40),
   nome VARCHAR(40),
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS usuario(
   -- -----------------------------------------------------
 -- Tabela personagem
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS personagem(
+CREATE TABLE IF NOT EXISTS TillTheFangz.personagem(
   id INT PRIMARY KEY AUTO_INCREMENT,
   fkUsuario INT,
   nome VARCHAR(50) ,
@@ -27,32 +27,37 @@ CREATE TABLE IF NOT EXISTS personagem(
   peso INT,
   genero VARCHAR(17),
   altura INT,
-  pontosSombrios INT,
-  PontosdeLuz INT,
-  defesa INT,
-  sanidade INT,
-  Historia VARCHAR(200),
+  historia VARCHAR(200),
   caracteristicas VARCHAR(150),
+  INDEX ixpersonagem_usuario (fkUsuario),
+  CONSTRAINT fkpersonagem_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
+    );
+    
+-- -----------------------------------------------------
+-- Tabela pontos
+-- -----------------------------------------------------
+create table TillTheFangz.pontos(
+fkPersonagem int primary key,
+defesa INT,
+sanidade INT,
   carisma INT,
   inteligencia INT,
   agilidade INT,
   vigor INT,
   SangueAncestral INT,
-  INDEX ixpersonagem_usuario (fkUsuario),
-  CONSTRAINT fkpersonagem_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
-    );
-
+  constraint fkPersonagem_pontos foreign key (fkPersonagem) references personagem(id)
+);
 
 -- -----------------------------------------------------
 -- Tabela pergunta
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS pergunta(
+CREATE TABLE IF NOT EXISTS TillTheFangz.pergunta(
   idpergunta INT PRIMARY KEY AUTO_INCREMENT,
   descricao VARCHAR(45) NOT NULL,
   UNIQUE INDEX ix_pergunta (descricao)
   );
 
-CREATE TABLE IF NOT EXISTS resposta(
+CREATE TABLE IF NOT EXISTS TillTheFangz.resposta(
   idresposta INT NOT NULL,
   descricao VARCHAR(45) NOT NULL,
   fkpergunta INT NOT NULL,
@@ -64,7 +69,7 @@ CREATE TABLE IF NOT EXISTS resposta(
 -- -----------------------------------------------------
 -- Tabela respostas_usuario
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS respostas_usuario (
+CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   fkusuario INT NOT NULL,
   fkresposta INT NOT NULL,
   fkpergunta INT NOT NULL,
