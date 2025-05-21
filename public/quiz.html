@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="../css/heade&footer.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="">
+                <img src="../assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
+            </a>
+        </div>
+        <div class="itens">
+            <a href="../index.html">Home</a>
+            <a href="livro.html">Livro</a>
+            <a href="bestiario.html">Bestiário</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="ficha.html">Ficha</a>
+            <a href="feed.html">Feed</a>
+            <a href="login.html" class="login"><img src="../assets/img/vampireUser.png" alt="user"> Login</a>
+        </div>
+    </header>
+
+    <div class="containerQuiz">
+        <div class="quiz">
+            <h1 class="titulo">Área de Quiz</h1>
+            <p>
+                Explore diversos quizzes que, se desejar, podem ser salvos diretamente no seu perfil. Eles podem ser
+                usados tanto por você quanto por um personagem seu, e podem ser refeitos quantas vezes quiser, da forma
+                que preferir.<br>
+                Ao final de cada quiz, você encontrará duas perguntas rápidas — mas muito importantes — que ajudarão
+                nossa equipe a aprimorar ainda mais sua experiência.
+            </p>
+            <div class="quizes">
+                <div class="conteudo">
+                    <button onclick="abrirModal('classe')">Descubra sua classe</button>
+                    <dialog id="classe">
+                        <div id="quiz1" class="modal">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('raca')">Qual a raça que mais combina com você?</button>
+                    <dialog id="raca">
+                        <div id="quiz2" class="modal">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('atributo')">Qual seu principal atributo?</button>
+                    <dialog id="atributo">
+                        <div id="quiz3" class="modal">
+
+                        </div>
+                    </dialog>
+                </div>
+
+                <div class="conteudo">
+                    <button onclick="abrirModal('habilidade')">Qual habilidade combina mais com você</button>
+                    <dialog id="habilidade">
+                        <div id="quiz4" class="modal">
+
+                        </div>
+                    </dialog>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="/sobre.html">Sobre Mim</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
+<script>
+    let quizes = {
+        classe: document.getElementById('classe'),
+        raca: document.getElementById('raca'),
+        atributo: document.getElementById('atributo'),
+        habilidade: document.getElementById('habilidade')
+    }
+
+    /* let perguntas = {
+         pergunta1: 0,
+         pergunta2: 0,
+         pergunta3: 0,
+         pergunta4: 0,
+         pergunta5: 2,
+         pergunta6: 0,
+         pergunta7: 0,
+         pergunta8: 0,
+         pergunta9: 0,
+         pergunta10: 10
+     }*/
+
+    let gerar_classe = false;
+    let gerar_raca = false;
+    let gerar_atributo = false;
+    let gerar_habilidade = false;
+
+
+
+    function abrirModal(item) {
+        quizes[item].showModal();
+        if (quizes['classe']) {
+            if (gerar_classe == false) {
+                gerar_classe = true
+                quiz1.innerHTML = `
+            
+            <h1>Descubra qual classe mais combina com você!</h1>
+            <p>No mundo de Till the Fangz existem diversas classes, descubra a que mais combinaria com você e o que ela faz com este quiz<p>
+            <h2>Você se acha impulsivo?</h2>
+            <img src="">
+
+            <div class="respostas">
+                <button>Sim</button>
+                <button>Não</button>
+                <button>Um pouco</button>
+                <button>Muito</button>
+                <button>Nem um pouco</button>
+            </div>
+            
+
+            <h2>Você se acha manipulador?</h2>
+
+            <div class="respostas">
+                <button>Sim</button>
+                <button>Não</button>
+                <button>Um pouco</button>
+                <button>Muito</button>
+                <button>Nem um pouco</button>
+            </div>
+            <br><br>
+
+            <h2>Você gosta de comer?</h2>
+
+            <div class="respostas">
+                <button>Sim</button>
+                <button>Não</button>
+                <button>Um pouco</button>
+                <button>Muito</button>
+                <button>Nem um pouco</button>
+            </div>
+            <br><br>
+
+            <h2>Você acredita em Deus?</h2>
+
+            <div class="respostas">
+                <button>Sim</button>
+                <button>Não</button>
+                <button>Um pouco</button>
+                <button>Muito</button>
+                <button>Nem um pouco</button>
+            </div>
+            <br><br>
+
+            <button onclick="fecharModal('classe')">Fechar</button>
+            `
+            }
+        }
+        if (quizes['raca']) {
+            if (gerar_raca == false) {
+                quiz2.innerHTML = `
+                <h1> Descubra com qual raça você melhor combina</h1>
+                <p>No mundo de Till the Fangz existem 4 raças, Humanos, Vampiros, Demônios e Anjos cada raça podendo ter subclasses e alterações, descubra com qual dessas raças você mas se encaixa</p>
+                <h2>Você se acha impulsivo?</h2>
+            <div class="respostas">
+                <button>Sim</button>
+                <button>Não</button>
+                <button>Um pouco</button>
+                <button>Muito</button>
+                <button>Nem um pouco</button>
+            </div>
+                <button onclick="fecharModal('raca')">Fechar</button>
+                `
+            }
+        }
+        if (quizes['atributo']) {
+            if (gerar_atributo == false) {
+                quiz3.innerHTML = `
+                <h1>Descubra qual atributo combina mais com você</h1>
+                <p>Vampiros tem 5 atributos primordiais que os auxiliam durante sua campanha, descubra com qual desses atributos você mais se identifica e que melhor combina com você</p>
+                <div class="respostas">
+                    <button>Sim</button>
+                    <button>Não</button>
+                    <button>Um pouco</button>
+                    <button>Muito</button>
+                    <button>Nem um pouco</button>
+                </div>
+                
+                <button onclick="fecharModal('atributo')">Fechar</button>
+                `
+            }
+        }
+        if (quizes['habilidade']) {
+            if (gerar_habilidade == false) {
+                quiz4.innerHTML = `
+                <h1>Descubra qual habilidade combina maisccom você</h1>
+                <p>No mundo de Till the Fangz as habilidades são essenciais para o seu avanço e poder, descubra com qual você melhor se sairia durante a campanha</p>
+
+                <div class="respostas">
+                    <button>Sim</button>
+                    <button>Não</button>
+                    <button>Um pouco</button>
+                    <button>Muito</button>
+                    <button>Nem um pouco</button>
+                </div>
+
+                <button onclick="fecharModal('habilidade')">Fechar</button>
+                `
+            }
+        }
+    }
+    /* function somar(pergunta, valor){
+ 
+     }*/
+
+    /*const perguntasSomadas = perguntas.pergunta1 + perguntas.pergunta2 + perguntas.pergunta3 + perguntas.pergunta4 + perguntas.pergunta5 + perguntas.pergunta6 + perguntas.pergunta8 + perguntas.pergunta9 + perguntas.pergunta10*/
+
+    function fecharModal(item) {
+        quizes[item].close();
+        /* console.log(perguntas.pergunta1)*/
+        /*perguntas = {
+            pergunta1: 0,
+            pergunta2: 0,
+            pergunta3: 0,
+            pergunta4: 0,
+            pergunta5: 2,
+            pergunta6: 0,
+            pergunta7: 0,
+            pergunta8: 0,
+            pergunta9: 0,
+            pergunta10: 10
+        };*/
+
+    }
+</script>
