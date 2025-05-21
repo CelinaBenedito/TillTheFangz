@@ -8,6 +8,7 @@ body{
     background-repeat:no-repeat;
     background-size: cover;
     color:white;
+    height: 100vh;
 }
 a{
     color: red;
@@ -91,4 +92,8 @@ input::placeholder{
   }
   .loading-div img{
     width: 100px;
+  }
+  .cantinho{
+    align-self: start;
+    margin: 0px 10px;
   }
