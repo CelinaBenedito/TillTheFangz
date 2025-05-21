@@ -82,3 +82,13 @@ input::placeholder{
 .selects .item{
     margin: 10px;
 }
+.loading-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: none;
+  }
+  .loading-div img{
+    width: 100px;
+  }
