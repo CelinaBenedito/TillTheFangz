@@ -15,24 +15,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <header>
     <div class="logo">
-        <a href="">
-            <img src="assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
-        </a>
+      <a href="">
+        <img src="assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
+      </a>
     </div>
     <div class="itens">
-        <a href="index.html">Home</a>
-        <a href="livro.html">Livro</a>
-        <a href="bestiario.html">Bestiário</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="ficha.html">Ficha</a>
-        <a href="feed.html">Feed</a>
-        <a href="login.html" class="login">Login <img src="assets/img/vampireUser.png" alt="user"></a>
+      <a href="index.html">Home</a>
+      <a href="livro.html">Livro</a>
+      <a href="bestiario.html">Bestiário</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="ficha.html">Ficha</a>
+      <a href="feed.html">Feed</a>
+      <a href="login.html" class="login">Login <img src="assets/img/vampireUser.png" alt="user"></a>
     </div>
-</header>
+  </header>
   <!--header fim-->
 
   <div class="login">
@@ -42,67 +42,67 @@
       </div>
     </div>
     <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-
-            <input id="nome_input" type="text" placeholder="Nome..." />
-            <input id="sobrenome_input" type="text" placeholder="Sobrenome..." />
-            <div class=" selects">
-              <select id="select_genero" class="item">
-                  <option value="#">Gênero:</option>
-                  <option value="feminino">Feminino</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="outro">Outro</option>
-                  <option value="nao">Prefiro não dizer</option>
-              </select>
-              <select id="select_motivo" class="item">
-                  <option value="#">Interesse:</option>
-                  <option value="1">Sou mestre</option>
-                  <option value="2">Sou player</option>
-                  <option value="3">Outro</option>
-              </select>
-  
-          </div>
-
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+      <div class="card">
+        <h1>Cadastro</h1>
+        <div>
+          <img src="assets/img/logoBranca.png" alt="">
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        <div class="conteudo item">
+          <input id="nome_input" type="text" placeholder="Nome..." />
+          <input id="sobrenome_input" type="text" placeholder="Sobrenome..." />
         </div>
 
-        <div id="div_erros_login"></div>
+
+        <div class=" selects">
+          <select id="select_genero" class="item">
+            <option value="#">Gênero:</option>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="outro">Outro</option>
+            <option value="nao">Prefiro não dizer</option>
+          </select>
+          <select id="select_motivo" class="item">
+            <option value="#">Interesse:</option>
+            <option value="1">Sou mestre</option>
+            <option value="2">Sou player</option>
+            <option value="3">Outro</option>
+          </select>
+        </div>
+
+        <div class="conteudo item">
+          <input id="email_input" type="text" placeholder="Email..." />
+          <input id="confirmacao_email_input" type="text" placeholder="Confirmar Email..." />
+        </div>
+
+        <div class="conteudo item">
+          <input id="senha_input" type="password" placeholder="Senha..." />
+          <input id="confirmacao_senha_input" type="password" placeholder="Confirmar senha..." />
+        </div>
+
+        <button class="botao" onclick="cadastrar()">Cadastrar</button>
+        <div>Já possui um cadastro? <a href="login.html">Login</a></div>
       </div>
+      <!-- <div id="div_aguardar" class="loading-div">
+        <img src="./assets/circle-loading.gif" id="loading-gif" />
+      </div> -->
+
+      <div id="div_erros_login"></div>
     </div>
+  </div>
   </div>
 
   <!--footer inicio-->
   <footer>
     <div class="footer-links">
-        <h4>Links Rápidos</h4>
-        <ul>
-            <li><a href="/sobre.html">Sobre Mim</a></li>
-        </ul>
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="/sobre.html">Sobre Mim</a></li>
+      </ul>
     </div>
     <div class="footer-copyright">
-        <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
     </div>
-</footer>
+  </footer>
   <!--footer fim-->
 </body>
 
@@ -110,28 +110,27 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
+    var sobrenomeVar = sobrenome_input.value;
     var emailVar = email_input.value;
+    var motivoVar = select_motivo.value;
+    var generoVar = select_genero.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var confirmacaoEmailVar = confirmacao_email_input.value;
+
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -141,19 +140,6 @@
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
     }
 
     // Enviando o valor da nova input
@@ -166,9 +152,11 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        sobrenomeServer: sobrenomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        generoServer: generoVar,
+        motivoServer: motivoVar
       }),
     })
       .then(function (resposta) {
@@ -196,26 +184,6 @@
       });
 
     return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
   }
 
   function sumirMensagem() {
