@@ -1,7 +1,9 @@
 body {
     /*overflow: hidden;*/
 }
-
+textarea{
+    resize: none;
+}
 .conteudo {
     display: flex;
     flex-direction: column;
