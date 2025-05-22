@@ -4,7 +4,6 @@ USE TillTheFangz;
 -- -----------------------------------------------------
 -- Tabela usuario
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS usuario(
   id INT  PRIMARY KEY AUTO_INCREMENT,
   nickname varchar(40),
@@ -17,13 +16,9 @@ CREATE TABLE IF NOT EXISTS usuario(
   ImagemUsuario VARCHAR(500),
   UNIQUE INDEX ix_email(email)
   );
-
-
   -- -----------------------------------------------------
-
 -- Tabela personagem
--- ------------------------------------------------------
-
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS personagem(
   id INT PRIMARY KEY AUTO_INCREMENT,
   fkUsuario INT,
@@ -62,7 +57,6 @@ CREATE TABLE IF NOT EXISTS pontos(
 -- -----------------------------------------------------
 -- Tabela pergunta
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS TillTheFangz.pergunta(
   idpergunta INT PRIMARY KEY AUTO_INCREMENT,
   descricao VARCHAR(45) NOT NULL,
@@ -77,11 +71,10 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.resposta(
   INDEX idxresposta (fkpergunta),
   CONSTRAINT fk_resposta_pergunta1 FOREIGN KEY (fkpergunta) REFERENCES pergunta(idpergunta)
     );
-
+    
 -- -----------------------------------------------------
 -- Tabela respostas_usuario
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   fkusuario INT NOT NULL,
   fkresposta INT NOT NULL,
