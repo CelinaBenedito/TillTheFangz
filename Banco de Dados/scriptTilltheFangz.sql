@@ -4,6 +4,7 @@ USE TillTheFangz;
 -- -----------------------------------------------------
 -- Tabela usuario
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS usuario(
   id INT  PRIMARY KEY AUTO_INCREMENT,
   nickname varchar(40),
@@ -16,9 +17,13 @@ CREATE TABLE IF NOT EXISTS usuario(
   ImagemUsuario VARCHAR(500),
   UNIQUE INDEX ix_email(email)
   );
+
+
   -- -----------------------------------------------------
+
 -- Tabela personagem
--- -----------------------------------------------------
+-- ------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS personagem(
   id INT PRIMARY KEY AUTO_INCREMENT,
   fkUsuario INT,
@@ -41,18 +46,23 @@ CREATE TABLE IF NOT EXISTS personagem(
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS pontos(
-  defesa INT,
-  sanidade INT,
-  carisma INT,
-  inteligencia INT,
-  agilidade INT,
-  vigor INT,
-  SangueAncestral INT
+  fkpersonagem INT NOT NULL,
+  fkusuario INT NOT NULL,
+  defesa INT NOT NULL,
+  sanidade INT NOT NULL,
+  carisma INT NOT NULL,
+  inteligencia INT NOT NULL,
+  agilidade INT NOT NULL,
+  vigor INT NOT NULL,
+  SangueAncestral INT NOT NULL,
+  PRIMARY KEY (fkpersonagem, fkusuario),
+  CONSTRAINT fk_personagem_pontos FOREIGN KEY (fkpersonagem) REFERENCES personagem(id)
 );
 
 -- -----------------------------------------------------
 -- Tabela pergunta
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS TillTheFangz.pergunta(
   idpergunta INT PRIMARY KEY AUTO_INCREMENT,
   descricao VARCHAR(45) NOT NULL,
@@ -67,9 +77,11 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.resposta(
   INDEX idxresposta (fkpergunta),
   CONSTRAINT fk_resposta_pergunta1 FOREIGN KEY (fkpergunta) REFERENCES pergunta(idpergunta)
     );
+
 -- -----------------------------------------------------
 -- Tabela respostas_usuario
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   fkusuario INT NOT NULL,
   fkresposta INT NOT NULL,
@@ -81,4 +93,4 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   CONSTRAINT fk_pergunta_resposta FOREIGN KEY (fkresposta , fkpergunta) REFERENCES resposta (idresposta , fkpergunta)
   );
   
-select * from tillthefangz.usuario;
+select * from TillTheFangz.usuario;

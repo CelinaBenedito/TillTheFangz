@@ -22,8 +22,9 @@ function cadastrar(nome, sobrenome, genero, interesse, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function salvar(imagemUser) {
-    const instrucao = `insert into usuario (ImagemUsuario) values ('${imagemUser.imagem}')`;
+function salvar(imagemUser,ID_USUARIO) {
+    console.log("imagem", imagemUser)
+    const instrucao = `UPDATE usuario SET ImagemUsuario = '${imagemUser}' WHERE id = ${ID_USUARIO}; `;
 
     return database.executar(instrucao);
 }
@@ -36,10 +37,7 @@ function buscarUsuarioPeloId(id) {
 
 module.exports = {
     salvar,
-    buscarUsuarioPeloId
-}
-
-module.exports = {
+    buscarUsuarioPeloId,
     autenticar,
     cadastrar
 };

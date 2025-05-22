@@ -4,9 +4,7 @@ const usuarioModel = require('../models/usuarioModel');
 function salvar(req, res) {
   const imagem = req.file.filename;
 
-  const {nome, email} = req.body
-
-  const usuario = { nome, email, imagem }
+  const usuario = {imagem}
   
   usuarioModel.salvar(usuario)
   .then(resultado => {

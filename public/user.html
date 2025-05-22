@@ -10,7 +10,7 @@
     <title>User</title>
 </head>
 
-<body onload ="(buscarPeloId(sessionStorage.ID_USUARIO))">
+<body onload ="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header>
         <div class="logo">
             <a href="">
@@ -25,13 +25,12 @@
             <a href="ficha.html">Ficha</a>
             <a href="feed.html">Feed</a>
             <a href="user.html" class="img_User"><img src="assets/img/vampireUser.png" alt="user"
-                    id="imagem_usuario"></a>
+                    id="imagem_usuario_header"></a>
         </div>
     </header>
-
     <div class="container">
-        <div class="imgUser">
-            <img src="assets/img/vampireUser.png" id="imagem_usuario" alt="">
+        <div class="imgUser" id="imagem_usuario">
+            <img src="assets/img/vampireUser.png" alt="">
         </div>
 
 
@@ -49,7 +48,7 @@
                 <form id="formEditar" method="dialog">
                     <!-- Imagem do usuário -->
                     <label for="imagemInput">Imagem de Perfil:</label>
-                    <input type="file" id="foto" accept="image/*" onchange="enviar()">
+                    <input type="file" id="foto" accept="image/*">
 
                     <!-- Nickname -->
                     <label for="nicknameInput">Nickname:</label>
@@ -73,7 +72,7 @@
 
                     <!-- Botões -->
                     <div class="botoesDialog">
-                        <button type="submit" onclick="salvarEdicao()">Salvar</button>
+                        <button type="submit" onclick="enviar()">Salvar</button>
                         <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
                     </div>
                 </form>
@@ -153,7 +152,7 @@
         <div class="partePosts">
             <div class="card">
                 <div class="cabecalho">
-                    <img src="assets/img/vampireUser.png" id="imagem_usuario">
+                    <img src="assets/img/vampireUser.png" id="imagem_usuario_pequeno">
                     <p id="nickname">NickName</p>
                     <div class="tags">
                         <p id="tagPost"></p>
@@ -196,17 +195,18 @@
 
 </html>
 <script>
-console.log(sessionStorage.ID_USUARIO)
-    function buscarPeloId() {
-        idUsuario = sessionStorage.getItem("ID_USUARIO");
-     fetch(`/usuarios/${idUsuario}`, {
+    function buscarPeloId(id_user) {
+
+     fetch(`/usuarios/${id_user}`, {
       method: "GET"
     })
       .then(res => {
         res.json().then(json => {
           const usuario = json[0];
           primeiro_nome.innerHTML =`${usuario.nome}`
-          imagem_usuario.innerHTML = `<img src='assets/${usuario.imagem_perfil}' alt="imagem de usuario">`
+          sobrenome.innerHTML = `${usuario.sobrenome}`
+          
+          imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
         })
       })
       .catch(err => {
@@ -229,12 +229,14 @@ console.log(sessionStorage.ID_USUARIO)
     function enviar() {
         const formData = new FormData();
         formData.append('foto', foto.files[0])
+        let ID_USUARIO = sessionStorage.ID_USUARIO        
 
-        fetch("/usuarios/cadastro", {
+        fetch(`/usuarios/cadastro/${ID_USUARIO}`, {
             method: "POST",
             body: formData
         })
             .catch(err => {
+                console.log("Caiuno catch")
                 console.log(err);
             })
     }

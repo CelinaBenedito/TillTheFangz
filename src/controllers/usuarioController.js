@@ -92,13 +92,15 @@ function cadastrar(req, res) {
 
 function salvar(req, res) {
   const imagem = req.file.filename;
+  const ID_USUARIO = req.params.ID_USUARIO;
 
   //const {nome, email} = req.body
 
-  const imagemUser = {imagem}
+  const imagemUser = imagem
   
-  usuarioModel.salvar(imagemUser)
+  usuarioModel.salvar(imagemUser,ID_USUARIO)
   .then(resultado => {
+    console.log("imagem controller", imagemUser)
     res.status(201).send("Imagem salva com sucesso");
   }).catch(err => {
     res.status(500).send(err);
@@ -117,9 +119,7 @@ function buscarUsuarioPeloId(req, res) {
 
 module.exports = { 
     salvar,
-    buscarUsuarioPeloId 
-}
-module.exports = {
+    buscarUsuarioPeloId,
     autenticar,
     cadastrar
 }
