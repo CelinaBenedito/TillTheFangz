@@ -10,7 +10,7 @@
     <title>User</title>
 </head>
 
-<body>
+<body onload ="(buscarPeloId(sessionStorage.ID_USUARIO))">
     <header>
         <div class="logo">
             <a href="">
@@ -24,13 +24,14 @@
             <a href="quiz.html">Quiz</a>
             <a href="ficha.html">Ficha</a>
             <a href="feed.html">Feed</a>
-            <a href="user.html" class="login"><img src="assets/img/vampireUser.png" alt="user"></a>
+            <a href="user.html" class="img_User"><img src="assets/img/vampireUser.png" alt="user"
+                    id="imagem_usuario"></a>
         </div>
     </header>
 
     <div class="container">
         <div class="imgUser">
-            <img src="assets/img/vampireUser.png" alt="">
+            <img src="assets/img/vampireUser.png" id="imagem_usuario" alt="">
         </div>
 
 
@@ -40,7 +41,45 @@
             <h2 id="sobrenome">Sobrenome</h2>
         </div>
         <p id="pronomes" class="pronomes">Pronomes</p>
-        <button class="editarBotao">Editar Perfil</button>
+        <button class="editarBotao" onclick="Editar()">Editar Perfil</button>
+        <dialog id="editar">
+            <div class="containerEditar">
+                <h1>Editar Perfil</h1>
+
+                <form id="formEditar" method="dialog">
+                    <!-- Imagem do usuário -->
+                    <label for="imagemInput">Imagem de Perfil:</label>
+                    <input type="file" id="foto" accept="image/*" onchange="enviar()">
+
+                    <!-- Nickname -->
+                    <label for="nicknameInput">Nickname:</label>
+                    <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
+
+                    <!-- Primeiro Nome -->
+                    <label for="primeiroNomeInput">Primeiro Nome:</label>
+                    <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
+
+                    <!-- Sobrenome -->
+                    <label for="sobrenomeInput">Sobrenome:</label>
+                    <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
+
+                    <!-- Pronomes -->
+                    <label for="pronomesInput">Pronomes:</label>
+                    <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
+
+                    <!-- Descrição -->
+                    <label for="descricaoInput">Descrição:</label>
+                    <textarea id="descricaoInput" rows="3" placeholder="Fale um pouco sobre você..."></textarea>
+
+                    <!-- Botões -->
+                    <div class="botoesDialog">
+                        <button type="submit" onclick="salvarEdicao()">Salvar</button>
+                        <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
         <p id="descricao">Adicionar Descrição</p>
         <div class="parteTags">
             <h3>Tags:</h3>
@@ -78,9 +117,12 @@
                     <img src="assets/img/vampireUser.png" alt="">
                     <h1>Nome ou Apelido</h1>
                     <div class="pontosBasicos">
-                    <div class="itemBase">vida <p id="vida">0</p></div> 
-                    <div class="itemBase">sanidade <p id="sanidade">0</p></div>
-                    <div class="itemBase">Defesa <p id="defesa">0</p></div>                     
+                        <div class="itemBase">vida <p id="vida">0</p>
+                        </div>
+                        <div class="itemBase">sanidade <p id="sanidade">0</p>
+                        </div>
+                        <div class="itemBase">Defesa <p id="defesa">0</p>
+                        </div>
                     </div>
 
                     <h3>Historia do Personagem</h3>
@@ -89,10 +131,12 @@
                         saepe asperiores, repudiandae quam labore cum modi? Et cum nemo, repudiandae dolores minima illo
                         vero dolor, officiis ducimus, aspernatur error?
                     </p>
-                        <h3>Cracteristicas do Personagem</h3>
-                        <p id="caracteristicasPersonagem">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus voluptatum totam, temporibus, accusantium ducimus doloremque sapiente deleniti voluptates adipisci cupiditate labore quos et magnam sit! Cumque vero quos explicabo.
-                        </p>
+                    <h3>Cracteristicas do Personagem</h3>
+                    <p id="caracteristicasPersonagem">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus voluptatum
+                        totam, temporibus, accusantium ducimus doloremque sapiente deleniti voluptates adipisci
+                        cupiditate labore quos et magnam sit! Cumque vero quos explicabo.
+                    </p>
 
                     <div class="botaoFechar">
                         <button onclick="fecharTela()">Fechar</button>
@@ -109,7 +153,7 @@
         <div class="partePosts">
             <div class="card">
                 <div class="cabecalho">
-                    <img src="assets/img/vampireUser.png">
+                    <img src="assets/img/vampireUser.png" id="imagem_usuario">
                     <p id="nickname">NickName</p>
                     <div class="tags">
                         <p id="tagPost"></p>
@@ -152,10 +196,46 @@
 
 </html>
 <script>
+console.log(sessionStorage.ID_USUARIO)
+    function buscarPeloId() {
+        idUsuario = sessionStorage.getItem("ID_USUARIO");
+     fetch(`/usuarios/${idUsuario}`, {
+      method: "GET"
+    })
+      .then(res => {
+        res.json().then(json => {
+          const usuario = json[0];
+          primeiro_nome.innerHTML =`${usuario.nome}`
+          imagem_usuario.innerHTML = `<img src='assets/${usuario.imagem_perfil}' alt="imagem de usuario">`
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
     function abirTela() {
         infosPersonagem.showModal()
     }
+
     function fecharTela() {
         infosPersonagem.close()
+    }
+
+    function Editar() {
+        editar.showModal()
+    }
+
+    function enviar() {
+        const formData = new FormData();
+        formData.append('foto', foto.files[0])
+
+        fetch("/usuarios/cadastro", {
+            method: "POST",
+            body: formData
+        })
+            .catch(err => {
+                console.log(err);
+            })
     }
 </script>

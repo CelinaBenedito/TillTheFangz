@@ -27,7 +27,11 @@ header .login {
 .pronomes {
     margin-top: -10px;
 }
-
+.img_User img{
+    align-self: center ;
+    width: 50px;
+    border-radius: 100%;
+}
 .editarBotao {
     background-color: transparent;
     color: white;

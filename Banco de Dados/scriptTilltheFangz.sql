@@ -4,22 +4,22 @@ USE TillTheFangz;
 -- -----------------------------------------------------
 -- Tabela usuario
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS TillTheFangz.usuario(
+CREATE TABLE IF NOT EXISTS usuario(
   id INT  PRIMARY KEY AUTO_INCREMENT,
   nickname varchar(40),
   nome VARCHAR(40),
   sobrenome VARCHAR(70),
   genero VARCHAR(17),
   interesse VARCHAR(10),
-  dataNasc date,
   email VARCHAR(100),
   senha VARCHAR(50),
+  ImagemUsuario VARCHAR(500),
   UNIQUE INDEX ix_email(email)
   );
   -- -----------------------------------------------------
 -- Tabela personagem
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS TillTheFangz.personagem(
+CREATE TABLE IF NOT EXISTS personagem(
   id INT PRIMARY KEY AUTO_INCREMENT,
   fkUsuario INT,
   nome VARCHAR(50) ,
@@ -27,25 +27,27 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.personagem(
   peso INT,
   genero VARCHAR(17),
   altura INT,
-  historia VARCHAR(200),
+  classe varchar(23),
+  Historia VARCHAR(200),
   caracteristicas VARCHAR(150),
-  INDEX ixpersonagem_usuario (fkUsuario),
+  CONSTRAINT chk_classe check (classe in('Caçador Sombrio', 'Senhor das Sombras',
+  'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado',
+  'Vampiro Flagelador', 'Vampiro Canibal')),
   CONSTRAINT fkpersonagem_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
     );
-    
--- -----------------------------------------------------
+
+  -- -----------------------------------------------------
 -- Tabela pontos
 -- -----------------------------------------------------
-create table TillTheFangz.pontos(
-fkPersonagem int primary key,
-defesa INT,
-sanidade INT,
+
+CREATE TABLE IF NOT EXISTS pontos(
+  defesa INT,
+  sanidade INT,
   carisma INT,
   inteligencia INT,
   agilidade INT,
   vigor INT,
-  SangueAncestral INT,
-  constraint fkPersonagem_pontos foreign key (fkPersonagem) references personagem(id)
+  SangueAncestral INT
 );
 
 -- -----------------------------------------------------
@@ -65,7 +67,6 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.resposta(
   INDEX idxresposta (fkpergunta),
   CONSTRAINT fk_resposta_pergunta1 FOREIGN KEY (fkpergunta) REFERENCES pergunta(idpergunta)
     );
-
 -- -----------------------------------------------------
 -- Tabela respostas_usuario
 -- -----------------------------------------------------
@@ -79,3 +80,5 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   CONSTRAINT fk_usuarioresposta FOREIGN KEY (fkusuario) REFERENCES usuario (id),
   CONSTRAINT fk_pergunta_resposta FOREIGN KEY (fkresposta , fkpergunta) REFERENCES resposta (idresposta , fkpergunta)
   );
+  
+select * from tillthefangz.usuario;
