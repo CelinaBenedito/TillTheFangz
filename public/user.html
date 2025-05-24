@@ -10,24 +10,9 @@
     <title>User</title>
 </head>
 
-<body onload ="buscarPeloId(sessionStorage.ID_USUARIO)">
-    <header>
-        <div class="logo">
-            <a href="">
-                <img src="assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
-            </a>
-        </div>
-        <div class="itens">
-            <a href="../index.html">Home</a>
-            <a href="livro.html">Livro</a>
-            <a href="bestiario.html">Bestiário</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="ficha.html">Ficha</a>
-            <a href="feed.html">Feed</a>
-            <a href="user.html" class="img_User"><img src="assets/img/vampireUser.png" alt="user"
-                    id="imagem_usuario_header"></a>
-        </div>
-    </header>
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+    <header id="header"></header>
+
     <div class="container">
         <div class="imgUser" id="imagem_usuario">
             <img src="assets/img/vampireUser.png" alt="">
@@ -45,37 +30,40 @@
             <div class="containerEditar">
                 <h1>Editar Perfil</h1>
 
-                <form id="formEditar" method="dialog">
-                    <!-- Imagem do usuário -->
-                    <label for="imagemInput">Imagem de Perfil:</label>
+
+                <!-- Imagem do usuário -->
+                <div class="editarIMG">
+                    Imagem de Perfil:
                     <input type="file" id="foto" accept="image/*">
+                </div>
 
-                    <!-- Nickname -->
-                    <label for="nicknameInput">Nickname:</label>
-                    <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
 
-                    <!-- Primeiro Nome -->
-                    <label for="primeiroNomeInput">Primeiro Nome:</label>
-                    <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
+                <!-- Nickname -->
+                Nickname:
+                <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
 
-                    <!-- Sobrenome -->
-                    <label for="sobrenomeInput">Sobrenome:</label>
-                    <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
+                <!-- Primeiro Nome -->
+                <label for="primeiroNomeInput">Primeiro Nome:</label>
+                <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
 
-                    <!-- Pronomes -->
-                    <label for="pronomesInput">Pronomes:</label>
-                    <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
+                <!-- Sobrenome -->
+                <label for="sobrenomeInput">Sobrenome:</label>
+                <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
 
-                    <!-- Descrição -->
-                    <label for="descricaoInput">Descrição:</label>
-                    <textarea id="descricaoInput" rows="3" placeholder="Fale um pouco sobre você..."></textarea>
+                <!-- Pronomes -->
+                <label for="pronomesInput">Pronomes:</label>
+                <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
 
-                    <!-- Botões -->
-                    <div class="botoesDialog">
-                        <button type="submit" onclick="enviar()">Salvar</button>
-                        <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
-                    </div>
-                </form>
+                <!-- Descrição -->
+                <label for="descricaoInput">Descrição:</label>
+                <textarea id="descricaoInput" rows="3" placeholder="Fale um pouco sobre você..."></textarea>
+
+                <!-- Botões -->
+                <div class="botoesDialog">
+                    <button type="submit" onclick="enviar()">Salvar</button>
+                    <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
+                </div>
+
             </div>
         </dialog>
 
@@ -194,25 +182,29 @@
 </body>
 
 </html>
+<script src="js/header.js"></script>
+
 <script>
     function buscarPeloId(id_user) {
 
-     fetch(`/usuarios/${id_user}`, {
-      method: "GET"
-    })
-      .then(res => {
-        res.json().then(json => {
-          const usuario = json[0];
-          primeiro_nome.innerHTML =`${usuario.nome}`
-          sobrenome.innerHTML = `${usuario.sobrenome}`
-          
-          imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+        fetch(`/usuarios/${id_user}`, {
+            method: "GET"
         })
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
+            .then(res => {
+                res.json().then(json => {
+                    const usuario = json[0];
+                    primeiro_nome.innerHTML = `${usuario.nome}`
+                    sobrenome.innerHTML = `${usuario.sobrenome}`
+
+                    imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                    imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     function abirTela() {
         infosPersonagem.showModal()
@@ -229,7 +221,7 @@
     function enviar() {
         const formData = new FormData();
         formData.append('foto', foto.files[0])
-        let ID_USUARIO = sessionStorage.ID_USUARIO        
+        let ID_USUARIO = sessionStorage.ID_USUARIO
 
         fetch(`/usuarios/cadastro/${ID_USUARIO}`, {
             method: "POST",

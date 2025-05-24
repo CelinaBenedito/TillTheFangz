@@ -10,23 +10,8 @@
     <title>Ficha</title>
 </head>
 
-<body>
-    <header>
-        <div class="logo">
-            <a href="">
-                <img src="../assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
-            </a>
-        </div>
-        <div class="itens">
-            <a href="../index.html">Home</a>
-            <a href="../livro.html">Livro</a>
-            <a href="../bestiario.html">Bestiário</a>
-            <a href="../quiz.html">Quiz</a>
-            <a href="../ficha.html">Ficha</a>
-            <a href="../feed.html">Feed</a>
-            <a href="login.html" class="login"><img src="../assets/img/vampireUser.png" alt="user"> Login</a>
-        </div>
-    </header>
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+    <header id="header"></header>
 
     <div class="conteudo" id="div_conteudo">
         <div class="inicial">
@@ -54,7 +39,8 @@
 
         </div>
     </div>
-
+</body>
+<script src="js/header.js"></script>
     <script src="js/inners.js"></script>
     <script>
         let cliquesGeral = 0;
@@ -369,7 +355,7 @@
         <button onclick="fechar('cultista')">Fechar</button>
             `
             }
-           
+
             if (classes['iluminado']) {
                 desc_iluminado.innerHTML = `
                         <h3>Vampiro iluminado</h3>
@@ -441,7 +427,7 @@
             <button onclick="fechar('iluminado')">Fechar</button>
                 `
             }
-            
+
             if (classes['flagelador']) {
                 desc_flagelador.innerHTML = `
                         <h3>Vampiro flagelador
@@ -502,7 +488,7 @@
         <button onclick="fechar('flagelador')">Fechar</button>
                 `
             }
-           
+
             if (classes['canibal']) {
                 desc_canibal.innerHTML = `
                             <h3>Vampiro Canibal</h3>

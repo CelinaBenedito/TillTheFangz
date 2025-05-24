@@ -10,23 +10,8 @@
     <title>Bestiario</title>
 </head>
 
-<body>
-    <header>
-        <div class="logo">
-            <a href="">
-                <img src="../assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
-            </a>
-        </div>
-        <div class="itens">
-            <a href="../index.html">Home</a>
-            <a href="../livro.html">Livro</a>
-            <a href="../bestiario.html">Bestiário</a>
-            <a href="../quiz.html">Quiz</a>
-            <a href="../ficha.html">Ficha</a>
-            <a href="../feed.html">Feed</a>
-            <a href="../login.html" class="login"><img src="../assets/img/vampireUser.png" alt="user"> Login</a>
-        </div>
-    </header>
+<body onload ="buscarPeloId(sessionStorage.ID_USUARIO)">
+    <header id="header"></header>
 
     <div class="card">
         <div class="titulo">
@@ -185,6 +170,7 @@
 </body>
 
 </html>
+<script src="js/header.js"></script>
 <script>
     let itens = {
         adaga: document.getElementById('adaga'),

@@ -27,6 +27,24 @@ header .login {
 .pronomes {
     margin-top: -10px;
 }
+dialog{
+    border-radius: 15px;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+#editar{
+    width: 50%;
+    height: 50%;
+}
+textarea{
+    resize: none;
+}
+.containerEditar{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 .img_User img{
     align-self: center ;
     width: 50px;
