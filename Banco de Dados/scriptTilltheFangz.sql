@@ -86,4 +86,11 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   CONSTRAINT fk_pergunta_resposta FOREIGN KEY (fkresposta , fkpergunta) REFERENCES resposta (idresposta , fkpergunta)
   );
   
-select * from TillTheFangz.usuario;
+	select * from TillTheFangz.usuario;
+  insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha)
+   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13'),
+   ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353'),
+   ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123'),
+   ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123'),
+   ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo'),
+   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv')
