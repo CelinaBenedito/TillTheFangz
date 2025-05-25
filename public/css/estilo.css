@@ -153,15 +153,18 @@ body {
 
 .card {
   width: 50%;
-  background-color: #e5e5e5;
+  background-color: #000000;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: rgb(255, 255, 255);
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
 .card h2 {

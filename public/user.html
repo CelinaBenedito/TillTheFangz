@@ -39,16 +39,22 @@
 
 
                 <!-- Nickname -->
-                Nickname:
-                <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
+                 <div>
+                     Nickname:
+                     <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
+                 </div>
 
                 <!-- Primeiro Nome -->
-                <label for="primeiroNomeInput">Primeiro Nome:</label>
-                <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
+                 <div>
+                     <label for="primeiroNomeInput">Primeiro Nome:</label>
+                     <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
+                 </div>
 
                 <!-- Sobrenome -->
-                <label for="sobrenomeInput">Sobrenome:</label>
-                <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
+                 <div>
+                     <label for="sobrenomeInput">Sobrenome:</label>
+                     <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
+                 </div>
 
                 <!-- Pronomes -->
                 <label for="pronomesInput">Pronomes:</label>
@@ -195,9 +201,16 @@
                     const usuario = json[0];
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
+                    if(usuario.nickname != undefined){
+                    nickname.innerHTML = `${usuario.nickname}`
+                    primeiro_nome.innerHTML = ``
+                    sobrenome.innerHTML = ``
+                   
+                    }
 
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                    imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
                 })
             })
@@ -221,7 +234,10 @@
     function enviar() {
         const formData = new FormData();
         formData.append('foto', foto.files[0])
-        let ID_USUARIO = sessionStorage.ID_USUARIO
+        let ID_USUARIO = sessionStorage.ID_USUARIO;
+        let nicknameVar = nicknameInput.value;
+
+        nickname.innerHTML = nicknameVar
 
         fetch(`/usuarios/cadastro/${ID_USUARIO}`, {
             method: "POST",
@@ -231,5 +247,6 @@
                 console.log("Caiuno catch")
                 console.log(err);
             })
+            return
     }
 </script>
