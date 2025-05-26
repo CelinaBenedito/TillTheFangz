@@ -147,7 +147,7 @@
             <div class="card">
                 <div class="cabecalho">
                     <img src="assets/img/vampireUser.png" id="imagem_usuario_pequeno">
-                    <p id="nickname">NickName</p>
+                    <p id="nickname_card">NickName</p>
                     <div class="tags">
                         <p id="tagPost"></p>
                     </div>
@@ -201,22 +201,24 @@
                     const usuario = json[0];
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                    if(usuario.nickname != undefined){
+                   if(usuario.nickname != (undefined || false || null)){
                     nickname.innerHTML = `${usuario.nickname}`
                     primeiro_nome.innerHTML = ``
                     sobrenome.innerHTML = ``
                    
-                    }
-
+                   }
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
                 })
+                
             })
             .catch(err => {
                 console.log(err);
+return window.location.reload();
             })
+            
     }
 
     function abirTela() {
