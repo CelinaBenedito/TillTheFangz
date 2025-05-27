@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/user.css">
-    <link rel="stylesheet" href="../css/heade&footer.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/heade&footer.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>User</title>
 </head>
@@ -79,11 +79,42 @@
         <div class="parteTags">
             <h3>Tags:</h3>
 
-            <div class="espaçoParaTags">
-                <p id="tag"></p>
+            <div class="espaçoParaTags" id="espaçotag">
+                
                 <div>
-                    <button>+</button>
+                    <button onclick="editarTags()">+</button>
                 </div>
+                <dialog id="ediçãodeTags">
+                    <div>
+                        <h1>Editar Tags</h1>
+                        <h2>Jogadores</h2>
+                            <p>O Mestre</p>
+                            <p>O Player</p>
+                            <p>O Ator</p>
+                            <p>O observador</p>
+                            <p>O engajado</p>
+                            <p>O comentador</p>
+                            <p>O Investigador</p>
+                            <p>O Narrador</p>
+                            <p>O solitário</p>
+                        <h2>Raças</h2>
+                            <p>Monstro</p>
+                            <p>Vampiro</p>
+                            <p>Anjo</p>
+                            <p>Demonio</p>
+                            <p>Bruxa</p>
+                            <p>Corrompido</p>
+                        <h2>Classes</h2>
+                            <p>Caçador</p>
+                            <p>Senhor das Sombras</p>
+                            <p>Barbaro</p>
+                            <p>Ilusionista</p>
+                            <p>Cultistas</p>
+                            <p>Iluminado</p>
+                            <p>Flagelador</p>
+                            <p>Canibal</p>
+                    </div>
+                </dialog>
             </div>
 
 
@@ -194,7 +225,9 @@
 
 <script>
    
- 
+    function editarTags(){
+        
+    }
     function qtdCaracteres() {
         let descricao = descricaoInput.value;
         let tamanhoDescricao = descricao.length;
