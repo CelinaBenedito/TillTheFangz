@@ -12,6 +12,7 @@
 
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
+    <div id="containerSair"></div>
 
     <div class="container">
         <div class="imgUser" id="imagem_usuario">
@@ -39,22 +40,10 @@
 
 
                 <!-- Nickname -->
-                 <div>
-                     Nickname:
-                     <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
-                 </div>
-
-                <!-- Primeiro Nome -->
-                 <div>
-                     <label for="primeiroNomeInput">Primeiro Nome:</label>
-                     <input type="text" id="primeiroNomeInput" placeholder="Digite seu primeiro nome">
-                 </div>
-
-                <!-- Sobrenome -->
-                 <div>
-                     <label for="sobrenomeInput">Sobrenome:</label>
-                     <input type="text" id="sobrenomeInput" placeholder="Digite seu sobrenome">
-                 </div>
+                <div>
+                    Nickname:
+                    <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
+                </div>
 
                 <!-- Pronomes -->
                 <label for="pronomesInput">Pronomes:</label>
@@ -62,7 +51,7 @@
 
                 <!-- Descrição -->
                 <label for="descricaoInput">Descrição:</label>
-                <textarea id="descricaoInput" rows="3" placeholder="Fale um pouco sobre você..."></textarea>
+                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..."></textarea>
 
                 <!-- Botões -->
                 <div class="botoesDialog">
@@ -201,24 +190,24 @@
                     const usuario = json[0];
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                   if(usuario.nickname != (undefined || false || null)){
-                    nickname.innerHTML = `${usuario.nickname}`
-                    primeiro_nome.innerHTML = ``
-                    sobrenome.innerHTML = ``
-                   
-                   }
+                    if (usuario.nickname != (undefined || false || null)) {
+                        nickname.innerHTML = `${usuario.nickname}`
+                        primeiro_nome.innerHTML = ``
+                        sobrenome.innerHTML = ``
+
+                    }
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
                 })
-                
+
             })
             .catch(err => {
                 console.log(err);
-return window.location.reload();
+                
             })
-            
+
     }
 
     function abirTela() {
@@ -249,6 +238,6 @@ return window.location.reload();
                 console.log("Caiuno catch")
                 console.log(err);
             })
-            return
+        return window.location.reload();
     }
 </script>

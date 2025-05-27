@@ -12,6 +12,7 @@
 
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
+    <div id="containerSair"></div>
 
     <div class="conteudo" id="div_conteudo">
         <div class="inicial">
@@ -41,53 +42,53 @@
     </div>
 </body>
 <script src="js/header.js"></script>
-    <script src="js/inners.js"></script>
-    <script>
-        let cliquesGeral = 0;
-        let cliquesTrans = 0;
-        let cliquesSensiveis = 0;
-        let gerarInicio = false;
-        let gerarClasse = false;
-        let classes = {};
-        function inicio() {
-            div_conteudo.style.display = "none"
-            div_conteudoInicio.style.display = ""
-            div_conteudoClasse.style.display = "none"
-            div_conteudoAtributos.style.display = "none"
-            div_conteudoHabilidades.style.display = "none"
-            if (gerarInicio == false) {
-                gerarInicio = true;
-                div_conteudoInicio.innerHTML = textoInicio
-            }
+<script src="js/inners.js"></script>
+<script>
+    let cliquesGeral = 0;
+    let cliquesTrans = 0;
+    let cliquesSensiveis = 0;
+    let gerarInicio = false;
+    let gerarClasse = false;
+    let classes = {};
+    function inicio() {
+        div_conteudo.style.display = "none"
+        div_conteudoInicio.style.display = ""
+        div_conteudoClasse.style.display = "none"
+        div_conteudoAtributos.style.display = "none"
+        div_conteudoHabilidades.style.display = "none"
+        if (gerarInicio == false) {
+            gerarInicio = true;
+            div_conteudoInicio.innerHTML = textoInicio
         }
+    }
 
-        function classe() {
-            div_conteudoInicio.style.display = "none"
-            div_conteudoAtributos.style.display = "none"
-            div_conteudoHabilidades.style.display = "none"
-            div_conteudoClasse.style.display = ""
-            if (gerarClasse == false) {
-                gerarClasse = true
-                div_conteudoClasse.innerHTML = textoClasse
-            }
-            classes = {
-                cacador: document.getElementById('cacador'),
-                barbaro: document.getElementById('barbaro'),
-                ilusionista: document.getElementById('ilusionista'),
-                senhor: document.getElementById('senhor'),
-                cultista: document.getElementById('cultista'),
-                iluminado: document.getElementById('iluminado'),
-                flagelador: document.getElementById('flagelador'),
-                canibal: document.getElementById('canibal')
-            };
+    function classe() {
+        div_conteudoInicio.style.display = "none"
+        div_conteudoAtributos.style.display = "none"
+        div_conteudoHabilidades.style.display = "none"
+        div_conteudoClasse.style.display = ""
+        if (gerarClasse == false) {
+            gerarClasse = true
+            div_conteudoClasse.innerHTML = textoClasse
         }
+        classes = {
+            cacador: document.getElementById('cacador'),
+            barbaro: document.getElementById('barbaro'),
+            ilusionista: document.getElementById('ilusionista'),
+            senhor: document.getElementById('senhor'),
+            cultista: document.getElementById('cultista'),
+            iluminado: document.getElementById('iluminado'),
+            flagelador: document.getElementById('flagelador'),
+            canibal: document.getElementById('canibal')
+        };
+    }
 
 
-        function aparecer(item) {
-            classes[item].showModal();
+    function aparecer(item) {
+        classes[item].showModal();
 
-            if (classes['cacador']) {
-                desc_cacador.innerHTML = `
+        if (classes['cacador']) {
+            desc_cacador.innerHTML = `
                 <h3>Caçador Sombrio</h3>
         <p>
             Diferente de outros vampiros que matam por necessidade ou prazer imediato, o Caçador Sombrio se deleita no
@@ -128,10 +129,10 @@
         <br>
         <button onclick="fechar('cacador')">Fechar</button>
                 `
-            }
+        }
 
-            if (classes['senhor']) {
-                desc_senhor.innerHTML = `<h3>Senhor das Sombras</h3>
+        if (classes['senhor']) {
+            desc_senhor.innerHTML = `<h3>Senhor das Sombras</h3>
         <p>
             Na escuridão mais profunda, onde até mesmo outros vampiros hesitam em pisar, reside o Senhor das Sombras.
             Ele não apenas abraçou a noite — tornou-se parte dela. Seu domínio sobre as trevas vai além da simples
@@ -170,10 +171,10 @@
         <br>
         <button onclick="fechar('senhor')">Fechar</button>
         `
-            }
+        }
 
-            if (classes['barbaro']) {
-                desc_barbaro.innerHTML = `
+        if (classes['barbaro']) {
+            desc_barbaro.innerHTML = `
                 <h3>Bárbaro Noturno</h3>
         <p>
             O Bárbaro Noturno é a encarnação da fúria e da brutalidade sob o manto da escuridão. Este vampiro é uma
@@ -209,10 +210,10 @@
             <div class="caixa">1D4 de dano durante a noite</div>
         </div>
                 <button onclick="fechar('barbaro')">Fechar</button>`
-            }
+        }
 
-            if (classes['ilusionista']) {
-                desc_ilusionista.innerHTML = `
+        if (classes['ilusionista']) {
+            desc_ilusionista.innerHTML = `
                 <h3>Ilusionista Vampírico</h3>
         <p>
             O Ilusionista Vampírico é um mestre da manipulação mental e do engano. Capaz de distorcer a realidade e
@@ -262,10 +263,10 @@
         </div>
         <button onclick="fechar('ilusionista')">Fechar</button>
                 `
-            }
+        }
 
-            if (classes['cultista']) {
-                desc_cultista.innerHTML = `
+        if (classes['cultista']) {
+            desc_cultista.innerHTML = `
             <h3>Vampiro Cultista</h3>
         <p>
             O Vampiro Cultista trilha o caminho das trevas, dedicando-se a forças malignas em busca de poder absoluto.
@@ -354,10 +355,10 @@
 
         <button onclick="fechar('cultista')">Fechar</button>
             `
-            }
+        }
 
-            if (classes['iluminado']) {
-                desc_iluminado.innerHTML = `
+        if (classes['iluminado']) {
+            desc_iluminado.innerHTML = `
                         <h3>Vampiro iluminado</h3>
         <p>
             O Vampiro Iluminado carrega consigo a fé e os princípios de sua vida passada. Lutando contra a corrupção
@@ -426,10 +427,10 @@
             <br>
             <button onclick="fechar('iluminado')">Fechar</button>
                 `
-            }
+        }
 
-            if (classes['flagelador']) {
-                desc_flagelador.innerHTML = `
+        if (classes['flagelador']) {
+            desc_flagelador.innerHTML = `
                         <h3>Vampiro flagelador
         </h3>
         <p>
@@ -487,10 +488,10 @@
 
         <button onclick="fechar('flagelador')">Fechar</button>
                 `
-            }
+        }
 
-            if (classes['canibal']) {
-                desc_canibal.innerHTML = `
+        if (classes['canibal']) {
+            desc_canibal.innerHTML = `
                             <h3>Vampiro Canibal</h3>
         <p>
             O Vampiro Canibal é uma criatura temida até mesmo entre os da sua espécie. Alimenta-se do sangue de outros
@@ -545,145 +546,145 @@
                 <br>
                 <button onclick="fechar('canibal')">Fechar</button>
                 `
-            }
-
         }
 
-        function fechar(item) {
-            classes[item].close()
-        }
-        let pontosAtributosTotais = 10;
-        let pontosVida = 20;
-        let pontosSanidade = 20;
-        let pontosDefesa = 5;
-        let armadura = 0;
-        let pontosHabilidade = 4;
+    }
 
-        let pontos = {
-            carisma: 0,
-            inteligencia: 0,
-            agilidade: 0,
-            vigor: 0,
-            sangue: 0,
+    function fechar(item) {
+        classes[item].close()
+    }
+    let pontosAtributosTotais = 10;
+    let pontosVida = 20;
+    let pontosSanidade = 20;
+    let pontosDefesa = 5;
+    let armadura = 0;
+    let pontosHabilidade = 4;
+
+    let pontos = {
+        carisma: 0,
+        inteligencia: 0,
+        agilidade: 0,
+        vigor: 0,
+        sangue: 0,
+    };
+
+    // Objeto para armazenar os elementos DOM que mostram os valores
+    let elementos = {};
+
+    function atributos() {
+        div_conteudoClasse.style.display = "none"
+        div_conteudoInicio.style.display = "none"
+        div_conteudoHabilidades.style.display = "none"
+        div_conteudoAtributos.style.display = ""
+
+        div_conteudoAtributos.innerHTML = textoAtributos
+
+        // Agora atribuimos os elementos aos campos
+        elementos = {
+            carisma: document.getElementById('qtd_carisma'),
+            inteligencia: document.getElementById('qtd_inteligencia'),
+            agilidade: document.getElementById('qtd_agilidade'),
+            vigor: document.getElementById('qtd_vigor'),
+            sangue: document.getElementById('qtd_sangue_ancestral'),
+            totais: document.getElementById('pontos_totais'),
+            vida: document.getElementById('qtd_vida'),
+            sanidade: document.getElementById('qtd_sanidade'),
+            defesa: document.getElementById('qtd_defesa')
         };
 
-        // Objeto para armazenar os elementos DOM que mostram os valores
-        let elementos = {};
+        // Atualiza os valores iniciais na tela
+        atualizarExibicao();
+    }
 
-        function atributos() {
-            div_conteudoClasse.style.display = "none"
-            div_conteudoInicio.style.display = "none"
-            div_conteudoHabilidades.style.display = "none"
-            div_conteudoAtributos.style.display = ""
+    function atualizarExibicao() {
+        elementos.carisma.innerHTML = pontos.carisma;
+        elementos.inteligencia.innerHTML = pontos.inteligencia;
+        elementos.agilidade.innerHTML = pontos.agilidade;
+        elementos.vigor.innerHTML = pontos.vigor;
+        elementos.sangue.innerHTML = pontos.sangue;
+        elementos.totais.innerHTML = pontosAtributosTotais;
+        elementos.vida.innerHTML = pontosVida;
+        elementos.sanidade.innerHTML = pontosSanidade;
+        elementos.defesa.innerHTML = pontosDefesa;
+    }
 
-            div_conteudoAtributos.innerHTML = textoAtributos
+    function pontuação(numero, atributo) {
 
-            // Agora atribuimos os elementos aos campos
-            elementos = {
-                carisma: document.getElementById('qtd_carisma'),
-                inteligencia: document.getElementById('qtd_inteligencia'),
-                agilidade: document.getElementById('qtd_agilidade'),
-                vigor: document.getElementById('qtd_vigor'),
-                sangue: document.getElementById('qtd_sangue_ancestral'),
-                totais: document.getElementById('pontos_totais'),
-                vida: document.getElementById('qtd_vida'),
-                sanidade: document.getElementById('qtd_sanidade'),
-                defesa: document.getElementById('qtd_defesa')
-            };
-
-            // Atualiza os valores iniciais na tela
-            atualizarExibicao();
+        if (numero === 1 && pontos[atributo] >= 5) {
+            alert("Quantidade máxima alcançada");
+            return;
+        }
+        if (numero === -1 && pontos[atributo] <= 0) {
+            alert("Quantidade mínima alcançada");
+            return;
+        }
+        if (numero === 1 && pontosAtributosTotais <= 0) {
+            alert("Quantidade de pontos total acabou");
+            return;
         }
 
-        function atualizarExibicao() {
-            elementos.carisma.innerHTML = pontos.carisma;
-            elementos.inteligencia.innerHTML = pontos.inteligencia;
-            elementos.agilidade.innerHTML = pontos.agilidade;
-            elementos.vigor.innerHTML = pontos.vigor;
-            elementos.sangue.innerHTML = pontos.sangue;
-            elementos.totais.innerHTML = pontosAtributosTotais;
-            elementos.vida.innerHTML = pontosVida;
-            elementos.sanidade.innerHTML = pontosSanidade;
-            elementos.defesa.innerHTML = pontosDefesa;
+        pontosAtributosTotais -= numero;
+        pontos[atributo] += numero;
+        pontosVida = 20 * pontos.vigor;
+        pontosSanidade = 20 + (10 * pontos.inteligencia)
+        pontosDefesa = 5 + pontos.agilidade;
+        console.log(pontosVida);
+        if (pontosVida == 0) {
+            pontosVida = 20;
         }
+        atualizarExibicao();
 
-        function pontuação(numero, atributo) {
+        // Animação
+        /*let elementoAlterado = elementos[atributo];
 
-            if (numero === 1 && pontos[atributo] >= 5) {
-                alert("Quantidade máxima alcançada");
-                return;
-            }
-            if (numero === -1 && pontos[atributo] <= 0) {
-                alert("Quantidade mínima alcançada");
-                return;
-            }
-            if (numero === 1 && pontosAtributosTotais <= 0) {
-                alert("Quantidade de pontos total acabou");
-                return;
-            }
+        elementoAlterado.classList.add("troca");
+        setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
+        elementos.totais.classList.add("troca");
+        setTimeout(() => elementos.totais.classList.remove("troca"), 300);*/
+    }
 
-            pontosAtributosTotais -= numero;
-            pontos[atributo] += numero;
-            pontosVida = 20 * pontos.vigor;
-            pontosSanidade = 20 + (10 * pontos.inteligencia)
-            pontosDefesa = 5 + pontos.agilidade;
-            console.log(pontosVida);
-            if (pontosVida == 0) {
-                pontosVida = 20;
-            }
-            atualizarExibicao();
+    function habilidades() {
 
-            // Animação
-            /*let elementoAlterado = elementos[atributo];
+        div_conteudoHabilidades.style.display = ""
+        div_conteudoAtributos.style.display = "none"
+        div_conteudoClasse.style.display = "none"
+        div_conteudoInicio.style.display = "none"
 
-            elementoAlterado.classList.add("troca");
-            setTimeout(() => elementoAlterado.classList.remove("troca"), 300);
-            elementos.totais.classList.add("troca");
-            setTimeout(() => elementos.totais.classList.remove("troca"), 300);*/
+
+        div_conteudoHabilidades.innerHTML = textoHabilidades;
+        atualizarPontosHabilidades()
+    }
+    function atualizarPontosHabilidades() {
+        div_containerTransformacoes.style.display = "none";
+        div_containerhabilidadesGerais.style.display = "none";
+        div_containerSensoriais.style.display = "none";
+        pontos_Habilidade.innerHTML = pontosHabilidade
+    }
+
+    function aparicoes(item) {
+        if (item == 1 && cliquesGeral == 0) {
+            cliquesGeral++
+            div_containerhabilidadesGerais.style.display = ""
         }
-
-        function habilidades() {
-
-            div_conteudoHabilidades.style.display = ""
-            div_conteudoAtributos.style.display = "none"
-            div_conteudoClasse.style.display = "none"
-            div_conteudoInicio.style.display = "none"
-
-
-            div_conteudoHabilidades.innerHTML = textoHabilidades;
-            atualizarPontosHabilidades()
+        else if (item == 1 && cliquesGeral == 1) {
+            cliquesGeral = 0;
+            div_containerhabilidadesGerais.style.display = "none"
         }
-        function atualizarPontosHabilidades() {
-            div_containerTransformacoes.style.display = "none";
-            div_containerhabilidadesGerais.style.display = "none";
-            div_containerSensoriais.style.display = "none";
-            pontos_Habilidade.innerHTML = pontosHabilidade
+        if (item == 2 && cliquesTrans == 0) {
+            cliquesTrans++
+            div_containerTransformacoes.style.display = ""
         }
-
-        function aparicoes(item) {
-            if (item == 1 && cliquesGeral == 0) {
-                cliquesGeral++
-                div_containerhabilidadesGerais.style.display = ""
-            }
-            else if (item == 1 && cliquesGeral == 1) {
-                cliquesGeral = 0;
-                div_containerhabilidadesGerais.style.display = "none"
-            }
-            if (item == 2 && cliquesTrans == 0) {
-                cliquesTrans++
-                div_containerTransformacoes.style.display = ""
-            }
-            else if (item == 2 && cliquesTrans == 1) {
-                cliquesTrans = 0;
-                div_containerTransformacoes.style.display = "none"
-            }
-            if (item == 3 && cliquesSensiveis == 0) {
-                cliquesSensiveis++
-                div_containerSensoriais.style.display = ""
-            }
-            else if (item == 3 && cliquesSensiveis == 1) {
-                cliquesSensiveis = 0;
-                div_containerSensoriais.style.display = "none"
-            }
+        else if (item == 2 && cliquesTrans == 1) {
+            cliquesTrans = 0;
+            div_containerTransformacoes.style.display = "none"
         }
-    </script>
+        if (item == 3 && cliquesSensiveis == 0) {
+            cliquesSensiveis++
+            div_containerSensoriais.style.display = ""
+        }
+        else if (item == 3 && cliquesSensiveis == 1) {
+            cliquesSensiveis = 0;
+            div_containerSensoriais.style.display = "none"
+        }
+    }
+</script>

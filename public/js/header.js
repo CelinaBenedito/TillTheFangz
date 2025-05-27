@@ -1,3 +1,12 @@
+let cliquesHeader = 0;
+containerSair.innerHTML = 
+`
+        <div class="sair" id="btn_sair">
+            <a href="../user.html"><i class='bx  bx-user'></i> Perfil</a>
+            <a onclick="limparSessao()"><i class='bx  bx-arrow-from-right-stroke'></i> Sair</a>
+            
+        </div>
+`
 if(sessionStorage.ID_USUARIO != undefined){
     header.innerHTML = `
      <div class="logo">
@@ -11,7 +20,7 @@ if(sessionStorage.ID_USUARIO != undefined){
             <a href="bestiario.html">Bestiário</a>
             <a href="ficha.html">Ficha</a>
             <a href="feed.html">Feed</a>
-            <a href="user.html" id="imagem_usuario_header" class="img_User"><img src="assets/img/vampireUser.png" alt="user"></a>
+            <a onclick="aparecerOpcoes()" id="imagem_usuario_header" class="img_User"><img src="assets/img/vampireUser.png" alt="user"></a>
         </div>
     `
 }
@@ -32,6 +41,12 @@ else{
   </div>
 `
 }
+
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../index.html";
+}
+
 function buscarPeloId(id_user) {
 
     fetch(`/usuarios/${id_user}`, {
@@ -49,3 +64,20 @@ function buscarPeloId(id_user) {
        console.log(err);
      })
  }
+
+ containerSair.style.display = "none"
+
+function aparecerOpcoes(){
+    console.log(cliquesHeader)
+    if(cliquesHeader == 0){
+        console.log(cliquesHeader)
+        cliquesHeader = 1
+        containerSair.style.display = ""
+    }
+    else if(cliquesHeader == 1){
+        console.log(cliquesHeader)
+        cliquesHeader = 0
+        containerSair.style.display = "none"
+    }
+    
+}

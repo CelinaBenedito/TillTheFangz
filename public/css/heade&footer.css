@@ -22,7 +22,6 @@ html {
     scrollbar-color: #5c0a0a #0a0a0a;
 }
 body{
-
     background-color: #0a0a0a;
     margin: 0;
     padding: 0;
@@ -30,6 +29,30 @@ body{
     color: white;
 }
 /*---------------------------------------------------------------------------HEADER---------------------------------------------------------------------------*/
+.sair{
+    font-family: Land;
+    font-size: 1.5rem;
+    margin-left: 78.2vw;
+    width: 250px;
+    padding: 10px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    position: absolute;
+    background-color: #131313;
+}
+.sair a{
+    text-decoration: none;
+    color: red;
+    transition: 0.2s;
+}
+.sair a:hover{
+    color: white;
+}
+
 .img_User img{
     align-self: center ;
     width: 50px;
@@ -73,6 +96,7 @@ header .itens a:hover {
 
 header img {
     width: 50%;
+   
 }
 
 header .login {
