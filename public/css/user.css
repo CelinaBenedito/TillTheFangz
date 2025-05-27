@@ -17,13 +17,6 @@ header .login {
     border-radius: 100%;
 }
 
-.nome {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    font-family: UnifrakturCook, cursive;
-    font-size: large;
-}
 
 .pronomes {
     margin-top: -10px;
@@ -81,6 +74,21 @@ strong{
 }
 .containerEditar input::placeholder{
     color: white;
+}
+
+.nomeclaturas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: UnifrakturCook, cursive;
+    font-size: large;
+}
+.nome {
+    margin-top: -35px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 .img_User img{
     align-self: center ;

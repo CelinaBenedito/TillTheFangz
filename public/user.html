@@ -20,39 +20,53 @@
         </div>
 
 
-        <div class="nome">
-            <h2 id="nickname"></h2>
-            <h2 id="primeiro_nome">Nome</h2>
-            <h2 id="sobrenome">Sobrenome</h2>
+        <div class="nomeclaturas">
+            <div>
+                <h2 id="nickname"></h2>
+            </div>
+            <div class="nome">
+                <h2 id="primeiro_nome">Nome</h2>
+                <h2 id="sobrenome">Sobrenome</h2>
+            </div>
+
         </div>
         <p id="pronomes" class="pronomes">Pronomes</p>
         <button class="editarBotao" onclick="Editar()">Editar Perfil</button>
         <dialog id="editar">
             <div class="containerEditar">
                 <h1>Editar Perfil</h1>
-                
+
                 <div class="editarIMG">
                     Imagem de Perfil:
                     <input type="file" id="foto" accept="image/*">
                 </div>
 
-                
+
                 <div>
                     Nickname:
                     <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
                 </div>
+                <div>
+                    
+                    <input type="checkbox" id="chk_nome"> Mostrar Nome
+                    
+                    <input type="checkbox" id="chk_sobrenome">Mostrar sobrenome
+                   
+                    <input type="checkbox" id="chk_nickname"> Mostrar nickname
+                </div>
 
-                
+
                 Pronomes:
                 <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
 
-                
+
                 Descrição:
-                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..." oninput="qtdCaracteres()"></textarea>
+                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..."
+                    oninput="qtdCaracteres()"></textarea>
                 <div class="avisoCaracteres">
                     <p id="avisoCaracteres"></p>
                 </div>
-                
+
                 <div class="botoesDialog">
                     <button type="submit" onclick="enviar()">Salvar</button>
                     <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
@@ -179,13 +193,14 @@
 <script src="js/header.js"></script>
 
 <script>
-
-    function qtdCaracteres(){
+   
+ 
+    function qtdCaracteres() {
         let descricao = descricaoInput.value;
         let tamanhoDescricao = descricao.length;
-        let quantidadeRestante = 500-tamanhoDescricao;
+        let quantidadeRestante = 500 - tamanhoDescricao;
         avisoCaracteres.innerHTML = `Caracteres usados: ${tamanhoDescricao}`
-        if(quantidadeRestante<100){
+        if (quantidadeRestante < 100) {
             avisoCaracteres.innerHTML = `Caracteres usados: <strong>${tamanhoDescricao}</strong>
         <br> Caracteres disponiveis <strong>${quantidadeRestante}</strong>`
         }
@@ -201,12 +216,7 @@
                     const usuario = json[0];
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                    if (usuario.nickname != (undefined || false || null)) {
-                        nickname.innerHTML = `${usuario.nickname}`
-                        primeiro_nome.innerHTML = ``
-                        sobrenome.innerHTML = ``
-
-                    }
+                    nickname.innerHTML = `${usuario.nickname}`
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
@@ -216,7 +226,7 @@
             })
             .catch(err => {
                 console.log(err);
-                
+
             })
 
     }
@@ -233,7 +243,8 @@
         editar.showModal()
     }
 
-    function enviar() {
+    function enviar() { 
+        mostrar()
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;
@@ -249,6 +260,36 @@
                 console.log("Caiuno catch")
                 console.log(err);
             })
-        return window.location.reload();
+           
+        //return window.location.reload();
+    } 
+    function mostrar() {       
+        let mostrarNome = chk_nome.checked;
+        let mostrarSobrenome = chk_sobrenome.checked;
+        let mostrarNickname = chk_nickname.checked;
+        let nome = sessionStorage.NOME_USUARIO;
+        let sobrenome = sessionStorage.SOBRENOME_USUARIO;
+        let nickname = 0;
+
+        if (mostrarNome == true) {
+            primeiro_nome.innerHTML = `${nome}`
+        }
+        else {
+            primeiro_nome.innerHTML = ``
+        }
+
+        if (mostrarSobrenome == true) {
+            sobrenome.innerHTML = `${sobrenome}`
+        }
+        else {
+            sobrenome.innerHTML = ``
+        }
+
+        if(mostrarNickname == true){
+            nickname.innerHTML = `${nickname}`
+        }
+        else{
+            nickname.innerHTML = ``
+        }
     }
 </script>
