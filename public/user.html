@@ -30,31 +30,29 @@
         <dialog id="editar">
             <div class="containerEditar">
                 <h1>Editar Perfil</h1>
-
-
-                <!-- Imagem do usuário -->
+                
                 <div class="editarIMG">
                     Imagem de Perfil:
                     <input type="file" id="foto" accept="image/*">
                 </div>
 
-                <!-- Nickname -->
+                
                 <div>
                     Nickname:
                     <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
                 </div>
 
-                <!-- Pronomes -->
+                
                 Pronomes:
                 <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
 
-                <!-- Descrição -->
+                
                 Descrição:
                 <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..." oninput="qtdCaracteres()"></textarea>
                 <div class="avisoCaracteres">
                     <p id="avisoCaracteres"></p>
                 </div>
-                <!-- Botões -->
+                
                 <div class="botoesDialog">
                     <button type="submit" onclick="enviar()">Salvar</button>
                     <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>

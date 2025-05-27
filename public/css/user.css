@@ -63,6 +63,22 @@ strong{
     background-color: transparent;
     color: white;
 }
+.containerEditar .botoesDialog{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.containerEditar .botoesDialog button{
+    align-content: center;
+    border-radius: 10px;
+    background-color: transparent;
+    border: #5c0a0a 2px solid;
+    color: white;
+    padding: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
 .containerEditar input::placeholder{
     color: white;
 }
