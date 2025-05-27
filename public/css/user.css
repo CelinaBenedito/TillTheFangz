@@ -21,15 +21,18 @@ header .login {
 .pronomes {
     margin-top: -10px;
 }
-dialog{
+
+dialog {
     border-radius: 15px;
     border: 2px solid rgba(255, 0, 0, 0.3);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
-#editar{
+
+#editar {
     width: 50%;
 }
-textarea{
+
+textarea {
     resize: none;
     border-radius: 15px;
     border: 2px solid rgba(255, 0, 0, 0.3);
@@ -40,43 +43,66 @@ textarea{
     width: 500px;
     height: 125px;
 }
-strong{
+
+strong {
     color: red;
 }
-.containerEditar{
+
+.containerEditar {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
 }
-.containerEditar input{
+
+.containerEditar input {
     border: none;
     border-bottom: 2px solid white;
     background-color: transparent;
     color: white;
 }
-.containerEditar .botoesDialog{
+
+.containerEditar .botoesDialog {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-.containerEditar .botoesDialog button{
+
+.containerEditar .botoesDialog button {
     align-content: center;
     border-radius: 10px;
     background-color: transparent;
     border: #5c0a0a 2px solid;
     color: white;
     padding: 10px;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
-.containerEditar input::placeholder{
+
+.containerEditar input::placeholder {
     color: white;
 }
 
-.nomeclaturas{
+.tagss {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 50px;
+}
+
+.ediçãodeTags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 10px;
+}
+.tagss a{
+    cursor: pointer;
+}
+.nomeclaturas {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,17 +110,20 @@ strong{
     font-family: UnifrakturCook, cursive;
     font-size: large;
 }
+
 .nome {
     margin-top: -35px;
     display: flex;
     gap: 10px;
     justify-content: center;
 }
-.img_User img{
-    align-self: center ;
+
+.img_User img {
+    align-self: center;
     width: 50px;
     border-radius: 100%;
 }
+
 .editarBotao {
     background-color: transparent;
     color: white;
