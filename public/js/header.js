@@ -3,8 +3,7 @@ containerSair.innerHTML =
 `
         <div class="sair" id="btn_sair">
             <a href="../user.html"><i class='bx  bx-user'></i> Perfil</a>
-            <a onclick="limparSessao()"><i class='bx  bx-arrow-from-right-stroke'></i> Sair</a>
-            
+            <a onclick="limparSessao()"><i class='bx  bx-arrow-out-left-square-half'></i>  Sair</a>
         </div>
 `
 if(sessionStorage.ID_USUARIO != undefined){
