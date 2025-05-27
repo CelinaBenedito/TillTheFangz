@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS usuario(
   sobrenome VARCHAR(70),
   genero VARCHAR(17),
   pronome Varchar(10),
+  descricao varchar(500),
   interesse VARCHAR(10),
   email VARCHAR(100),
   senha VARCHAR(50),
@@ -85,13 +86,31 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   INDEX idxusuario (fkusuario),
   CONSTRAINT fk_usuarioresposta FOREIGN KEY (fkusuario) REFERENCES usuario (id),
   CONSTRAINT fk_pergunta_resposta FOREIGN KEY (fkresposta , fkpergunta) REFERENCES resposta (idresposta , fkpergunta)
+  ); 	
+  
+  CREATE TABLE post(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  fkusuario INT NOT NULL,
+  dataHora timestamp default current_timestamp,
+  conteudo VARCHAR(1000),
+  tag VARCHAR(50),
+  imagem VARCHAR(500),
+  CONSTRAINT fk_post_usuario FOREIGN KEY (fkusuario) references usuario(id)
   );
   
-	select * from TillTheFangz.usuario;
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
    values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', null),
    ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f'),
    ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', null),
    ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', null),
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', null),
-   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', null)
+   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', null);
+   
+  create view view_generos as
+  select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
+  (select count(genero) from usuario where genero like 'Masculino') as "Quantidade de Homens",
+  (select count(genero) from usuario where genero like 'Outro') as 'Outros Generos'
+  from usuario;
+    
+    select * from view_generos;
+  
