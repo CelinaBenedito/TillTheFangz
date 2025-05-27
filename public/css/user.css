@@ -35,7 +35,6 @@ dialog{
 }
 #editar{
     width: 50%;
-    height: 50%;
 }
 textarea{
     resize: none;
@@ -46,7 +45,10 @@ textarea{
     background-color: transparent;
     color: white;
     width: 500px;
-    height: 300px;
+    height: 125px;
+}
+strong{
+    color: red;
 }
 .containerEditar{
     height: 100%;
@@ -59,6 +61,7 @@ textarea{
     border: none;
     border-bottom: 2px solid white;
     background-color: transparent;
+    color: white;
 }
 .containerEditar input::placeholder{
     color: white;

@@ -38,7 +38,6 @@
                     <input type="file" id="foto" accept="image/*">
                 </div>
 
-
                 <!-- Nickname -->
                 <div>
                     Nickname:
@@ -46,13 +45,15 @@
                 </div>
 
                 <!-- Pronomes -->
-                <label for="pronomesInput">Pronomes:</label>
+                Pronomes:
                 <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
 
                 <!-- Descrição -->
-                <label for="descricaoInput">Descrição:</label>
-                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..."></textarea>
-
+                Descrição:
+                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..." oninput="qtdCaracteres()"></textarea>
+                <div class="avisoCaracteres">
+                    <p id="avisoCaracteres"></p>
+                </div>
                 <!-- Botões -->
                 <div class="botoesDialog">
                     <button type="submit" onclick="enviar()">Salvar</button>
@@ -180,6 +181,18 @@
 <script src="js/header.js"></script>
 
 <script>
+
+    function qtdCaracteres(){
+        let descricao = descricaoInput.value;
+        let tamanhoDescricao = descricao.length;
+        let quantidadeRestante = 500-tamanhoDescricao;
+        avisoCaracteres.innerHTML = `Caracteres usados: ${tamanhoDescricao}`
+        if(quantidadeRestante<100){
+            avisoCaracteres.innerHTML = `Caracteres usados: <strong>${tamanhoDescricao}</strong>
+        <br> Caracteres disponiveis <strong>${quantidadeRestante}</strong>`
+        }
+    }
+
     function buscarPeloId(id_user) {
 
         fetch(`/usuarios/${id_user}`, {
