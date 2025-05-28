@@ -47,22 +47,8 @@
 </body>
 <script src="js/header.js"></script>
 <script src="js/inners.js"></script>
+<script src="js/div_alerta.js"></script>
 <script>
-    div_Alerta.style.display = "none"
-
-    function funcao_alerta(texto) {
-        div_Alerta.style.display = "block"
-        requestAnimationFrame(() => {
-            div_Alerta.classList.add('aparecer');
-        });
-        conteudo_alerta.innerHTML =
-            `
-        ${texto}
-        <br>
-        <br>
-        <button onclick="div_Alerta.style.display= 'none'">OK</button>
-        `
-    }
 
     let cliquesGeral = 0;
     let cliquesTrans = 0;

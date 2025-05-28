@@ -5,25 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/alerta.css">
     <title>Till the Fangz | Login</title>
-
-    <script src="./js/sessao.js"></script>
-
     <link rel="stylesheet" href="./css/heade&footer.css">
     <link rel="stylesheet" href="./css/formulario.css">
     <link rel="icon" href="./assets/icon/favicon2.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="./js/sessao.js"></script>
+
+
 </head>
 
 <body>
     <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
+    <div id="div_Alerta" class="alerta">
+        <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+        <div id="conteudo_alerta"></div>
+    </div>
 
         <div class="card">
             <h1>Login</h1>
@@ -55,6 +54,7 @@
 
 </html>
 
+<script src="js/div_alerta.js"></script>
 <script>
 
 
@@ -65,10 +65,8 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
-            return false;
+            return false, funcao_alerta("Por favor preencha todos os campos");
         }
         else {
             setInterval(sumirMensagem, 5000)
