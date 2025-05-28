@@ -14,10 +14,10 @@
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
-<div id="div_Alerta" class="alerta">
-    <img class="morcego" src="assets/img/morcegoCimaPreto.png">
-    <div id="conteudo_alerta"></div>
-</div>
+    <div id="div_Alerta" class="alerta">
+        <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+        <div id="conteudo_alerta"></div>
+    </div>
     <div class="conteudo" id="div_conteudo">
         <div class="inicial">
             <h2>Nenhum personagem encontrado!</h2>
@@ -48,12 +48,15 @@
 <script src="js/header.js"></script>
 <script src="js/inners.js"></script>
 <script>
-div_Alerta.style.display= "none"
+    div_Alerta.style.display = "none"
 
-        function funcao_alerta(texto){
-        div_Alerta.style.display= ""
-        conteudo_alerta.innerHTML = 
-        `
+    function funcao_alerta(texto) {
+        div_Alerta.style.display = "block"
+        requestAnimationFrame(() => {
+            div_Alerta.classList.add('aparecer');
+        });
+        conteudo_alerta.innerHTML =
+            `
         ${texto}
         <br>
         <br>
@@ -628,15 +631,15 @@ div_Alerta.style.display= "none"
     function pontuação(numero, atributo) {
 
         if (numero === 1 && pontos[atributo] >= 5) {
-            
+
             return funcao_alerta("Quantidade máxima alcançada");;
         }
         if (numero === -1 && pontos[atributo] <= 0) {
-            
+
             return funcao_alerta("Quantidade mínima alcançada");;
         }
         if (numero === 1 && pontosAtributosTotais <= 0) {
-           
+
             return funcao_alerta("Quantidade de pontos total acabou");;
         }
 
