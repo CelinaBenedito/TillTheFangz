@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS usuario(
   interesse VARCHAR(10),
   email VARCHAR(100),
   senha VARCHAR(50),
-  ImagemUsuario VARCHAR(500),
+  ImagemUsuario VARCHAR(500) default 'null.png',
   UNIQUE INDEX ix_email(email)
   );
   -- -----------------------------------------------------
@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS personagem(
 
 CREATE TABLE IF NOT EXISTS pontos(
   fkpersonagem INT NOT NULL,
-  fkusuario INT NOT NULL,
   defesa INT NOT NULL,
   sanidade INT NOT NULL,
   carisma INT NOT NULL,
@@ -52,7 +51,7 @@ CREATE TABLE IF NOT EXISTS pontos(
   agilidade INT NOT NULL,
   vigor INT NOT NULL,
   SangueAncestral INT NOT NULL,
-  PRIMARY KEY (fkpersonagem, fkusuario),
+  PRIMARY KEY (fkpersonagem),
   CONSTRAINT fk_personagem_pontos FOREIGN KEY (fkpersonagem) REFERENCES personagem(id)
 );
 
@@ -99,18 +98,18 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   );
   
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
-   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', null),
+   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', 'null.png'),
    ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f'),
-   ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', null),
-   ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', null),
-   ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', null),
-   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', null);
+   ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', 'null.png'),
+   ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', 'null.png'),
+   ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
+   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', 'null.png');
    
   create view view_generos as
   select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
   (select count(genero) from usuario where genero like 'Masculino') as "Quantidade de Homens",
   (select count(genero) from usuario where genero like 'Outro') as 'Outros Generos'
-  from usuario;
+  from usuario
+  group by "Quantidade de Mulheres" ;
     
     select * from view_generos;
-  
