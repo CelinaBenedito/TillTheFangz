@@ -1,8 +1,12 @@
+body > .alerta {
+  position: fixed;
+  z-index: 2147483647; 
+}
 .alerta {
     top: 100px;
     left: 50%;
-    position: fixed;
-    z-index: 999999;
+   /* position: fixed;
+    z-index: 999999;*/
     overflow: visible;
 
     display: flex;

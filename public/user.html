@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="../css/heade&footer.css">
+    <link rel="stylesheet" href="../css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>User</title>
 </head>
@@ -13,9 +14,7 @@
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
-<div id="div_Alerta" class="alerta">
-    <img class="morcego" src="assets/img/morcegoCimaPreto.png">
-</div>
+
 
     <div class="container">
         <div class="imgUser" id="imagem_usuario">
@@ -280,17 +279,15 @@
             <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <div id="div_Alerta" class="alerta">
+    <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+</div>
 </body>
 
 </html>
 <script src="js/header.js"></script>
-
+<script src="js/div_alerta.js"></script>
 <script>
-  //  div_Alerta.style.display = "none"
-    function funcao_alerta(texto){
-        div_Alerta.style.display= "block"
-        div_Alerta.innerHTML = `${texto}`
-    }
 
     const itensAdicionados = []
     function salvarTags() {
@@ -313,21 +310,17 @@
         let tamanhoItens = itensAdicionados.length;
         let tem = false
         if (tamanhoItens == 5) {
-            funcao_alerta("Máximo de 5 tags")
+            return funcao_alerta("Máximo de 5 tags");
         }
         for (let c = 0; tamanhoItens > c; c++) {
-            console.log("Entrou no for")
             if (itensAdicionados[c].tipo == item) {
-                console.log("entrou no if de tem = true")
                 tem = true
             }
         }
         if (tem == false) {
-            console.log("entoru no if do tem = false")
             itensAdicionados.push({
                 tipo: item
             })
-
         }
     }
     function qtdCaracteres() {
