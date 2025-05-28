@@ -11,12 +11,14 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px;
 
     color: white;
     background-color: #02020273;
     border: #5c0a0a 2px solid;
     border-radius: 15px;
     backdrop-filter: blur(3px); 
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 
     max-width: 250px;
     width: 200px;
