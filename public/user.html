@@ -13,6 +13,9 @@
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
+<div id="div_Alerta" class="alerta">
+    <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+</div>
 
     <div class="container">
         <div class="imgUser" id="imagem_usuario">
@@ -78,53 +81,103 @@
         <p id="descricao">Adicionar Descrição</p>
         <div class="parteTags">
             <h3>Tags:</h3>
-
+            <div>
+                <button onclick="editarTags('abrir')">+</button>
+            </div>
             <div class="espaçoParaTags" id="espaçotag">
+            </div>
 
-                <div>
-                    <button>+</button>
-                </div>
-                <dialog id="ediçãodeTags">
-                    <div class="ediçãodeTags">
-                        <h1>Editar Tags</h1>
-                        <h2>Jogadores</h2>
-                        <div class="tagss">
-                            <a onclick="tag('Mestre')"><p>O Mestre</p></a>
-                            <a onclick="tag('player')"><p>O Player</p></a>
-                            <a onclick="tag('ator')"></a><p>O Ator</p>
-                            <a onclick="tag('observador')"></a><p>O observador</p>
-                            <a onclick="tag('engajador')"></a><p>O engajado</p>
-                            <a onclick="tag('comentador')"></a><p>O comentador</p>
+            <dialog id="dialog_ediçãodeTags">
+                <div class="ediçãodeTags">
+                    <h1>Editar Tags</h1>
+                    <h2>Jogadores</h2>
+                    <div class="tagss">
+                        <a onclick="SalvarTag('jogador','O Mestre')">
+                            <p>O Mestre</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Player')">
+                            <p>O Player</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Ator')">
+                            <p>O Ator</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Observador')">
+                            <p>O observador</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Engajado')">
+                            <p>O engajado</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Comentador')">
+                            <p>O comentador</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Investigador')">
                             <p>O Investigador</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Narrador')">
                             <p>O Narrador</p>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Solitario')">
                             <p>O solitário</p>
-                        </div>
-
-                        <h2>Raças</h2>
-                        <div class="tagss">
-                            <p>Monstro</p>
-                            <p>Vampiro</p>
-                            <p>Anjo</p>
-                            <p>Demonio</p>
-                            <p>Bruxa</p>
-                            <p>Corrompido</p>
-                        </div>
-
-                        <h2>Classes</h2>
-                        <div class="tagss">
-                            <p>Caçador</p>
-                            <p>Senhor das Sombras</p>
-                            <p>Barbaro</p>
-                            <p>Ilusionista</p>
-                            <p>Cultistas</p>
-                            <p>Iluminado</p>
-                            <p>Flagelador</p>
-                            <p>Canibal</p>
-                        </div>
+                        </a>
+                        <a onclick="SalvarTag('jogador','O Piadista')">
+                            <p>O piadista</p>
+                        </a>
 
                     </div>
-                </dialog>
-            </div>
+                    <h2>Raças</h2>
+                    <div class="tagss">
+                        <A onclick="SalvarTag('racas', 'Monstro')">
+                            <p>Monstro</p>
+                        </A>
+                        <a onclick="SalvarTag('racas','Vampiro')">
+                            <p>Vampiro</p>
+                        </a>
+                        <a onclick="SalvarTag('racas', 'Anjo')">
+                            <p>Anjo</p>
+                        </a>
+                        <a onclick="SalvarTag('raca','Demonio')">
+                            <p>Demonio</p>
+                        </a>
+                        <a onclick="SalvarTag('raca','Bruxa')">
+                            <p>Bruxa</p>
+                        </a>
+                        <a onclick="SalvarTag('raca','Corrompido')">
+                            <p>Corrompido</p>
+                        </a>
+                    </div>
+
+                    <h2>Classes</h2>
+                    <div class="tagss">
+                        <a onclick="SalvarTag('classes','Caçador')">
+                            <p>Caçador</p>
+                        </a>
+                        <a onclick="SalvarTag('classes','Senhor das sombras')">
+                            <p>Senhor das Sombras</p>
+                        </a>
+                        <a onclick="SalvarTag('classes','Barbaro')">
+                            <p>Barbaro</p>
+                        </a>
+                        <a onclick="SalvarTag('classes','Ilusionista')">
+                            <p>Ilusionista</p>
+                        </a>
+                        <a onclick="SalvarTag('classes','Cultista')">
+                            <p>Cultistas</p>
+                        </a>
+                        <a onclick="SalvarTag('classes', 'Iluminado')">
+                            <p>Iluminado</p>
+                        </a>
+                        <a onclick="SalvarTag('classes', 'Flagelador')">
+                            <p>Flagelador</p>
+                        </a>
+                        <a onclick="SalvarTag('classes','Canibal')">
+                            <p>Canibal</p>
+                        </a>
+                    </div>
+                </div>
+
+                <button onclick="salvarTags()">Salvar</button>
+                <button onclick="editarTags('fechar')">Fechar</button>
+            </dialog>
 
 
         </div>
@@ -233,9 +286,49 @@
 <script src="js/header.js"></script>
 
 <script>
+  //  div_Alerta.style.display = "none"
+    function funcao_alerta(texto){
+        div_Alerta.style.display= ""
+        div_Alerta.innerHTML = `${texto}`
+    }
 
-    function editarTags() {
-        ediçãodeTags.showModal();
+    const itensAdicionados = []
+    function salvarTags() {
+        let tamanhoItens = itensAdicionados.length;
+        for (let c = 0; tamanhoItens > c; c++) {
+            espaçotag.innerHTML += `<p>${itensAdicionados[c].tipo}</p>`
+        }
+
+    }
+    function editarTags(funcao) {
+        if (funcao == 'abrir') {
+            dialog_ediçãodeTags.showModal();
+        }
+        else {
+            dialog_ediçãodeTags.close()
+        }
+
+    }
+    function SalvarTag(tipo, item) {
+        let tamanhoItens = itensAdicionados.length;
+        let tem = false
+        if (tamanhoItens == 5) {
+            funcao_alerta("Máximo de 5 tags")
+        }
+        for (let c = 0; tamanhoItens > c; c++) {
+            console.log("Entrou no for")
+            if (itensAdicionados[c].tipo == item) {
+                console.log("entrou no if de tem = true")
+                tem = true
+            }
+        }
+        if (tem == false) {
+            console.log("entoru no if do tem = false")
+            itensAdicionados.push({
+                tipo: item
+            })
+
+        }
     }
     function qtdCaracteres() {
         let descricao = descricaoInput.value;

@@ -1,0 +1,42 @@
+.alerta{
+    top: 100px;
+    left: 35%; 
+    position: fixed;        
+    transform: translateX(50%); 
+    z-index:  999999;   
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    background-color: #02020273;
+    border: #5c0a0a 2px solid;
+    border-radius: 15px;
+    backdrop-filter: blur(3px); 
+
+    max-width: 250px;
+    width: 200px;
+    min-width: none;
+    max-height: 300px;
+    height: 100px;
+}
+
+.morcego{
+    position: absolute;
+    width: 120px;
+    top: -90px;     
+    right: -40px;   
+    pointer-events: none;
+}
+.alerta button{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: #02020273;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    border: #5c0a0a 2px solid;
+}

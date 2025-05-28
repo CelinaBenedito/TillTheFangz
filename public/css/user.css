@@ -2,6 +2,41 @@ header .login {
     border: none;
 }
 
+.alerta{
+    top: 100px;
+    left: 35%; 
+    position: fixed;        
+    transform: translateX(50%); 
+    z-index:  999999;   
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: white;
+    background-color: #02020273;
+    border: #5c0a0a 2px solid;
+    border-radius: 15px;
+    backdrop-filter: blur(3px); 
+
+    max-width: 250px;
+    width: 200px;
+    min-width: none;
+    max-height: 300px;
+    height: 100px;
+}
+
+.morcego{
+    position: absolute;
+    width: 120px;
+    top: -90px;     
+    right: -40px;   
+    pointer-events: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -26,6 +61,12 @@ dialog {
     border-radius: 15px;
     border: 2px solid rgba(255, 0, 0, 0.3);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    z-index: 500;
+    background-color: #020202;
+    color: white;
+}
+dialog::backdrop{
+   z-index: 500; 
 }
 
 #editar {
@@ -88,7 +129,7 @@ strong {
 .tagss {
     display: grid;
     grid-template-columns: 50% 50%;
-    gap: 50px;
+    gap: 30px;
 }
 
 .ediçãodeTags {
@@ -96,12 +137,19 @@ strong {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 500px;
+    width: 650px;
     padding: 10px;
 }
-.tagss a{
+
+.tagss a {
     cursor: pointer;
+    transition: 1s;
 }
+
+dialog p:hover {
+    transform: scale(1.2rem);
+}
+
 .nomeclaturas {
     display: flex;
     flex-direction: column;
@@ -148,7 +196,8 @@ strong {
 
 .espaçoParaTags {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     gap: 10px;
 }
 
@@ -160,6 +209,22 @@ strong {
     font-size: large;
     border: 2px solid rgba(255, 0, 0, 0.3);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.tagss p {
+    border-radius: 15px;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    font-size: large;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.tagss p:hover {
+    transform: scale(2rem);
+    color: #e60000;
 }
 
 .parteBotao {
@@ -305,7 +370,9 @@ strong {
     padding: 10px;
     border: 2px solid rgba(255, 0, 0, 0.3);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+
 }
+
 
 .card .conteudo {
     display: flex;
@@ -352,10 +419,6 @@ strong {
     align-items: center;
 }
 
-dialog {
-    background-color: #020202;
-    color: white;
-}
 
 .informacoes {
     display: flex;
