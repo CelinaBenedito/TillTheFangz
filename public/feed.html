@@ -38,7 +38,7 @@
                             <label>
                                 Descrição (máximo de 250 caracteres):
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea name="conteudo" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
                             <br>
@@ -110,7 +110,7 @@
 
         var corpo = {
             titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            descricao: form_postagem.conteudo.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
