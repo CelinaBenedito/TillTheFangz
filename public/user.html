@@ -33,7 +33,7 @@
 
         </div>
         <p id="pronomes" class="pronomes">Pronomes</p>
-        <button class="editarBotao" onclick="Editar()">Editar Perfil</button>
+        <button class="editarBotao" onclick=" editar.showModal()">Editar Perfil</button>
         <dialog id="editar">
             <div class="containerEditar">
                 <h1>Editar Perfil</h1>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="botoesDialog">
-                    <button type="submit" onclick="enviar()">Salvar</button>
+                    <button type="submit" onclick="enviar(), editar.close()">Salvar</button>
                     <button type="button" onclick="document.getElementById('editar').close()">Cancelar</button>
                 </div>
 
@@ -280,8 +280,8 @@
         </div>
     </footer>
     <div id="div_Alerta" class="alerta">
-    <img class="morcego" src="assets/img/morcegoCimaPreto.png">
-</div>
+        <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+    </div>
 </body>
 
 </html>
@@ -365,10 +365,6 @@
 
     function fecharTela() {
         infosPersonagem.close()
-    }
-
-    function Editar() {
-        editar.showModal()
     }
 
     function enviar() {
