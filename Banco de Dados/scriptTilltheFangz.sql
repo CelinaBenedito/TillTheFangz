@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   
   CREATE TABLE post(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  titulo varchar(50),
   fkusuario INT NOT NULL,
   dataHora timestamp default current_timestamp,
   conteudo VARCHAR(1000),
@@ -96,6 +97,9 @@ CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
   imagem VARCHAR(500),
   CONSTRAINT fk_post_usuario FOREIGN KEY (fkusuario) references usuario(id)
   );
+  
+  insert into post(titulo, fkusuario, conteudo, tag)
+	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gárgulas?', 'Monstro');
   
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
    values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', 'null.png'),
