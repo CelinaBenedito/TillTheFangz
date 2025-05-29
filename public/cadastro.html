@@ -47,7 +47,7 @@
           <select id="select_motivo" class="item">
             <option value="#">Interesse:</option>
             <option value="Mestre">Sou mestre</option>
-            <option value="Player">Sou player</option>
+            <option value="player">Sou player</option>
             <option value="Outro">Outro</option>
           </select>
         </div>
@@ -106,7 +106,7 @@
       div_Alerta.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      //finalizarAguardar();
+      finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -143,14 +143,14 @@
           }, "2000");
 
           limparFormulario();
-          //finalizarAguardar();
+          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        //finalizarAguardar();
+        finalizarAguardar();
       });
 
     return false;
