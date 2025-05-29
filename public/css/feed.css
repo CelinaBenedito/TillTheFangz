@@ -1,6 +1,19 @@
 html{
     cursor: default;
 }
+.feedContainer{
+    gap: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.Containerpublicar{
+    display: flex;
+    flex-direction: column;
+    background-color: #020202;
+    color: white;
+}
+
+
 .tudo {
     margin-top: 20px;
     display: flex;

@@ -13,16 +13,16 @@
   <link rel="stylesheet" href="./css/formulario.css" />
   <link rel="stylesheet" href="./css/heade&footer.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="css/alerta.css">
 </head>
 
 <body>
 
   <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
+    <div id="div_Alerta" class="alerta">
+      <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+      <div id="conteudo_alerta"></div>
+  </div>
     <div class="container">
       <div class="card">
         <h1>Cadastro</h1>
@@ -46,9 +46,9 @@
           </select>
           <select id="select_motivo" class="item">
             <option value="#">Interesse:</option>
-            <option value="1">Sou mestre</option>
-            <option value="2">Sou player</option>
-            <option value="3">Outro</option>
+            <option value="Mestre">Sou mestre</option>
+            <option value="Player">Sou player</option>
+            <option value="Outro">Outro</option>
           </select>
         </div>
 
@@ -103,10 +103,10 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
+      div_Alerta.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      finalizarAguardar();
+      //finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -133,9 +133,9 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          div_Alerta.style.display = "block";
 
-          mensagem_erro.innerHTML =
+          div_Alerta.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
@@ -143,20 +143,20 @@
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
+          //finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        //finalizarAguardar();
       });
 
     return false;
   }
 
   function sumirMensagem() {
-    cardErro.style.display = "none";
+    div_Alerta.style.display = "none";
   }
 </script>

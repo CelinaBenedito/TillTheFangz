@@ -54,38 +54,6 @@ CREATE TABLE IF NOT EXISTS pontos(
   PRIMARY KEY (fkpersonagem),
   CONSTRAINT fk_personagem_pontos FOREIGN KEY (fkpersonagem) REFERENCES personagem(id)
 );
-
--- -----------------------------------------------------
--- Tabela pergunta
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS TillTheFangz.pergunta(
-  idpergunta INT PRIMARY KEY AUTO_INCREMENT,
-  descricao VARCHAR(45) NOT NULL,
-  UNIQUE INDEX ix_pergunta (descricao)
-  );
-
-CREATE TABLE IF NOT EXISTS TillTheFangz.resposta(
-  idresposta INT NOT NULL,
-  descricao VARCHAR(45) NOT NULL,
-  fkpergunta INT NOT NULL,
-  PRIMARY KEY (idresposta, fkpergunta),
-  INDEX idxresposta (fkpergunta),
-  CONSTRAINT fk_resposta_pergunta1 FOREIGN KEY (fkpergunta) REFERENCES pergunta(idpergunta)
-    );
-    
--- -----------------------------------------------------
--- Tabela respostas_usuario
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS TillTheFangz.respostas_usuario (
-  fkusuario INT NOT NULL,
-  fkresposta INT NOT NULL,
-  fkpergunta INT NOT NULL,
-  PRIMARY KEY (fkusuario, fkresposta, fkpergunta),
-  INDEX idxresposta_pergunta (fkresposta, fkpergunta),
-  INDEX idxusuario (fkusuario),
-  CONSTRAINT fk_usuarioresposta FOREIGN KEY (fkusuario) REFERENCES usuario (id),
-  CONSTRAINT fk_pergunta_resposta FOREIGN KEY (fkresposta , fkpergunta) REFERENCES resposta (idresposta , fkpergunta)
-  ); 	
   
   CREATE TABLE post(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
