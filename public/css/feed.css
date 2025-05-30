@@ -1,6 +1,9 @@
 html{
     cursor: default;
 }
+.loading-div img{
+width: 100px;
+}
 .feedContainer{
     gap: 20px;
     display: flex;

@@ -11,7 +11,7 @@
     <title>User</title>
 </head>
 
-<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+<body onload="preencher()">
     <header id="header"></header>
     <div id="containerSair"></div>
 
@@ -187,7 +187,7 @@
                     <button>+</button>
                 </a>
             </div>
-            <a onclick="abirTela()">
+            <a onclick="infosPersonagem.showModal()">
                 <div class="cardPersonagem">
                     <div class="nomePersonagem">
                         <p id="nomeclatura">Nome ou apelido</p>
@@ -226,7 +226,7 @@
                     </p>
 
                     <div class="botaoFechar">
-                        <button onclick="fecharTela()">Fechar</button>
+                        <button onclick="infosPersonagem.close()">Fechar</button>
                     </div>
                 </div>
 
@@ -289,7 +289,17 @@
 <script src="js/header.js"></script>
 <script src="js/div_alerta.js"></script>
 <script>
+        let nomedoUsuario = sessionStorage.NOME_USUARIO
+        let sobrenomedoUsuario = sessionStorage.SOBRENOME_USUARIO
+        let nicknamedoUsuario = sessionStorage.NICKNAME_USUARIO 
 
+    function preencher() {
+        primeiro_nome.innerHTML = nomedoUsuario
+        sobrenome.innerHTML = sobrenomedoUsuario
+        nickname.innerHTML = nicknamedoUsuario
+    }
+
+    /*Tags*/
     const itensAdicionados = []
     function salvarTags() {
         let tamanhoItens = itensAdicionados.length;
@@ -324,6 +334,7 @@
             })
         }
     }
+    /*Quantidade de caracteres da descrição*/
     function qtdCaracteres() {
         let descricao = descricaoInput.value;
         let tamanhoDescricao = descricao.length;
@@ -335,38 +346,33 @@
         }
     }
 
-    function buscarPeloId(id_user) {
 
-        fetch(`/usuarios/${id_user}`, {
-            method: "GET"
-        })
-            .then(res => {
-                res.json().then(json => {
-                    const usuario = json[0];
-                    primeiro_nome.innerHTML = `${usuario.nome}`
-                    sobrenome.innerHTML = `${usuario.sobrenome}`
-                    nickname.innerHTML = `${usuario.nickname}`
-                    imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-                    imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-                    imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
-                })
+    // function buscarPeloId(id_user) {
 
-            })
-            .catch(err => {
-                console.log(err);
+    //     fetch(`/usuarios/${id_user}`, {
+    //         method: "GET"
+    //     })
+    //         .then(res => {
+    //             res.json().then(json => {
+    //                 const usuario = json[0];
+    //                 primeiro_nome.innerHTML = `${usuario.nome}`
+    //                 sobrenome.innerHTML = `${usuario.sobrenome}`
+    //                 nickname.innerHTML = `${usuario.nickname}`
+    //                 imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+    //                 imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+    //                 imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
-            })
+    //             })
 
-    }
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
 
-    function abirTela() {
-        infosPersonagem.showModal()
-    }
+    //         })
 
-    function fecharTela() {
-        infosPersonagem.close()
-    }
+    // }
+
 
     function enviar() {
         mostrar()
@@ -394,7 +400,7 @@
         let mostrarNickname = chk_nickname.checked;
         let nome = sessionStorage.NOME_USUARIO;
         let sobrenome = sessionStorage.SOBRENOME_USUARIO;
-        let nickname = 0;
+        let nickname = sessionStorage.NICKNAME_USUARIO;
 
         if (mostrarNome == true) {
             primeiro_nome.innerHTML = `${nome}`

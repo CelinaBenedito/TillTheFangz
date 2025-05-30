@@ -27,7 +27,10 @@ function autenticar(req, res) {
                             id: resultadoAutenticar[0].id,
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
+                            sobrenome: resultadoAutenticar[0].sobrenome,
                             senha: resultadoAutenticar[0].senha,
+                            ImagemUsuario: resultadoAutenticar[0].ImagemUsuario,
+                            nickname: resultadoAutenticar[0].nickname
                         });
                         //} 
                         // else {

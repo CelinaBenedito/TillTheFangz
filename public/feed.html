@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/heade&footer.css">
     <link rel="stylesheet" href="../css/feed.css">
+    <link rel="stylesheet" href="css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Feed Till the Fangz</title>
 </head>
@@ -13,6 +14,10 @@
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO), validarSessao(), atualizarFeed()">
     <header id="header"></header>
     <div id="containerSair"></div>
+    <div id="div_Alerta" class="alerta">
+        <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+        <div id="conteudo_alerta"></div>
+    </div>
 
     <div class="tudo">
 
@@ -22,7 +27,15 @@
 
                 <h1>Feed:</h1>
                 <div class="ferramentas">
-                    <button onclick="editar.showModal()"> <i class='bx bx-edit'></i> novo post</button>
+                    <button onclick="
+                    if(sessionStorage.ID_USUARIO!=undefined){
+                        editar.showModal()
+                    }
+                    else{
+                        funcao_alerta()
+                        setTimeout(() => redirecionar(),3000)
+                        
+                    }"> <i class='bx bx-edit'></i> novo post</button>
                 </div>
                 <dialog id="editar">
                     <div class="Containerpublicar">
@@ -32,7 +45,7 @@
                                 <label>
                                     Título:
                                     <br>
-                                    <input name="titulo" id="titulo" maxlength="100" type="text">
+                                    <input name="titulo" maxlength="50" id="titulo" maxlength="100" type="text">
                                 </label>
                                 <br>
                                 <label>
@@ -41,9 +54,9 @@
                                 <br>
                                 <br>
                                 <label>
-                                    Descrição (máximo de 250 caracteres):
+                                    Descrição:
                                     <br>
-                                    <textarea name="conteudo" id="textarea_descricao" maxlength="250"
+                                    <textarea name="conteudo" maxlength="1000" id="textarea_descricao" maxlength="250"
                                         rows="5"></textarea>
                                 </label>
                                 <br>
@@ -131,8 +144,6 @@
                 </div>
             </div>
 
-
-
             <div class="tagss">
                 <div class="separacao">
                     <a onclick="aparecer('Classe')">
@@ -185,9 +196,28 @@
 </body>
 
 </html>
+<script src="js/div_alerta.js"></script>
 <script src="js/sessao.js"></script>
 <script src="js/header.js"></script>
 <script>
+    // function validacaoNomes(){
+    //     if(sessionStorage.NICKNAME_USUARIO)
+    // }
+    function redirecionar() {
+        window.location = 'login.html'
+    }
+    function funcao_alerta(texto) {
+        div_Alerta.style.display = "block"
+        requestAnimationFrame(() => {
+            div_Alerta.classList.add('aparecer');
+        });
+        conteudo_alerta.innerHTML =
+            `Você não está logado, redirecionando para a página de login 
+            <div id='div_aguardar' class='loading-div'>
+            <img src='./assets/carregando.gif' x id='loading-gif'>
+            </div>
+            `
+    }
     Racas.style.display = 'none'
     Jogador.style.display = 'none'
     Classe.style.display = 'none'
