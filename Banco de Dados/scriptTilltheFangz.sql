@@ -66,8 +66,6 @@ CREATE TABLE IF NOT EXISTS pontos(
   CONSTRAINT fk_post_usuario FOREIGN KEY (fkusuario) references usuario(id)
   );
   
-  insert into post(titulo, fkusuario, conteudo, tag)
-	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gárgulas?', 'Monstro');
   
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
    values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', 'null.png'),
@@ -77,6 +75,9 @@ CREATE TABLE IF NOT EXISTS pontos(
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
    ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', 'null.png');
    
+    insert into post(titulo, fkusuario, conteudo, tag)
+	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gÃ¡rgulas?', 'Monstro');
+
   create view view_generos as
   select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
   (select count(genero) from usuario where genero like 'Masculino') as "Quantidade de Homens",
@@ -84,4 +85,7 @@ CREATE TABLE IF NOT EXISTS pontos(
   from usuario
   group by "Quantidade de Mulheres" ;
     
-    select * from view_generos;
+select * from view_generos;
+select * from post;
+
+select * from usuario;
