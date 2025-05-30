@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <title>AquaTech | Cadastro</title>
+  <title>TillTheFangz | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -65,9 +65,9 @@
         <button class="botao" onclick="cadastrar()">Cadastrar</button>
         <div>Já possui um cadastro? <a href="login.html">Login</a></div>
       </div>
-      <!-- <div id="div_aguardar" class="loading-div">
-        <img src="./assets/circle-loading.gif" id="loading-gif" />
-      </div> -->
+       <div id="div_aguardar" class="loading-div">
+        <img src="assets/carregando.gif" id="loading-gif" />
+      </div>
 
       <div id="div_erros_login"></div>
     </div>
@@ -77,7 +77,7 @@
 </body>
 
 </html>
-
+<script src="js/div_alerta.js"></script>
 <script>
 
   function cadastrar() {
@@ -102,9 +102,8 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      div_Alerta.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      //cardErro.style.display = "block";
+      funcao_alerta("Mensagem de erro para todos os campos em branco");
 
       finalizarAguardar();
       return false;
