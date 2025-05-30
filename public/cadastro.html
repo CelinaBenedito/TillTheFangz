@@ -94,22 +94,50 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var confirmacaoEmailVar = confirmacao_email_input.value;
 
+    let caracteresEspeciais = /[!@#$%&*/?,+-.;:]/
+    let Maiusculas = /[A-Z]/
+    let ondeEsta = emailVar.indexOf("@")
+
+    if(nomeVar == ""){
+      funcao_alerta("Adicione um nome");
+      return;
+    }
+    else if(confirmacaoEmailVar != emailVar){
+      funcao_alerta("Os emails devem ser iguais")
+      return;
+    }
+    else if(ondeEsta == -1){
+      funcao_alerta("O email deve conter @")
+      return;
+    }
+    else if(confirmacaoSenhaVar != senhaVar){
+      funcao_alerta("As senhas devem ser iguais")
+      return;
+    }
+    else if(!caracteresEspeciais.test(senhaVar)){
+      funcao_alerta("A senha deve conter caracteres especiais<br> Ex: ?@#$%")
+      return;
+    }
+    else if(!Maiusculas.test(senhaVar)){
+      funcao_alerta("A senha deve conter letras maisuculas")
+      return;
+    }
 
     // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
-    ) {
-      //cardErro.style.display = "block";
-      funcao_alerta("Mensagem de erro para todos os campos em branco");
+    // if (
+    //   nomeVar == "" ||
+    //   emailVar == "" ||
+    //   senhaVar == "" ||
+    //   confirmacaoSenhaVar == ""
+    // ) {
+    //   //cardErro.style.display = "block";
+    //   funcao_alerta("Mensagem de erro para todos os campos em branco");
 
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+    //   finalizarAguardar();
+    //   return false;
+    // } else {
+    //   setInterval(sumirMensagem, 5000);
+    // }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
