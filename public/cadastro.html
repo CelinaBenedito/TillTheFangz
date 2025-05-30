@@ -134,8 +134,8 @@
         if (resposta.ok) {
           div_Alerta.style.display = "block";
 
-          div_Alerta.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          funcao_alerta("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
+           ;
 
           setTimeout(() => {
             window.location = "login.html";
