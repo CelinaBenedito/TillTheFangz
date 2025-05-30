@@ -289,14 +289,20 @@
 <script src="js/header.js"></script>
 <script src="js/div_alerta.js"></script>
 <script>
-        let nomedoUsuario = sessionStorage.NOME_USUARIO
-        let sobrenomedoUsuario = sessionStorage.SOBRENOME_USUARIO
-        let nicknamedoUsuario = sessionStorage.NICKNAME_USUARIO 
+        let nomedoUsuario = sessionStorage.NOME_USUARIO;
+        let sobrenomedoUsuario = sessionStorage.SOBRENOME_USUARIO;
+        let nicknamedoUsuario = sessionStorage.NICKNAME_USUARIO;
+        let imagemdoUsuario = sessionStorage.IMAGEM_USUARIO;
 
     function preencher() {
         primeiro_nome.innerHTML = nomedoUsuario
         sobrenome.innerHTML = sobrenomedoUsuario
         nickname.innerHTML = nicknamedoUsuario
+
+        imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}.jpg' alt="imagem de usuario">`
+        imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}.jpg' alt="imagem de usuario">`
+        imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}.jpg' alt="imagem de usuario">`
+
     }
 
     /*Tags*/
@@ -379,16 +385,13 @@
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;
-        let nicknameVar = nicknameInput.value;
-
-        nickname.innerHTML = nicknameVar
 
         fetch(`/usuarios/cadastro/${ID_USUARIO}`, {
             method: "POST",
             body: formData
         })
             .catch(err => {
-                console.log("Caiuno catch")
+                console.log("Caiu no catch")
                 console.log(err);
             })
 

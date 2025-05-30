@@ -11,7 +11,7 @@
     <title>Ficha</title>
 </head>
 
-<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+<body onload="logado()">
     <header id="header"></header>
     <div id="containerSair"></div>
     <div id="div_Alerta" class="alerta">
@@ -50,7 +50,18 @@
 <script src="js/div_alerta.js"></script>
 <script>
     function logado() {
-        
+        if(sessionStorage.ID_USUARIO!= undefined){
+
+        }
+        else{
+            div_conteudo.innerHTML = `
+             <div class="inicial">
+            <h2>Logar para ver os personagens</h2>
+            <br<br>
+            <button onclick="window.location='login.html'">Logar</button>
+            </div>
+            `
+        }
     }
     let cliquesGeral = 0;
     let cliquesTrans = 0;
