@@ -1,6 +1,20 @@
 textarea{
     resize: none;
 }
+.big-botao{
+    width: 100%;
+}
+.big-botao button{
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: larger;
+    border: rgb(90, 0, 0) solid 2px;
+    box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
+    color: white;
+    cursor: pointer;
+}
 .conteudo {
     display: flex;
     flex-direction: column;
@@ -59,6 +73,7 @@ textarea{
     border: rgb(90, 0, 0) solid 2px;
     box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
     color: white;
+    cursor: pointer;
 }
 
 .camposiniciais {

@@ -44,16 +44,39 @@
 
         </div>
     </div>
+    <div id="botaozao" class="big-botao">
+        <button onclick="salvarInfos()">Salvar Ficha</button>
+    </div>
+    
 </body>
 <script src="js/header.js"></script>
 <script src="js/inners.js"></script>
 <script src="js/div_alerta.js"></script>
 <script>
+    botaozao.style.display = "none"
+    let pontosAtributosTotais = 10;
+    let pontosVida = 20;
+    let pontosSanidade = 20;
+    let pontosDefesa = 5;
+    let armadura = 0;
+    let pontosHabilidade = 4;
+
+    let pontos = {
+        carisma: 0,
+        inteligencia: 0,
+        agilidade: 0,
+        vigor: 0,
+        sangue: 0,
+    };
+
+    // Objeto para armazenar os elementos DOM que mostram os valores
+    let elementos = {};
+
     function logado() {
-        if(sessionStorage.ID_USUARIO!= undefined){
+        if (sessionStorage.ID_USUARIO != undefined) {
 
         }
-        else{
+        else {
             div_conteudo.innerHTML = `
              <div class="inicial">
             <h2>Logar para ver os personagens</h2>
@@ -75,6 +98,7 @@
         div_conteudoClasse.style.display = "none"
         div_conteudoAtributos.style.display = "none"
         div_conteudoHabilidades.style.display = "none"
+        botaozao.style.display = "block"
         if (gerarInicio == false) {
             gerarInicio = true;
             div_conteudoInicio.innerHTML = textoInicio
@@ -85,6 +109,7 @@
         div_conteudoInicio.style.display = "none"
         div_conteudoAtributos.style.display = "none"
         div_conteudoHabilidades.style.display = "none"
+        botaozao.style.display = ""
         div_conteudoClasse.style.display = ""
         if (gerarClasse == false) {
             gerarClasse = true
@@ -101,7 +126,6 @@
             canibal: document.getElementById('canibal')
         };
     }
-
 
     function aparecer(item) {
         classes[item].showModal();
@@ -572,29 +596,13 @@
     function fechar(item) {
         classes[item].close()
     }
-    let pontosAtributosTotais = 10;
-    let pontosVida = 20;
-    let pontosSanidade = 20;
-    let pontosDefesa = 5;
-    let armadura = 0;
-    let pontosHabilidade = 4;
-
-    let pontos = {
-        carisma: 0,
-        inteligencia: 0,
-        agilidade: 0,
-        vigor: 0,
-        sangue: 0,
-    };
-
-    // Objeto para armazenar os elementos DOM que mostram os valores
-    let elementos = {};
 
     function atributos() {
         div_conteudoClasse.style.display = "none"
         div_conteudoInicio.style.display = "none"
         div_conteudoHabilidades.style.display = "none"
-        div_conteudoAtributos.style.display = ""
+        botaozao.style.display = "block"
+        div_conteudoAtributos.style.display = "block"
 
         div_conteudoAtributos.innerHTML = textoAtributos
 
@@ -664,7 +672,8 @@
 
     function habilidades() {
 
-        div_conteudoHabilidades.style.display = ""
+        div_conteudoHabilidades.style.display = "block"
+        botaozao.style.display = "block"
         div_conteudoAtributos.style.display = "none"
         div_conteudoClasse.style.display = "none"
         div_conteudoInicio.style.display = "none"
@@ -675,6 +684,7 @@
     }
     function atualizarPontosHabilidades() {
         div_containerTransformacoes.style.display = "none";
+        botaozao.style.display = "block"
         div_containerhabilidadesGerais.style.display = "none";
         div_containerSensoriais.style.display = "none";
         pontos_Habilidade.innerHTML = pontosHabilidade
@@ -706,4 +716,22 @@
             div_containerSensoriais.style.display = "none"
         }
     }
+
+    function salvarInfos(classe){
+        let nomePersonagem = ipt_nome.value;
+        let alturaPersonagem = ipt_altura.value;
+        let pesoPersonagem = ipt_peso.value;
+        let apelidoPersonagem = ipt_apelido.value;
+        let generoPersonagem = select_genero.value;
+        let idadePersonagem = ipt_idade.value;
+        let historiaPersonagem = ipt_historia.value;
+        let caracteristicasPersonagem = ipt_caracteristicas.value;
+        let classePersonagem = classe;
+        
+
+        console.log(classePersonagem)
+
+
+    }
+
 </script>

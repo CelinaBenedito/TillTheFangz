@@ -26,7 +26,6 @@ let textoInicio = `
                                     <option value="feminino">Feminino</option>
                                     <option value="masculino">Masculino</option>
                                     <option value="outro">Outro</option>
-                                    <option value="nao">Prefiro não dizer</option>
                             </select>
                             <input type="number" placeholder="Idade..." id="ipt_idade" class="campo" >
 
@@ -34,11 +33,11 @@ let textoInicio = `
                     </div>
                      <div class="detalhes">
                         <textarea placeholder="História do personagem" id="ipt_historia" class="campo"></textarea>
-                        <textarea placeholder="Características do personagem" id="" class="campo"></textarea>
+                        <textarea placeholder="Características do personagem" id="ipt_caracteristicas" class="campo"></textarea>
                     </div>
                 </div>
                 `
-let textoClasse = ` 
+let textoClasse = `
 <div class="navbar">
                     <ul>
                         <li><a onclick="inicio()">Inicio</a></li>
@@ -58,7 +57,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button>
+                <button onclick="salvarInfos('Caçador Sombrio')">Escolher Este</button>
                 </div>
 
                 <div class="card">
@@ -71,7 +70,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button> 
+                <button onclick="salvarInfos('Senhor das Sombras')">Escolher Este</button> 
 
                 </div>
 
@@ -85,7 +84,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button> 
+                <button onclick="salvarInfos('Bárbaro Noturno')">Escolher Este</button> 
 
                 </div>
                 <div class="card">
@@ -99,7 +98,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button> 
+                <button onclick="salvarInfos('Ilusionista Vampírico')">Escolher Este</button> 
                 </div>
 
                 <div class="card">
@@ -113,7 +112,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button>Escolher Este</button> 
+                <button onclick="salvarInfos('Vampiro Cultista')">Escolher Este</button> 
                 </div>
 
                 <div class="card">
@@ -126,7 +125,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button>Escolher Este</button> 
+                    <button onclick="salvarInfos('Vampiro iluminado')">Escolher Este</button> 
                 </div>
                 <div class="card">
                     <h3>Vampiro Flagelador</h3>
@@ -138,7 +137,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button>Escolher Este</button> 
+                    <button onclick="salvarInfos('Vampiro Flagelador')">Escolher Este</button> 
                 </div>
                 <div class="card">
                     <h3>Vampiro Canibal</h3>
@@ -150,7 +149,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button>Escolher Este</button> 
+                    <button onclick="salvarInfos('Vampiro Canibal')">Escolher Este</button> 
                 </div>
             </div>
             `
