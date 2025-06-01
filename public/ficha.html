@@ -59,7 +59,6 @@
     let pontosSanidade = 20;
     let pontosDefesa = 5;
     let armadura = 0;
-    let pontosHabilidade = 4;
 
     let pontos = {
         carisma: 0,
@@ -678,16 +677,20 @@
         div_conteudoClasse.style.display = "none"
         div_conteudoInicio.style.display = "none"
 
-
         div_conteudoHabilidades.innerHTML = textoHabilidades;
-        atualizarPontosHabilidades()
     }
-    function atualizarPontosHabilidades() {
-        div_containerTransformacoes.style.display = "none";
-        botaozao.style.display = "block"
-        div_containerhabilidadesGerais.style.display = "none";
-        div_containerSensoriais.style.display = "none";
-        pontos_Habilidade.innerHTML = pontosHabilidade
+    const PontosHabilidades = {
+        geral: 4,
+        transformacoes: 2,
+        sensorias: 6
+    }
+    let pontosHabilidadeGeral = 4;
+
+
+    function atualizarPontosHabilidades(valor,tipo) {
+        PontosHabilidades[tipo] += valor;
+        pontosHabilidadeGeral =  PontosHabilidades[tipo]
+        pontos_Habilidade.innerHTML = pontosHabilidadeGeral
     }
 
     function aparicoes(item) {

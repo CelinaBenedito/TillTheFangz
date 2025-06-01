@@ -253,20 +253,20 @@ let textoHabilidades = `
                 <div class="container">
                     <div class="habilidadeGeral">
                         <div class="item vertical">
-                            <button onclick="habilidades(-2)">Corte rápido</button>
-                            <button onclick="habilidades(-3)">Frenesi de garras</button>
-                            <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                            <button onclick="atualizarPontosHabilidades(-2, 'geral')">Corte rápido</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Frenesi de garras</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Rasgo da destruição</button>
                         </div>
 
                         <div class="item vertical">
-                            <button onclick="habilidades(-2)">Garras envenedadas</button>
-                            <button onclick="habilidades(-3)">Destruidor de armaduras</button>
-                            <button onclick="habilidades(-4)">Rasgo Sombrio</button>
+                            <button onclick="atualizarPontosHabilidades(-2, 'geral')">Garras envenedadas</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Destruidor de armaduras</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Rasgo Sombrio</button>
                         </div>
                     </div>
                     <div>
                         <div class="item vertical">
-                            <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+                            <button onclick="atualizarPontosHabilidades(-1, 'geral')">Garras Sobrenaturais</button>
 
                         </div>
                         <div class="item inicial">
@@ -396,17 +396,17 @@ let textoHabilidades = `
                 <div class="container">
                     <div class="habilidadeGeral">
                         <div class="item vertical">
-                            <button onclick="habilidades(-3)">Mergulho aéreo</button>
-                            <button onclick="habilidades(-4)">Teleporte sombrio</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Mergulho aéreo</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Teleporte sombrio</button>
                         </div>
                         <div class="item vertical">
-                            <button onclick="habilidades(-3)">Investida aérea</button>
-                            <button onclick="habilidades(-4)">Voô profano</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Investida aérea</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Voô profano</button>
                         </div>
                     </div>
                     <div class="item vertical">
-                        <button onclick="habilidades(-2)">Flutuar</button>
-                        <button onclick="habilidades(-1)">Super Salto</button>
+                        <button onclick="atualizarPontosHabilidades(-2, 'geral')">Flutuar</button>
+                        <button onclick="atualizarPontosHabilidades(-1, 'geral')">Super Salto</button>
                     </div>
                     <div class="item inicial">
                         <button onclick="voo.showModal()">Descrição Voô</button>
