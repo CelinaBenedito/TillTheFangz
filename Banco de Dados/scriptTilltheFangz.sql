@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS pontos(
   CONSTRAINT fk_post_usuario FOREIGN KEY (fkusuario) references usuario(id)
   );
   
+
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
    values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', '10649d5bb4e2d89cb2ec37b7028084103cd5c683583d08d8abb4077107c49b4fe082ffe166a281d291010a8f39f2c85113dce25474a56d4a967d11f12c6c6db6.jfif'),
    ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f.jpg'),
@@ -73,11 +74,10 @@ CREATE TABLE IF NOT EXISTS pontos(
    ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', 'null.png'),
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
    ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', 'null.png'),
-   ('Gui','Guilherme',''),
    ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png');
    
-    insert into post(titulo, fkusuario, conteudo, tag)
-	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gÃ¡rgulas?', 'Monstro');
+    insert into TillTheFangz.post(titulo, fkusuario, conteudo, tag)
+	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gárgulas?', 'Monstro');
 
   create view view_generos as
   select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
