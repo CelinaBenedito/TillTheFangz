@@ -1,10 +1,12 @@
-textarea{
+textarea {
     resize: none;
 }
-.big-botao{
+
+.big-botao {
     width: 100%;
 }
-.big-botao button{
+
+.big-botao button {
     width: 100%;
     padding: 10px;
     background-color: transparent;
@@ -15,6 +17,7 @@ textarea{
     color: white;
     cursor: pointer;
 }
+
 .conteudo {
     display: flex;
     flex-direction: column;
@@ -57,12 +60,12 @@ textarea{
 }
 
 .inicial {
-    align-items: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin: 10px;
     width: 100%;
-   text-align: center;
+    text-align: center;
 }
 
 .inicial button {
@@ -226,7 +229,8 @@ textarea{
     color: rgb(90, 0, 0);
     margin: 5px;
 }
-.atributo button:hover{
+
+.atributo button:hover {
     color: white;
     border: white 2px solid;
 }
@@ -241,7 +245,7 @@ textarea{
 .modal {
     display: flex;
     flex-direction: column;
-    
+
     color: white;
 }
 
@@ -256,9 +260,13 @@ textarea{
 }
 
 dialog {
+    color: white;
     width: 60%;
     scrollbar-color: #5c0a0a #222;
     background: #020202;
+    border-radius: 15px;
+    border: 2px solid #5c0a0a;
+    box-shadow: #5c0a0a 10px 10px 50px;
 }
 
 .modal p {
@@ -321,11 +329,12 @@ dialog {
     border-radius: 100px;
     width: 125px;
     height: 125px;
+    font-size: medium;
     background: transparent;
-    color:#5c0a0a;
-    border: rgb(90, 0, 0) solid 2px;
+    color: #e60000;
+    border: #e60000 solid 2px;
     box-shadow: 0 0 20px rgba(117, 13, 13, 0.6);
-   cursor: pointer;
+    cursor: pointer;
 }
 
 .cabecalho {
@@ -338,8 +347,9 @@ dialog {
     transition: all 0.5s;
     cursor: pointer;
 }
-.cabecalho:hover{
-transform: rotate(180);
+
+.cabecalho:hover {
+    transform: rotate(180);
 }
 
 .textoHabilidades .bx {
@@ -365,13 +375,20 @@ transform: rotate(180);
     gap: 10px;
 }
 
-.botoesHabilidades{
+.botoesHabilidades {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     margin: 10px;
+}
+.containerTotal{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 100%;
 }
 
 .containerTotalHabilidades {
@@ -435,11 +452,13 @@ transform: rotate(180);
     justify-content: center;
     gap: 20px;
 }
-.container button:hover{
+
+.container button:hover {
     color: white;
     border: white 2px solid;
     box-shadow: 0 0 20px rgba(100, 100, 100, 0.6);
 }
+
 .container .inicial button {
     color: white;
     transition: 0.2s;
@@ -458,4 +477,64 @@ transform: rotate(180);
 
 .botoesHabilidades .inicial:hover {
     transform: scale(1.1);
+}
+
+#container_garras {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#container_garras img {
+    align-self: center;
+    width: 300px;
+}
+
+#container_garras .quebraDelinha img {
+    width: 10%;
+}
+
+.quebraDelinha {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.quebraDelinha hr {
+    transform: rotate(90deg);
+    margin: 0px 50px;
+}
+
+.quebraDelinha img {
+    width: 20%;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+
+.opcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+strong {
+    color: red;
+}
+.btn-fechar{
+    top: 10px;
+    left: 77%;
+    position: fixed;
+}
+.btn-fechar button{
+    width: 30px;
+    height: 30px;
+    backdrop-filter: blur(10px);
 }

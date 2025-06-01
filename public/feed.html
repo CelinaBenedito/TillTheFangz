@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/feed.css">
     <link rel="stylesheet" href="css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Feed Till the Fangz</title>
+    <title>Feed | Till the Fangz</title>
 </head>
 
 <body onload="buscarPeloId(sessionStorage.ID_USUARIO), validarSessao(), atualizarFeed()">
@@ -41,7 +41,44 @@
                     <div class="Containerpublicar">
                         <h1>Publicar</h1>
                         <div class="div-form">
-                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            Título:
+                            <input name="titulo" maxlength="50" maxlength="100" type="text" id="div_titulo">
+                            Descrição:
+                            <textarea name="conteudo" maxlength="1000" maxlength="250" rows="5" id="div_conteudo"></textarea >
+                                    <div class="tagsPostar">
+                                        Tags:
+                                        <div>
+                                        <div>
+                                            <a onclick="">Jogador</a>
+                                        </div>
+                                        <div>
+                                            <a href="">Raca</a>
+                                        </div>
+                                        <div>
+                                            <a href="">Classe</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 14V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9v-2H5v-1.59l3-3 1.29 1.29c.39.39 1.02.39 1.41 0l5.29-5.29 3 3V14h2Zm-4.29-5.71a.996.996 0 0 0-1.41 0l-5.29 5.29-1.29-1.29a.996.996 0 0 0-1.41 0l-2.29 2.29V5h14v5.59L16.73 8.3Z">
+                                    </path>
+                                    <path
+                                        d="M8.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3M21 16h-2v3h-3v2h3v3h2v-3h3v-2h-3z">
+                                    </path>
+                                </svg>
+
+                                <input type="file" id="input_imagens" accept="image/*">
+
+                                <div class="previa">
+                                    <img id="Previa" src="" alt="" style="display: none;">
+                                </div>
+
+                                <button onclick="publicar()">Enviar</button>
+                            
+
+                            <!-- <form id="form_postagem" method="post" onsubmit="return publicar()">
                                 <label>
                                     Título:
                                     <br>
@@ -58,17 +95,16 @@
                                     <br>
                                     <textarea name="conteudo" maxlength="1000" id="textarea_descricao" maxlength="250"
                                         rows="5"></textarea>
-                                </label>
-                                <br>
-                                <button>Enviar</button>
-                            </form>
+                            </label>
+                            <br>
+                            <button>Enviar</button>
+                            </form> -->
                         </div>
                     </div>
                 </dialog>
 
 
                 <div id="feed_container" class="feedContainer">
-
                 </div>
 
             </div>
@@ -77,112 +113,119 @@
         <div class="pesquisaTags">
             Tags:
             <div class="itensTag">
-                <div class="separacao">
+                <div class="tagss">
                     <a onclick="aparecer('Jogador')">
                         <h2>Jogador</h2>
                     </a>
-                    <div id="Jogador">
-                        <a onclick="SalvarTag('jogador','O Mestre')">
-                            <p>O Mestre</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Player')">
-                            <p>O Player</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Ator')">
-                            <p>O Ator</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Observador')">
-                            <p>O observador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Engajado')">
-                            <p>O engajado</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Comentador')">
-                            <p>O comentador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Investigador')">
-                            <p>O Investigador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Narrador')">
-                            <p>O Narrador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Solitario')">
-                            <p>O solitário</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Piadista')">
-                            <p>O piadista</p>
-                        </a>
+                    <div class="separacao">
+                        <div id="Jogador">
+                            <a onclick="SalvarTag('jogador','O Mestre')">
+                                <p>O Mestre</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Player')">
+                                <p>O Player</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Ator')">
+                                <p>O Ator</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Observador')">
+                                <p>O observador</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Engajado')">
+                                <p>O engajado</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Comentador')">
+                                <p>O comentador</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Investigador')">
+                                <p>O Investigador</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Narrador')">
+                                <p>O Narrador</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Solitario')">
+                                <p>O solitário</p>
+                            </a>
+                            <a onclick="SalvarTag('jogador','O Piadista')">
+                                <p>O piadista</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="tagss">
-                <div class="separacao">
+            <div class="itensTag">
+                <div class="tagss">
+
                     <a onclick="aparecer('Racas')">
                         <h2>Raças</h2>
                     </a>
-                    <div id="Racas">
-                        <A onclick="SalvarTag('racas', 'Monstro')">
-                            <p>Monstro</p>
-                        </A>
-                        <a onclick="SalvarTag('racas','Vampiro')">
-                            <p>Vampiro</p>
-                        </a>
-                        <a onclick="SalvarTag('racas', 'Anjo')">
-                            <p>Anjo</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Demonio')">
-                            <p>Demonio</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Bruxa')">
-                            <p>Bruxa</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Corrompido')">
-                            <p>Corrompido</p>
-                        </a>
-                    </div>
+                    <div class="separacao">
+                        <div id="Racas">
+                            <A onclick="SalvarTag('racas', 'Monstro')">
+                                <p>Monstro</p>
+                            </A>
+                            <a onclick="SalvarTag('racas','Vampiro')">
+                                <p>Vampiro</p>
+                            </a>
+                            <a onclick="SalvarTag('racas', 'Anjo')">
+                                <p>Anjo</p>
+                            </a>
+                            <a onclick="SalvarTag('raca','Demonio')">
+                                <p>Demonio</p>
+                            </a>
+                            <a onclick="SalvarTag('raca','Bruxa')">
+                                <p>Bruxa</p>
+                            </a>
+                            <a onclick="SalvarTag('raca','Corrompido')">
+                                <p>Corrompido</p>
+                            </a>
+                        </div>
 
+                    </div>
                 </div>
             </div>
+            <div class="itensTag">
+                <div class="tagss">
 
-            <div class="tagss">
-                <div class="separacao">
                     <a onclick="aparecer('Classe')">
                         <h2>Classes</h2>
                     </a>
-                    <div id="Classe">
-                        <a onclick="SalvarTag('classes','Caçador')">
-                            <p>Caçador</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Senhor das sombras')">
-                            <p>Senhor das Sombras</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Barbaro')">
-                            <p>Barbaro</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Ilusionista')">
-                            <p>Ilusionista</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Cultista')">
-                            <p>Cultistas</p>
-                        </a>
-                        <a onclick="SalvarTag('classes', 'Iluminado')">
-                            <p>Iluminado</p>
-                        </a>
-                        <a onclick="SalvarTag('classes', 'Flagelador')">
-                            <p>Flagelador</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Canibal')">
-                            <p>Canibal</p>
-                        </a>
+                    <div class="separacao">
+                        <div id="Classe">
+                            <a onclick="SalvarTag('classes','Caçador')">
+                                <p>Caçador</p>
+                            </a>
+                            <a onclick="SalvarTag('classes','Senhor das sombras')">
+                                <p>Senhor das Sombras</p>
+                            </a>
+                            <a onclick="SalvarTag('classes','Barbaro')">
+                                <p>Barbaro</p>
+                            </a>
+                            <a onclick="SalvarTag('classes','Ilusionista')">
+                                <p>Ilusionista</p>
+                            </a>
+                            <a onclick="SalvarTag('classes','Cultista')">
+                                <p>Cultistas</p>
+                            </a>
+                            <a onclick="SalvarTag('classes', 'Iluminado')">
+                                <p>Iluminado</p>
+                            </a>
+                            <a onclick="SalvarTag('classes', 'Flagelador')">
+                                <p>Flagelador</p>
+                            </a>
+                            <a onclick="SalvarTag('classes','Canibal')">
+                                <p>Canibal</p>
+                            </a>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
     </div>
 
-    <footer>
+    <!-- <footer>
         <div class="footer-links">
             <h4>Links Rápidos</h4>
             <ul>
@@ -192,8 +235,11 @@
         <div class="footer-copyright">
             <p>&copy; 2025 Till the FangZ. Todos os direitos reservados.</p>
         </div>
-    </footer>
+    </footer> -->
 </body>
+<script>
+
+</script>
 
 </html>
 <script src="js/div_alerta.js"></script>
@@ -201,8 +247,28 @@
 <script src="js/header.js"></script>
 <script>
     // function validacaoNomes(){
-    //     if(sessionStorage.NICKNAME_USUARIO)
+    //     if(sessionStorage.NICKNAME_USUARIO){
+    //  }
     // }
+    const inputUpload = document.getElementById("input_imagens");
+    const previaImagem = document.getElementById("Previa");
+    const uploadIcon = document.getElementById("uploadIcon");
+
+    uploadIcon.addEventListener('click', () => {
+        inputUpload.click();
+    });
+
+    inputUpload.addEventListener('change', () => {
+        const arquivo = inputUpload.files[0];
+        if (arquivo) {
+            const leitor = new FileReader();
+            leitor.onload = function (e) {
+                previaImagem.src = e.target.result;
+                previaImagem.style.display = 'block';
+            };
+            leitor.readAsDataURL(arquivo);
+        }
+    });
     function redirecionar() {
         window.location = 'login.html'
     }
@@ -212,9 +278,10 @@
             div_Alerta.classList.add('aparecer');
         });
         conteudo_alerta.innerHTML =
-            `Você não está logado, redirecionando para a página de login 
+            `
+            Você não está logado, redirecionando para a página de login 
             <div id='div_aguardar' class='loading-div'>
-            <img src='./assets/carregando.gif' x id='loading-gif'>
+                <img src='./assets/carregando.gif' x id='loading-gif'>
             </div>
             `
     }
@@ -256,16 +323,20 @@
         }
 
     }
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
+    // function limparFormulario() {
+    //     document.getElementById("form_postagem").reset();
+    // }
 
     function publicar() {
+        const tituloDiv = document.getElementById('div_titulo').value;
+        const conteudoDiv = document.getElementById('div_conteudo').value;
         var idUsuario = sessionStorage.ID_USUARIO;
 
         var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.conteudo.value
+            titulo: tituloDiv,
+            descricao: conteudoDiv,
+            tag: [],
+            imagem: inputUpload.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -279,9 +350,9 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                // window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/feed.html";
-                limparFormulario();
+                //limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
@@ -319,23 +390,22 @@
                         var publicacao = resposta[i];
                         feed_container.innerHTML +=
                             `
-  <div class="card" id="div_card">
-                         <div class="cabecalho">
-                        <img src="assets/img/vampireUser.png">
-                        <p id="nickname">${publicacao.nome}</p>
-                        <div class="tags">
-                            <p id="tagPost"></p>
+                        <div class="card" id="div_card">
+                            <div class="cabecalho">
+                                <img src="assets/img/vampireUser.png">
+                                <p id="nickname">${publicacao.nome}</p>
+                                <div class="tags">
+                                    <p id="tagPost"></p>
+                                </div>
+                            </div>
+                            <div class="conteudo">
+                                <div class='tituloPublicacao'><h3>${publicacao.titulo}</h3></div>
+                                <div class="imagem">
+                                    <img src="" id="imagemPost">
+                                </div>
+                                <p id="conteudoPost">${publicacao.conteudo}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="conteudo">
-                        <div class='tituloPublicacao'><h3>${publicacao.titulo}</h3></div>
-                        <div class="imagem">
-                            <img src="" id="imagemPost">
-                        </div>
-
-                        <p id="conteudoPost">${publicacao.conteudo}</p>
-                    </div>
-                    </div>
                         `
 
                         // criando e manipulando elementos do HTML via JavaScript

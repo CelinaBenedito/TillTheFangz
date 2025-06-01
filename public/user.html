@@ -385,6 +385,7 @@
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;
+        sessionStorage.IMAGEM_USUARIO = foto.files[0]
 
         fetch(`/usuarios/cadastro/${ID_USUARIO}`, {
             method: "POST",

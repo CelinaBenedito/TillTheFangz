@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>TillTheFangz | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
@@ -22,14 +22,14 @@
     <div id="div_Alerta" class="alerta">
       <img class="morcego" src="assets/img/morcegoCimaPreto.png">
       <div id="conteudo_alerta"></div>
-  </div>
+    </div>
     <div class="container">
       <div class="card">
         <h1>Cadastro</h1>
         <div>
           <img src="assets/img/logoBranca.png" alt="">
         </div>
-           <a href="./index.html" class="cantinho"><i class='bx  bx-caret-left'></i>Voltar</a>
+        <a href="./index.html" class="cantinho"><i class='bx  bx-caret-left'></i>Voltar</a>
         <div class="conteudo item">
           <input id="nome_input" type="text" placeholder="Nome..." />
           <input id="sobrenome_input" type="text" placeholder="Sobrenome..." />
@@ -65,7 +65,7 @@
         <button class="botao" onclick="cadastrar()">Cadastrar</button>
         <div>Já possui um cadastro? <a href="login.html">Login</a></div>
       </div>
-       <div id="div_aguardar" class="loading-div">
+      <div id="div_aguardar" class="loading-div">
         <img src="assets/carregando.gif" id="loading-gif" />
       </div>
 
@@ -98,27 +98,27 @@
     let Maiusculas = /[A-Z]/
     let ondeEsta = emailVar.indexOf("@")
 
-    if(nomeVar == false){
+    if (nomeVar == false) {
       funcao_alerta("Adicione um nome");
       return;
     }
-    else if(confirmacaoEmailVar != emailVar){
+    else if (confirmacaoEmailVar != emailVar) {
       funcao_alerta("Os emails devem ser iguais")
       return;
     }
-    else if(ondeEsta == -1){
+    else if (ondeEsta == -1) {
       funcao_alerta("O email deve conter @")
       return;
     }
-    else if(confirmacaoSenhaVar != senhaVar){
+    else if (confirmacaoSenhaVar != senhaVar) {
       funcao_alerta("As senhas devem ser iguais")
       return;
     }
-    else if(!caracteresEspeciais.test(senhaVar)){
+    else if (!caracteresEspeciais.test(senhaVar)) {
       funcao_alerta("A senha deve conter caracteres especiais<br> Ex: ?@#$%")
       return;
     }
-    else if(!Maiusculas.test(senhaVar)){
+    else if (!Maiusculas.test(senhaVar)) {
       funcao_alerta("A senha deve conter letras maisuculas")
       return;
     }
@@ -163,7 +163,7 @@
           div_Alerta.style.display = "block";
 
           funcao_alerta("Cadastro realizado com sucesso! Redirecionando para tela de Login...")
-           ;
+            ;
 
           setTimeout(() => {
             window.location = "login.html";

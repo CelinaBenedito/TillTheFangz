@@ -21,16 +21,30 @@ html {
     scroll-behavior: smooth;
     scrollbar-color: #5c0a0a #0a0a0a;
 }
-body{
+
+body {
     background-color: #0a0a0a;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    user-select: none
+    user-select: none;
+    /* min-height: 100vh; */
 }
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
 /*---------------------------------------------------------------------------HEADER---------------------------------------------------------------------------*/
-.sair{
+.sair {
     font-family: Land;
     font-size: 1.5rem;
     margin-left: 78.2vw;
@@ -45,21 +59,24 @@ body{
     position: absolute;
     background-color: #131313;
 }
-.sair a{
+
+.sair a {
     text-decoration: none;
     color: red;
     transition: 0.2s;
 }
-.sair a:hover{
+
+.sair a:hover {
     color: white;
 }
 
-.img_User img{
-    align-self: center ;
+.img_User img {
+    align-self: center;
     width: 50px;
     height: 50px;
     border-radius: 100%;
 }
+
 header {
     align-items: center;
     font-size: 150%;
@@ -97,7 +114,7 @@ header .itens a:hover {
 
 header img {
     width: 50%;
-   
+
 }
 
 header .login {
@@ -140,6 +157,7 @@ footer {
     text-align: center;
     font-size: 14px;
     margin-top: 40px;
+    margin-bottom: 0;
 }
 
 
@@ -175,6 +193,7 @@ footer .footer-copyright p {
     font-size: 12px;
     color: #bbb;
 }
+
 /*-------------------------------------------------LISTA------------------------------------------------------*/
 ul {
     list-style-type: '☥ ';

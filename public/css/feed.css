@@ -1,36 +1,53 @@
-html{
+body {
+    min-height: 10vh;
+}
+
+html {
     cursor: default;
 }
-.loading-div img{
-width: 100px;
+
+.loading-div img {
+    width: 100px;
 }
-.feedContainer{
+
+.feedContainer {
     gap: 20px;
     display: flex;
     flex-direction: column-reverse;
 }
-.Containerpublicar{
+
+.Containerpublicar {
     display: flex;
     flex-direction: column;
     background-color: #020202;
     color: white;
 }
 
+.separacao {
+    margin: 0px 0px 0px 30px;
+}
+
+dialog {
+    background-color: #020202;
+    border-radius: 15px;
+    border: 2px solid #5c0a0a;
+}
 
 .tudo {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     width: 100%;
+    /* min-height: 100vh; */
 }
 
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .card {
@@ -124,6 +141,7 @@ width: 100px;
 
 .pesquisaTags {
     margin-left: 10%;
+    width: 150px;
 }
 
 .itensTag {
@@ -133,11 +151,13 @@ width: 100px;
     gap: 5px;
     margin-left: 10px;
 }
-.itensTag a{
+
+.itensTag a {
     text-decoration: none;
 }
-.itensTag a:hover{
-    color:red;
+
+.itensTag a:hover {
+    color: red;
     cursor: pointer;
 }
 
@@ -159,4 +179,37 @@ width: 100px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     transition: 0.2s;
     cursor: pointer;
+}
+
+.div-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.div-form input {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #5c0a0a;
+    background-color: transparent;
+    color: white;
+}
+
+.div-form textarea {
+    outline: none;
+    border: 2px solid #5c0a0a;
+    border-radius: 15px;
+    resize: none;
+    background-color: transparent;
+    color: white;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.previa img {
+    max-width: 250px;
+    height: auto;
 }

@@ -64,6 +64,8 @@ function publicar(req, res) {
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
     var idUsuario = req.params.idUsuario;
+    var imagem = req.body.imagem;
+    var tag = req.body.tag;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
@@ -72,7 +74,7 @@ function publicar(req, res) {
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(titulo, descricao, idUsuario, tag, imagem)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -6,6 +6,8 @@ containerSair.innerHTML =
             <a onclick="limparSessao()"><i class='bx  bx-arrow-out-left-square-half'></i>  Sair</a>
         </div>
 `
+let imagemUsuario = sessionStorage.IMAGEM_USUARIO
+
 if(sessionStorage.ID_USUARIO != undefined){
     header.innerHTML = `
      <div class="logo">
@@ -19,7 +21,7 @@ if(sessionStorage.ID_USUARIO != undefined){
             <a href="../bestiario.html">Bestiário</a>
             <a href="../ficha.html">Ficha</a>
             <a href="../feed.html">Feed</a>
-            <a onclick="aparecerOpcoes()" id="imagem_usuario_header" class="img_User"><img src="../assets/img/vampireUser.png" alt="user"></a>
+            <a onclick="aparecerOpcoes()" id="imagem_usuario_header" class="img_User"><img src="../assets/imagensdePerfil/${imagemUsuario}""></a>
         </div>
     `
 }
