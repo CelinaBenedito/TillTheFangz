@@ -19,7 +19,7 @@
         <div id="conteudo_alerta"></div>
     </div>
     <div class="conteudo" id="div_conteudo">
-        <div class="inicial">
+        <div class="inicia centralizarl">
             <h2>Nenhum personagem encontrado!</h2>
             <button onclick="inicio()"><i class='bx bx-plus-medical'></i> Criar Personagem</button>
         </div>
@@ -47,7 +47,7 @@
     <div id="botaozao" class="big-botao">
         <button onclick="salvarInfos()">Salvar Ficha</button>
     </div>
-    
+
 </body>
 <script src="js/header.js"></script>
 <script src="js/inners.js"></script>
@@ -717,7 +717,7 @@
         }
     }
 
-    function salvarInfos(classe){
+    function salvarInfos(classe) {
         let nomePersonagem = ipt_nome.value;
         let alturaPersonagem = ipt_altura.value;
         let pesoPersonagem = ipt_peso.value;
@@ -727,14 +727,14 @@
         let historiaPersonagem = ipt_historia.value;
         let caracteristicasPersonagem = ipt_caracteristicas.value;
         let classePersonagem = classe;
-    //     pontos = {
-    //     carisma: 0,
-    //     inteligencia: 0,
-    //     agilidade: 0,
-    //     vigor: 0,
-    //     sangue: 0,
-    // };
-    
+        //     pontos = {
+        //     carisma: 0,
+        //     inteligencia: 0,
+        //     agilidade: 0,
+        //     vigor: 0,
+        //     sangue: 0,
+        // };
+
 
         console.log(classePersonagem)
 

@@ -234,110 +234,204 @@ let textoHabilidades = `
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
             </div>
-<div class="containerTotal">
-    <a onclick="aparicoes(1)">
-        <div class="cabecalho gerais">
-            <h3><i class='bx bx-chevron-down'></i>Habilidades Gerais</h3>
-        </div>
-    </a>
-    <div class="containerTotalHabilidades" id="div_containerhabilidadesGerais">
-        <h1>Habilidades Gerais</h1>
-        <p>Todos os jogadores começam com 4 pontos de habilidades para distribuir</p>
-        <div class="pontos">
-            <h3>Pontos de habilidade</h3>
-            <p id="pontos_Habilidade">4</p>
-        </div>
+    <div class="containerTotal">
+        <a onclick="aparicoes(1)">
+            <div class="cabecalho gerais">
+                <h3><i class='bx bx-chevron-down'></i>Habilidades Gerais</h3>
+            </div>
+        </a>
+        <div class="containerTotalHabilidades" id="div_containerhabilidadesGerais">
+            <h1>Habilidades Gerais</h1>
+            <p>Todos os jogadores começam com 4 pontos de habilidades para distribuir</p>
+            <div class="pontos">
+                <h3>Pontos de habilidade</h3>
+                <p id="pontos_Habilidade">4</p>
+            </div>
 
-        <div class="habilidadesGerais">
+            <div class="habilidadesGerais">
 
-            <div class="container">
-                <div class="habilidadeGeral">
-                    <div class="item vertical">
-                        <button onclick="habilidades(-2)">Corte rápido</button>
-                        <button onclick="habilidades(-3)">Frenesi de garras</button>
-                        <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                <div class="container">
+                    <div class="habilidadeGeral">
+                        <div class="item vertical">
+                            <button onclick="habilidades(-2)">Corte rápido</button>
+                            <button onclick="habilidades(-3)">Frenesi de garras</button>
+                            <button onclick="habilidades(-4)">Rasgo da destruição</button>
+                        </div>
+
+                        <div class="item vertical">
+                            <button onclick="habilidades(-2)">Garras envenedadas</button>
+                            <button onclick="habilidades(-3)">Destruidor de armaduras</button>
+                            <button onclick="habilidades(-4)">Rasgo Sombrio</button>
+                        </div>
                     </div>
+                    <div>
+                        <div class="item vertical">
+                            <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
 
-                    <div class="item vertical">
-                        <button onclick="habilidades(-2)">Garras envenedadas</button>
-                        <button onclick="habilidades(-3)">Destruidor de armaduras</button>
-                        <button onclick="habilidades(-4)">Rasgo Sombrio</button>
-                    </div>
-                </div>
-                <div>
-                    <div class="item vertical">
-                        <button onclick="habilidades(-1)">Garras Sobrenaturais</button>
+                        </div>
+                        <div class="item inicial">
+                            <button onclick="garras.showModal()">Descrição Garras</button>
+                            <dialog id="garras">
+                                <div id="containerHabilidades">
+                                    <h2>Trilha das Garras</h2>
+                                    <h4>Esquematização</h4>
+                                    <img src="assets/img/TrilhaGarras.png">
+                                    <h4>Nível 1:</h4>
+                                    <p>
+                                        <strong>Garras Sobrenaturais:</strong> Você sente uma mudança em seu corpo —
+                                        suas unhas
+                                        crescem e se tornam afiadas como lâminas, respondendo à sua vontade. Agora, elas
+                                        são uma
+                                        extensão natural do seu ser, prontas para rasgar carne e ossos.
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Dano:</strong> Cortante 1D12.
+                                        </li>
+                                        <li>
+                                            <strong>Crítico:</strong> Multiplicador adicional de 1D4.
+                                        </li>
+                                    </ul>
+                                    <h4>Nível 2:</h4>
+                                    <div class="opcoes">
+                                        <div class="opcao">
+                                            <strong>Opção 1:</strong>
+                                            <p>
+                                                <strong>Garras Envenenadas:</strong> Os ataques do vampiro causam veneno
+                                                sobrenatural, drenando
+                                                lentamente a vida dos inimigos.
 
-                    </div>
-                    <div class="item inicial">
-                        <button onclick="garras.showModal()">Descrição Garras</button>
-                        <dialog id="garras">
-                            <div id="container_garras">
-                                <h2>Trilha das Garras</h2>
-                                <h4>Esquematização</h4>
-                                <img src="assets/img/TrilhaGarras.png">
-                                <h4>Nível 1:</h4>
-                                <p>
-                                    <strong>Garras Sobrenaturais:</strong> Você sente uma mudança em seu corpo — suas unhas
-                                    crescem e se tornam afiadas como lâminas, respondendo à sua vontade. Agora, elas são uma
-                                    extensão natural do seu ser, prontas para rasgar carne e ossos.
-                                </p>
-                                <ul>
-                                    <li>
-                                        <strong>Dano:</strong> Cortante 1D12.
-                                    </li>
-                                    <li>
-                                        <strong>Crítico:</strong> Multiplicador adicional de 1D4.
-                                    </li>
-                                </ul>
-                                <h4>Nível 2:</h4>
-                                <div class="opcoes">
-                                    <div class="opcao">
-                                        <strong>Opção 1:</strong>
-                                        <p>
-                                            <strong>Garras Envenenadas:</strong> Os ataques do vampiro causam veneno
-                                            sobrenatural, drenando
-                                            lentamente a vida dos inimigos.
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <strong>Dano:</strong> cortante 1D12.
+                                                </li>
+                                                <li>
+                                                    <strong>Crítico: </strong>1D4 multiplicador. rodadas: 1D4.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr>
+                                        <STRONG>OU</STRONG>
+                                        <HR>
+                                        <div class="opcao">
+                                            <strong>Opção 2:</strong>
 
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                <strong>Dano:</strong> cortante 1D12.
-                                            </li>
-                                            <li>
-                                                <strong>Crítico: </strong>1D4 multiplicador. rodadas: 1D4.
-                                            </li>
-                                        </ul>
+                                            <p>
+                                                <strong>Corte Rápido:</strong> O vampiro ataca com golpes em alta
+                                                velocidade,
+                                                atingindo múltiplos
+                                                inimigos em um curto intervalo. (5 golpes seguidos)
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <strong>Dano:</strong> cortante 1D4.
+                                                </li>
+                                                <li>
+                                                    <strong>Crítico:</strong> adiciona mais 3 golpes.
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <STRONG>OU</STRONG>
-                                    <HR>
-                                    <div class="opcao">
-                                        <strong>Opção 2:</strong>
-
-                                        <p>
-                                            <strong>Corte Rápido:</strong> O vampiro ataca com golpes em alta velocidade,
-                                            atingindo múltiplos
-                                            inimigos em um curto intervalo. (5 golpes seguidos)
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                <strong>Dano:</strong> cortante 1D4.
-                                            </li>
-                                            <li>
-                                                <strong>Crítico:</strong> adiciona mais 3 golpes.
-                                            </li>
-                                        </ul>
+                                    <h4>Nível 3:</h4>
+                                    <div class="opcoes">
+                                        <div class="opcao">
+                                            <strong>Opção 1:</strong>
+                                            <p>
+                                                <strong>Destruidor de armaduras:</strong> As garras podem atravessar
+                                                armaduras
+                                                ou barreiras mágicas, atigindo diretamente o alvo
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <strong>OU</strong>
+                                        <hr>
+                                        <div class="opcao">
+                                            <strong>Opção 2:</strong>
+                                            <p>
+                                                <strong>Frenesi de garras:</strong> O vampiro entra em um estado de
+                                                furia,
+                                                aumentando a cadencia e o dano dos ataques enquanto ignora parte da
+                                                defesa do
+                                                inimigo
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h4>Nível 4:</h4>
+                                    <div class="opcoes">
+                                        <div class="opcao">
+                                            <Strong>Opção 1:</Strong>
+                                            <p>
+                                                <strong>Rasgo sombrio:</strong> Os ataques do vampiro liberam energia
+                                                sombria
+                                                que causa dano adicional em inimigos próximos ao impacto
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <strong>OU</strong>
+                                        <div class="opcao">
+                                            <Strong>Opção 2:</Strong>
+                                            <p>
+                                                <strong>Rasgo da destruição:</strong> O vampiro desfere um atsaaque
+                                                massivo em
+                                                área, destruindo inimigos ao redor e dexando um terreno devastado
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="quebraDelinha">
+                                        <br>
+                                        <hr><img src="assets/img/morcegoVermelho.png">
+                                        <hr>
+                                        <br>
                                     </div>
                                 </div>
+                                <div class="btn-fechar">
+                                    <button onclick="garras.close()">X</button>
+                                </div>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="habilidadeGeral">
+                        <div class="item vertical">
+                            <button onclick="habilidades(-3)">Mergulho aéreo</button>
+                            <button onclick="habilidades(-4)">Teleporte sombrio</button>
+                        </div>
+                        <div class="item vertical">
+                            <button onclick="habilidades(-3)">Investida aérea</button>
+                            <button onclick="habilidades(-4)">Voô profano</button>
+                        </div>
+                    </div>
+                    <div class="item vertical">
+                        <button onclick="habilidades(-2)">Flutuar</button>
+                        <button onclick="habilidades(-1)">Super Salto</button>
+                    </div>
+                    <div class="item inicial">
+                        <button onclick="voo.showModal()">Descrição Voô</button>
+                    </div>
+                    <dialog id="voo">
+                        <div id="containerHabilidades">
+
+                            <h2>Trilha do voô</h2>
+                            <h4>Esquematização</h4>
+                            <img src="assets/img/TrilhaVoo.png">
+                            <h4><strong>Nível 1:</strong></h4>
+                            <p><strong>Super salto:</strong> O vampiro pode saltar mais alto e por distâncias
+                                maiores</p>
+                            <h4>Nível 2:</h4>
+                            <p><strong>Flutuar:</strong> O vampiro sente as sombras o auxiliando, agora se pode
+                                planar por pequenas distâncias e um curto período de tempo</p>
                             <h4>Nível 3:</h4>
                             <div class="opcoes">
                                 <div class="opcao">
                                     <strong>Opção 1:</strong>
                                     <p>
-                                        <strong>Destruidor de armaduras:</strong> As garras podem atravessar armaduras
-                                        ou barreiras mágicas, atigindo diretamente o alvo
+                                        <strong>Investida aérea:</strong> O vampiro quando estando no ar pode lançar
+                                        a si mesmo na direção desejada de maneira rápida
                                     </p>
+
                                 </div>
                                 <hr>
                                 <strong>OU</strong>
@@ -345,65 +439,44 @@ let textoHabilidades = `
                                 <div class="opcao">
                                     <strong>Opção 2:</strong>
                                     <p>
-                                        <strong>Frenesi de garras:</strong> O vampiro entra em um estado de furia,
-                                        aumentando a cadencia e o dano dos ataques enquanto ignora parte da defesa do
-                                        inimigo
+                                        <strong>Mergulho aéreo:</strong> O vampiro quando estando no ar pode dar uma
+                                        investida poderosa em direção ao chão
                                     </p>
                                 </div>
+
                             </div>
                             <h4>Nível 4:</h4>
                             <div class="opcoes">
                                 <div class="opcao">
                                     <Strong>Opção 1:</Strong>
-                                    <p>
-                                        <strong>Rasgo sombrio:</strong> Os ataques do vampiro liberam energia sombria
-                                        que causa dano adicional em inimigos próximos ao impacto
-                                    </p>
+                                    <p><strong>Vôo profano:</strong> As forças sombrias o reconhecem e lhe concedem
+                                        o poder de se impor pelos céus como bem entender, o vampiro agora pode voar
+                                        por tempo indeterminado e por distâncias inimagináveis</p>
                                 </div>
                                 <hr>
                                 <strong>OU</strong>
+                                <hr>
                                 <div class="opcao">
-                                    <Strong>Opção 2:</Strong>
+                                    <strong>Opção 2:</strong>
                                     <p>
-                                        <strong>Rasgo da destruição:</strong> O vampiro desfere um atsaaque massivo em
-                                        área, destruindo inimigos ao redor e dexando um terreno devastado
+                                        <strong>Teleporte sombrio:</strong> Você sente as trevas fluírem por suas
+                                        veias, você se tornou um com a escuridão. O vampiro pode teleportar para
+                                        todos os lugares no alcance de sua visão
                                     </p>
                                 </div>
                             </div>
-                            <div class="quebraDelinha">
-                                <br>
-                                <hr><img src="assets/img/morcegoVermelho.png">
-                                <hr>
-                                <br>
-                            </div>
+                        </div>
+                        <div class="quebraDelinha">
+                            <br>
+                            <hr><img src="assets/img/morcegoVermelho.png">
+                            <hr>
+                            <br>
                         </div>
                         <div class="btn-fechar">
-                        <button onclick="garras.close()">X</button>
+                            <button onclick="voo.close()">X</button>
                         </div>
                         </dialog>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="habilidadeGeral">
-                    <div class="item vertical">
-                        <button onclick="habilidades(-3)">Mergulho aéreo</button>
-                        <button onclick="habilidades(-4)">Teleporte sombrio</button>
-                    </div>
-                    <div class="item vertical">
-                        <button onclick="habilidades(-3)">Investida aérea</button>
-                        <button onclick="habilidades(-4)">Voô profano</button>
-                    </div>
-                </div>
-                <div class="item vertical">
-                    <button onclick="habilidades(-2)">Flutuar</button>
-                    <button onclick="habilidades(-1)">Super Salto</button>
-                </div>
-                <div class="item inicial">
-                    <button>Descrição Voô</button>
-                </div>
-            </div>
+               </div>
         </div>
     </div>
 

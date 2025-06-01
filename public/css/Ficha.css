@@ -6,6 +6,23 @@ textarea {
     width: 100%;
 }
 
+.centralizarl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+}
+.centralizarl button{
+background-color: transparent;
+border: #5c0a0a 2px solid;
+padding: 10px;
+color: white;
+box-shadow: #5c0a0a 0px 0px 50px;
+border-radius: 10px;
+font-size: larger;
+}
+
 .big-botao button {
     width: 100%;
     padding: 10px;
@@ -479,18 +496,18 @@ width: 100%;
     transform: scale(1.1);
 }
 
-#container_garras {
+#containerHabilidades {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-#container_garras img {
+#containerHabilidades img {
     align-self: center;
     width: 300px;
 }
 
-#container_garras .quebraDelinha img {
+#containerHabilidades .quebraDelinha img {
     width: 10%;
 }
 
@@ -532,9 +549,11 @@ strong {
     top: 10px;
     left: 77%;
     position: fixed;
+    color: white;
 }
 .btn-fechar button{
     width: 30px;
     height: 30px;
     backdrop-filter: blur(10px);
+    color: white;
 }
