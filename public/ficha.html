@@ -970,17 +970,55 @@
                         </p>    
                     </div>
                     <div>
-                        <canvas id="atributos"></canvas>
+                        <canvas id="graficosAtributos"></canvas>
                     </div>
                     <div class="botaoFechar">
                         <button onclick="FichaCompleta.close()">Fechar</button>
                     </div>
                 </div>
         `
-        
+
+       let dadosAtributos = {
+        labels:[carisma, inteligencia, agilidade, vigor, sangue],
+        datasets: [{
+            label: 'Atributos',
+            data: pontos,
+            borderColor: 'rgba(255, 0, 0)',
+            tension: 0.1,
+            borderWidth: 2
+        }],
+        options: {
+            animation: {
+                duration: 1500,
+                easing: 'easeOutBounce'
+            },
+            //plugins: {
+            //        // ...
+            //        customImg: {
+            //            // ...
+            //           beforeDatasetsDraw: (chart, args) => {
+            //                // ...
+            //            }
+            //        } 
+            //    },
+            scales: {
+                y: {
+                    beginAtZero: true // Começar o eixo y em zero
+                }
+            }
+        }
+    }                               
+    const config = {
+        type: 'bar',
+        data: dadosAtributos,
+    };
+    let Interesses = new Chart(
+        document.getElementById(`graficosAtributos`),
+        config
+    );
+ 
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
 
-
-
+ 
 </script>
