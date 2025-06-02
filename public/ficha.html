@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/Ficha.css">
     <link rel="stylesheet" href="../css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Ficha</title>
 </head>
 
@@ -979,7 +980,7 @@
         `
 
        let dadosAtributos = {
-        labels:[carisma, inteligencia, agilidade, vigor, sangue],
+        labels:['Carisma', 'Inteligencia', 'Agilidade', 'Vigor', 'Sangue'],
         datasets: [{
             label: 'Atributos',
             data: pontos,
