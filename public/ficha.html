@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/Ficha.css">
     <link rel="stylesheet" href="../css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Ficha</title>
 </head>
 
@@ -880,8 +880,8 @@
             div_containerSensoriais.style.display = "none"
         }
     }
-     let classePersonagem = "Nenhuma";
-    function salvarClasse(classe){
+    let classePersonagem = "Nenhuma";
+    function salvarClasse(classe) {
         classePersonagem = classe;
         console.log(classePersonagem)
     }
@@ -894,32 +894,31 @@
         let idadePersonagem = ipt_idade.value;
         let historiaPersonagem = ipt_historia.value;
         let caracteristicasPersonagem = ipt_caracteristicas.value;
-        
-        if(generoPersonagem === "#"){
+
+        if (generoPersonagem === "#") {
             generoPersonagem = "Nenhum"
         }
-        if(nomePersonagem === ""){
+        if (nomePersonagem === "") {
             nomePersonagem = 'Nenhum Nome Definido'
         }
-        if(apelidoPersonagem === ""){
+        if (apelidoPersonagem === "") {
             apelidoPersonagem = "Nenhum Apelido Definido"
         }
-        if(alturaPersonagem === "" ){
-           alturaPersonagem = "Nenhuma Altura Definida"
+        if (alturaPersonagem === "") {
+            alturaPersonagem = "Nenhuma Altura Definida"
         }
-        if(pesoPersonagem === ""){
+        if (pesoPersonagem === "") {
             pesoPersonagem = "Nenhum Peso Definido"
         }
-        if(idadePersonagem == ""){
+        if (idadePersonagem == "") {
             idadePersonagem = "Nenhuma Idade Definida"
         }
-        if(historiaPersonagem == ""){
+        if (historiaPersonagem == "") {
             historiaPersonagem = "Nenhuma Historia Encontrada"
         }
-        if(caracteristicasPersonagem == ""){
+        if (caracteristicasPersonagem == "") {
             caracteristicasPersonagem = "Nenhuma Caracteristica Encontrada"
         }
-        if(pontos.carisma == 0 && pontos.inteligencia == 0 && pontos.agilidade == 0 )
         //     pontos = {
         //     carisma: 0,
         //     inteligencia: 0,
@@ -929,10 +928,10 @@
         // };
 
 
-        
+
         FichaCompleta.showModal()
-        FichaCompleta.innerHTML = 
-        `
+        FichaCompleta.innerHTML =
+            `
                     <div class="informacoes">
                     <img src="assets/img/vampireUser.png" alt="">
                     <h1>${apelidoPersonagem}</h1>
@@ -941,7 +940,7 @@
                         <div class="itemBase">Vida:<p id="vida">${pontosVida}</p>
                         </div>
                         <div class="itemBase">Sanidade: <p id="sanidade">${pontosSanidade}</p>
-                        </div>
+                            </div>
                         <div class="itemBase">Defesa: <p id="defesa">${pontosDefesa}</p>
                         </div>
                     </div>
@@ -971,56 +970,68 @@
                             ${classePersonagem}
                         </p>    
                     </div>
-                    <div>
+                    <div id="grafico" class="grafico">
+                        <h3>Atributos</h3>
                         <canvas id="graficosAtributos"></canvas>
                     </div>
+                    <h3>
+                    Habilidades
+                    </h3>
                     <div class="botaoFechar">
-                        <button onclick="FichaCompleta.close()">Fechar</button>
+                        <button onclick="FichaCompleta.close()">Voltar para a ficha</button>
+                        <button onclick=""> Salvar ficha</button>
                     </div>
-                </div>
-        `
+                    </div>
+                    `
 
-       let dadosAtributos = {
-        labels:['Carisma', 'Inteligencia', 'Agilidade', 'Vigor', 'Sangue'],
-        datasets: [{
-            label: 'Atributos',
-            data: pontos,
-            borderColor: 'rgba(255, 0, 0)',
-            tension: 0.1,
-            borderWidth: 2
-        }],
-        options: {
-            animation: {
-                duration: 1500,
-                easing: 'easeOutBounce'
-            },
-            //plugins: {
-            //        // ...
-            //        customImg: {
-            //            // ...
-            //           beforeDatasetsDraw: (chart, args) => {
-            //                // ...
-            //            }
-            //        } 
-            //    },
-            scales: {
-                y: {
-                    beginAtZero: true // Começar o eixo y em zero
+        if (pontos.carisma == 0 && pontos.inteligencia == 0 && pontos.agilidade == 0 && pontos.vigor == 0 && pontos.sangue == 0) {
+            grafico.innerHTML =
+                `
+                    <h3>Atributos</h3>
+                    <p>Nenhum ponto adicionado</p>
+                    `
+        }
+        let dadosAtributos = {
+            labels: [],
+            datasets: [{
+                label: 'Atributos',
+                data: pontos,
+                borderColor: 'rgba(255, 0, 0)',
+                tension: 0.1,
+                borderWidth: 2
+            }],
+            options: {
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutBounce'
+                },
+                //plugins: {
+                //        // ...
+                //        customImg: {
+                //            // ...
+                //           beforeDatasetsDraw: (chart, args) => {
+                //                // ...
+                //            }
+                //        } 
+                //    },
+                scales: {
+                    y: {
+                        beginAtZero: true // Começar o eixo y em zero
+                    }
                 }
             }
         }
-    }                               
-    const config = {
-        type: 'bar',
-        data: dadosAtributos,
-    };
-    let Interesses = new Chart(
-        document.getElementById(`graficosAtributos`),
-        config
-    );
- 
+        const config = {
+            type: 'bar',
+            data: dadosAtributos,
+        };
+        let Interesses = new Chart(
+            document.getElementById(`graficosAtributos`),
+            config
+        );
+
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
 
- 
+
 </script>

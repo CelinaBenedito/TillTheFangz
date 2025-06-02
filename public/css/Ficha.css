@@ -646,3 +646,13 @@ strong {
 .classe h3{
     width: 100%;
 }
+.grafico{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.botaoFechar{
+    display: flex;
+    gap: 20px;
+}
