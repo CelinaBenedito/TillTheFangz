@@ -47,15 +47,16 @@
                             <textarea name="conteudo" maxlength="1000" maxlength="250" rows="5" id="div_conteudo"></textarea >
                                     <div class="tagsPostar">
                                         Tags:
-                                        <div>
-                                        <div>
+                                        <div class="totalTags">
+                                        <div class="Header Jogador">
                                             <a onclick="">Jogador</a>
                                         </div>
-                                        <div>
-                                            <a href="">Raca</a>
+                                        <div class="Header Raca">
+                                            <a onclick="">Raca</a>
                                         </div>
-                                        <div>
-                                            <a href="">Classe</a>
+                                    
+                                        <div class="Header Classe">
+                                            <a onclick="">Classe</a>
                                         </div>
                                         </div>
                                     </div>
@@ -269,6 +270,7 @@
             leitor.readAsDataURL(arquivo);
         }
     });
+    
     function redirecionar() {
         window.location = 'login.html'
     }
