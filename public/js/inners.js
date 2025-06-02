@@ -1,3 +1,4 @@
+
 let textoInicio = `
 <div class="navbar">
                     <ul>
@@ -243,32 +244,30 @@ let textoHabilidades = `
         <div class="containerTotalHabilidades" id="div_containerhabilidadesGerais">
             <h1>Habilidades Gerais</h1>
             <p>Todos os jogadores começam com 4 pontos de habilidades para distribuir</p>
-            <div class="pontos">
-                <h3>Pontos de habilidade</h3>
-                <p id="pontos_Habilidade">4</p>
+            <div class="pontos" id="pontos_Habilidade">
+                
             </div>
 
             <div class="habilidadesGerais">
 
                 <div class="container">
                     <div class="habilidadeGeral">
-                        <div class="item vertical">
-                            <button onclick="atualizarPontosHabilidades(-2, 'geral')">Corte rápido</button>
-                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Frenesi de garras</button>
-                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Rasgo da destruição</button>
+                        <div class="item vertical trilha-esquerda">
+                          <button onclick="atualizarPontosHabilidades(-2, 'geral', 'Corte rápido')">Corte rápido</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral', 'Frenesi de garras')">Frenesi de garras</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral', 'Rasgo da destruição')">Rasgo da destruição</button>
                         </div>
-
-                        <div class="item vertical">
-                            <button onclick="atualizarPontosHabilidades(-2, 'geral')">Garras envenedadas</button>
-                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Destruidor de armaduras</button>
-                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Rasgo Sombrio</button>
+                        <div class="item vertical trilha-direita">
+                            <button onclick="atualizarPontosHabilidades(-2, 'geral', 'Garras envenedadas')">Garras envenedadas</button>
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral', 'Destruidor de armaduras')">Destruidor de armaduras</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral', 'Rasgo Sombrio')">Rasgo Sombrio</button>
                         </div>
                     </div>
-                    <div>
-                        <div class="item vertical">
-                            <button onclick="atualizarPontosHabilidades(-1, 'geral')">Garras Sobrenaturais</button>
+                    <div class="item vertical">
+                        <button onclick="atualizarPontosHabilidades(-1, 'geral', 'Garras Sobrenaturais')">Garras Sobrenaturais</button>
+                    </div>
+                <div>
 
-                        </div>
                         <div class="item inicial">
                             <button onclick="garras.showModal()">Descrição Garras</button>
                             <dialog id="garras">
@@ -395,18 +394,18 @@ let textoHabilidades = `
 
                 <div class="container">
                     <div class="habilidadeGeral">
-                        <div class="item vertical">
-                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Mergulho aéreo</button>
-                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Teleporte sombrio</button>
+                        <div class="item vertical trilha-esquerda">
+                           <button onclick="atualizarPontosHabilidades(-3, 'geral', 'Mergulho aéreo')">Mergulho aéreo</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral', 'Teleporte sombrio')">Teleporte sombrio</button>
                         </div>
-                        <div class="item vertical">
-                            <button onclick="atualizarPontosHabilidades(-3, 'geral')">Investida aérea</button>
-                            <button onclick="atualizarPontosHabilidades(-4, 'geral')">Voô profano</button>
+                        <div class="item vertical trilha-direita">
+                            <button onclick="atualizarPontosHabilidades(-3, 'geral', 'Investida aérea')">Investida aérea</button>
+                            <button onclick="atualizarPontosHabilidades(-4, 'geral', 'Voô profano')">Voô profano</button>
                         </div>
                     </div>
                     <div class="item vertical">
-                        <button onclick="atualizarPontosHabilidades(-2, 'geral')">Flutuar</button>
-                        <button onclick="atualizarPontosHabilidades(-1, 'geral')">Super Salto</button>
+                        <button onclick="atualizarPontosHabilidades(-1, 'geral', 'Super Salto')">Super Salto</button>
+                        <button onclick="atualizarPontosHabilidades(-2, 'geral', 'Flutuar')">Flutuar</button>
                     </div>
                     <div class="item inicial">
                         <button onclick="voo.showModal()">Descrição Voô</button>
@@ -558,7 +557,7 @@ let textoHabilidades = `
             mais fundo em sua natureza sombria.</p>
         <div class="pontos">
             <h3>Pontos Sensoriais</h3>
-            <p id="pontos_Habilidade">6</p>
+            <p id="pontos_HabilidadeSensoriais">6</p>
         </div>
         <div class="sensoriais">
             <div class="container">

@@ -668,6 +668,33 @@
         elementos.totais.classList.add("troca");
         setTimeout(() => elementos.totais.classList.remove("troca"), 300);*/
     }
+    let pontosHabilidadeGeral = 4;
+    const PontosHabilidades = {
+        geral: 4,
+        transformacoes: 2,
+        sensorias: 6
+    }
+    const arvoresGerais = {
+        garras: {
+            base: ['Garras Sobrenaturais'],
+            esquerda: ['Corte rápido', 'Frenesi de garras', 'Rasgo da destruição'],
+            direita: ['Garras envenedadas', 'Destruidor de armaduras', 'Rasgo Sombrio'],
+            caminhoEscolhido: null,
+            progresso: 0,
+            habilidadesDesbloqueadas: []
+        },
+        voo: {
+            base: ['Super Salto'],
+            esquerda: ['Flutuar', 'Mergulho aéreo', 'Teleporte sombrio'],
+            direita: ['Flutuar', 'Investida aérea', 'Voô profano'],
+            caminhoEscolhido: null,
+            progresso: 0,
+            habilidadesDesbloqueadas: []
+        }
+    };
+
+    let caminhoEscolhidoGeral = null; // 'esquerda' ou 'direita'
+    let progressoGeral = 0;
 
     function habilidades() {
 
@@ -678,20 +705,151 @@
         div_conteudoInicio.style.display = "none"
 
         div_conteudoHabilidades.innerHTML = textoHabilidades;
+        pontos_Habilidade.innerHTML =
+            `
+        <h3>Pontos de habilidade</h3>
+        <p>${pontosHabilidadeGeral}</p>
+        ` ;
+        document.getElementById("div_containerhabilidadesGerais").style.display = "none";
+        div_containerTransformacoes.style.display = "none"
+        div_containerSensoriais.style.display = "none"
     }
-    const PontosHabilidades = {
-        geral: 4,
-        transformacoes: 2,
-        sensorias: 6
-    }
-    let pontosHabilidadeGeral = 4;
 
 
-    function atualizarPontosHabilidades(valor,tipo) {
+
+    function atualizarPontosHabilidades(valor, tipo, nomeHabilidade) {
+        let grupo = null;
+
+        for (let chave in arvoresGerais) {
+            const arvore = arvoresGerais[chave];
+            if (
+                arvore.base.includes(nomeHabilidade) ||
+                arvore.esquerda.includes(nomeHabilidade) ||
+                arvore.direita.includes(nomeHabilidade)
+            ) {
+                grupo = chave;
+                break;
+            }
+        }
+
+        if (!grupo) {
+            return funcao_alerta("Habilidade não reconhecida.");
+        }
+
+        const arvore = arvoresGerais[grupo];
+        const base = arvore.base[0];
+        const desbloqueadas = arvore.habilidadesDesbloqueadas;
+
+        // REVERSÃO
+        const ultimaHabilidade = desbloqueadas[desbloqueadas.length - 1];
+        if (nomeHabilidade === ultimaHabilidade) {
+            // Reverte progresso
+            arvore.habilidadesDesbloqueadas.pop();
+            PontosHabilidades[tipo] -= valor; // valor é negativo, então -(-1) = +1
+            arvore.progresso--;
+
+            if (nomeHabilidade === base) {
+                arvore.caminhoEscolhido = null;
+            }
+
+            return atualizarHTML(tipo);
+        }
+
+        // 🚫 Já desbloqueada mas não é a última: bloqueia
+        if (desbloqueadas.includes(nomeHabilidade)) {
+            return funcao_alerta("Só é possível remover a última habilidade desbloqueada.");
+        }
+
+        // PRIMEIRA HABILIDADE (base)
+        if (arvore.progresso === 0 && nomeHabilidade !== base) {
+            return funcao_alerta("Você precisa desbloquear a habilidade inicial primeiro.");
+        }
+
+        if (nomeHabilidade === base) {
+            if (PontosHabilidades[tipo] + valor < 0) {
+                return funcao_alerta("Pontos insuficientes");
+            }
+
+            PontosHabilidades[tipo] += valor;
+            arvore.progresso = 1;
+            desbloqueadas.push(nomeHabilidade);
+            return atualizarHTML(tipo);
+        }
+
+        // Escolher caminho
+        if (!arvore.caminhoEscolhido) {
+            if (arvore.esquerda.includes(nomeHabilidade)) {
+                arvore.caminhoEscolhido = 'esquerda';
+            } else if (arvore.direita.includes(nomeHabilidade)) {
+                arvore.caminhoEscolhido = 'direita';
+            } else {
+                return funcao_alerta("Habilidade inválida.");
+            }
+        }
+
+        const caminho = arvore[arvore.caminhoEscolhido];
+
+        if (!caminho.includes(nomeHabilidade)) {
+            return funcao_alerta("Você já escolheu outro caminho. Essa habilidade não está disponível.");
+        }
+
+        if (caminho[arvore.progresso - 1] !== nomeHabilidade) {
+            return funcao_alerta("Desbloqueie as habilidades na ordem correta.");
+        }
+
+        if (PontosHabilidades[tipo] + valor < 0) {
+            return funcao_alerta("Pontos insuficientes");
+        }
+
         PontosHabilidades[tipo] += valor;
-        pontosHabilidadeGeral =  PontosHabilidades[tipo]
-        pontos_Habilidade.innerHTML = pontosHabilidadeGeral
+        arvore.progresso++;
+        desbloqueadas.push(nomeHabilidade);
+        atualizarHTML(tipo);
+        setTimeout(() => {
+            atualizarEstilos(arvore.caminhoEscolhido, arvore.habilidadesDesbloqueadas);
+        }, 10);
+
+
     }
+
+    function atualizarEstilos(trilha, desbloqueadas) {
+        const botoes = document.querySelectorAll('button');
+
+        botoes.forEach(botao => {
+            const texto = botao.textContent.trim();
+
+            // Atualiza estado de seleção
+            if (desbloqueadas.includes(texto)) {
+                botao.classList.add('habilidade-selecionada');
+            } else {
+                botao.classList.remove('habilidade-selecionada');
+            }
+
+            // Desativa a trilha oposta
+            const colunaEsquerda = document.querySelectorAll('.trilha-esquerda button');
+            const colunaDireita = document.querySelectorAll('.trilha-direita button');
+
+            if (trilha === 'esquerda') {
+                colunaDireita.forEach(btn => btn.classList.add('habilidade-desativada'));
+                colunaEsquerda.forEach(btn => btn.classList.remove('habilidade-desativada'));
+            } else if (trilha === 'direita') {
+                colunaEsquerda.forEach(btn => btn.classList.add('habilidade-desativada'));
+                colunaDireita.forEach(btn => btn.classList.remove('habilidade-desativada'));
+            } else {
+                // Nenhum caminho escolhido ainda: ativa tudo
+                colunaEsquerda.forEach(btn => btn.classList.remove('habilidade-desativada'));
+                colunaDireita.forEach(btn => btn.classList.remove('habilidade-desativada'));
+            }
+        });
+    }
+
+    function atualizarHTML(tipo) {
+        pontos_Habilidade.innerHTML = `
+        <h3>Pontos de habilidade</h3>
+        <p>${PontosHabilidades[tipo]}</p>
+    `;
+    }
+
 
     function aparicoes(item) {
         if (item == 1 && cliquesGeral == 0) {
@@ -743,5 +901,8 @@
 
 
     }
+    let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
+
+
 
 </script>

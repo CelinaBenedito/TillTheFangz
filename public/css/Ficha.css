@@ -443,6 +443,17 @@ width: 100%;
     gap: 10px;
     margin: 10px;
 }
+.item button.habilidade-selecionada {
+  background-color: #4caf50; /* verde, por exemplo */
+  color: white;
+  border: 2px solid #388e3c;
+}
+
+.item button.habilidade-desativada {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 
 .horizontal {
     display: flex;
