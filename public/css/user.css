@@ -438,3 +438,8 @@ dialog p:hover {
     flex-direction: column;
     align-items: center;
 }
+.infosBase{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}

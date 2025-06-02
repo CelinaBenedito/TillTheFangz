@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/alerta.css">
     <link rel="stylesheet" href="css/heade&footer.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <title>TillTheFangz | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO) ,criarGraficos()">
     <header id="header"></header>
     <div id="containerSair"></div>
     <div id="div_Alerta" class="alerta">
@@ -15,51 +19,103 @@
         <div id="conteudo_alerta"></div>
     </div>
     <h1>Olá <strong id="nome"></strong></h1>
-    <h2>Gráficos de Usuarios</h2>
-    <canvas id="graficoGeneros"></canvas><canvas id="graficoInteresse"></canvas>
+    <h2>Gráficos de Usuários</h2>
+    <div class="graficosUsuario">
+        <div class="grafico pizza">
+            <P>Quantidade de pessoas com determinado gênero cadastradas</P>
+            <canvas id="graficoGeneros"> </canvas>
+        </div>
+        <div class="grafico barra">
+            <p>Quantidade de pessoas com determinado interesse cadastradas</p>
+            <canvas id="graficoInteresse"></canvas>
+        </div>
+
+    </div>
+
+
     <h2>Gráficos de Personagens</h2>
     <canvas id="graficoAtributos"></canvas>
     <canvas id="graficoClasses"></canvas>
-    
+
 </body>
+
 </html>
 <script src="js/header.js"></script>
 <script src="js/div_alerta.js"></script>
 <script>
     let nomeUsuario = sessionStorage.NOME_USUARIO
     nome.innerHTML = nomeUsuario
-    function obterDadosGrafico(idUsuario, fkPersonagem){
+    let labelInteresse = ['Mestre', 'Player', 'Outro'];
+    let labelGeneros = ['Feminino', 'Masculino', 'Outro'];
+    let dadosInteresse = {
+        labels: labelInteresse,
+        datasets: [{
+            label: 'Interesse',
+            data: [3, 10, 5],
+            borderColor: 'rgba(255, 0, 0)',
 
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+            tension: 0.1,
+            borderWidth: 2
+        }],
+        options: {
+            animation: {
+                duration: 1500,
+                easing: 'easeOutBounce'
             },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
-        const config = {
-            type: 'pizza',
-            data: dados,
-        };
+            //plugins: {
+            //        // ...
+            //        customImg: {
+            //            // ...
+            //           beforeDatasetsDraw: (chart, args) => {
+            //                // ...
+            //            }
+            //        } 
+            //    },
+            scales: {
+                y: {
+                    beginAtZero: true // Começar o eixo y em zero
+                }
+            }
+        }
+    }                               
+    const configInteresse = {
+        type: 'bar',
+        data: dadosInteresse,
+    };
+    let Interesses = new Chart(
+        document.getElementById(`graficoInteresse`),
+        configInteresse
+    );
 
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(`graficoGenero`),
-            config
-        );
+
+    //
+    let dadosGeneros = {
+        labels: labelGeneros,
+        datasets: [{
+            label: 'Gêneros',
+            data: [10, 4, 2],
+            borderColor: 'rgba(255, 0, 0)',
+            tension: 0.1
+        }]
+    };
+    const configGeneros = {
+        type: 'pie',
+        data: dadosGeneros,
+    };
+    let generos = new Chart(
+        document.getElementById(`graficoGeneros`),
+        configGeneros
+    );
+
+
+
+
+    function obterDadosGrafico(idUsuario, fkPersonagem) {
+
+
+
+    }
+    function criarGraficos() {
 
     }
 </script>

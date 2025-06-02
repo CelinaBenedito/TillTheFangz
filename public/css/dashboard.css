@@ -1,0 +1,27 @@
+body{
+    padding: 20px;
+}
+.graficosUsuario {
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    padding: 0px 50px;
+    align-items: center;
+    justify-content: center;
+    /*text-align: center;*/
+}
+
+.grafico {
+    width: 50%;
+    height: 90%;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.grafico .pizza canvas {
+    height: 10px;
+    position: relative;
+    overflow: hidden;
+        width: 100px; /* Define a largura desejada */
+        height: 100px; /* Define a altura desejada */
+}

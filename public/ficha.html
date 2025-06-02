@@ -47,6 +47,9 @@
     <div id="botaozao" class="big-botao">
         <button onclick="salvarInfos()">Salvar Ficha</button>
     </div>
+    <dialog id="FichaCompleta">
+
+    </dialog>
 
 </body>
 <script src="js/header.js"></script>
@@ -876,8 +879,12 @@
             div_containerSensoriais.style.display = "none"
         }
     }
-
-    function salvarInfos(classe) {
+     let classePersonagem = "Nenhuma";
+    function salvarClasse(classe){
+        classePersonagem = classe;
+        console.log(classePersonagem)
+    }
+    function salvarInfos() {
         let nomePersonagem = ipt_nome.value;
         let alturaPersonagem = ipt_altura.value;
         let pesoPersonagem = ipt_peso.value;
@@ -886,7 +893,31 @@
         let idadePersonagem = ipt_idade.value;
         let historiaPersonagem = ipt_historia.value;
         let caracteristicasPersonagem = ipt_caracteristicas.value;
-        let classePersonagem = classe;
+        
+        if(generoPersonagem === "#"){
+            generoPersonagem = "Nenhum"
+        }
+        if(nomePersonagem === ""){
+            nomePersonagem = 'Nenhum Nome Definido'
+        }
+        if(apelidoPersonagem === ""){
+            apelidoPersonagem = "Nenhum Apelido Definido"
+        }
+        if(alturaPersonagem === "" ){
+           alturaPersonagem = "Nenhuma Altura Definida"
+        }
+        if(pesoPersonagem === ""){
+            pesoPersonagem = "Nenhum Peso Definido"
+        }
+        if(idadePersonagem == ""){
+            idadePersonagem = "Nenhuma Idade Definida"
+        }
+        if(historiaPersonagem == ""){
+            historiaPersonagem = "Nenhuma Historia Encontrada"
+        }
+        if(caracteristicasPersonagem == ""){
+            caracteristicasPersonagem = "Nenhuma Caracteristica Encontrada"
+        }
         //     pontos = {
         //     carisma: 0,
         //     inteligencia: 0,
@@ -896,9 +927,57 @@
         // };
 
 
-        console.log(classePersonagem)
-
-
+        
+        FichaCompleta.showModal()
+        FichaCompleta.innerHTML = 
+        `
+                    <div class="informacoes">
+                    <img src="assets/img/vampireUser.png" alt="">
+                    <h1>${apelidoPersonagem}</h1>
+                    <h2>${nomePersonagem}</h2>
+                    <div class="pontosBasicos">
+                        <div class="itemBase">Vida:<p id="vida">${pontosVida}</p>
+                        </div>
+                        <div class="itemBase">Sanidade: <p id="sanidade">${pontosSanidade}</p>
+                        </div>
+                        <div class="itemBase">Defesa: <p id="defesa">${pontosDefesa}</p>
+                        </div>
+                    </div>
+                    <div class="infosBase">
+                        <p>Altura: ${alturaPersonagem}</p>
+                        <p>Peso: ${pesoPersonagem}</p>
+                        <p>Idade: ${idadePersonagem}</p>
+                        <p>Gênero: ${generoPersonagem}</p>
+                    </div>
+                    <div class="detalhesTexto">
+                        <div class="texto">
+                        <h3>Historia do Personagem</h3>
+                        <p id="historiaPersonagem">
+                            ${historiaPersonagem}
+                        </p>
+                        </div>
+                        <div class="texto">
+                            <h3>Caracteristicas do Personagem</h3>
+                            <p id="caracteristicasPersonagem">
+                                ${caracteristicasPersonagem}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="classe">
+                        <h3>Classe: </h3>
+                        <p>
+                            ${classePersonagem}
+                        </p>    
+                    </div>
+                    <div>
+                        <canvas id="atributos"></canvas>
+                    </div>
+                    <div class="botaoFechar">
+                        <button onclick="FichaCompleta.close()">Fechar</button>
+                    </div>
+                </div>
+        `
+        
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
 

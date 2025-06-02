@@ -58,7 +58,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button onclick="salvarInfos('Caçador Sombrio')">Escolher Este</button>
+                <button onclick="salvarClasse('Caçador Sombrio')">Escolher Este</button>
                 </div>
 
                 <div class="card">
@@ -71,7 +71,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button onclick="salvarInfos('Senhor das Sombras')">Escolher Este</button> 
+                <button onclick="salvarClasse('Senhor das Sombras')">Escolher Este</button> 
 
                 </div>
 
@@ -85,7 +85,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button onclick="salvarInfos('Bárbaro Noturno')">Escolher Este</button> 
+                <button onclick="salvarClasse('Bárbaro Noturno')">Escolher Este</button> 
 
                 </div>
                 <div class="card">
@@ -99,7 +99,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button onclick="salvarInfos('Ilusionista Vampírico')">Escolher Este</button> 
+                <button onclick="salvarClasse('Ilusionista Vampírico')">Escolher Este</button> 
                 </div>
 
                 <div class="card">
@@ -113,7 +113,7 @@ let textoClasse = `
                     </div>
                 </dialog>
                 <br>
-                <button onclick="salvarInfos('Vampiro Cultista')">Escolher Este</button> 
+                <button onclick="salvarClasse('Vampiro Cultista')">Escolher Este</button> 
                 </div>
 
                 <div class="card">
@@ -126,7 +126,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button onclick="salvarInfos('Vampiro iluminado')">Escolher Este</button> 
+                    <button onclick="salvarClasse('Vampiro iluminado')">Escolher Este</button> 
                 </div>
                 <div class="card">
                     <h3>Vampiro Flagelador</h3>
@@ -138,7 +138,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button onclick="salvarInfos('Vampiro Flagelador')">Escolher Este</button> 
+                    <button onclick="salvarClasse('Vampiro Flagelador')">Escolher Este</button> 
                 </div>
                 <div class="card">
                     <h3>Vampiro Canibal</h3>
@@ -150,7 +150,7 @@ let textoClasse = `
                         </div>
                     </dialog>
                     <br>
-                    <button onclick="salvarInfos('Vampiro Canibal')">Escolher Este</button> 
+                    <button onclick="salvarClasse('Vampiro Canibal')">Escolher Este</button> 
                 </div>
             </div>
             `

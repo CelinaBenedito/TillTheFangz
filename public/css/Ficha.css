@@ -568,3 +568,81 @@ strong {
     backdrop-filter: blur(10px);
     color: white;
 }
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.informacoes p {
+    width: 50%;
+    text-align: center;
+    align-self: center;
+}
+
+.informacoes img {
+    width: 100px;
+    border-radius: 100%;
+}
+
+.informacoes h1,
+.informacoes h2,
+.informacoes h3,
+.informacoes h4 {
+    color: #e60000;
+    text-transform: uppercase;
+    margin-top: 40px;
+    border-bottom: 1px solid #5c0a0a;
+    padding-bottom: 5px;
+}
+
+.informacoes button {
+    width: auto;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    font-size: large;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    transition: 0.2s;
+}
+.pontosBasicos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}   
+.itemBase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.infosBase{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.detalhesTexto{
+ display: grid;
+ grid-template-columns: 50% 50%;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.texto p{
+    width: 100%;
+}
+.classe{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.classe h3{
+    width: 100%;
+}
