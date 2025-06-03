@@ -11,4 +11,8 @@ router.get("/listar", function (req,res){
     personagensController.listar(req,res);
 })
 
+router.get("/listar/:idUsuario", function (req,res){
+    personagensController.listarPorUsuario(req,res);
+})
+
 module.exports = router;

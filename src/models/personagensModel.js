@@ -13,6 +13,19 @@ function listar(idUsuario){
     return database.executar(instrucao);
 }
 
+function listarPorUsuario(idUsuario){
+    var instrucao = 
+    `
+       select * 
+    from usuario us
+    left join personagem pe on us.id = pe.fkUsuario
+    left join pontos po on pe.id = po.fkpersonagem
+    where us.id = ${idUsuario};
+    `;
+    console.log("Executando a intrução SQL LISTAR PERSONAGENS: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function cadastrar(fkusuario,nome,idade,peso,genero,altura,classe,historia,caracteristicas){
 
     console.log(nome)
@@ -28,5 +41,6 @@ function cadastrar(fkusuario,nome,idade,peso,genero,altura,classe,historia,carac
 }
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    listarPorUsuario
 };

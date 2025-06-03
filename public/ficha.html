@@ -74,12 +74,26 @@
 
     // Objeto para armazenar os elementos DOM que mostram os valores
     let elementos = {};
-
+    let ID_USUARIO = sessionStorage.ID_USUARIO;
     function logado() {
         if (sessionStorage.ID_USUARIO != undefined) {
-            div_conteudo.innerHTML += ``
+            
+            fetch(`/personagens/listar/${ID_USUARIO}`,{
+                method: "GET"
+            })
+            .then(res=>{
+                res.json().then(json =>{
+                    const personagem = json[0];
+
+                    div_conteudo.innerHTML += `Funcionou?`
+
+                })
+            })
+
+            
         }
         else {
+            
             div_conteudo.innerHTML = `
              <div class="inicial">
             <h2>Logar para ver os personagens</h2>

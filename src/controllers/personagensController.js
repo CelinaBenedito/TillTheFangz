@@ -9,6 +9,15 @@ function listar(req,res){
     })
 }
 
+function listarPorUsuario(req,res){
+    var idUsuario = req.params.idUsuario;
+    personagensModel.listarPorUsuario(idUsuario).then(function(resultado){
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 function cadastrar(req,res){
 
     var fkusuario = req.body.fkusuarioServer;
@@ -30,5 +39,6 @@ function cadastrar(req,res){
 }
 module.exports = {
     listar,
-    cadastrar
+    cadastrar,
+    listarPorUsuario
 }
