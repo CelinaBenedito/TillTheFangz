@@ -880,20 +880,30 @@
             div_containerSensoriais.style.display = "none"
         }
     }
+
+    let apelidoPersonagem = "Nenhum"
+    let nomePersonagem = "Nenhum";
+    let alturaPersonagem = "Nenhuma";
+    let pesoPersonagem = "Nenhum";
     let classePersonagem = "Nenhuma";
+    let generoPersonagem = "Nenhum";
+    let idadePersonagem = "Nenhuma";
+    let historiaPersonagem = "Nenhuma";
+    let caracteristicasPersonagem = "Nenhuma"
+
     function salvarClasse(classe) {
         classePersonagem = classe;
         console.log(classePersonagem)
     }
     function salvarInfos() {
-        let nomePersonagem = ipt_nome.value;
-        let alturaPersonagem = ipt_altura.value;
-        let pesoPersonagem = ipt_peso.value;
-        let apelidoPersonagem = ipt_apelido.value;
-        let generoPersonagem = select_genero.value;
-        let idadePersonagem = ipt_idade.value;
-        let historiaPersonagem = ipt_historia.value;
-        let caracteristicasPersonagem = ipt_caracteristicas.value;
+        nomePersonagem = ipt_nome.value;
+        alturaPersonagem = ipt_altura.value;
+        pesoPersonagem = ipt_peso.value;
+        apelidoPersonagem = ipt_apelido.value;
+        generoPersonagem = select_genero.value;
+        idadePersonagem = ipt_idade.value;
+        historiaPersonagem = ipt_historia.value;
+        caracteristicasPersonagem = ipt_caracteristicas.value;
 
         if (generoPersonagem === "#") {
             generoPersonagem = "Nenhum"
@@ -979,7 +989,7 @@
                     </h3>
                     <div class="botaoFechar">
                         <button onclick="FichaCompleta.close()">Voltar para a ficha</button>
-                        <button onclick=""> Salvar ficha</button>
+                        <button onclick="cadastrarPersonagem()"> Salvar ficha</button>
                     </div>
                     </div>
                     `
@@ -996,7 +1006,9 @@
             datasets: [{
                 label: 'Atributos',
                 data: pontos,
+                fill: true,
                 borderColor: 'rgba(255, 0, 0)',
+                backgroundColor: 'rgba(255,0,0)',
                 tension: 0.1,
                 borderWidth: 2
             }],
@@ -1018,11 +1030,16 @@
                     y: {
                         beginAtZero: true // Começar o eixo y em zero
                     }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
                 }
             }
         }
         const config = {
-            type: 'bar',
+            type: 'radar',
             data: dadosAtributos,
         };
         let Interesses = new Chart(
@@ -1032,6 +1049,36 @@
 
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
-
-
+    let fkusuario = sessionStorage.ID_USUARIO;
+    function cadastrarPersonagem() {
+        fetch("/personagens/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fkusuarioServer: fkusuario,
+                nomeServer: nomePersonagem,
+                idadeServer: idadePersonagem,
+                pesoServer: pesoPersonagem,
+                generoServer: generoPersonagem,
+                alturaServer: alturaPersonagem,
+                classeServer: classePersonagem,
+                historiaServer: historiaPersonagem,
+                caracteristicasServer: caracteristicasPersonagem
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    div_Alerta.style.display = "block";
+                    funcao_alerta("Personagem registrado com sucesso");
+                } else {
+                    funcao_alerta("Houve um erro")
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        return false;
+    }
 </script>
