@@ -30,11 +30,11 @@ CREATE TABLE IF NOT EXISTS personagem(
   genero VARCHAR(17),
   altura INT,
   classe varchar(23),
-  Historia VARCHAR(200),
+  historia VARCHAR(350),
   caracteristicas VARCHAR(150),
   CONSTRAINT chk_classe check (classe in('Caçador Sombrio', 'Senhor das Sombras',
   'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado',
-  'Vampiro Flagelador', 'Vampiro Canibal')),
+  'Vampiro Flagelador', 'Vampiro Canibal', 'Nenhuma')),
   CONSTRAINT fkpersonagem_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
     );
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS pontos(
   PRIMARY KEY (fkpersonagem),
   CONSTRAINT fk_personagem_pontos FOREIGN KEY (fkpersonagem) REFERENCES personagem(id)
 );
-  
+
   CREATE TABLE post(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   titulo varchar(50),
@@ -73,20 +73,32 @@ CREATE TABLE IF NOT EXISTS pontos(
    ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', 'null.png'),
    ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', 'null.png'),
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
-   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', 'null.png'),
-   ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png');
+   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', '23fd7c21b9fb2941a813ded01ab0ae5d8629e7f86308c0d201cfcad4c338d39786a06b01f7ad703e42571a3b5c0c1be1c200897bcef4fcb8eabf751bea07d197'),
+   ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png'),
+   ('Martins69','Guilherme','Martins Nascimento', 'Masculino', 'Player', 'guillherme.mnascimneto@sptech.school', '123', 'null.png');
    
     insert into TillTheFangz.post(titulo, fkusuario, conteudo, tag)
 	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gárgulas?', 'Monstro');
-
+	insert into TillTheFangz.personagem(fkUsuario,nome,idade,peso,genero,altura,classe,historia,caracteristicas)
+    values('1', '2', 'Sr.micosmicos', '2', '10', 'masculino', '0', 'Caçador Sombrio', 
+    'Sr.micos micos era um lendário vampiro na vida passada. Reencarnou como um gato, mas suas lembranças continuaram e seus poderes também.
+    Tornando o sr.micosmicos o primeiro e único gato vampiro da história.  ',
+    'Astuto, lindo, fofo e manipulador.');
   create view view_generos as
   select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
   (select count(genero) from usuario where genero like 'Masculino') as "Quantidade de Homens",
   (select count(genero) from usuario where genero like 'Outro') as 'Outros Generos'
   from usuario
   group by "Quantidade de Mulheres" ;
-    
+    select * 
+    from usuario us
+    left join personagem pe on us.id = pe.fkUsuario
+    left join pontos po on pe.id = po.fkpersonagem
+    where us.id = 2;
 select * from view_generos;
 select * from post;
-
 select * from usuario;
+select * from personagem;
+	SELECT * 
+    FROM personagem pe
+    left join pontos po on pe.id=po.fkpersonagem;
