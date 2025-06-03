@@ -77,7 +77,7 @@
 
     function logado() {
         if (sessionStorage.ID_USUARIO != undefined) {
-
+            div_conteudo.innerHTML += ``
         }
         else {
             div_conteudo.innerHTML = `
@@ -915,13 +915,13 @@
             apelidoPersonagem = "Nenhum Apelido Definido"
         }
         if (alturaPersonagem === "") {
-            alturaPersonagem = "Nenhuma Altura Definida"
+            alturaPersonagem = 0
         }
         if (pesoPersonagem === "") {
-            pesoPersonagem = "Nenhum Peso Definido"
+            pesoPersonagem = 0
         }
         if (idadePersonagem == "") {
-            idadePersonagem = "Nenhuma Idade Definida"
+            idadePersonagem = 0
         }
         if (historiaPersonagem == "") {
             historiaPersonagem = "Nenhuma Historia Encontrada"
@@ -1050,6 +1050,7 @@
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
     let fkusuario = sessionStorage.ID_USUARIO;
+
     function cadastrarPersonagem() {
         fetch("/personagens/cadastrar", {
             method: "POST",
@@ -1073,6 +1074,11 @@
                 if (resposta.ok) {
                     div_Alerta.style.display = "block";
                     funcao_alerta("Personagem registrado com sucesso");
+
+                    resposta.json().then(json => {
+                        sessionStorage.ID_PERSONAGEM = json.id;
+                    })
+
                 } else {
                     funcao_alerta("Houve um erro")
                 }
