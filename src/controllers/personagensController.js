@@ -1,24 +1,24 @@
 var personagensModel = require("../models/personagensModel");
 
-function listar(req,res){
+function listar(req, res) {
     var idUsuario = req.body.idUsuario;
-    personagensModel.listar(idUsuario).then(function(resultado){
+    personagensModel.listar(idUsuario).then(function (resultado) {
         res.status(200).json(resultado);
-    }).catch(function(erro){
+    }).catch(function (erro) {
         res.status(500).json(erro.sqlMessage);
     })
 }
 
-function listarPorUsuario(req,res){
+function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
-    personagensModel.listarPorUsuario(idUsuario).then(function(resultado){
+    personagensModel.listarPorUsuario(idUsuario).then(function (resultado) {
         res.status(200).json(resultado);
-    }).catch(function(erro){
+    }).catch(function (erro) {
         res.status(500).json(erro.sqlMessage);
     })
 }
 
-function cadastrar(req,res){
+function cadastrar(req, res) {
 
     var fkusuario = req.body.fkusuarioServer;
     var nome = req.body.nomeServer;
@@ -31,14 +31,15 @@ function cadastrar(req,res){
     var historia = req.body.historiaServer;
     var caracteristicas = req.body.caracteristicasServer;
 
-    personagensModel.cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas).then(function(resposta) {
-    const id = resposta.insertId;
-    res.status(200).json({ idPersonagem: id }); 
-})
+    personagensModel.cadastrar(fkusuario, nome, apelido, idade, peso, genero, altura, classe, historia, caracteristicas)
+    .then(function (resposta) {
+        const id = resposta.insertId;
+        res.status(200).json({ idPersonagem: id });
+    })
 
 }
 
-function cadastrarPontos(req,res){
+function cadastrarPontos(req, res) {
     console.log("Cheguei em cadastrar pontos controller")
     var fkpersonagem = req.body.fkpersonagemServer;
     var pontosCarisma = req.body.pontosCarismaServer;
@@ -49,10 +50,19 @@ function cadastrarPontos(req,res){
     var pontosVida = req.body.pontosVidaServer;
     var pontosDefesa = req.body.pontosDefesaServer;
     var pontosSanidade = req.body.pontosSanidadeServer;
-    
-    personagensModel.cadastrarPontos(fkpersonagem, pontosVida,pontosDefesa,pontosSanidade, pontosCarisma, pontosInteligencia, pontosAgilidade,pontosVigor, pontosSangue).then(function(resposta){
-        res.status.send("Pontos cadastrados com sucesso");
-    }).catch(function(erro){
+console.log('aaaaaaaa ',fkpersonagem)
+
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', function (erro) {
+        ;
+    })
+    personagensModel.cadastrarPontos(fkpersonagem, pontosVida, pontosDefesa, pontosSanidade, pontosCarisma, pontosInteligencia, pontosAgilidade, pontosVigor, pontosSangue)
+    .then(function (resposta) {
+       // res.status.send("Pontos cadastrados com sucesso");
+        console.log("Pontos cadastrados com sucesso", resposta)
+
+        res.status(200);
+    }).catch(function (erro) {
+        console.log("Pontos cadastrados com err6", erro)
         res.status(500).json(erro.sqlMessage);
     })
 }

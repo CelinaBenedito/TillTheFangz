@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="buscarPeloId(sessionStorage.ID_USUARIO) ,criarGraficos()">
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
     <div id="div_Alerta" class="alerta">
@@ -45,14 +45,14 @@
 
     <h2>Gráficos de Personagens</h2>
     <div class="graficosUsuario">
-        <div>
+        <div class="grafico">
             <p>Atributos mais colocados em personagens</p>
-            <canvas id="graficoAtributos">
+            <canvas id="graficoAtributos"> </canvas>
         </div>
 
 
-        </canvas>
-        <div>
+
+        <div class="grafico">
             <p>Classes mais escolhidas pelos usuarios</p>
             <canvas id="graficoClasses"></canvas>
         </div>
@@ -68,7 +68,7 @@
     nome.innerHTML = nomeUsuario
     let labelInteresse = ['Mestre', 'Player', 'Outro'];
     let labelGeneros = ['Feminino', 'Masculino', 'Outro'];
-    let labelClasses = ['Caçador Sombrio', 'Masculino', 'Outro'];
+    let labelClasses = ['Caçador Sombrio', 'Senhor das Sombras', 'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado','Vampiro Flagelador', 'Vampiro Canibal', 'Nenhuma'];
     let dadosInteresse = {
         labels: labelInteresse,
         datasets: [{
@@ -110,81 +110,103 @@
     );
 
 
-    //
-    let dadosGeneros = {
-        labels: labelGeneros,
-        datasets: [{
-            label: 'Gêneros',
-            data: [10, 4, 2],
-            borderColor: 'rgba(255, 0, 0)',
-            tension: 0.1
-        }]
-    };
-    const configGeneros = {
-        type: 'pie',
-        data: dadosGeneros,
-    };
+        /*---------------------------------------------Gráfico de atributos---------------------------------------------*/
+        // puxando os dados
+        fetch(`/dashboard/listarAtributos`, {
+            method: "GET"
+        }).then(res => {
+            res.json().then(json => {
+                const atributos = json[0]
+                /*Criação do gráfico de atributos*/
+                let dadosAtributos = {
+                    labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
+                    datasets: [{
+                        label: 'Atributos',
+                        data: [atributos.TotalCarisma, atributos.TotalInteligencia, atributos.TotalAgilidade, atributos.TotalVigor, atributos.TotalSangueAncestral],
+                        borderColor: 'rgba(255, 0, 0, 1)',
+                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+                    }]
+                };
 
-    let generos = new Chart(
-        document.getElementById(`graficoGeneros`),
-        configGeneros
-    );
+                const config = {
+                    type: 'bar',
+                    data: dadosAtributos,
+                    options: {
+                        animation: {
+                            duration: 150,
+                            easing: 'easeOutBounce'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true // Começar o eixo y em zero
+                            }
+                        },
+                        indexAxis: 'y',
+                        elements: {
+                            line: {
+                                borderWidth: 3
+                            },
 
-
-    let dadosAtributos = {
-        labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
-        datasets: [{
-            label: 'Atributos',
-            data: ['20', '10', '11', '15', '22'],
-            borderColor: 'rgba(255, 0, 0, 1)',
-            backgroundColor: 'rgba(255, 0, 0, 0.2)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(255, 0, 0, 1)'
-        }]
-    };
-
-    const config = {
-        type: 'radar',
-        data: dadosAtributos,
-        options: {
-            animation: {
-                duration: 150,
-                easing: 'easeOutBounce'
-            },
-            scales: {
-                r: {
-                    beginAtZero: true,
-                    min: 0,
-                    max: 30,
-                    ticks: {
-                        stepSize: 1,
-                        display: false
-                    },
-                    pointLabels: {
-                        font: {
-                            size: 14
                         }
                     }
-                }
-            },
-            elements: {
-                line: {
-                    borderWidth: 3
-                }
-            }
-        }
-    };
+                };
 
-    let Atributos = new Chart(
-        document.getElementById(`graficoAtributos`),
-        config
-    );
+                let Atributos = new Chart(
+                    document.getElementById(`graficoAtributos`),
+                    config
+                );
+            })
+        })
 
-    let dadosClasses = {
+
+
+    
+
+    /*---------------------------------------------Gráfico de Gêneros---------------------------------------------*/
+    //puxando os dados
+    fetch(`/dashboard/listarGeneros`, {
+        method: "GET"
+    }).then(res => {
+        res.json().then(json => {
+            const genero = json[0];
+            console.log(genero)
+            //Criando o gráfico
+            let dadosGeneros = {
+                labels: labelGeneros,
+                datasets: [{
+                    label: 'Gêneros',
+                    data: [genero.QtdMulheres, genero.QtdHomens, genero.QtdOutros],
+                    borderColor: 'rgba(255, 0, 0)',
+                    tension: 0.1
+                }]
+            };
+            const configGeneros = {
+                type: 'doughnut',
+                data: dadosGeneros,
+            };
+
+            let generos = new Chart(
+                document.getElementById(`graficoGeneros`),
+                configGeneros
+            );
+
+        })
+    })
+
+/*Gráfico de Classe*/
+//puxando dados
+fetch(`/dashboard/listarClasse`,{
+    method: "GET"
+}).then(res =>{
+    res.json().then(json=>{
+        const classe = json[0];
+         let dadosClasses = {
         labels: labelClasses,
         datasets: [{
             label: 'Classes',
-            data: [10, 4, 2],
+            data: [classe.cacador, classe.senhor, classe.barbaro, classe.ilusionita, classe.cultista, classe.iluminado, classe.flagelador, classe.canibal, classe.nenhuma],
             borderColor: 'rgba(255, 0, 0, 1)',
             backgroundColor: 'rgba(255, 0, 0, 0.2)',
             borderWidth: 2,
@@ -200,12 +222,8 @@
         document.getElementById(`graficoClasses`),
         configClasses
     );
-    function obterDadosGrafico(idUsuario, fkPersonagem) {
 
+    })
+})
 
-
-    }
-    function criarGraficos() {
-
-    }
 </script>

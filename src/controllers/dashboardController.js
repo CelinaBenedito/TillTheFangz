@@ -9,8 +9,8 @@
      })
  }
   function listarPorInteresse(req,res){
-     var idUsuario = req.params.idUsuario;
-     dashboardModel.listarPorInteresse(idUsuario).then(function(resultado){
+     
+     dashboardModel.listarPorInteresse().then(function(resultado){
          res.status(200).json(resultado);
      }).catch(function(erro){
          res.status(500).json(erro.sqlMessage);
@@ -18,16 +18,16 @@
  }
 
   function listarPorAtributos(req,res){
-     var idUsuario = req.params.idUsuario;
-     dashboardModel.listarPorGeneros(idUsuario).then(function(resultado){
+ 
+     dashboardModel.listarPorAtributos().then(function(resultado){
          res.status(200).json(resultado);
      }).catch(function(erro){
          res.status(500).json(erro.sqlMessage);
      })
  }
    function listarPorClasse(req,res){
-     var idUsuario = req.params.idUsuario;
-     dashboardModel.listarPorGeneros(idUsuario).then(function(resultado){
+     
+     dashboardModel.listarPorClasse().then(function(resultado){
          res.status(200).json(resultado);
      }).catch(function(erro){
          res.status(500).json(erro.sqlMessage);
