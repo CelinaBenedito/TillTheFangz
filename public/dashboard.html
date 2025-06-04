@@ -19,6 +19,17 @@
         <div id="conteudo_alerta"></div>
     </div>
     <h1>Olá <strong id="nome"></strong></h1>
+    <div style="display: flex; gap: 50px;">
+        <div>
+            Quantidade de usuarios cadastrados:
+            <h1>20</h1>
+        </div>
+        <div>
+            Media de posts ao dia:
+            <h1>15</h1>
+        </div>
+    </div>
+
     <h2>Gráficos de Usuários</h2>
     <div class="graficosUsuario">
         <div class="grafico pizza">
@@ -33,10 +44,20 @@
 
 
     <h2>Gráficos de Personagens</h2>
-    <p>Atributos mais colocados em personagens</p>
-    <canvas id="graficoAtributos"></canvas>
-    <canvas id="graficoClasses"></canvas>
+    <div class="graficosUsuario">
+        <div>
+            <p>Atributos mais colocados em personagens</p>
+            <canvas id="graficoAtributos">
+        </div>
 
+
+        </canvas>
+        <div>
+            <p>Classes mais escolhidas pelos usuarios</p>
+            <canvas id="graficoClasses"></canvas>
+        </div>
+
+    </div>
 </body>
 
 </html>
@@ -47,6 +68,7 @@
     nome.innerHTML = nomeUsuario
     let labelInteresse = ['Mestre', 'Player', 'Outro'];
     let labelGeneros = ['Feminino', 'Masculino', 'Outro'];
+    let labelClasses = ['Caçador Sombrio', 'Masculino', 'Outro'];
     let dadosInteresse = {
         labels: labelInteresse,
         datasets: [{
@@ -102,14 +124,82 @@
         type: 'pie',
         data: dadosGeneros,
     };
+
     let generos = new Chart(
         document.getElementById(`graficoGeneros`),
         configGeneros
     );
 
 
+    let dadosAtributos = {
+        labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
+        datasets: [{
+            label: 'Atributos',
+            data: ['20', '10', '11', '15', '22'],
+            borderColor: 'rgba(255, 0, 0, 1)',
+            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+        }]
+    };
 
+    const config = {
+        type: 'radar',
+        data: dadosAtributos,
+        options: {
+            animation: {
+                duration: 150,
+                easing: 'easeOutBounce'
+            },
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 30,
+                    ticks: {
+                        stepSize: 1,
+                        display: false
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        }
+    };
 
+    let Atributos = new Chart(
+        document.getElementById(`graficoAtributos`),
+        config
+    );
+
+    let dadosClasses = {
+        labels: labelClasses,
+        datasets: [{
+            label: 'Classes',
+            data: [10, 4, 2],
+            borderColor: 'rgba(255, 0, 0, 1)',
+            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+        }]
+    };
+    const configClasses = {
+        type: 'bar',
+        data: dadosClasses,
+    };
+
+    let classes = new Chart(
+        document.getElementById(`graficoClasses`),
+        configClasses
+    );
     function obterDadosGrafico(idUsuario, fkPersonagem) {
 
 
