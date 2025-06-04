@@ -19,11 +19,8 @@
         <img class="morcego" src="assets/img/morcegoCimaPreto.png">
         <div id="conteudo_alerta"></div>
     </div>
-    <div class="conteudo" id="div_conteudo">
-        <div class="inicia centralizarl">
-            <h2>Nenhum personagem encontrado!</h2>
-            <button onclick="inicio()"><i class='bx bx-plus-medical'></i> Criar Personagem</button>
-        </div>
+    <div class="conteudoMutavel" id="div_conteudo">
+        <div id="botao"></div>
     </div>
     <div class="conteudo">
         <div id="div_conteudoInicio" class="inicial">
@@ -77,23 +74,110 @@
     let ID_USUARIO = sessionStorage.ID_USUARIO;
     function logado() {
         if (sessionStorage.ID_USUARIO != undefined) {
-            
-            fetch(`/personagens/listar/${ID_USUARIO}`,{
+
+            fetch(`/personagens/listar/${ID_USUARIO}`, {
                 method: "GET"
             })
-            .then(res=>{
-                res.json().then(json =>{
-                    const personagem = json[0];
+                .then(res => {
+                    res.json().then(json => {
+                        const personagem = json[0];
 
-                    div_conteudo.innerHTML += `Funcionou?`
+                        console.log(json.length)
+                        if (personagem.id != undefined) {
+                            botao.innerHTML = `
+                            <div class="criarBotao"> 
+                                <button onclick="inicio()">
+                                    <i class='bx bx-plus-medical'></i>
+                                </button>
+                            </div>`
+                            for (let c = 0; json.length > c; c++) {
+                                let personagem = json[c]
+                                div_conteudo.innerHTML +=
+                                    `
+                                       <a onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.showModal()">
+                                            <div class="cardPersonagem">
+                                                <div class="nomePersonagem">
+                                                    <p id="nomeclatura">${personagem.apelido} - ${personagem.nome}</p>
+                                                </div>
+                                                <div class="infos">
+                                                    <p id="pts_vida">Vida</p>
+                                                    <p id="pts_sanidade">Sanidade</p>
+                                                    <p id="classe">Classe</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <dialog id="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}">
+                                             <div class="informacoes">
+                                                <img src="assets/img/vampireUser.png" alt="">
+                                                <h1>${personagem.apelido}</h1>
+                                                <h2>${personagem.nome}</h2>
+                                                <div class="pontosBasicos">
+                                                    <div class="itemBase">Vida:<p id="vida"></p>
+                                                    </div>
+                                                    <div class="itemBase">Sanidade: <p id="sanidade"></p>
+                                                        </div>
+                                                    <div class="itemBase">Defesa: <p id="defesa"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="infosBase">
+                                                    <p>Altura: ${personagem.altura}</p>
+                                                    <p>Peso: ${personagem.peso}</p>
+                                                    <p>Idade: ${personagem.idade}</p>
+                                                    <p>Gênero: ${personagem.genero}</p>
+                                                </div>
+                                                <div class="detalhesTexto">
+                                                    <div class="texto">
+                                                    <h3>Historia do Personagem</h3>
+                                                    <p id="historiaPersonagem">
+                                                        ${personagem.historia}
+                                                    </p>
+                                                    </div>
+                                                    <div class="texto">
+                                                        <h3>Caracteristicas do Personagem</h3>
+                                                        <p id="caracteristicasPersonagem">
+                                                            ${personagem.caracteristicas}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="classe">
+                                                    <h3>Classe: </h3>
+                                                    <p>
+                                                        ${personagem.classe}
+                                                    </p>    
+                                                </div>
+                                                <div class="grafico">
+                                                    <h3>Atributos</h3>
+                                                    <canvas id="graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" ></canvas>
+                                                </div>
+                                                <h3>
+                                                Habilidades
+                                                </h3>
+                                                <div class="botaoFechar">
+                                                    <button onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.close()">Voltar para a ficha</button>
+                                                </div>
+                                            </div>
+                                        </dialog>
+                                    `
+                            }
 
+                        }
+                        else {
+                            div_conteudo.innerHTML =
+                                `
+                        <div class="inicia centralizarl">
+                            <h2>Nenhum personagem encontrado!</h2>
+                            <button onclick="inicio()"><i class='bx bx-plus-medical'></i> Criar Personagem</button>
+                        </div>
+                        `
+                        }
+
+                    })
                 })
-            })
 
-            
+
         }
         else {
-            
+
             div_conteudo.innerHTML = `
              <div class="inicial">
             <h2>Logar para ver os personagens</h2>
@@ -733,99 +817,7 @@
         div_containerSensoriais.style.display = "none"
     }
 
-
-
     function atualizarPontosHabilidades(valor, tipo, nomeHabilidade) {
-        let grupo = null;
-
-        for (let chave in arvoresGerais) {
-            const arvore = arvoresGerais[chave];
-            if (
-                arvore.base.includes(nomeHabilidade) ||
-                arvore.esquerda.includes(nomeHabilidade) ||
-                arvore.direita.includes(nomeHabilidade)
-            ) {
-                grupo = chave;
-                break;
-            }
-        }
-
-        if (!grupo) {
-            return funcao_alerta("Habilidade não reconhecida.");
-        }
-
-        const arvore = arvoresGerais[grupo];
-        const base = arvore.base[0];
-        const desbloqueadas = arvore.habilidadesDesbloqueadas;
-
-        // REVERSÃO
-        const ultimaHabilidade = desbloqueadas[desbloqueadas.length - 1];
-        if (nomeHabilidade === ultimaHabilidade) {
-            // Reverte progresso
-            arvore.habilidadesDesbloqueadas.pop();
-            PontosHabilidades[tipo] -= valor; // valor é negativo, então -(-1) = +1
-            arvore.progresso--;
-
-            if (nomeHabilidade === base) {
-                arvore.caminhoEscolhido = null;
-            }
-
-            return atualizarHTML(tipo);
-        }
-
-        // 🚫 Já desbloqueada mas não é a última: bloqueia
-        if (desbloqueadas.includes(nomeHabilidade)) {
-            return funcao_alerta("Só é possível remover a última habilidade desbloqueada.");
-        }
-
-        // PRIMEIRA HABILIDADE (base)
-        if (arvore.progresso === 0 && nomeHabilidade !== base) {
-            return funcao_alerta("Você precisa desbloquear a habilidade inicial primeiro.");
-        }
-
-        if (nomeHabilidade === base) {
-            if (PontosHabilidades[tipo] + valor < 0) {
-                return funcao_alerta("Pontos insuficientes");
-            }
-
-            PontosHabilidades[tipo] += valor;
-            arvore.progresso = 1;
-            desbloqueadas.push(nomeHabilidade);
-            return atualizarHTML(tipo);
-        }
-
-        // Escolher caminho
-        if (!arvore.caminhoEscolhido) {
-            if (arvore.esquerda.includes(nomeHabilidade)) {
-                arvore.caminhoEscolhido = 'esquerda';
-            } else if (arvore.direita.includes(nomeHabilidade)) {
-                arvore.caminhoEscolhido = 'direita';
-            } else {
-                return funcao_alerta("Habilidade inválida.");
-            }
-        }
-
-        const caminho = arvore[arvore.caminhoEscolhido];
-
-        if (!caminho.includes(nomeHabilidade)) {
-            return funcao_alerta("Você já escolheu outro caminho. Essa habilidade não está disponível.");
-        }
-
-        if (caminho[arvore.progresso - 1] !== nomeHabilidade) {
-            return funcao_alerta("Desbloqueie as habilidades na ordem correta.");
-        }
-
-        if (PontosHabilidades[tipo] + valor < 0) {
-            return funcao_alerta("Pontos insuficientes");
-        }
-
-        PontosHabilidades[tipo] += valor;
-        arvore.progresso++;
-        desbloqueadas.push(nomeHabilidade);
-        atualizarHTML(tipo);
-        setTimeout(() => {
-            atualizarEstilos(arvore.caminhoEscolhido, arvore.habilidadesDesbloqueadas);
-        }, 10);
 
     }
 
@@ -907,7 +899,11 @@
 
     function salvarClasse(classe) {
         classePersonagem = classe;
-        console.log(classePersonagem)
+
+        if (classe == "Caçador Sombrio") {
+            pontos.carisma -= 2;
+
+        }
     }
     function salvarInfos() {
         nomePersonagem = ipt_nome.value;
@@ -1053,7 +1049,7 @@
             }
         }
         const config = {
-            type: 'radar',
+            type: 'bar',
             data: dadosAtributos,
         };
         let Interesses = new Chart(
@@ -1074,6 +1070,7 @@
             body: JSON.stringify({
                 fkusuarioServer: fkusuario,
                 nomeServer: nomePersonagem,
+                apelidoServer: apelidoPersonagem,
                 idadeServer: idadePersonagem,
                 pesoServer: pesoPersonagem,
                 generoServer: generoPersonagem,
@@ -1086,13 +1083,11 @@
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
                 if (resposta.ok) {
-                    div_Alerta.style.display = "block";
-                    funcao_alerta("Personagem registrado com sucesso");
+                    
+                    funcao_alerta("Personagem registrado com sucesso!");
 
-                    resposta.json().then(json => {
-                        sessionStorage.ID_PERSONAGEM = json.id;
-                    })
-
+                    cadastrarPontos();
+                    return window.location.reload()
                 } else {
                     funcao_alerta("Houve um erro")
                 }
@@ -1100,5 +1095,40 @@
                 console.log(`#ERRO: ${resposta}`);
             });
         return false;
+    } 
+    let pontosCarisma = pontos.carisma;
+    let pontosInteligencia = pontos.inteligencia;
+    let pontosAgilidade = pontos.agilidade;
+    let pontosVigor = pontos.vigor;
+    let pontosSangue = pontos.sangue;
+
+    function cadastrarPontos() {
+        fetch("/personagens/cadastrarPontos",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fkpersonagemServer: fkpersonagem,
+                fkusuarioServer: fkusuario,
+                pontosCarismaServer: pontosCarisma,
+                pontosInteligenciaServer: pontosInteligencia,
+                pontosAgilidadeServer: pontosAgilidade,
+                pontosVigorServer: pontosVigor,
+                pontosSangueServer: pontosSangue,
+                pontosVidaServer: pontosVida,
+                pontosDefesaServer: pontosDefesa,
+                pontosSanidadeServer: pontosSanidade
+            }),
+        })
+        .then(function(resposta){
+            console.log("Reposta cadastro pontos: ", resposta);
+            if(resposta.ok){
+                funcao_alerta("Pontos cadastrados com sucesso!")
+            }else{
+                funcao_alerta("Houve um erro")
+            }
+        })
+
     }
 </script>

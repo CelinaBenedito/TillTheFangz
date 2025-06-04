@@ -11,7 +11,7 @@
     <title>User</title>
 </head>
 
-<body onload="preencher()">
+<body onload="preencher(),buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
 
@@ -354,30 +354,30 @@
 
 
 
-    // function buscarPeloId(id_user) {
+     function buscarPeloId(id_user) {
 
-    //     fetch(`/usuarios/${id_user}`, {
-    //         method: "GET"
-    //     })
-    //         .then(res => {
-    //             res.json().then(json => {
-    //                 const usuario = json[0];
-    //                 primeiro_nome.innerHTML = `${usuario.nome}`
-    //                 sobrenome.innerHTML = `${usuario.sobrenome}`
-    //                 nickname.innerHTML = `${usuario.nickname}`
-    //                 imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-    //                 imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-    //                 imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+         fetch(`/usuarios/${id_user}`, {
+             method: "GET"
+         })
+             .then(res => {
+                 res.json().then(json => {
+                     const usuario = json[0];
+                     primeiro_nome.innerHTML = `${usuario.nome}`
+                     sobrenome.innerHTML = `${usuario.sobrenome}`
+                     nickname.innerHTML = `${usuario.nickname}`
+                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                     imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
 
-    //             })
+                 })
 
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
+             })
+             .catch(err => {
+                 console.log(err);
 
-    //         })
+            })
 
-    // }
+    }
 
 
     function enviar() {

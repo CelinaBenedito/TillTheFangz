@@ -57,7 +57,8 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     position: absolute;
-    background-color: #131313;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
 }
 
 .sair a {

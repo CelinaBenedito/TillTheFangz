@@ -656,3 +656,69 @@ strong {
     display: flex;
     gap: 20px;
 }
+#div_conteudo{
+    gap: 20px;
+    transition: 0.2s;
+}
+#div_conteudo a:hover {
+    transform: scale(1.1);
+}
+.cardPersonagem {
+    background-color: transparent;
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    padding: 0px 10px;
+    align-items: center;
+    display: flex;
+    width: 550px;
+    justify-content: space-between;
+    align-self: center;
+}
+.conteudoMutavel a{
+    cursor: pointer;
+    width: min-content;
+    align-self: center;
+}
+.cardPersonagem button:hover {
+    transform: scale(1.1);
+}
+.infos {
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.conteudoMutavel .criarBotao{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+}
+.criarBotao button{
+    padding: 10px;
+    font-size: larger;
+    background-color: transparent;
+    color: white;
+    border-radius: 100%;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    margin-top: 50px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+}
+.conteudoMutavel{
+    display: flex;
+    flex-direction: column;
+    width: 98.5%;
+    padding: 0px 10px;
+}
+.voltar{
+    padding: 10px;
+}
+.voltar a:hover{
+color: #e60000;
+}

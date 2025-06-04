@@ -8,7 +8,9 @@ let textoInicio = `
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
                 </div>
-
+                <div class="voltar">
+                    <a onclick= "botaozao.style.display = 'none',div_conteudo.style.display = '',div_conteudoInicio.style.display = 'none', div_conteudoClasse.style.display = 'none',div_conteudoAtributos.style.display = 'none',div_conteudoHabilidades.style.display = 'none'">Voltar</a>
+                </div>
                 <h2>Seja bem vindo ao criador de personagem!
                 <br> Vamos começar pelo básico</h2>
 
@@ -46,6 +48,9 @@ let textoClasse = `
                         <li><a onclick="atributos()">Atributos</a></li>
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
+                </div>
+                <div class="voltar">
+                    <a onclick= "botaozao.style.display = 'none',div_conteudo.style.display = '',div_conteudoInicio.style.display = 'none', div_conteudoClasse.style.display = 'none',div_conteudoAtributos.style.display = 'none',div_conteudoHabilidades.style.display = 'none'">Voltar</a>
                 </div>
             <div class="cards">
                 <div class="card">
@@ -163,6 +168,9 @@ let textoAtributos = `
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
     </div>
+    <div class="voltar">
+                    <a onclick= "botaozao.style.display = 'none',div_conteudo.style.display = '',div_conteudoInicio.style.display = 'none', div_conteudoClasse.style.display = 'none',div_conteudoAtributos.style.display = 'none',div_conteudoHabilidades.style.display = 'none'">Voltar</a>
+                </div>
     <div class="Horizontal">
         <div class="ConteudoAtributo">
             <h3>Pontos Totais</h3>
@@ -235,6 +243,9 @@ let textoHabilidades = `
                         <li><a onclick="habilidades()">Habilidades</a></li>
                     <ul>
             </div>
+            <div class="voltar">
+                    <a onclick= "botaozao.style.display = 'none',div_conteudo.style.display = '',div_conteudoInicio.style.display = 'none', div_conteudoClasse.style.display = 'none',div_conteudoAtributos.style.display = 'none',div_conteudoHabilidades.style.display = 'none'">Voltar</a>
+                </div>
     <div class="containerTotal">
         <a onclick="aparicoes(1)">
             <div class="cabecalho gerais">

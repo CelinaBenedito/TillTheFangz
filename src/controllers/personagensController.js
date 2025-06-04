@@ -21,8 +21,8 @@ function listarPorUsuario(req,res){
 function cadastrar(req,res){
 
     var fkusuario = req.body.fkusuarioServer;
-    // var fkpersonagem = req.body.fkpersonagem
     var nome = req.body.nomeServer;
+    var apelido = req.body.apelidoServer;
     var idade = req.body.idadeServer;
     var peso = req.body.pesoServer;
     var genero = req.body.generoServer;
@@ -31,14 +31,19 @@ function cadastrar(req,res){
     var historia = req.body.historiaServer;
     var caracteristicas = req.body.caracteristicasServer;
 
-    personagensModel.cadastrar(fkusuario,nome,idade,peso,genero,altura,classe,historia,caracteristicas).then(function(resposta){
+    personagensModel.cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas).then(function(resposta){
         res.status(200).send("Personagem Cadastrado com sucesso");
     }).catch(function(erro){
         res.status(500).json(erro.sqlMessage);
     })
 }
+
+function cadastrarPontos(req,res){
+    var fkpersonagem = req.body.fkpersonagem
+}
 module.exports = {
     listar,
     cadastrar,
-    listarPorUsuario
+    listarPorUsuario,
+    cadastrarPontos
 }
