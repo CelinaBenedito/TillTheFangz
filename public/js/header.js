@@ -8,24 +8,7 @@ containerSair.innerHTML =
 `
 let imagemUsuario = sessionStorage.IMAGEM_USUARIO
 
-if(sessionStorage.ID_USUARIO != undefined){
-    header.innerHTML = `
-     <div class="logo">
-            <a href="">
-                <img src="../assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
-            </a>
-        </div>
-        <div class="itens">
-            <a href="../index.html">Home</a>
-            <a href="../livro.html">Livro</a>
-            <a href="../bestiario.html">Bestiário</a>
-            <a href="../ficha.html">Ficha</a>
-            <a href="../feed.html">Feed</a>
-            <a onclick="aparecerOpcoes()" id="imagem_usuario_header" class="img_User"><img src="../assets/imagensdePerfil/${imagemUsuario}""></a>
-        </div>
-    `
-}
-else if(sessionStorage.ID_USUARIO == 1){
+ if(sessionStorage.ID_USUARIO === '1'){
         header.innerHTML = `
      <div class="logo">
             <a href="">
@@ -43,6 +26,25 @@ else if(sessionStorage.ID_USUARIO == 1){
         </div>
         `
 }
+
+else if(sessionStorage.ID_USUARIO != undefined){
+    header.innerHTML = `
+     <div class="logo">
+            <a href="">
+                <img src="../assets/img/logoBranca.png" alt="Logo do Till the Fangz na versão branca">
+            </a>
+        </div>
+        <div class="itens">
+            <a href="../index.html">Home</a>
+            <a href="../livro.html">Livro</a>
+            <a href="../bestiario.html">Bestiário</a>
+            <a href="../ficha.html">Ficha</a>
+            <a href="../feed.html">Feed</a>
+            <a onclick="aparecerOpcoes()" id="imagem_usuario_header" class="img_User"><img src="../assets/imagensdePerfil/${imagemUsuario}""></a>
+        </div>
+    `
+}
+   
 else{
    header.innerHTML = `
   <div class="logo">

@@ -44,44 +44,44 @@
                             Título:
                             <input name="titulo" maxlength="50" maxlength="100" type="text" id="div_titulo">
                             Descrição:
-                            <textarea name="conteudo" maxlength="1000" maxlength="250" rows="5" id="div_conteudo"></textarea >
-                                    <div class="tagsPostar">
-                                        Tags:
-                                        <div class="totalTags">
-                                        <div class="Header Jogador">
-                                            <a onclick="">Jogador</a>
-                                        </div>
-                                        <div class="conteudoPostTags">
-                                            <a href="">O mestre</a>
-                                            <a href="">O player</a>
-                                        </div>
-                                        <div class="Header Raca">
-                                            <a onclick="">Raça</a>
-                                        </div>
-                                    
-                                        <div class="Header Classe">
-                                            <a onclick="">Classe</a>
-                                        </div>
-                                        </div>
+                            <textarea name="conteudo" maxlength="1000" maxlength="250" rows="5"
+                                id="div_conteudo"></textarea>
+                            <div class="tagsPostar">
+                                Tags:
+                                <div class="totalTags">
+                                    <div class="Header Jogador">
+                                        <a onclick="">Jogador</a>
                                     </div>
-                                <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M21 14V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9v-2H5v-1.59l3-3 1.29 1.29c.39.39 1.02.39 1.41 0l5.29-5.29 3 3V14h2Zm-4.29-5.71a.996.996 0 0 0-1.41 0l-5.29 5.29-1.29-1.29a.996.996 0 0 0-1.41 0l-2.29 2.29V5h14v5.59L16.73 8.3Z">
-                                    </path>
-                                    <path
-                                        d="M8.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3M21 16h-2v3h-3v2h3v3h2v-3h3v-2h-3z">
-                                    </path>
-                                </svg>
+                                    <div class="conteudoPostTags">
+                                        <a onclick="">O mestre</a>
+                                        <a onclick="">O player</a>
+                                    </div>
+                                    <div class="Header Raca">
+                                        <a onclick="">Raça</a>
+                                    </div>
 
-                                <input type="file" id="input_imagens" accept="image/*">
-
-                                <div class="previa">
-                                    <img id="Previa" src="" alt="" style="display: none;">
+                                    <div class="Header Classe">
+                                        <a onclick="">Classe</a>
+                                    </div>
                                 </div>
+                            </div>
+                            <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M21 14V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9v-2H5v-1.59l3-3 1.29 1.29c.39.39 1.02.39 1.41 0l5.29-5.29 3 3V14h2Zm-4.29-5.71a.996.996 0 0 0-1.41 0l-5.29 5.29-1.29-1.29a.996.996 0 0 0-1.41 0l-2.29 2.29V5h14v5.59L16.73 8.3Z">
+                                </path>
+                                <path d="M8.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 1 0 0-3M21 16h-2v3h-3v2h3v3h2v-3h3v-2h-3z">
+                                </path>
+                            </svg>
 
-                                <button onclick="publicar()">Enviar</button>
-                            
+                            <input type="file" id="input_imagens" accept="image/*">
+
+                            <div class="previa">
+                                <img id="Previa" src="" alt="" style="display: none;">
+                            </div>
+
+                            <button onclick="publicar()">Enviar</button>
+
 
                             <!-- <form id="form_postagem" method="post" onsubmit="return publicar()">
                                 <label>
@@ -124,34 +124,34 @@
                     </a>
                     <div class="separacao">
                         <div id="Jogador">
-                            <a onclick="SalvarTag('jogador','O Mestre')">
+                            <a onclick="atualizarFeed('O Mestre')">
                                 <p>O Mestre</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Player')">
+                            <a onclick="atualizarFeed('O Player')">
                                 <p>O Player</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Ator')">
+                            <a onclick="atualizarFeed('O Ator')">
                                 <p>O Ator</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Observador')">
+                            <a onclick="atualizarFeed('O Observador')">
                                 <p>O observador</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Engajado')">
+                            <a onclick="atualizarFeed('O Engajado')">
                                 <p>O engajado</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Comentador')">
+                            <a onclick="atualizarFeed('O Comentador')">
                                 <p>O comentador</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Investigador')">
+                            <a onclick="atualizarFeed('O Investigador')">
                                 <p>O Investigador</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Narrador')">
+                            <a onclick="atualizarFeed('O Narrador')">
                                 <p>O Narrador</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Solitario')">
+                            <a onclick="atualizarFeed('O Solitario')">
                                 <p>O solitário</p>
                             </a>
-                            <a onclick="SalvarTag('jogador','O Piadista')">
+                            <a onclick="atualizarFeed('O Piadista')">
                                 <p>O piadista</p>
                             </a>
                         </div>
@@ -166,22 +166,22 @@
                     </a>
                     <div class="separacao">
                         <div id="Racas">
-                            <A onclick="SalvarTag('racas', 'Monstro')">
+                            <A onclick="atualizarFeed('Monstro')">
                                 <p>Monstro</p>
                             </A>
-                            <a onclick="SalvarTag('racas','Vampiro')">
+                            <a onclick="atualizarFeed('Vampiro')">
                                 <p>Vampiro</p>
                             </a>
-                            <a onclick="SalvarTag('racas', 'Anjo')">
+                            <a onclick="atualizarFeed('Anjo')">
                                 <p>Anjo</p>
                             </a>
-                            <a onclick="SalvarTag('raca','Demonio')">
+                            <a onclick="atualizarFeed('Demonio')">
                                 <p>Demonio</p>
                             </a>
-                            <a onclick="SalvarTag('raca','Bruxa')">
+                            <a onclick="atualizarFeed('Bruxa')">
                                 <p>Bruxa</p>
                             </a>
-                            <a onclick="SalvarTag('raca','Corrompido')">
+                            <a onclick="atualizarFeed('Corrompido')">
                                 <p>Corrompido</p>
                             </a>
                         </div>
@@ -195,36 +195,44 @@
                     <a onclick="aparecer('Classe')">
                         <h2>Classes</h2>
                     </a>
+                    
                     <div class="separacao">
                         <div id="Classe">
-                            <a onclick="SalvarTag('classes','Caçador')">
+                            <a onclick="atualizarFeed('Caçador')">
                                 <p>Caçador</p>
                             </a>
-                            <a onclick="SalvarTag('classes','Senhor das sombras')">
+                            <a onclick="atualizarFeed('Senhor das sombras')">
                                 <p>Senhor das Sombras</p>
                             </a>
-                            <a onclick="SalvarTag('classes','Barbaro')">
+                            <a onclick="atualizarFeed('Barbaro')">
                                 <p>Barbaro</p>
                             </a>
-                            <a onclick="SalvarTag('classes','Ilusionista')">
+                            <a onclick="atualizarFeed('Ilusionista')">
                                 <p>Ilusionista</p>
                             </a>
-                            <a onclick="SalvarTag('classes','Cultista')">
+                            <a onclick="atualizarFeed('Cultista')">
                                 <p>Cultistas</p>
                             </a>
-                            <a onclick="SalvarTag('classes', 'Iluminado')">
+                            <a onclick="atualizarFeed( 'Iluminado')">
                                 <p>Iluminado</p>
                             </a>
-                            <a onclick="SalvarTag('classes', 'Flagelador')">
+                            <a onclick="atualizarFeed( 'Flagelador')">
                                 <p>Flagelador</p>
                             </a>
-                            <a onclick="SalvarTag('classes','Canibal')">
+                            <a onclick="atualizarFeed('Canibal')">
                                 <p>Canibal</p>
                             </a>
                         </div>
 
                     </div>
 
+                </div>
+            </div>
+            <div class="itensTag">
+                <div class="tagss">
+                    <a onclick="atualizarFeed(null)">
+                        <h2>Limpar Filtro</h2>
+                    </a>
                 </div>
             </div>
         </div>
@@ -274,7 +282,7 @@
             leitor.readAsDataURL(arquivo);
         }
     });
-    
+
     function redirecionar() {
         window.location = 'login.html'
     }
@@ -375,7 +383,7 @@
     }
 
 
-    function atualizarFeed() {
+    function atualizarFeed(PesquisaTag) {
         const card = document.getElementById('div_card')
         fetch("/avisos/listar").then(function (resposta) {
             if (resposta.ok) {
@@ -389,19 +397,23 @@
 
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-
+                    console.log(resposta)
                     var feed = document.getElementById("feed_container");
                     feed.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
-                        var publicacao = resposta[i];
-                        feed_container.innerHTML +=
-                            `
+                    let pesquisa = "nada"
+                    pesquisa = PesquisaTag
+                    if (pesquisa == null) {
+                        for (let i = 0; i < resposta.length; i++) {
+                            var publicacao = resposta[i];
+
+                            feed_container.innerHTML +=
+                                `
                         <div class="card" id="div_card">
                             <div class="cabecalho">
                                 <img src="assets/img/vampireUser.png">
                                 <p id="nickname">${publicacao.nome}</p>
                                 <div class="tags">
-                                    <p id="tagPost"></p>
+                                    <p id="tagPost">${publicacao.tag}</p>
                                 </div>
                             </div>
                             <div class="conteudo">
@@ -413,52 +425,35 @@
                             </div>
                         </div>
                         `
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        // var divPublicacao = document.createElement("div");
-                        // var spanID = document.createElement("span");
-                        // var spanTitulo = document.createElement("span");
-                        // var spanNome = document.createElement("span");
-                        // var divDescricao = document.createElement("div");
-                        // var divButtons = document.createElement("div");
-                        // var btnEditar = document.createElement("button");
-                        // var btnDeletar = document.createElement("button");
-
-
-                        // spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        // spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        // spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        // divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        // btnEditar.innerHTML = "Editar";
-                        // btnDeletar.innerHTML = "Deletar";
-
-                        // divPublicacao.className = "publicacao";
-                        // spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        // spanNome.className = "publicacao-nome";
-                        // spanTitulo.className = "publicacao-titulo";
-                        // divDescricao.className = "publicacao-descricao";
-
-                        // divButtons.className = "div-buttons"
-
-                        // btnEditar.className = "publicacao-btn-editar"
-                        // btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        // btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        // btnDeletar.className = "publicacao-btn-editar"
-                        // btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        // divPublicacao.appendChild(spanID);
-                        // divPublicacao.appendChild(spanNome);
-                        // divPublicacao.appendChild(spanTitulo);
-                        // divPublicacao.appendChild(divDescricao);
-                        // divPublicacao.appendChild(divButtons);
-                        // divButtons.appendChild(btnEditar);
-                        // divButtons.appendChild(btnDeletar);
-                        // feed.appendChild(divPublicacao);
+                        }
+                    }
+                    if(pesquisa!="nada"){
+                        for(let i = 0; i < resposta.length; i++){
+                            var publicacao = resposta[i];
+                            if(publicacao.tag.includes(pesquisa)){
+                                         feed_container.innerHTML +=
+                                `
+                        <div class="card" id="div_card">
+                            <div class="cabecalho">
+                                <img src="assets/img/vampireUser.png">
+                                <p id="nickname">${publicacao.nome}</p>
+                                <div class="tags">
+                                    <p id="tagPost">${publicacao.tag}</p>
+                                </div>
+                            </div>
+                            <div class="conteudo">
+                                <div class='tituloPublicacao'><h3>${publicacao.titulo}</h3></div>
+                                <div class="imagem">
+                                    <img src="" id="imagemPost">
+                                </div>
+                                <p id="conteudoPost">${publicacao.conteudo}</p>
+                            </div>
+                        </div>
+                        `  
+                            }
+                        }
                     }
 
-                    // finalizarAguardar();
                 });
             } else {
                 throw ('Houve um erro na API!');
