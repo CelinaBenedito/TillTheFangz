@@ -79,8 +79,38 @@ CREATE TABLE IF NOT EXISTS pontos(
    ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png'),
    ('Martins69','Guilherme','Martins Nascimento', 'Masculino', 'Player', 'guillherme.mnascimneto@sptech.school', '123', 'null.png');
    
-    insert into TillTheFangz.post(titulo, fkusuario, conteudo, tag)
-	values('Como derrotar uma gárgula?', '1', 'Eu estou com uma duvida, tem algum jeito facil de derrotar as gárgulas?', 'Monstro');
+   INSERT INTO post (titulo, fkusuario, conteudo, tag, dataHora) VALUES
+('Como derrotar uma gárgula?', 1, 'Eu estou com uma dúvida, tem algum jeito fácil de derrotar as gárgulas?', 'Monstro', '2025-05-05 12:30:00'),
+('Transformações mais úteis', 2, 'Qual transformação é melhor para escapar de caçadores?', 'Vampiro', '2025-05-06 10:00:00'),
+('Ajuda com NPCs', 3, 'Preciso de dicas para criar NPCs interessantes para os jogadores.', 'O Mestre', '2025-05-07 14:45:00'),
+('Como ser um bom narrador?', 2, 'Quero começar a narrar, o que é essencial saber?', 'O Narrador', '2025-05-08 18:20:00'),
+('Barbaro ou Cultista?', 1, 'Qual dessas classes vocês acham mais divertida de jogar?', 'Barbaro', '2025-05-10 21:00:00'),
+('Melhor raça para iniciantes', 4, 'Entre vampiro, anjo ou bruxa, qual é mais equilibrada?', 'Bruxa', '2025-05-10 16:30:00'),
+('Combos de habilidades', 5, 'Quais combinações de habilidades são mais apelonas?', 'O Engajado', '2025-05-11 11:00:00'),
+('Como narrar cenas de combate?', 2, 'Quero deixar os combates mais emocionantes, dicas?', 'O Narrador', '2025-05-12 13:15:00'),
+('Interpretação de vilões', 3, 'Alguma dica pra criar vilões carismáticos e assustadores?', 'O Ator', '2025-05-13 09:40:00'),
+('Sistemas de medo', 5, 'Alguém criou uma mecânica legal pra simular medo nos personagens?', 'O Investigador', '2025-05-14 17:00:00'),
+('Ideias para campanhas noturnas', 2, 'Quais temas vocês gostam de explorar em missões à noite?', 'Demonio', '2025-05-15 20:30:00'),
+('Aparência dos monstros', 1, 'Descrevam seu monstro mais grotesco, quero me inspirar.', 'Monstro', '2025-05-16 23:50:00'),
+('Sugestão de cenário urbano', 4, 'Preciso de ideias para um cenário urbano com vampiros.', 'O Observador', '2025-05-17 08:20:00'),
+('O uso do silêncio', 3, 'Como o silêncio pode ser usado para causar tensão?', 'O Mestre', '2025-05-18 12:10:00'),
+('Caçadores em grupo', 2, 'Como vocês equilibram uma equipe de caçadores contra um vampiro?', 'Caçador', '2025-05-17 14:00:00'),
+('Flagelador vale a pena?', 1, 'Tô em dúvida se crio um personagem dessa classe.', 'Flagelador', '2025-05-20 09:30:00'),
+('Narrar sessões solo', 5, 'Dicas pra narrar sessões para um único jogador?', 'O Solitario', '2025-05-21 19:10:00'),
+('Bruxas e pactos', 3, 'Alguém tem ideias de pactos bizarros para bruxas?', 'Bruxa', '2025-05-22 16:45:00'),
+('Como usar flashbacks?', 4, 'Flashbacks funcionam em RPG de terror? Como aplicar?', 'O Investigador', '2025-05-17 13:35:00'),
+('Anjos como antagonistas', 2, 'Já colocaram anjos como vilões? Como foi?', 'Anjo', '2025-05-24 11:50:00'),
+('O uso de sonhos', 1, 'Quero usar sonhos como pistas, alguma sugestão?', 'O Comentador', '2025-05-25 10:25:00'),
+('Mistérios lentos ou rápidos?', 3, 'Vocês preferem campanhas investigativas curtas ou longas?', 'O Investigador', '2025-05-26 15:40:00'),
+('Item amaldiçoado', 4, 'Ideias criativas de itens amaldiçoados para dar aos jogadores?', 'O Piadista', '2025-05-27 22:10:00'),
+('Criar um Cultista', 2, 'Quais motivações deixam um cultista mais interessante?', 'Cultista', '2025-05-28 17:55:00'),
+('Dúvidas sobre Iluminado', 5, 'O Iluminado tem alguma vantagem contra sombras?', 'Iluminado', '2025-05-29 09:05:00'),
+('Narrativa em flashback', 4, 'Já jogaram uma sessão toda em flashback? Recomendações?', 'O Narrador', '2025-05-30 21:45:00'),
+('Combate contra demônios', 1, 'Qual classe lida melhor com inimigos demoníacos?', 'Demonio', '2025-05-31 13:20:00'),
+('Sugestões de enigmas', 3, 'Quero deixar o grupo confuso com um bom enigma.', 'O Investigador', '2025-06-01 18:35:00'),
+('Vantagens do Canibal', 5, 'Essa classe é meio doida, mas alguém já jogou com ela?', 'Canibal', '2025-06-02 10:00:00'),
+('Jogo sem combate', 2, 'Já fizeram campanhas sem combates? Como mantiveram o ritmo?', 'O Observador', '2025-06-03 16:15:00');
+
 	insert into TillTheFangz.personagem(fkUsuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas)
     values('2', 'Sr.micosmicos','psps', '2', '10', 'masculino', '0', 'Caçador Sombrio', 
     'Sr.micos micos era um lendário vampiro na vida passada. Reencarnou como um gato, mas suas lembranças continuaram e seus poderes também.
@@ -97,14 +127,15 @@ CREATE TABLE IF NOT EXISTS pontos(
     left join personagem pe on us.id = pe.fkUsuario
     left join pontos po on pe.id = po.fkpersonagem
     where us.id = 2;
-	select * from view_generos;
-	select * from post;
-	select * from usuario;
-	select * from personagem;
+	  select * from view_generos;
+	  select * from post;
+	  select * from usuario;
+	  select * from personagem;
     select * from pontos;
 	SELECT * 
     FROM personagem pe
     left join pontos po on pe.id=po.fkpersonagem;
-    
-    insert into pontos(fkpersonagem,vida, defesa, sanidade, carisma, inteligencia, agilidade, vigor, SangueAncestral)
-    values();
+    SELECT 
+    ROUND(COUNT(*) / COUNT(DISTINCT DATE(dataHora)),2) AS media_posts_por_dia
+FROM 
+    post;
