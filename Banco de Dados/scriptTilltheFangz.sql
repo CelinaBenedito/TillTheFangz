@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS personagem(
   id INT PRIMARY KEY AUTO_INCREMENT,
   fkUsuario INT,
   nome VARCHAR(50),
-  apelido Varchar(50)
+  apelido Varchar(50),
   idade INT,
   peso INT,
   genero VARCHAR(17),
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS personagem(
 
 CREATE TABLE IF NOT EXISTS pontos(
   fkpersonagem INT NOT NULL,
+  vida INT NOT NULL,
   defesa INT NOT NULL,
   sanidade INT NOT NULL,
   carisma INT NOT NULL,
@@ -69,12 +70,12 @@ CREATE TABLE IF NOT EXISTS pontos(
   
 
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
-   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', '10649d5bb4e2d89cb2ec37b7028084103cd5c683583d08d8abb4077107c49b4fe082ffe166a281d291010a8f39f2c85113dce25474a56d4a967d11f12c6c6db6'),
+   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', '10649d5bb4e2d89cb2ec37b7028084103cd5c683583d08d8abb4077107c49b4fe082ffe166a281d291010a8f39f2c85113dce25474a56d4a967d11f12c6c6db6.'),
    ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f'),
    ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', 'null.png'),
    ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', 'null.png'),
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
-   ('Vample', 'Leticia', 'Silva  Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', '23fd7c21b9fb2941a813ded01ab0ae5d8629e7f86308c0d201cfcad4c338d39786a06b01f7ad703e42571a3b5c0c1be1c200897bcef4fcb8eabf751bea07d197'),
+   ('Vample', 'Leticia', 'Silva Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', '23fd7c21b9fb2941a813ded01ab0ae5d8629e7f86308c0d201cfcad4c338d39786a06b01f7ad703e42571a3b5c0c1be1c200897bcef4fcb8eabf751bea07d197'),
    ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png'),
    ('Martins69','Guilherme','Martins Nascimento', 'Masculino', 'Player', 'guillherme.mnascimneto@sptech.school', '123', 'null.png');
    
@@ -83,7 +84,7 @@ CREATE TABLE IF NOT EXISTS pontos(
 	insert into TillTheFangz.personagem(fkUsuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas)
     values('2', 'Sr.micosmicos','psps', '2', '10', 'masculino', '0', 'Caçador Sombrio', 
     'Sr.micos micos era um lendário vampiro na vida passada. Reencarnou como um gato, mas suas lembranças continuaram e seus poderes também.
-    Tornando o sr.micosmicos o primeiro e único gato vampiro da história.  ',
+    Tornando o sr.micosmicos o primeiro e único gato vampiro da história.',
     'Astuto, lindo, fofo e manipulador.');
   create view view_generos as
   select (select count(genero) from usuario where genero like 'Feminino') as "Quantidade de Mulheres", 
@@ -96,10 +97,14 @@ CREATE TABLE IF NOT EXISTS pontos(
     left join personagem pe on us.id = pe.fkUsuario
     left join pontos po on pe.id = po.fkpersonagem
     where us.id = 2;
-    select * from view_generos;
-    select * from post;
-    select * from usuario;
-    select * from personagem;
+	select * from view_generos;
+	select * from post;
+	select * from usuario;
+	select * from personagem;
+    select * from pontos;
 	SELECT * 
     FROM personagem pe
     left join pontos po on pe.id=po.fkpersonagem;
+    
+    insert into pontos(fkpersonagem,vida, defesa, sanidade, carisma, inteligencia, agilidade, vigor, SangueAncestral)
+    values();

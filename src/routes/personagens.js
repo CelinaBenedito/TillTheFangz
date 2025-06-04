@@ -6,7 +6,7 @@ var personagensController = require("../controllers/personagensController");
 router.post("/cadastrar", function(req,res) {
     personagensController.cadastrar(req,res);
 });
-router.post("/cadastrarPontos", function(req,res){
+router.post("/cadastrarPontos", function(req,res) {
     personagensController.cadastrarPontos(req,res);
 });
 

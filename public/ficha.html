@@ -37,11 +37,7 @@
 
         </div>
     </div>
-    <div class="conteudo">
-        <div class="inicial" id="div_conteudoHabilidades">
 
-        </div>
-    </div>
     <div id="botaozao" class="big-botao">
         <button onclick="salvarInfos()">Salvar Ficha</button>
     </div>
@@ -60,7 +56,9 @@
     let pontosSanidade = 20;
     let pontosDefesa = 5;
     let armadura = 0;
-
+    let gerarInicio = false;
+    let gerarClasse = false;
+    let classes = {};
     let pontos = {
         carisma: 0,
         inteligencia: 0,
@@ -68,10 +66,9 @@
         vigor: 0,
         sangue: 0,
     };
-
-    // Objeto para armazenar os elementos DOM que mostram os valores
     let elementos = {};
     let ID_USUARIO = sessionStorage.ID_USUARIO;
+
     function logado() {
         if (sessionStorage.ID_USUARIO != undefined) {
 
@@ -100,9 +97,15 @@
                                                     <p id="nomeclatura">${personagem.apelido} - ${personagem.nome}</p>
                                                 </div>
                                                 <div class="infos">
-                                                    <p id="pts_vida">Vida</p>
-                                                    <p id="pts_sanidade">Sanidade</p>
-                                                    <p id="classe">Classe</p>
+                                                    <div>
+                                                    <p id="pts_vida">Vida</p> ${personagem.vida}
+                                                    </div>
+                                                    <div>
+                                                    <p id="pts_sanidade">Sanidade</p> ${personagem.sanidade}
+                                                    </div>
+                                                    <div>
+                                                    <p id="classe">Classe</p> ${personagem.classe}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </a>
@@ -145,19 +148,84 @@
                                                         ${personagem.classe}
                                                     </p>    
                                                 </div>
-                                                <div class="grafico">
+                                                <div id="grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" class="grafico">
                                                     <h3>Atributos</h3>
                                                     <canvas id="graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" ></canvas>
                                                 </div>
-                                                <h3>
-                                                Habilidades
-                                                </h3>
+                                              
                                                 <div class="botaoFechar">
-                                                    <button onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.close()">Voltar para a ficha</button>
+                                                    <button onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.close()">Voltar</button>
                                                 </div>
                                             </div>
                                         </dialog>
                                     `
+                                if (personagem.carisma == 0 && personagem.inteligencia == 0 && personagem.agilidade == 0 && personagem.vigor == 0 && personagem.SangueAncestral == 0) {
+                                    const idPersonalizadoPersonagem = ` grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}`
+                                    idPersonalizadoPersonagem.innerHTML =
+                                        `
+                    <h3>Atributos</h3>
+                    <p>Nenhum ponto adicionado</p>
+                    `
+                                } else {
+
+                                    const idPersonalizadoPersonagem = `graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}`
+                                    setTimeout(() => {
+                                        let canvas = document.getElementById(`graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, '')}_${c}`);
+                                        if (canvas) {
+                                            let dadosAtributos = {
+                                                labels: ['Carisma', 'Inteligência', 'Agilidade', 'Vigor', 'Sangue Ancestral'],
+                                                datasets: [{
+                                                    label: 'Atributos',
+                                                    data: [personagem.carisma, personagem.inteligencia, personagem.agilidade, personagem.vigor, personagem.SangueAncestral],
+                                                    borderColor: 'rgba(255, 0, 0, 1)',
+                                                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                                                    borderWidth: 2,
+                                                    pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+                                                }]
+                                            };
+                                            const config = {
+                                                type: 'radar',
+                                                data: dadosAtributos,
+                                                options: {
+                                                    animation: {
+                                                        duration: 150,
+                                                        easing: 'easeOutBounce'
+                                                    },
+                                                    scales: {
+                                                        r: {
+                                                            beginAtZero: true,
+                                                            min: 0,
+                                                            max: 5,
+                                                            ticks: {
+                                                                stepSize: 1
+                                                            },
+                                                            pointLabels: {
+                                                                font: {
+                                                                    size: 14
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    elements: {
+                                                        line: {
+                                                            borderWidth: 3
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                            let atributos = new Chart(
+                                                document.getElementById(`${idPersonalizadoPersonagem}`),
+                                                config
+                                            );
+                                        }
+                                    }, 50);
+                                }
+
+
+
+
+
+
                             }
 
                         }
@@ -187,18 +255,14 @@
             `
         }
     }
-    let cliquesGeral = 0;
-    let cliquesTrans = 0;
-    let cliquesSensiveis = 0;
-    let gerarInicio = false;
-    let gerarClasse = false;
-    let classes = {};
+
+
     function inicio() {
         div_conteudo.style.display = "none"
         div_conteudoInicio.style.display = ""
         div_conteudoClasse.style.display = "none"
         div_conteudoAtributos.style.display = "none"
-        div_conteudoHabilidades.style.display = "none"
+
         botaozao.style.display = "block"
         if (gerarInicio == false) {
             gerarInicio = true;
@@ -209,7 +273,7 @@
     function classe() {
         div_conteudoInicio.style.display = "none"
         div_conteudoAtributos.style.display = "none"
-        div_conteudoHabilidades.style.display = "none"
+
         botaozao.style.display = ""
         div_conteudoClasse.style.display = ""
         if (gerarClasse == false) {
@@ -698,10 +762,16 @@
         classes[item].close()
     }
 
+    let pontosCarisma = 0;
+    let pontosInteligencia = 0;
+    let pontosAgilidade = 0;
+    let pontosVigor = 0;
+    let pontosSangue = 0;
+
     function atributos() {
         div_conteudoClasse.style.display = "none"
         div_conteudoInicio.style.display = "none"
-        div_conteudoHabilidades.style.display = "none"
+
         botaozao.style.display = "block"
         div_conteudoAtributos.style.display = "block"
 
@@ -734,6 +804,8 @@
         elementos.vida.innerHTML = pontosVida;
         elementos.sanidade.innerHTML = pontosSanidade;
         elementos.defesa.innerHTML = pontosDefesa;
+
+
     }
 
     function pontuação(numero, atributo) {
@@ -760,6 +832,11 @@
         if (pontosVida == 0) {
             pontosVida = 20;
         }
+        pontosCarisma = pontos.carisma;
+        pontosInteligencia = pontos.inteligencia;
+        pontosAgilidade = pontos.agilidade;
+        pontosVigor = pontos.vigor;
+        pontosSangue = pontos.sangue;
         atualizarExibicao();
 
         // Animação
@@ -770,122 +847,7 @@
         elementos.totais.classList.add("troca");
         setTimeout(() => elementos.totais.classList.remove("troca"), 300);*/
     }
-    let pontosHabilidadeGeral = 4;
-    const PontosHabilidades = {
-        geral: 4,
-        transformacoes: 2,
-        sensorias: 6
-    }
-    const arvoresGerais = {
-        garras: {
-            base: ['Garras Sobrenaturais'],
-            esquerda: ['Corte rápido', 'Frenesi de garras', 'Rasgo da destruição'],
-            direita: ['Garras envenedadas', 'Destruidor de armaduras', 'Rasgo Sombrio'],
-            caminhoEscolhido: null,
-            progresso: 0,
-            habilidadesDesbloqueadas: []
-        },
-        voo: {
-            base: ['Super Salto'],
-            esquerda: ['Flutuar', 'Mergulho aéreo', 'Teleporte sombrio'],
-            direita: ['Flutuar', 'Investida aérea', 'Voô profano'],
-            caminhoEscolhido: null,
-            progresso: 0,
-            habilidadesDesbloqueadas: []
-        }
-    };
 
-    let caminhoEscolhidoGeral = null; // 'esquerda' ou 'direita'
-    let progressoGeral = 0;
-
-    function habilidades() {
-
-        div_conteudoHabilidades.style.display = "block"
-        botaozao.style.display = "block"
-        div_conteudoAtributos.style.display = "none"
-        div_conteudoClasse.style.display = "none"
-        div_conteudoInicio.style.display = "none"
-
-        div_conteudoHabilidades.innerHTML = textoHabilidades;
-        pontos_Habilidade.innerHTML =
-            `
-        <h3>Pontos de habilidade</h3>
-        <p>${pontosHabilidadeGeral}</p>
-        ` ;
-        document.getElementById("div_containerhabilidadesGerais").style.display = "none";
-        div_containerTransformacoes.style.display = "none"
-        div_containerSensoriais.style.display = "none"
-    }
-
-    function atualizarPontosHabilidades(valor, tipo, nomeHabilidade) {
-
-    }
-
-    function atualizarEstilos(trilha, desbloqueadas) {
-        const botoes = document.querySelectorAll('button');
-
-        botoes.forEach(botao => {
-            const texto = botao.textContent.trim();
-
-            // Atualiza estado de seleção
-            if (desbloqueadas.includes(texto)) {
-                botao.classList.add('habilidade-selecionada');
-            } else {
-                botao.classList.remove('habilidade-selecionada');
-            }
-
-            // Desativa a trilha oposta
-            const colunaEsquerda = document.querySelectorAll('.trilha-esquerda button');
-            const colunaDireita = document.querySelectorAll('.trilha-direita button');
-
-            if (trilha === 'esquerda') {
-                colunaDireita.forEach(btn => btn.classList.add('habilidade-desativada'));
-                colunaEsquerda.forEach(btn => btn.classList.remove('habilidade-desativada'));
-            } else if (trilha === 'direita') {
-                colunaEsquerda.forEach(btn => btn.classList.add('habilidade-desativada'));
-                colunaDireita.forEach(btn => btn.classList.remove('habilidade-desativada'));
-            } else {
-                // Nenhum caminho escolhido ainda: ativa tudo
-                colunaEsquerda.forEach(btn => btn.classList.remove('habilidade-desativada'));
-                colunaDireita.forEach(btn => btn.classList.remove('habilidade-desativada'));
-            }
-        });
-    }
-
-    function atualizarHTML(tipo) {
-        pontos_Habilidade.innerHTML = `
-        <h3>Pontos de habilidade</h3>
-        <p>${PontosHabilidades[tipo]}</p>
-    `;
-    }
-
-
-    function aparicoes(item) {
-        if (item == 1 && cliquesGeral == 0) {
-            cliquesGeral++
-            div_containerhabilidadesGerais.style.display = ""
-        }
-        else if (item == 1 && cliquesGeral == 1) {
-            cliquesGeral = 0;
-            div_containerhabilidadesGerais.style.display = "none"
-        }
-        if (item == 2 && cliquesTrans == 0) {
-            cliquesTrans++
-            div_containerTransformacoes.style.display = ""
-        }
-        else if (item == 2 && cliquesTrans == 1) {
-            cliquesTrans = 0;
-            div_containerTransformacoes.style.display = "none"
-        }
-        if (item == 3 && cliquesSensiveis == 0) {
-            cliquesSensiveis++
-            div_containerSensoriais.style.display = ""
-        }
-        else if (item == 3 && cliquesSensiveis == 1) {
-            cliquesSensiveis = 0;
-            div_containerSensoriais.style.display = "none"
-        }
-    }
 
     let apelidoPersonagem = "Nenhum"
     let nomePersonagem = "Nenhum";
@@ -902,7 +864,6 @@
 
         if (classe == "Caçador Sombrio") {
             pontos.carisma -= 2;
-
         }
     }
     function salvarInfos() {
@@ -994,9 +955,7 @@
                         <h3>Atributos</h3>
                         <canvas id="graficosAtributos"></canvas>
                     </div>
-                    <h3>
-                    Habilidades
-                    </h3>
+
                     <div class="botaoFechar">
                         <button onclick="FichaCompleta.close()">Voltar para a ficha</button>
                         <button onclick="cadastrarPersonagem()"> Salvar ficha</button>
@@ -1011,34 +970,40 @@
                     <p>Nenhum ponto adicionado</p>
                     `
         }
+
         let dadosAtributos = {
-            labels: [],
+            labels: ["Carisma", "Inteligência", "Agilidade","Vigor","Sangue Ancestral"],
             datasets: [{
                 label: 'Atributos',
-                data: pontos,
-                fill: true,
-                borderColor: 'rgba(255, 0, 0)',
-                backgroundColor: 'rgba(255,0,0)',
-                tension: 0.1,
-                borderWidth: 2
-            }],
+                data: [pontos.carisma, pontos.inteligencia, pontos.agilidade, pontos.vigor, pontos.sangue],
+                borderColor: 'rgba(255, 0, 0, 1)',
+                backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+            }]
+        };
+
+        const config = {
+            type: 'radar',
+            data: dadosAtributos,
             options: {
                 animation: {
-                    duration: 1500,
+                    duration: 150,
                     easing: 'easeOutBounce'
                 },
-                //plugins: {
-                //        // ...
-                //        customImg: {
-                //            // ...
-                //           beforeDatasetsDraw: (chart, args) => {
-                //                // ...
-                //            }
-                //        } 
-                //    },
                 scales: {
-                    y: {
-                        beginAtZero: true // Começar o eixo y em zero
+                    r: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 5,
+                        ticks: {
+                            stepSize: 1
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14
+                            }
+                        }
                     }
                 },
                 elements: {
@@ -1047,21 +1012,20 @@
                     }
                 }
             }
-        }
-        const config = {
-            type: 'bar',
-            data: dadosAtributos,
         };
-        let Interesses = new Chart(
+
+        let Atributos = new Chart(
             document.getElementById(`graficosAtributos`),
             config
         );
+
 
     }
     let atualizarPontosGerais = document.getElementById('pontos_Habilidade')
     let fkusuario = sessionStorage.ID_USUARIO;
 
     function cadastrarPersonagem() {
+
         fetch("/personagens/cadastrar", {
             method: "POST",
             headers: {
@@ -1083,33 +1047,34 @@
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
                 if (resposta.ok) {
-                    
-                    funcao_alerta("Personagem registrado com sucesso!");
-
-                    cadastrarPontos();
-                    return window.location.reload()
+                    return resposta.json();
+                    //funcao_alerta("Personagem registrado com sucesso!");
+                    //cadastrarPontos();
+                    //return window.location.reload()
                 } else {
                     funcao_alerta("Houve um erro")
                 }
-            }).catch(function (resposta) {
+            }).then(function (dados) {
+                const idPersonagem = dados.idPersonagem
+                funcao_alerta("Personagem registrado com sucesso!");
+                cadastrarPontos(idPersonagem);
+            })
+            .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
         return false;
-    } 
-    let pontosCarisma = pontos.carisma;
-    let pontosInteligencia = pontos.inteligencia;
-    let pontosAgilidade = pontos.agilidade;
-    let pontosVigor = pontos.vigor;
-    let pontosSangue = pontos.sangue;
+    }
 
-    function cadastrarPontos() {
-        fetch("/personagens/cadastrarPontos",{
+
+    function cadastrarPontos(idPersonagem) {
+        console.log(`Pontos de Carisma: ${pontosCarisma}`)
+        fetch("/personagens/cadastrarPontos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                fkpersonagemServer: fkpersonagem,
+                fkpersonagemServer: idPersonagem,
                 fkusuarioServer: fkusuario,
                 pontosCarismaServer: pontosCarisma,
                 pontosInteligenciaServer: pontosInteligencia,
@@ -1121,14 +1086,14 @@
                 pontosSanidadeServer: pontosSanidade
             }),
         })
-        .then(function(resposta){
-            console.log("Reposta cadastro pontos: ", resposta);
-            if(resposta.ok){
-                funcao_alerta("Pontos cadastrados com sucesso!")
-            }else{
-                funcao_alerta("Houve um erro")
-            }
-        })
+            .then(function (resposta) {
+                console.log("Reposta cadastro pontos: ", resposta);
+                if (resposta.ok) {
+                    funcao_alerta("Pontos cadastrados com sucesso!")
+                } else {
+                    funcao_alerta("Houve um erro")
+                }
+            })
 
     }
 </script>

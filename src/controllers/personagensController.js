@@ -31,15 +31,30 @@ function cadastrar(req,res){
     var historia = req.body.historiaServer;
     var caracteristicas = req.body.caracteristicasServer;
 
-    personagensModel.cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas).then(function(resposta){
-        res.status(200).send("Personagem Cadastrado com sucesso");
-    }).catch(function(erro){
-        res.status(500).json(erro.sqlMessage);
-    })
+    personagensModel.cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas).then(function(resposta) {
+    const id = resposta.insertId;
+    res.status(200).json({ idPersonagem: id }); 
+})
+
 }
 
 function cadastrarPontos(req,res){
-    var fkpersonagem = req.body.fkpersonagem
+    console.log("Cheguei em cadastrar pontos controller")
+    var fkpersonagem = req.body.fkpersonagemServer;
+    var pontosCarisma = req.body.pontosCarismaServer;
+    var pontosInteligencia = req.body.pontosInteligenciaServer;
+    var pontosAgilidade = req.body.pontosAgilidadeServer;
+    var pontosVigor = req.body.pontosVigorServer
+    var pontosSangue = req.body.pontosSangueServer;
+    var pontosVida = req.body.pontosVidaServer;
+    var pontosDefesa = req.body.pontosDefesaServer;
+    var pontosSanidade = req.body.pontosSanidadeServer;
+    
+    personagensModel.cadastrarPontos(fkpersonagem, pontosVida,pontosDefesa,pontosSanidade, pontosCarisma, pontosInteligencia, pontosAgilidade,pontosVigor, pontosSangue).then(function(resposta){
+        res.status.send("Pontos cadastrados com sucesso");
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
 }
 module.exports = {
     listar,

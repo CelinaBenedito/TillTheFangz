@@ -29,8 +29,6 @@ function listarPorUsuario(idUsuario){
 
 function cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas){
 
-    console.log(nome)
-
     var instrucao =
     `
     insert into personagem(fkUsuario,nome,apelido,idade,peso,genero,altura,classe,historia,caracteristicas)
@@ -40,8 +38,21 @@ function cadastrar(fkusuario,nome,apelido,idade,peso,genero,altura,classe,histor
 
     return database.executar(instrucao);
 }
+
+function cadastrarPontos(fkpersonagem, pontosVida,pontosDefesa,pontosSanidade, pontosCarisma, pontosInteligencia, pontosAgilidade,pontosVigor, pontosSangue){
+    console.log("Cheguei em cadastrar pontos model")
+    var instrucao = 
+    `
+    insert into pontos(fkpersonagem,vida, defesa, sanidade, carisma, inteligencia, agilidade, vigor, SangueAncestral)
+    values(${fkpersonagem},${pontosVida},${pontosDefesa}, ${pontosSanidade}, ${pontosCarisma}, ${pontosInteligencia}, ${pontosAgilidade},${pontosVigor}, ${pontosSangue});
+    `
+    console.log(instrucao)
+    return database.executar(instrucao);
+}
+
 module.exports = {
     cadastrar,
     listar,
-    listarPorUsuario
+    listarPorUsuario,
+    cadastrarPontos
 };
