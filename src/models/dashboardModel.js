@@ -7,7 +7,7 @@ function listarPorGeneros() {
         `
        select * from view_generos;
     `;
-    console.log("Executando a intrução SQL LISTAR PERSONAGENS: \n" + instrucao);
+    console.log("Executando a intrução SQL listar Gêneros: \n" + instrucao);
     return database.executar(instrucao);
 }
 function listarPorAtributos() {
@@ -60,8 +60,42 @@ function listarPorAtributos() {
         return database.executar(instrucao);
     }
 
+    function listarPorInteresse(){
+    console.log("Entrei na model listarPorInteresse")
+    var instrucao = 
+    `
+    SELECT 
+    (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Player") AS Player,
+    (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Mestre") AS Mestre,
+    (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Outro") AS Outros
+    FROM TillTheFangz.usuario 
+    GROUP BY Player;
+    `;
+    return database.executar(instrucao);
+    }
+    function listarPorUsuario(){
+        console.log("Entrei no model listar por Usuario")
+        var instrucao = 
+        `
+        SELECT count(id) as qtdUsuarios from TillTheFangz.usuario;
+        `
+        return database.executar(instrucao);
+    }
+
+    function listarPorPost(){
+        console.log("Entrei no model listar por post")
+        var instrucao = 
+        `
+        SELECT ROUND(COUNT(*) / COUNT(DISTINCT DATE(dataHora)),2) AS media FROM TillTheFangz.post;
+        `
+        return database.executar(instrucao);
+    }
+
 module.exports = {
     listarPorGeneros,
     listarPorAtributos,
-    listarPorClasse
+    listarPorClasse,
+    listarPorInteresse,
+    listarPorPost,
+    listarPorUsuario
 };

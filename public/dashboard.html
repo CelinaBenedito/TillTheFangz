@@ -22,11 +22,11 @@
     <div style="display: flex; gap: 50px;">
         <div>
             Quantidade de usuarios cadastrados:
-            <h1>20</h1>
+            <h1 id="qtdUsuarios"></h1>
         </div>
         <div>
             Media de posts ao dia:
-            <h1>15</h1>
+            <h1 id="MediaPosts">15</h1>
         </div>
     </div>
 
@@ -68,12 +68,155 @@
     nome.innerHTML = nomeUsuario
     let labelInteresse = ['Mestre', 'Player', 'Outro'];
     let labelGeneros = ['Feminino', 'Masculino', 'Outro'];
-    let labelClasses = ['Caçador Sombrio', 'Senhor das Sombras', 'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado','Vampiro Flagelador', 'Vampiro Canibal', 'Nenhuma'];
-    let dadosInteresse = {
+    let labelClasses = ['Caçador Sombrio', 'Senhor das Sombras', 'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado', 'Vampiro Flagelador', 'Vampiro Canibal', 'Nenhuma'];
+   
+    fetch(`/dashboard/listarPost`,{
+        method: "GET"
+    }).then(res => {
+        res.json().then(json=>{
+            const mediaPost = json[0]
+            console.log(mediaPost)
+            MediaPosts.innerHTML = mediaPost.media
+        })
+    })
+
+    fetch(`/dashboard/listarUsuario`,{
+        method: "GET"
+    }).then(res => {
+        res.json().then(json =>{
+            const usuarios = json[0];
+            console.log(usuarios)
+            qtdUsuarios.innerHTML = usuarios.qtdUsuarios
+        })
+    })
+
+    /*---------------------------------------------Gráfico de atributos---------------------------------------------*/
+    // puxando os dados
+    fetch(`/dashboard/listarAtributos`, {
+        method: "GET"
+    }).then(res => {
+        res.json().then(json => {
+            const atributos = json[0]
+            /*Criação do gráfico de atributos*/
+            let dadosAtributos = {
+                labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
+                datasets: [{
+                    label: 'Atributos',
+                    data: [atributos.TotalCarisma, atributos.TotalInteligencia, atributos.TotalAgilidade, atributos.TotalVigor, atributos.TotalSangueAncestral],
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: dadosAtributos,
+                options: {
+                    animation: {
+                        duration: 150,
+                        easing: 'easeOutBounce'
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true // Começar o eixo y em zero
+                        }
+                    },
+                    indexAxis: 'y',
+                    elements: {
+                        line: {
+                            borderWidth: 3
+                        },
+
+                    }
+                }
+            };
+
+            let Atributos = new Chart(
+                document.getElementById(`graficoAtributos`),
+                config
+            );
+        })
+    })
+
+    /*---------------------------------------------Gráfico de Gêneros---------------------------------------------*/
+    //puxando os dados
+    fetch(`/dashboard/listarGeneros`, {
+        method: "GET"
+    }).then(res => {
+        res.json().then(json => {
+            const genero = json[0];
+            console.log(genero)
+            //Criando o gráfico
+            let dadosGeneros = {
+                labels: labelGeneros,
+                datasets: [{
+                    label: 'Gêneros',
+                    data: [genero.QtdMulheres, genero.QtdHomens, genero.QtdOutros],
+                    borderColor: 'rgba(255, 0, 0)',
+                    tension: 0.1
+                }]
+            };
+            const configGeneros = {
+                type: 'doughnut',
+                data: dadosGeneros,
+            };
+
+            let generos = new Chart(
+                document.getElementById(`graficoGeneros`),
+                configGeneros
+            );
+
+        })
+    })
+
+    /*---------------------------------------------Gráfico de Classe---------------------------------------------*/
+    //puxando dados
+    fetch(`/dashboard/listarClasse`, {
+        method: "GET"
+    }).then(res => {
+        res.json().then(json => {
+            const classe = json[0];
+            // Criando gráfico
+            let dadosClasses = {
+                labels: labelClasses,
+                datasets: [{
+                    label: 'Classes',
+                    data: [classe.cacador, classe.senhor, classe.barbaro, classe.ilusionita, classe.cultista, classe.iluminado, classe.flagelador, classe.canibal, classe.nenhuma],
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+                }]
+            };
+            const configClasses = {
+                type: 'bar',
+                data: dadosClasses,
+            };
+
+            let classes = new Chart(
+                document.getElementById(`graficoClasses`),
+                configClasses
+            );
+
+        })
+    })
+
+
+/*Gráfico de Interesse*/
+//puxando dados
+fetch(`/dashboard/listarInteresse`,{
+    method: "GET"
+}).then(res => {
+    res.json().then(json => {
+        const interesse = json[0];
+        //criando gráfico
+         let dadosInteresse = {
         labels: labelInteresse,
         datasets: [{
             label: 'Interesse',
-            data: [3, 10, 5],
+            data: [interesse.Player, interesse.Mestre, interesse.Outros],
             borderColor: 'rgba(255, 0, 0)',
 
             tension: 0.1,
@@ -108,122 +251,6 @@
         document.getElementById(`graficoInteresse`),
         configInteresse
     );
-
-
-        /*---------------------------------------------Gráfico de atributos---------------------------------------------*/
-        // puxando os dados
-        fetch(`/dashboard/listarAtributos`, {
-            method: "GET"
-        }).then(res => {
-            res.json().then(json => {
-                const atributos = json[0]
-                /*Criação do gráfico de atributos*/
-                let dadosAtributos = {
-                    labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
-                    datasets: [{
-                        label: 'Atributos',
-                        data: [atributos.TotalCarisma, atributos.TotalInteligencia, atributos.TotalAgilidade, atributos.TotalVigor, atributos.TotalSangueAncestral],
-                        borderColor: 'rgba(255, 0, 0, 1)',
-                        backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgba(255, 0, 0, 1)'
-                    }]
-                };
-
-                const config = {
-                    type: 'bar',
-                    data: dadosAtributos,
-                    options: {
-                        animation: {
-                            duration: 150,
-                            easing: 'easeOutBounce'
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true // Começar o eixo y em zero
-                            }
-                        },
-                        indexAxis: 'y',
-                        elements: {
-                            line: {
-                                borderWidth: 3
-                            },
-
-                        }
-                    }
-                };
-
-                let Atributos = new Chart(
-                    document.getElementById(`graficoAtributos`),
-                    config
-                );
-            })
-        })
-
-
-
-    
-
-    /*---------------------------------------------Gráfico de Gêneros---------------------------------------------*/
-    //puxando os dados
-    fetch(`/dashboard/listarGeneros`, {
-        method: "GET"
-    }).then(res => {
-        res.json().then(json => {
-            const genero = json[0];
-            console.log(genero)
-            //Criando o gráfico
-            let dadosGeneros = {
-                labels: labelGeneros,
-                datasets: [{
-                    label: 'Gêneros',
-                    data: [genero.QtdMulheres, genero.QtdHomens, genero.QtdOutros],
-                    borderColor: 'rgba(255, 0, 0)',
-                    tension: 0.1
-                }]
-            };
-            const configGeneros = {
-                type: 'doughnut',
-                data: dadosGeneros,
-            };
-
-            let generos = new Chart(
-                document.getElementById(`graficoGeneros`),
-                configGeneros
-            );
-
-        })
-    })
-
-/*Gráfico de Classe*/
-//puxando dados
-fetch(`/dashboard/listarClasse`,{
-    method: "GET"
-}).then(res =>{
-    res.json().then(json=>{
-        const classe = json[0];
-         let dadosClasses = {
-        labels: labelClasses,
-        datasets: [{
-            label: 'Classes',
-            data: [classe.cacador, classe.senhor, classe.barbaro, classe.ilusionita, classe.cultista, classe.iluminado, classe.flagelador, classe.canibal, classe.nenhuma],
-            borderColor: 'rgba(255, 0, 0, 1)',
-            backgroundColor: 'rgba(255, 0, 0, 0.2)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(255, 0, 0, 1)'
-        }]
-    };
-    const configClasses = {
-        type: 'bar',
-        data: dadosClasses,
-    };
-
-    let classes = new Chart(
-        document.getElementById(`graficoClasses`),
-        configClasses
-    );
-
     })
 })
-
 </script>

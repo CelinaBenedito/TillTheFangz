@@ -16,5 +16,11 @@ router.get("/listarAtributos", function (req, res) {
 router.get("/listarClasse", function (req, res) {
     dashboardController.listarPorClasse(req, res);
 });
+router.get("/listarUsuario", function(req,res){
+    dashboardController.listarPorUsuario(req,res);
+})
+router.get("/listarPost", function(req,res){
+    dashboardController.listarPorPost(req,res);
+})
 
 module.exports = router;
