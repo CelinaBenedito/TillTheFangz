@@ -72,14 +72,16 @@ CREATE TABLE IF NOT EXISTS pontos(
   );
   
   insert into usuario(nickname ,nome, sobrenome, genero, interesse, email, senha, ImagemUsuario)
-   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', '10649d5bb4e2d89cb2ec37b7028084103cd5c683583d08d8abb4077107c49b4fe082ffe166a281d291010a8f39f2c85113dce25474a56d4a967d11f12c6c6db6.'),
-   ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f'),
+   values('Lilith','Celina', 'dos Santos Benedito', 'Feminino','Mestre', 'celina.benedito@sptech.school', 'Felina13', '10649d5bb4e2d89cb2ec37b7028084103cd5c683583d08d8abb4077107c49b4fe082ffe166a281d291010a8f39f2c85113dce25474a56d4a967d11f12c6c6db6.jfif'),
+   ('BR1ND40', 'Gustavo', 'Alves Oliveira', 'Masculino', 'Player', 'gustavo.aoliveira@sptech.school', '277353', '5781e96ccce5fe26cd00f24484ce6e8786315d20ebc058f6bf6289da94c88ab4b31751b90980d8f7cde481dfb882a1d0847124ee94eb6d0457411e8eef6c708f.jpg'),
    ('LukasCPKIll', 'Lucas', 'Canuto Previtero', 'Masculino', 'Player', 'lucas.previtero@sptech.school', 'canuto123', 'null.png'),
    ('MGTOWRedPill14', 'Vitório', 'Bearari', 'Masculino', 'Player', 'vitorio.bearari@sptech.school', 'sigma123', 'null.png'),
    ('Gusz', 'Gustavo', 'Anthony Menezes', 'Masculino', 'Mestre', 'gustavo.menezes@sptech.school', 'crepusculo', 'null.png'),
-   ('Vample', 'Leticia', 'Silva Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', '23fd7c21b9fb2941a813ded01ab0ae5d8629e7f86308c0d201cfcad4c338d39786a06b01f7ad703e42571a3b5c0c1be1c200897bcef4fcb8eabf751bea07d197'),
+   ('Vample', 'Leticia', 'Silva Santos', 'Feminino', 'Player', 'leticia.ssantos@sptech.school','draculavv', '23fd7c21b9fb2941a813ded01ab0ae5d8629e7f86308c0d201cfcad4c338d39786a06b01f7ad703e42571a3b5c0c1be1c200897bcef4fcb8eabf751bea07d197.jpg'),
    ('javed386','Nicolas','Barboza Javed','Outro','Player','nicolas.javed@gmail.com','123','null.png'),
    ('Martins69','Guilherme','Martins Nascimento', 'Masculino', 'Player', 'guillherme.mnascimneto@sptech.school', '123', 'null.png');
+   
+   update usuario set pronome = 'Ela/Dela' where id = 1;
    
    INSERT INTO post (titulo, fkusuario, conteudo, tag, dataHora) VALUES
 ('Como derrotar uma gárgula?', 1, 'Eu estou com uma dúvida, tem algum jeito fácil de derrotar as gárgulas?', 'Monstro', '2025-05-05 12:30:00'),
@@ -134,10 +136,10 @@ CREATE TABLE IF NOT EXISTS pontos(
     left join pontos po on pe.id = po.fkpersonagem
     where us.id = 2;
     
-    select * from view_generos;
-    select * from post;
-    select * from usuario;
-    select * from TillTheFangz.personagem;
+	select * from view_generos;
+	select * from post;
+	select * from usuario;
+	select * from TillTheFangz.personagem;
     select * from pontos;
     
 	SELECT * 
@@ -151,42 +153,47 @@ CREATE TABLE IF NOT EXISTS pontos(
     from TillTheFangz.personagem pe
     left join TillTheFangz.pontos po on pe.id=po.fkpersonagem;
     
-    
     SELECT 
-      (SELECT count(classe) FROM TillTheFangz.personagem where classe like "Caçador Sombrio") as cacador,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Senhor das Sombras") as senhor,  
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Bárbaro Noturno") as barbaro,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Ilusionista Vampírico") as ilusionita,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Vampiro Cultista") as cultista,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Vampiro iluminado") as iluminado,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Vampiro Flagelador") as flagelador,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Vampiro Canibal") as canibal,
-      (SELECT count(classe)
-      from TillTheFangz.personagem
-      where classe like "Nenhuma") as nenhuma
+    (SELECT count(classe) FROM TillTheFangz.personagem where classe like "Caçador Sombrio") as cacador,
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Senhor das Sombras") as senhor,  
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Bárbaro Noturno") as barbaro,
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Ilusionista Vampírico") as ilusionita,
+	(SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Vampiro Cultista") as cultista,
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Vampiro iluminado") as iluminado,
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Vampiro Flagelador") as flagelador,
+    (SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Vampiro Canibal") as canibal,
+	(SELECT count(classe)
+    from TillTheFangz.personagem
+    where classe like "Nenhuma") as nenhuma
     FROM TillTheFangz.personagem
     group by cacador;
     
     SELECT 
-      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Player") AS Player,
-      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Mestre") AS Mestre,
-      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Outro") AS Outros
-    FROM TillTheFangz.usuario 
-    GROUP BY Player;
+  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Player") AS Player,
+  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Mestre") AS Mestre,
+  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Outro") AS Outros
+  FROM TillTheFangz.usuario 
+  GROUP BY Player;
   
   SELECT count(id) as qtdUsuarios from TillTheFangz.usuario;
+  
+   SELECT *
+        FROM TillTheFangz.post a
+            INNER JOIN TillTheFangz.usuario u
+                ON a.fkusuario = u.id 
+        WHERE u.id = 2;
   
