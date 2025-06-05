@@ -12,8 +12,7 @@ CREATE TABLE IF NOT EXISTS usuario(
   genero VARCHAR(17),
   pronome Varchar(10),
   descricao varchar(500),
-  interesse VARCHAR(10) CONSTRAINT chk_classe check (classe in('Player', 'Mestre', 'Outro'
-)),
+  interesse VARCHAR(10) CONSTRAINT chk_interesse check (interesse in('Player', 'Mestre', 'Outro')),
   email VARCHAR(100),
   senha VARCHAR(50),
   ImagemUsuario VARCHAR(500) default 'null.png',
@@ -135,10 +134,10 @@ CREATE TABLE IF NOT EXISTS pontos(
     left join pontos po on pe.id = po.fkpersonagem
     where us.id = 2;
     
-	select * from view_generos;
-	select * from post;
-	select * from usuario;
-	select * from TillTheFangz.personagem;
+    select * from view_generos;
+    select * from post;
+    select * from usuario;
+    select * from TillTheFangz.personagem;
     select * from pontos;
     
 	SELECT * 
@@ -154,39 +153,40 @@ CREATE TABLE IF NOT EXISTS pontos(
     
     
     SELECT 
-    (SELECT count(classe) FROM TillTheFangz.personagem where classe like "Caçador Sombrio") as cacador,
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Senhor das Sombras") as senhor,  
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Bárbaro Noturno") as barbaro,
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Ilusionista Vampírico") as ilusionita,
-	(SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Vampiro Cultista") as cultista,
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Vampiro iluminado") as iluminado,
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Vampiro Flagelador") as flagelador,
-    (SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Vampiro Canibal") as canibal,
-	(SELECT count(classe)
-    from TillTheFangz.personagem
-    where classe like "Nenhuma") as nenhuma
+      (SELECT count(classe) FROM TillTheFangz.personagem where classe like "Caçador Sombrio") as cacador,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Senhor das Sombras") as senhor,  
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Bárbaro Noturno") as barbaro,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Ilusionista Vampírico") as ilusionita,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Vampiro Cultista") as cultista,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Vampiro iluminado") as iluminado,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Vampiro Flagelador") as flagelador,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Vampiro Canibal") as canibal,
+      (SELECT count(classe)
+      from TillTheFangz.personagem
+      where classe like "Nenhuma") as nenhuma
     FROM TillTheFangz.personagem
     group by cacador;
     
     SELECT 
-  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Player") AS Player,
-  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Mestre") AS Mestre,
-  (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Outro") AS Outros
-  FROM TillTheFangz.usuario 
-  GROUP BY Player;
+      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Player") AS Player,
+      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Mestre") AS Mestre,
+      (SELECT COUNT(interesse) FROM TillTheFangz.usuario WHERE interesse LIKE "Outro") AS Outros
+    FROM TillTheFangz.usuario 
+    GROUP BY Player;
   
   SELECT count(id) as qtdUsuarios from TillTheFangz.usuario;
+  

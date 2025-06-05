@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../css/heade&footer.css">
     <link rel="stylesheet" href="../css/alerta.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>User</title>
 </head>
 
-<body onload="preencher(),buscarPeloId(sessionStorage.ID_USUARIO)">
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
     <header id="header"></header>
     <div id="containerSair"></div>
 
@@ -48,14 +49,7 @@
                     Nickname:
                     <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
                 </div>
-                <div>
 
-                    <input type="checkbox" id="chk_nome"> Mostrar Nome
-
-                    <input type="checkbox" id="chk_sobrenome">Mostrar sobrenome
-
-                    <input type="checkbox" id="chk_nickname"> Mostrar nickname
-                </div>
 
 
                 Pronomes:
@@ -78,108 +72,7 @@
         </dialog>
 
         <p id="descricao">Adicionar Descrição</p>
-        <div class="parteTags">
-            <h3>Tags:</h3>
-            <div>
-                <button onclick="editarTags('abrir')">+</button>
-            </div>
-            <div class="espaçoParaTags" id="espaçotag">
-            </div>
 
-            <dialog id="dialog_ediçãodeTags">
-                <div class="ediçãodeTags">
-                    <h1>Editar Tags</h1>
-                    <h2>Jogadores</h2>
-                    <div class="tagss">
-                        <a onclick="SalvarTag('jogador','O Mestre')">
-                            <p>O Mestre</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Player')">
-                            <p>O Player</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Ator')">
-                            <p>O Ator</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Observador')">
-                            <p>O observador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Engajado')">
-                            <p>O engajado</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Comentador')">
-                            <p>O comentador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Investigador')">
-                            <p>O Investigador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Narrador')">
-                            <p>O Narrador</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Solitario')">
-                            <p>O solitário</p>
-                        </a>
-                        <a onclick="SalvarTag('jogador','O Piadista')">
-                            <p>O piadista</p>
-                        </a>
-
-                    </div>
-                    <h2>Raças</h2>
-                    <div class="tagss">
-                        <A onclick="SalvarTag('racas', 'Monstro')">
-                            <p>Monstro</p>
-                        </A>
-                        <a onclick="SalvarTag('racas','Vampiro')">
-                            <p>Vampiro</p>
-                        </a>
-                        <a onclick="SalvarTag('racas', 'Anjo')">
-                            <p>Anjo</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Demonio')">
-                            <p>Demonio</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Bruxa')">
-                            <p>Bruxa</p>
-                        </a>
-                        <a onclick="SalvarTag('raca','Corrompido')">
-                            <p>Corrompido</p>
-                        </a>
-                    </div>
-
-                    <h2>Classes</h2>
-                    <div class="tagss">
-                        <a onclick="SalvarTag('classes','Caçador')">
-                            <p>Caçador</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Senhor das sombras')">
-                            <p>Senhor das Sombras</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Barbaro')">
-                            <p>Barbaro</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Ilusionista')">
-                            <p>Ilusionista</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Cultista')">
-                            <p>Cultistas</p>
-                        </a>
-                        <a onclick="SalvarTag('classes', 'Iluminado')">
-                            <p>Iluminado</p>
-                        </a>
-                        <a onclick="SalvarTag('classes', 'Flagelador')">
-                            <p>Flagelador</p>
-                        </a>
-                        <a onclick="SalvarTag('classes','Canibal')">
-                            <p>Canibal</p>
-                        </a>
-                    </div>
-                </div>
-
-                <button onclick="salvarTags()">Salvar</button>
-                <button onclick="editarTags('fechar')">Fechar</button>
-            </dialog>
-
-
-        </div>
         <div class="partePersonagens">
             <h3>Personagens:</h3>
             <div class="botaoCriarficha">
@@ -187,85 +80,11 @@
                     <button>+</button>
                 </a>
             </div>
-            <a onclick="infosPersonagem.showModal()">
-                <div class="cardPersonagem">
-                    <div class="nomePersonagem">
-                        <p id="nomeclatura">Nome ou apelido</p>
-                    </div>
-                    <div class="infos">
-                        <p id="pts_vida">Vida</p>
-                        <p id="pts_sanidade">Sanidade</p>
-                        <p id="classe">Classe</p>
-                    </div>
-                </div>
-            </a>
-            <dialog id="infosPersonagem">
-                <div class="informacoes">
-                    <img src="assets/img/vampireUser.png" alt="">
-                    <h1>Nome ou Apelido</h1>
-                    <div class="pontosBasicos">
-                        <div class="itemBase">vida <p id="vida">0</p>
-                        </div>
-                        <div class="itemBase">sanidade <p id="sanidade">0</p>
-                        </div>
-                        <div class="itemBase">Defesa <p id="defesa">0</p>
-                        </div>
-                    </div>
-
-                    <h3>Historia do Personagem</h3>
-                    <p id="historiaPersonagem">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius velit
-                        saepe asperiores, repudiandae quam labore cum modi? Et cum nemo, repudiandae dolores minima illo
-                        vero dolor, officiis ducimus, aspernatur error?
-                    </p>
-                    <h3>Cracteristicas do Personagem</h3>
-                    <p id="caracteristicasPersonagem">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus voluptatum
-                        totam, temporibus, accusantium ducimus doloremque sapiente deleniti voluptates adipisci
-                        cupiditate labore quos et magnam sit! Cumque vero quos explicabo.
-                    </p>
-
-                    <div class="botaoFechar">
-                        <button onclick="infosPersonagem.close()">Fechar</button>
-                    </div>
-                </div>
-
-
-            </dialog>
-        </div>
-        <div class="ferramentas">
-            <h2>Posts:</h2>
-            <button> <i class='bx bx-edit'></i> novo post</button>
-        </div>
-        <div class="partePosts">
-            <div class="card">
-                <div class="cabecalho">
-                    <img src="assets/img/vampireUser.png" id="imagem_usuario_pequeno">
-                    <p id="nickname_card">NickName</p>
-                    <div class="tags">
-                        <p id="tagPost"></p>
-                    </div>
-                </div>
-                <div class="conteudo">
-                    <div class="imagem">
-                        <img src="" id="imagemPost">
-                    </div>
-
-                    <p id="conteudoPost"></p>
-                </div>
-
-                <div class="interacoes">
-                    <div class="likes item">
-                        <a href="" id="like"><i class='bx bx-heart'></i></a>Likes
-                    </div>
-
-                    <div class="comentarios item">
-                        <a href="" id="comentarios"><i class='bx bxs-message-square-dots'></i></a>Comentários
-                    </div>
-
-                </div>
+            <div id="div_conteudo" class="personagens">
+                <h2>Nenhum Personagem Encontrado</h2>
             </div>
         </div>
+
     </div>
     <div id="div_Alerta" class="alerta">
         <img class="morcego" src="assets/img/morcegoCimaPreto.png">
@@ -289,57 +108,169 @@
 <script src="js/header.js"></script>
 <script src="js/div_alerta.js"></script>
 <script>
-        let nomedoUsuario = sessionStorage.NOME_USUARIO;
-        let sobrenomedoUsuario = sessionStorage.SOBRENOME_USUARIO;
-        let nicknamedoUsuario = sessionStorage.NICKNAME_USUARIO;
-        let imagemdoUsuario = sessionStorage.IMAGEM_USUARIO;
+    let ID_USUARIO = sessionStorage.ID_USUARIO;
 
-    function preencher() {
-        primeiro_nome.innerHTML = nomedoUsuario
-        sobrenome.innerHTML = sobrenomedoUsuario
-        nickname.innerHTML = nicknamedoUsuario
+    fetch(`/personagens/listar/${ID_USUARIO}`, {
+        method: "GET"
+    })
+        .then(res => {
+            res.json().then(json => {
+                const personagem = json[0];
 
-        imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}' alt="imagem de usuario">`
-        imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}' alt="imagem de usuario">`
-        imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${imagemdoUsuario}' alt="imagem de usuario">`
+                console.log(json.length)
+                if (personagem.id != undefined) {
+                    div_conteudo.innerHTML = ""
+                    for (let c = 0; json.length > c; c++) {
+                        let personagem = json[c]
+                        div_conteudo.innerHTML +=
+                            `
+                                       <a onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.showModal()">
+                                            <div class="cardPersonagem">
+                                                <div class="nomePersonagem">
+                                                    <p id="nomeclatura">${personagem.apelido} - ${personagem.nome}</p>
+                                                </div>
+                                                <div class="infos">
+                                                    <div class="pontoItem">
+                                                    <p id="pts_vida">Vida</p> ${personagem.vida}
+                                                    </div>
+                                                    <div class="pontoItem">
+                                                    <p id="pts_sanidade">Sanidade</p> ${personagem.sanidade}
+                                                    </div>
+                                                    <div class="pontoItem">
+                                                    <p id="classe">Classe</p> ${personagem.classe}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <dialog id="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}">
+                                             <div class="informacoes">
+                                                
+                                                <h1>${personagem.apelido}</h1>
+                                                <h2>${personagem.nome}</h2>
+                                                <div class="pontosBasicos">
+                                                    <div class="itemBase">Vida:<p id="vida"></p>
+                                                    </div>
+                                                    <div class="itemBase">Sanidade: <p id="sanidade"></p>
+                                                        </div>
+                                                    <div class="itemBase">Defesa: <p id="defesa"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="infosBase">
+                                                    <p>Altura: ${personagem.altura}</p>
+                                                    <p>Peso: ${personagem.peso}</p>
+                                                    <p>Idade: ${personagem.idade}</p>
+                                                    <p>Gênero: ${personagem.genero}</p>
+                                                </div>
+                                                <div class="detalhesTexto">
+                                                    <div class="texto">
+                                                    <h3>Historia do Personagem</h3>
+                                                    <p id="historiaPersonagem">
+                                                        ${personagem.historia}
+                                                    </p>
+                                                    </div>
+                                                    <div class="texto">
+                                                        <h3>Caracteristicas do Personagem</h3>
+                                                        <p id="caracteristicasPersonagem">
+                                                            ${personagem.caracteristicas}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="classe">
+                                                    <h3>Classe: </h3>
+                                                    <p>
+                                                        ${personagem.classe}
+                                                    </p>    
+                                                </div>
+                                                <div id="grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" class="grafico" style="width: 50%; height: 50%">
+                                                    <h3>Atributos</h3>
+                                                    <canvas id="graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" style="background-color: rgb(10, 7, 7); border-radius: 15px;"></canvas>
+                                                </div>
+                                              
+                                                <div class="botaoFechar">
+                                                    <button onclick="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}.close()">Voltar</button>
+                                                </div>
+                                            </div>
+                                        </dialog>
+                                    `
+                        if (personagem.carisma == 0 && personagem.inteligencia == 0 && personagem.agilidade == 0 && personagem.vigor == 0 && personagem.SangueAncestral == 0) {
+                            const idPersonalizadoPersonagem = ` grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}`
+                            idPersonalizadoPersonagem.innerHTML =
+                                `
+                    <h3>Atributos</h3>
+                    <p>Nenhum ponto adicionado</p>
+                    `
+                        } else {
 
-    }
+                            const idPersonalizadoPersonagem = `graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}`
+                            setTimeout(() => {
+                                let canvas = document.getElementById(`graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, '')}_${c}`);
+                                if (canvas) {
+                                    let dadosAtributos = {
+                                        labels: ['Carisma', 'Inteligência', 'Agilidade', 'Vigor', 'Sangue Ancestral'],
+                                        datasets: [{
+                                            label: 'Atributos',
+                                            data: [personagem.carisma, personagem.inteligencia, personagem.agilidade, personagem.vigor, personagem.SangueAncestral],
+                                            borderColor: 'rgba(255, 0, 0, 1)',
+                                            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                                            borderWidth: 2,
+                                            pointBackgroundColor: 'rgba(255, 0, 0, 1)'
+                                        }]
+                                    };
+                                    const config = {
+                                        type: 'radar',
+                                        data: dadosAtributos,
+                                        options: {
+                                            animation: {
+                                                duration: 150,
+                                                easing: 'easeOutBounce',
+                                                responsive: true,
+                                                maintainAspectRatio: false,
+                                            },
+                                            scales: {
+                                                r: {
+                                                    beginAtZero: true,
+                                                    min: 0,
+                                                    max: 5,
+                                                    ticks: {
+                                                        stepSize: 1,
+                                                        display: false
+                                                    },
+                                                    grid: {
+                                                        color: 'rgba(255, 255, 255, 0.582)'
+                                                    },
+                                                    pointLabels: {
+                                                        color: 'white',
+                                                        font: {
+                                                            size: 14,
+                                                            family: 'Arial',
+                                                            weight: 'bold'
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            elements: {
+                                                line: {
+                                                    borderWidth: 3
+                                                }
+                                            }
+                                        }
+                                    };
+                                    let atributos = new Chart(
+                                        document.getElementById(`${idPersonalizadoPersonagem}`),
+                                        config
+                                    );
+                                }
+                            }, 50);
+                        }
+                    }
 
-    /*Tags*/
-    const itensAdicionados = []
-    function salvarTags() {
-        let tamanhoItens = itensAdicionados.length;
-        for (let c = 0; tamanhoItens > c; c++) {
-            espaçotag.innerHTML += `<p>${itensAdicionados[c].tipo}</p>`
-        }
+                }
 
-    }
-    function editarTags(funcao) {
-        if (funcao == 'abrir') {
-            dialog_ediçãodeTags.showModal();
-        }
-        else {
-            dialog_ediçãodeTags.close()
-        }
-
-    }
-    function SalvarTag(tipo, item) {
-        let tamanhoItens = itensAdicionados.length;
-        let tem = false
-        if (tamanhoItens == 5) {
-            return funcao_alerta("Máximo de 5 tags");
-        }
-        for (let c = 0; tamanhoItens > c; c++) {
-            if (itensAdicionados[c].tipo == item) {
-                tem = true
-            }
-        }
-        if (tem == false) {
-            itensAdicionados.push({
-                tipo: item
             })
-        }
-    }
+        })
+
+
+
     /*Quantidade de caracteres da descrição*/
     function qtdCaracteres() {
         let descricao = descricaoInput.value;
@@ -352,28 +283,25 @@
         }
     }
 
+    function buscarPeloId(id_user) {
 
+        fetch(`/usuarios/${id_user}`, {
+            method: "GET"
+        })
+            .then(res => {
+                res.json().then(json => {
+                    const usuario = json[0];
+                    console.log(usuario.ImagemUsuario)
+                    primeiro_nome.innerHTML = `${usuario.nome}`
+                    sobrenome.innerHTML = `${usuario.sobrenome}`
+                    nickname.innerHTML = `${usuario.nickname}`
+                    imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                    imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
+                })
 
-     function buscarPeloId(id_user) {
-
-         fetch(`/usuarios/${id_user}`, {
-             method: "GET"
-         })
-             .then(res => {
-                 res.json().then(json => {
-                     const usuario = json[0];
-                     primeiro_nome.innerHTML = `${usuario.nome}`
-                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                     nickname.innerHTML = `${usuario.nickname}`
-                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-                     imagem_usuario_pequeno.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
-
-                 })
-
-             })
-             .catch(err => {
-                 console.log(err);
+            })
+            .catch(err => {
+                console.log(err);
 
             })
 
@@ -396,7 +324,7 @@
                 console.log(err);
             })
 
-        //return window.location.reload();
+        // return window.location.reload();
     }
     function mostrar() {
         let mostrarNome = chk_nome.checked;

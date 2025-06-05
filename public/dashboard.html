@@ -19,44 +19,45 @@
         <div id="conteudo_alerta"></div>
     </div>
     <h1>Olá <strong id="nome"></strong></h1>
-    <div style="display: flex; gap: 50px;">
-        <div>
+    <div class="kpis" style="display: flex; gap: 50px;">
+        <div class="kpi usuarios">
             Quantidade de usuarios cadastrados:
             <h1 id="qtdUsuarios"></h1>
         </div>
-        <div>
+        <div class="kpi media">
             Media de posts ao dia:
             <h1 id="MediaPosts">15</h1>
         </div>
     </div>
 
-    <h2>Gráficos de Usuários</h2>
-    <div class="graficosUsuario">
-        <div class="grafico pizza">
-            <P>Quantidade de pessoas com determinado gênero cadastradas</P>
-            <canvas id="graficoGeneros"> </canvas>
-        </div>
-        <div class="grafico barra">
-            <p>Quantidade de pessoas com determinado interesse cadastradas</p>
-            <canvas id="graficoInteresse"></canvas>
-        </div>
-    </div>
+    <div class="dashboard">
 
-
-    <h2>Gráficos de Personagens</h2>
-    <div class="graficosUsuario">
-        <div class="grafico">
-            <p>Atributos mais colocados em personagens</p>
-            <canvas id="graficoAtributos"> </canvas>
+        <h1>Dados Usuarios</h1>
+        <div class="graficosUsuario">
+            <div class="chart-card" >
+                <p>Quantidade de pessoas com determinado interesse cadastradas</p>
+                <canvas id="graficoInteresse" ></canvas>
+            </div>
+            <div class="chart-card" style="height: 370px; width: 350px;">
+                <P>Quantidade de pessoas com determinado gênero cadastradas</P>
+                <canvas id="graficoGeneros"> </canvas>
+            </div>
         </div>
 
 
 
-        <div class="grafico">
-            <p>Classes mais escolhidas pelos usuarios</p>
-            <canvas id="graficoClasses"></canvas>
-        </div>
+        <h1>Dados Personagens</h1>
+        <div class="graficosUsuario">
+            <div class="chart-card">
+                <p>Atributos mais colocados em personagens</p>
+                <canvas id="graficoAtributos"> </canvas>
+            </div>
 
+            <div class="chart-card">
+                <p>Classes mais escolhidas pelos usuarios</p>
+                <canvas id="graficoClasses"></canvas>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -69,21 +70,21 @@
     let labelInteresse = ['Mestre', 'Player', 'Outro'];
     let labelGeneros = ['Feminino', 'Masculino', 'Outro'];
     let labelClasses = ['Caçador Sombrio', 'Senhor das Sombras', 'Bárbaro Noturno', 'Ilusionista Vampírico', 'Vampiro Cultista', 'Vampiro iluminado', 'Vampiro Flagelador', 'Vampiro Canibal', 'Nenhuma'];
-   
-    fetch(`/dashboard/listarPost`,{
+
+    fetch(`/dashboard/listarPost`, {
         method: "GET"
     }).then(res => {
-        res.json().then(json=>{
+        res.json().then(json => {
             const mediaPost = json[0]
             console.log(mediaPost)
             MediaPosts.innerHTML = mediaPost.media
         })
     })
 
-    fetch(`/dashboard/listarUsuario`,{
+    fetch(`/dashboard/listarUsuario`, {
         method: "GET"
     }).then(res => {
-        res.json().then(json =>{
+        res.json().then(json => {
             const usuarios = json[0];
             console.log(usuarios)
             qtdUsuarios.innerHTML = usuarios.qtdUsuarios
@@ -120,18 +121,30 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: true // Começar o eixo y em zero
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: '#f5f5f54b'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: '#f5f5f54b'
+                            }
                         }
                     },
                     indexAxis: 'y',
                     elements: {
                         line: {
                             borderWidth: 3
-                        },
+                        }
+                    },
 
-                    }
                 }
             };
+
 
             let Atributos = new Chart(
                 document.getElementById(`graficoAtributos`),
@@ -161,6 +174,24 @@
             const configGeneros = {
                 type: 'doughnut',
                 data: dadosGeneros,
+                options: {
+                    animation: {
+                        duration: 150,
+                        easing: 'easeOutBounce',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: '#fff',
+                                    font: {
+                                        size: 14
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             };
 
             let generos = new Chart(
@@ -193,6 +224,22 @@
             const configClasses = {
                 type: 'bar',
                 data: dadosClasses,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff'
+                        },
+                        grid: {
+                            color: '#f5f5f54b'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#f5f5f54b'
+                        }
+                    }
+                },
             };
 
             let classes = new Chart(
@@ -204,53 +251,50 @@
     })
 
 
-/*Gráfico de Interesse*/
-//puxando dados
-fetch(`/dashboard/listarInteresse`,{
-    method: "GET"
-}).then(res => {
-    res.json().then(json => {
-        const interesse = json[0];
-        //criando gráfico
-         let dadosInteresse = {
-        labels: labelInteresse,
-        datasets: [{
-            label: 'Interesse',
-            data: [interesse.Player, interesse.Mestre, interesse.Outros],
-            borderColor: 'rgba(255, 0, 0)',
+    /*Gráfico de Interesse*/
+    //puxando dados
+    fetch(`/dashboard/listarInteresse`, {
+        method: "GET"
+    }).then(res => {
+        res.json().then(json => {
+            const interesse = json[0];
+            //criando gráfico
+            let dadosInteresse = {
+                labels: labelInteresse,
+                datasets: [{
+                    label: 'Interesse',
+                    data: [interesse.Player, interesse.Mestre, interesse.Outros],
+                    borderColor: 'rgba(255, 0, 0)',
 
-            tension: 0.1,
-            borderWidth: 2
-        }],
-        options: {
-            animation: {
-                duration: 1500,
-                easing: 'easeOutBounce'
-            },
-            //plugins: {
-            //        // ...
-            //        customImg: {
-            //            // ...
-            //           beforeDatasetsDraw: (chart, args) => {
-            //                // ...
-            //            }
-            //        } 
-            //    },
-            scales: {
-                y: {
-                    beginAtZero: true // Começar o eixo y em zero
+                    tension: 0.1,
+                    borderWidth: 2
+                }],
+                options: {
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutBounce'
+                    },
+                    plugins: {
+                        id: 'custom-icons',
+                        afterDatasetsDraw(chart, args, pluginOptions) {
+
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true // Começar o eixo y em zero
+                        }
+                    }
                 }
             }
-        }
-    }
-    const configInteresse = {
-        type: 'bar',
-        data: dadosInteresse,
-    };
-    let Interesses = new Chart(
-        document.getElementById(`graficoInteresse`),
-        configInteresse
-    );
+            const configInteresse = {
+                type: 'bar',
+                data: dadosInteresse,
+            };
+            let Interesses = new Chart(
+                document.getElementById(`graficoInteresse`),
+                configInteresse
+            );
+        })
     })
-})
 </script>

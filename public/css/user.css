@@ -211,8 +211,7 @@ dialog p:hover {
     flex-direction: column;
     width: 50%;
     margin: 10px;
-    gap: 10px;
-
+    gap: 20px;
 }
 
 .partePersonagens a {
@@ -385,6 +384,21 @@ dialog p:hover {
 }
 
 
+strong {
+    color: red;
+}
+.btn-fechar{
+    top: 10px;
+    left: 77%;
+    position: fixed;
+    color: white;
+}
+.btn-fechar button{
+    width: 30px;
+    height: 30px;
+    backdrop-filter: blur(10px);
+    color: white;
+}
 .informacoes {
     display: flex;
     flex-direction: column;
@@ -426,13 +440,11 @@ dialog p:hover {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
     transition: 0.2s;
 }
-
 .pontosBasicos {
     display: flex;
     align-items: center;
     gap: 20px;
-}
-
+}   
 .itemBase {
     display: flex;
     flex-direction: column;
@@ -442,4 +454,88 @@ dialog p:hover {
     display: flex;
     flex-direction: row;
     width: 100%;
+}
+.detalhesTexto{
+ display: grid;
+ grid-template-columns: 50% 50%;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.texto p{
+    width: 100%;
+}
+.classe{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.classe h3{
+    width: 100%;
+}
+.grafico{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    overflow: hidden;
+}
+#graficosAtributos{
+    border-radius: 15px;
+    background-color: rgb(10, 7, 7);
+}
+.botaoFechar{
+    display: flex;
+    gap: 20px;
+}
+.personagens{
+    height: 100%;
+    width: 100%;
+    gap: 30px;
+    transition: 0.2s;
+}
+.personagens a:hover {
+    transform: scale(1.1);
+}
+.cardPersonagem {
+    background-color: transparent;
+    color: white;
+    font-size: large;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    padding: 0px 10px;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-self: center;
+    margin: 20px 0px;
+}
+.partePersonagens a{
+    cursor: pointer;
+    width: min-content;
+    align-self: center;
+}
+.cardPersonagem button:hover {
+    transform: scale(1.1);
+}
+.infos {
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.pontoItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
 }

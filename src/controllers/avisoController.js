@@ -16,11 +16,13 @@ function listar(req, res) {
 
 function listarPorUsuario(req, res) {
     var idUsuario = req.params.idUsuario;
-
+    console.log(idUsuario)
+    console.log("cheguei no listar por usuario");
     avisoModel.listarPorUsuario(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
+                    console.log("devolvi a resposta");
                     res.status(200).json(resultado);
                 } else {
                     res.status(204).send("Nenhum resultado encontrado!");

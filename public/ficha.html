@@ -111,7 +111,7 @@
                                         </a>
                                         <dialog id="${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}">
                                              <div class="informacoes">
-                                                <img src="assets/img/vampireUser.png" alt="">
+                                                
                                                 <h1>${personagem.apelido}</h1>
                                                 <h2>${personagem.nome}</h2>
                                                 <div class="pontosBasicos">
@@ -148,9 +148,9 @@
                                                         ${personagem.classe}
                                                     </p>    
                                                 </div>
-                                                <div id="grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" class="grafico">
+                                                <div id="grafico${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" class="grafico" style="width: 50%; height: 50%" >
                                                     <h3>Atributos</h3>
-                                                    <canvas id="graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" ></canvas>
+                                                    <canvas id="graficoAtributos${personagem.nome.replaceAll(/[^a-zA-Z0-9]/g, "")}_${c}" style="background-color: rgb(10, 7, 7); border-radius: 15px;" ></canvas>
                                                 </div>
                                               
                                                 <div class="botaoFechar">
@@ -189,7 +189,9 @@
                                                 options: {
                                                     animation: {
                                                         duration: 150,
-                                                        easing: 'easeOutBounce'
+                                                        easing: 'easeOutBounce',
+                                                        responsive: true,
+                                                        maintainAspectRatio: false,
                                                     },
                                                     scales: {
                                                         r: {
@@ -200,9 +202,15 @@
                                                                 stepSize: 1,
                                                                 display: false
                                                             },
+                                                            grid: {
+                                                                color: 'rgba(255, 255, 255, 0.582)'
+                                                            },
                                                             pointLabels: {
+                                                                color: 'white',
                                                                 font: {
-                                                                    size: 14
+                                                                    size: 14,
+                                                                    family: 'Arial',
+                                                                    weight: 'bold'
                                                                 }
                                                             }
                                                         }
@@ -214,6 +222,7 @@
                                                     }
                                                 }
                                             };
+
                                             let atributos = new Chart(
                                                 document.getElementById(`${idPersonalizadoPersonagem}`),
                                                 config
@@ -946,9 +955,9 @@
                             ${classePersonagem}
                         </p>    
                     </div>
-                    <div id="grafico" class="grafico">
+                    <div id="grafico" class="grafico" style="width: 50%; height: 50%" >
                         <h3>Atributos</h3>
-                        <canvas id="graficosAtributos"></canvas>
+                        <canvas id="graficosAtributos" style="background-color: rgb(10, 7, 7); border-radius: 15px;"></canvas>
                     </div>
 
                     <div class="botaoFechar">
@@ -967,7 +976,7 @@
         }
 
         let dadosAtributos = {
-            labels: ["Carisma", "Inteligência", "Agilidade","Vigor","Sangue Ancestral"],
+            labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
             datasets: [{
                 label: 'Atributos',
                 data: [pontos.carisma, pontos.inteligencia, pontos.agilidade, pontos.vigor, pontos.sangue],
@@ -984,7 +993,9 @@
             options: {
                 animation: {
                     duration: 150,
-                    easing: 'easeOutBounce'
+                    easing: 'easeOutBounce',
+                    responsive: true,
+                    maintainAspectRatio: false,
                 },
                 scales: {
                     r: {
@@ -995,9 +1006,15 @@
                             stepSize: 1,
                             display: false
                         },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.582)' // Linhas circulares
+                        },
                         pointLabels: {
+                            color: 'white', // Cor das labels nos pontos (nomes dos atributos)
                             font: {
-                                size: 14
+                                size: 14,
+                                family: 'Arial',
+                                weight: 'bold'
                             }
                         }
                     }
@@ -1086,9 +1103,10 @@
                 console.log("Reposta cadastro pontos: ", resposta);
                 if (resposta.ok) {
                     funcao_alerta("Pontos cadastrados com sucesso!")
+                    return window.location.reload();
                 } else {
                     funcao_alerta("Houve um erro")
-                    return window.reload
+
                 }
             })
 
