@@ -325,13 +325,13 @@
     }
 
    function atualizar(){
-    fetch("/usuario/atualizar",{
+    fetch("/usuarios/atualizar",{
         method: "POST",
         headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                ID: ID_USUARIO,
+                IDServer: ID_USUARIO,
                 nickname: NICKNAME,
                 pronome: PRONOME,
                 descricao: DESCRICAO
@@ -346,6 +346,7 @@
 
 
     function enviar() {
+        
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;

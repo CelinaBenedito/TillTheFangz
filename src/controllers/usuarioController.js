@@ -121,11 +121,11 @@ function buscarUsuarioPeloId(req, res) {
 }
 
 function atualizar(req,res){
-    var id = req.dody.ID;
+    var id = req.body.IDServer;
     var nickname = req.body.nickname;
     var pronome = req.body.pronome;
     var descricao=req.body.descricao;
-
+    console.log("Entrei na atualizar controller usuario")
     usuarioModel.atualizar(id, nickname,pronome, descricao)
     .then(function(resposta){
         res.status(200);

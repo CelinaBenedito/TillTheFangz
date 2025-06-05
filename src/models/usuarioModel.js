@@ -36,6 +36,8 @@ function buscarUsuarioPeloId(id) {
 }
 
 function atualizar(id, nickname, pronome, descricao){
+    console.log("Entrei na atualizar model usuario")
+   
     var instrucao =
     `
     update usuario set nickname = '${nickname}' and pronome = '${pronome} and descricao = '${descricao}' where id = ${id};
