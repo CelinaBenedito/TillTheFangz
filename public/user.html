@@ -34,7 +34,7 @@
             </div>
 
         </div>
-        <p id="pronomes" class="pronomes">Pronomes</p>
+
         <button class="editarBotao" onclick=" editar.showModal()">Editar Perfil</button>
         <dialog id="editar">
             <div class="containerEditar">
@@ -42,26 +42,7 @@
 
                 <div class="editarIMG">
                     Imagem de Perfil:
-                    <input type="file" id="foto" accept="image/*">
-                </div>
-
-
-                <div>
-                    Nickname:
-                    <input type="text" id="nicknameInput" placeholder="Digite seu nickname">
-                </div>
-
-
-
-                Pronomes:
-                <input type="text" id="pronomesInput" placeholder="Ex: ele/dele, ela/dela...">
-
-
-                Descrição:
-                <textarea id="descricaoInput" rows="3" maxlength="500" placeholder="Fale um pouco sobre você..."
-                    oninput="qtdCaracteres()"></textarea>
-                <div class="avisoCaracteres">
-                    <p id="avisoCaracteres"></p>
+                    <input type="file" id="foto" name="foto" accept="image/*">
                 </div>
 
                 <div class="botoesDialog">
@@ -72,7 +53,7 @@
             </div>
         </dialog>
 
-        <p id="descricao">Adicionar Descrição</p>
+        
 
         <div class="partePersonagens">
             <h3>Personagens:</h3>
@@ -104,9 +85,7 @@
 <script src="js/div_alerta.js"></script>
 <script>
     let ID_USUARIO = sessionStorage.ID_USUARIO;
-    let NICKNAME = nicknameInput.value;
-    let PRONOME = pronomesInput.value;
-    let DESCRICAO = descricaoInput.value;
+    
 
     fetch(`/personagens/listar/${ID_USUARIO}`, {
         method: "GET"
@@ -270,16 +249,16 @@
 
 
     /*Quantidade de caracteres da descrição*/
-    function qtdCaracteres() {
-        let descricao = descricaoInput.value;
-        let tamanhoDescricao = descricao.length;
-        let quantidadeRestante = 500 - tamanhoDescricao;
-        avisoCaracteres.innerHTML = `Caracteres usados: ${tamanhoDescricao}`
-        if (quantidadeRestante < 100) {
-            avisoCaracteres.innerHTML = `Caracteres usados: <strong>${tamanhoDescricao}</strong>
-        <br> Caracteres disponiveis <strong>${quantidadeRestante}</strong>`
-        }
-    }
+    // function qtdCaracteres() {
+    //     let descricao = descricaoInput.value;
+    //     let tamanhoDescricao = descricao.length;
+    //     let quantidadeRestante = 500 - tamanhoDescricao;
+    //     avisoCaracteres.innerHTML = `Caracteres usados: ${tamanhoDescricao}`
+    //     if (quantidadeRestante < 100) {
+    //         avisoCaracteres.innerHTML = `Caracteres usados: <strong>${tamanhoDescricao}</strong>
+    //     <br> Caracteres disponiveis <strong>${quantidadeRestante}</strong>`
+    //     }
+    // }
 
     function buscarPeloId(id_user) {
 
@@ -292,21 +271,13 @@
                     console.log(usuario.ImagemUsuario)
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                    if(usuario.descricao == null){
-                        descricao.innerHTML = "Adicionar Descrição"
-                    }
                     if(usuario.nickname == null){
                         nickname.style.display = 'none'
                     }
                     else{
                         nickname.innerHTML = `${usuario.nickname}`
                     }
-                    if(usuario.pronome == null){
-                        pronomes.innerHTML = "Pronomes"
-                    }
-                    else{
-                        pronomes.innerHTML = usuario.pronome
-                    }
+
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                 })
@@ -319,29 +290,33 @@
 
     }
 
-   function atualizar(){
-    fetch("/usuarios/atualizar",{
-        method: "POST",
-        headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                IDServer: ID_USUARIO,
-                nickname: NICKNAME,
-                pronome: PRONOME,
-                descricao: DESCRICAO
+//    function atualizar(){
+//     let NICKNAME = nicknameInput.value;
+//     let PRONOME = pronomesInput.value;
+//     let DESCRICAO = descricaoInput.value;
+//     fetch("/usuarios/atualizar",{
+//         method: "POST",
+//         headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify({
+//                 IDServer: ID_USUARIO,
+//                 nickname: NICKNAME,
+//                 pronome: PRONOME,
+//                 descricao: DESCRICAO
 
-            }),
-    }).then (function (resposta){
-        if (resposta.ok){
-            return window.location.reload;
-        }
-    })
-    }
+//             }),
+//     }).then (function (resposta){
+//         if (resposta.ok){
+//             console.log(resposta)
+//             window.location.reload;
+//         }
+//     })
+//     }
 
 
     function enviar() {
-        
+        // atualizar()
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;
@@ -355,7 +330,7 @@
                 console.log("Caiu no catch")
                 console.log(err);
             })
-atualizar()
+
         // return window.location.reload();
     }
 </script>

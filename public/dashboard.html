@@ -104,6 +104,7 @@
     }).then(res => {
         res.json().then(json => {
             const atributos = json[0]
+            console.log("json",json)
             /*Criação do gráfico de atributos*/
             let dadosAtributos = {
                 labels: ["Carisma", "Inteligência", "Agilidade", "Vigor", "Sangue Ancestral"],
@@ -166,7 +167,8 @@
     }).then(res => {
         res.json().then(json => {
             const genero = json[0];
-            console.log(genero)
+            console.log("genero",genero)
+            console.log("json",json)
             //Criando o gráfico
             let dadosGeneros = {
                 labels: labelGeneros,

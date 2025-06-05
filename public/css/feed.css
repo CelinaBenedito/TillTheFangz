@@ -225,3 +225,12 @@ input[type="file"] {
 .Header:hover{
 color: red;
 }
+.conteudoPostTags{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 1.9px;
+}
+.conteudoPostTags a:hover{
+    color: #5c0a0a;
+}

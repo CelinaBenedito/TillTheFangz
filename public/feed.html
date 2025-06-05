@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../css/heade&footer.css">
     <link rel="stylesheet" href="../css/feed.css">
     <link rel="stylesheet" href="css/alerta.css">
-       <link rel="icon" href="./assets/img/morcegoVermelho.png">
+    <link rel="icon" href="./assets/img/morcegoVermelho.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Feed | Till the Fangz</title>
 </head>
 
-<body onload="buscarPeloId(sessionStorage.ID_USUARIO), validarSessao(), atualizarFeed()">
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO),  atualizarFeed()">
     <header id="header"></header>
     <div id="containerSair"></div>
     <div id="div_Alerta" class="alerta">
@@ -50,23 +50,26 @@
                             <div class="tagsPostar">
                                 Tags:
                                 <div class="totalTags">
-                                    <div class="Header Jogador">
-                                        <a onclick="">Jogador</a>
+                                    <div>
+                                        <div class="Header Jogador">
+                                            <a onclick="mostrar('jogador')">Jogador</a>
+                                        </div>
+                                        <div class="conteudoPostTags" id="jogadorTags">
+                                            <a onclick="adicionar('O Mestre')">O mestre</a>
+                                            <a onclick="adicionar('O Player')">O player</a>
+                                        </div>
                                     </div>
-                                    <div class="conteudoPostTags">
-                                        <a onclick="">O mestre</a>
-                                        <a onclick="">O player</a>
-                                    </div>
+
                                     <div class="Header Raca">
-                                        <a onclick="">Raça</a>
+                                        <a onclick="mostrar('raca')">Raça</a>
                                     </div>
 
                                     <div class="Header Classe">
-                                        <a onclick="">Classe</a>
+                                        <a onclick="mostrar('classe')">Classe</a>
                                     </div>
                                 </div>
                             </div>
-                            <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            <!-- <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M21 14V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9v-2H5v-1.59l3-3 1.29 1.29c.39.39 1.02.39 1.41 0l5.29-5.29 3 3V14h2Zm-4.29-5.71a.996.996 0 0 0-1.41 0l-5.29 5.29-1.29-1.29a.996.996 0 0 0-1.41 0l-2.29 2.29V5h14v5.59L16.73 8.3Z">
@@ -79,7 +82,7 @@
 
                             <div class="previa">
                                 <img id="Previa" src="" alt="" style="display: none;">
-                            </div>
+                            </div> -->
 
                             <button onclick="publicar()">Enviar</button>
 
@@ -196,7 +199,7 @@
                     <a onclick="aparecer('Classe')">
                         <h2>Classes</h2>
                     </a>
-                    
+
                     <div class="separacao">
                         <div id="Classe">
                             <a onclick="atualizarFeed('Caçador')">
@@ -257,32 +260,71 @@
 
 </html>
 <script src="js/div_alerta.js"></script>
-<script src="js/sessao.js"></script>
+<!-- <script src="js/sessao.js"></script> -->
 <script src="js/header.js"></script>
 <script>
+    let TagPost = 'Nenhuma';
+    let cliquesjogador = 0;
+    let cliquesclasse = 0;
+    let cliquesracas = 0;
+            jogadorTags.style.display = 'none'
+
+
+    function mostrar(qual) {
+        if (qual == 'jogador' && cliquesjogador == 0) {
+            jogadorTags.style.display = 'flex'
+            cliquesjogador++
+        }
+        else if (qual == 'jogador' && cliquesjogador == 1) {
+            jogadorTags.style.display = 'none'
+            cliquesjogador = 0
+        }
+
+        if (qual == 'racas' && cliquesracas == 0) {
+            racasTags.style.display = 'flex'
+            cliquesracas++
+        }
+        else if (qual == 'racas' && cliquesracas == 1) {
+            racasTags.style.display = 'none'
+            cliquesracas = 0
+        }
+
+        if (qual == 'classe' && cliquesclasse == 0) {
+            classeTags.style.display = 'flex'
+            cliquesclasse++
+        }
+        else if (qual == 'classe' && cliquesclasse == 1) {
+            classeTags.style.display = 'none'
+            cliquesclasse = 0
+        }
+
+    }
+    function adicionar(tag) {
+        TagPost = tag;
+    }
     // function validacaoNomes(){
     //     if(sessionStorage.NICKNAME_USUARIO){
     //  }
     // }
-    const inputUpload = document.getElementById("input_imagens");
-    const previaImagem = document.getElementById("Previa");
-    const uploadIcon = document.getElementById("uploadIcon");
+    // const inputUpload = document.getElementById("input_imagens");
+    // const previaImagem = document.getElementById("Previa");
+    // const uploadIcon = document.getElementById("uploadIcon");
 
-    uploadIcon.addEventListener('click', () => {
-        inputUpload.click();
-    });
+    // uploadIcon.addEventListener('click', () => {
+    //     inputUpload.click();
+    // });
 
-    inputUpload.addEventListener('change', () => {
-        const arquivo = inputUpload.files[0];
-        if (arquivo) {
-            const leitor = new FileReader();
-            leitor.onload = function (e) {
-                previaImagem.src = e.target.result;
-                previaImagem.style.display = 'block';
-            };
-            leitor.readAsDataURL(arquivo);
-        }
-    });
+    // inputUpload.addEventListener('change', () => {
+    //     const arquivo = inputUpload.files[0];
+    //     if (arquivo) {
+    //         const leitor = new FileReader();
+    //         leitor.onload = function (e) {
+    //             previaImagem.src = e.target.result;
+    //             previaImagem.style.display = 'block';
+    //         };
+    //         leitor.readAsDataURL(arquivo);
+    //     }
+    // });
 
     function redirecionar() {
         window.location = 'login.html'
@@ -350,8 +392,7 @@
         var corpo = {
             titulo: tituloDiv,
             descricao: conteudoDiv,
-            tag: [],
-            imagem: inputUpload.value
+            tag: TagPost
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -368,7 +409,7 @@
                 // window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/feed.html";
                 //limparFormulario();
-                finalizarAguardar();
+                //finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -376,7 +417,7 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+           // finalizarAguardar();
         });
 
         return false;
@@ -387,6 +428,7 @@
     function atualizarFeed(PesquisaTag) {
         const card = document.getElementById('div_card')
         fetch("/avisos/listar").then(function (resposta) {
+            
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -398,11 +440,16 @@
 
                 resposta.json().then(function (resposta) {
                     //console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    
                     var feed = document.getElementById("feed_container");
                     feed.innerHTML = "";
                     let pesquisa = "nada"
-                    pesquisa = PesquisaTag
+                    if (PesquisaTag == undefined) {
+                        pesquisa = null
+                    } else {
+
+                        pesquisa = PesquisaTag
+                    }
+                    console.log("REsposta do Feed", PesquisaTag)
                     if (pesquisa == null) {
                         for (let i = 0; i < resposta.length; i++) {
                             var publicacao = resposta[i];
@@ -428,12 +475,12 @@
                         `
                         }
                     }
-                    if(pesquisa!="nada"){
-                        for(let i = 0; i < resposta.length; i++){
+                    if (pesquisa != "nada") {
+                        for (let i = 0; i < resposta.length; i++) {
                             var publicacao = resposta[i];
-                            if(publicacao.tag.includes(pesquisa)){
-                                         feed_container.innerHTML +=
-                                `
+                            if (publicacao.tag.includes(pesquisa)) {
+                                feed_container.innerHTML +=
+                                    `
                         <div class="card" id="div_card">
                             <div class="cabecalho">
                                 <img src="assets/img/vampireUser.png">
@@ -450,7 +497,7 @@
                                 <p id="conteudoPost">${publicacao.conteudo}</p>
                             </div>
                         </div>
-                        `  
+                        `
                             }
                         }
                     }
@@ -461,7 +508,7 @@
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            finalizarAguardar();
+           // finalizarAguardar();
         });
     }
 
