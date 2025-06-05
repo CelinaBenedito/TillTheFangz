@@ -109,6 +109,9 @@
 <script src="js/div_alerta.js"></script>
 <script>
     let ID_USUARIO = sessionStorage.ID_USUARIO;
+    let NICKNAME = nicknameInput.value;
+    let PRONOME = pronomesInput.value;
+    let DESCRICAO = descricaoInput.value;
 
     fetch(`/personagens/listar/${ID_USUARIO}`, {
         method: "GET"
@@ -294,7 +297,21 @@
                     console.log(usuario.ImagemUsuario)
                     primeiro_nome.innerHTML = `${usuario.nome}`
                     sobrenome.innerHTML = `${usuario.sobrenome}`
-                    nickname.innerHTML = `${usuario.nickname}`
+                    if(usuario.descricao == null){
+                        descricao.innerHTML = "Adicionar Descrição"
+                    }
+                    if(usuario.nickname == null){
+                        nickname.style.display = 'none'
+                    }
+                    else{
+                        nickname.innerHTML = `${usuario.nickname}`
+                    }
+                    if(usuario.pronome == null){
+                        pronomes.innerHTML = "Pronomes"
+                    }
+                    else{
+                        pronomes.innerHTML = usuario.pronome
+                    }
                     imagem_usuario.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                     imagem_usuario_header.innerHTML = `<img src='assets/imagensdePerfil/${usuario.ImagemUsuario}' alt="imagem de usuario">`
                 })
@@ -307,9 +324,28 @@
 
     }
 
+   function atualizar(){
+    fetch("/usuario/atualizar",{
+        method: "POST",
+        headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                ID: ID_USUARIO,
+                nickname: NICKNAME,
+                pronome: PRONOME,
+                descricao: DESCRICAO
+
+            }),
+    }).then (function (resposta){
+        if (resposta.ok){
+            return window.location.reload;
+        }
+    })
+    }
+
 
     function enviar() {
-        mostrar()
         const formData = new FormData();
         formData.append('foto', foto.files[0])
         let ID_USUARIO = sessionStorage.ID_USUARIO;
@@ -323,36 +359,7 @@
                 console.log("Caiu no catch")
                 console.log(err);
             })
-
+atualizar()
         // return window.location.reload();
-    }
-    function mostrar() {
-        let mostrarNome = chk_nome.checked;
-        let mostrarSobrenome = chk_sobrenome.checked;
-        let mostrarNickname = chk_nickname.checked;
-        let nome = sessionStorage.NOME_USUARIO;
-        let sobrenome = sessionStorage.SOBRENOME_USUARIO;
-        let nickname = sessionStorage.NICKNAME_USUARIO;
-
-        if (mostrarNome == true) {
-            primeiro_nome.innerHTML = `${nome}`
-        }
-        else {
-            primeiro_nome.innerHTML = ``
-        }
-
-        if (mostrarSobrenome == true) {
-            sobrenome.innerHTML = `${sobrenome}`
-        }
-        else {
-            sobrenome.innerHTML = ``
-        }
-
-        if (mostrarNickname == true) {
-            nickname.innerHTML = `${nickname}`
-        }
-        else {
-            nickname.innerHTML = ``
-        }
     }
 </script>

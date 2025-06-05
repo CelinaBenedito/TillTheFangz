@@ -35,9 +35,19 @@ function buscarUsuarioPeloId(id) {
     return database.executar(instrucao);
 }
 
+function atualizar(id, nickname, pronome, descricao){
+    var instrucao =
+    `
+    update usuario set nickname = '${nickname}' and pronome = '${pronome} and descricao = '${descricao}' where id = ${id};
+    
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
     salvar,
     buscarUsuarioPeloId,
     autenticar,
-    cadastrar
+    cadastrar,
+    atualizar
 };

@@ -120,9 +120,24 @@ function buscarUsuarioPeloId(req, res) {
   });
 }
 
+function atualizar(req,res){
+    var id = req.dody.ID;
+    var nickname = req.body.nickname;
+    var pronome = req.body.pronome;
+    var descricao=req.body.descricao;
+
+    usuarioModel.atualizar(id, nickname,pronome, descricao)
+    .then(function(resposta){
+        res.status(200);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = { 
     salvar,
     buscarUsuarioPeloId,
     autenticar,
-    cadastrar
+    cadastrar,
+    atualizar
 }

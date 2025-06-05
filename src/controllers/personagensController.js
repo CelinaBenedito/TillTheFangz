@@ -50,11 +50,7 @@ function cadastrarPontos(req, res) {
     var pontosVida = req.body.pontosVidaServer;
     var pontosDefesa = req.body.pontosDefesaServer;
     var pontosSanidade = req.body.pontosSanidadeServer;
-console.log('aaaaaaaa ',fkpersonagem)
 
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', function (erro) {
-        ;
-    })
     personagensModel.cadastrarPontos(fkpersonagem, pontosVida, pontosDefesa, pontosSanidade, pontosCarisma, pontosInteligencia, pontosAgilidade, pontosVigor, pontosSangue)
     .then(function (resposta) {
        // res.status.send("Pontos cadastrados com sucesso");
@@ -62,7 +58,7 @@ console.log('aaaaaaaa ',fkpersonagem)
 
         res.status(200);
     }).catch(function (erro) {
-        console.log("Pontos cadastrados com err6", erro)
+        console.log("Pontos cadastrados com erro", erro)
         res.status(500).json(erro.sqlMessage);
     })
 }

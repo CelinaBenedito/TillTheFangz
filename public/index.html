@@ -132,7 +132,7 @@ fill="currentColor" viewBox="0 0 24 24" >
                 </div>
             </a>
         </div>
-        <div class="comunidade">
+        <div class="comunidade" id="comunidade">
             <h2 class="titulo">Junte-se à Comunidade</h2>
             <p>
                 Crie sua conta e mergulhe em nossa comunidade! Compartilhe personagens, troque experiências, participe
@@ -164,3 +164,8 @@ fill="currentColor" viewBox="0 0 24 24" >
 
 </html>
 <script src="js/header.js"></script>
+<script>
+    if(sessionStorage.ID_USUARIO != undefined){
+        comunidade.style.display='none'
+    }
+</script>
