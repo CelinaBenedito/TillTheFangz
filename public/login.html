@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="./css/formulario.css">
     <link rel="icon" href="./assets/img/morcegoVermelho.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script src="./js/sessao.js"></script>
 
 
 </head>
@@ -59,17 +58,17 @@
 
 
     function entrar() {
-        aguardar();
+        //aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            finalizarAguardar();
+            //finalizarAguardar();
             return false, funcao_alerta("Por favor preencha todos os campos");
         }
         else {
-            setInterval(sumirMensagem, 5000)
+        //    setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -114,7 +113,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                   // finalizarAguardar(texto);
                 });
             }
 
@@ -125,8 +124,8 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    //function sumirMensagem() {
+   //     cardErro.style.display = "none"
+    //}
 
 </script>

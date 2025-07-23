@@ -33,12 +33,63 @@ app.use("/avisos", avisosRouter);
 app.use("/personagens", personagensRouter);
 app.use("/dashboard", dashboardRouter)
 
-app.listen(PORTA_APP, function () {
-    console.log(`
-    \n\n\n                                                                                                 
-    Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP}:. \n\n
-    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n
-    \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
-    \tSe .:producao:. você está se conectando ao banco remoto. \n\n
-    \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
+//-------------------------SOCKET-------------------------
+
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+  socket.on('criarSala', (dados) => {
+  const { nomeSala, descricao, maxJogadores, senha, criador } = dados;
+   if (salas[nomeSala]) {
+    socket.emit('erroSala', 'Já existe uma sala com esse nome.');
+    return;
+  }
+   salas[nomeSala] = {
+    nomeSala,
+    descricao,
+    senha: senha || null,
+    maxJogadores,
+    criador,
+    jogadores: [criador]
+  };
+  console.log(`Sala "${nomeSala}" criada por ${criador}`);
+
+  socket.join(nomeSala);
+  socket.emit('salaCriada', salas[nomeSala]);
 });
+  console.log('Novo jogador conectado:', socket.id);
+
+  socket.on('entrarNaSala', ({ sala, nome }) => {
+      const salaInfo = salas[sala];
+      if (!salaInfo) {
+    socket.emit('mensagem', 'Essa sala não existe.');
+    return;
+  }
+  // Verifica limite de jogadores
+  if (salaInfo.jogadores.length >= salaInfo.maxJogadores) {
+    socket.emit('mensagem', 'Sala cheia.');
+    return;
+  }
+   // Adiciona jogador
+  salaInfo.jogadores.push(nome);
+  socket.join(sala);
+  socket.emit('infoSala', salaInfo);
+  socket.to(sala).emit('mensagem', `${nome} entrou na sala.`);
+  socket.emit('mensagem', `Você entrou na sala: ${sala}`);
+  });
+
+  socket.on('enviarMensagem', ({ sala, nome, texto }) => {
+    io.to(sala).emit('mensagem', `${nome}: ${texto}`);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Jogador desconectado:', socket.id);
+  });
+});
+
+http.listen(PORTA_APP, function () {
+  console.log(`Servidor do seu site já está rodando com socket.io em http://${HOST_APP}:${PORTA_APP}`);
+});
+
+const salas = {}; // chave = nome da sala

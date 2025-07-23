@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Sala</title>
+    <link rel="stylesheet" href="../css/heade&footer.css">
+    <link rel="stylesheet" href="../css/alerta.css">
+    <link rel="stylesheet" href="../public/css/home.css">
+</head>
+
+<body>
+    <div class="container">
+        configurações da sala
+        <div class="escolher">
+            <h1>Escolha seu personagem</h1>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    const nome = localStorage.getItem('nome');
+    const sala = localStorage.getItem('sala');
+    title.innerHTML = `Sala: ${sala}`
+</script>

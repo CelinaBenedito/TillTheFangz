@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="../css/heade&footer.css">
+    <link rel="stylesheet" href="../css/alerta.css">
+    <title>Entrar na sessão</title>
+</head>
+
+<body onload="buscarPeloId(sessionStorage.ID_USUARIO)">
+    <header id="header"></header>
+    <div id="containerSair"></div>
+    <div id="div_Alerta" class="alerta">
+        <img class="morcego" src="assets/img/morcegoCimaPreto.png">
+        <div id="conteudo_alerta"></div>
+    </div>
+
+    <div id="tabelaSalasOn">
+
+    </div>
+    <!-- sessao.html -->
+    <div id="inicio">
+        <input id="nomeSalaENTRAR" placeholder="Nome da sala">
+        <input type="text" placeholder="Senha da sala">
+        <div>
+            <button onclick="entrarNaSala()">Entrar</button>
+            <button onclick="div_criarsala.style.display = ''
+        inicio.style.display = 'none'">Criar Sala</button>
+        </div>
+    </div>
+    <div id="div_criarsala">
+        <h2>Criar Sala</h2>
+
+        <label>Nome da Sala:</label><br>
+        <input id="nomeSala"><br><br>
+
+        <label>Descrição (opcional):</label><br>
+        <textarea id="descricaoSala"></textarea><br><br>
+
+        <label>Máx. de jogadores:</label><br>
+        <input id="maxJogadores" type="number" min="2" max="15"><br><br>
+
+        <label>Senha da sala (opcional):</label><br>
+        <input id="senhaSala" type="text"><br><br>
+
+        <h3>Salvar os dados da sala?</h3>
+        <input type="checkbox" id="salvarSala">
+        <button onclick="criarSala()">Criar Sala</button>
+    </div>
+</body>
+
+</html>
+<script src="js/div_alerta.js"></script>
+<script src="js/header.js"></script>
+<script>
+    div_criarsala.style.display = "none"
+    const socket = io();
+    function preencher(){
+        for(let c = 0; c<=dados.lenght; c++){
+
+        }
+    }
+
+    function entrarNaSala() {
+        const nome = sessionStorage.NICKNAME_USUARIO;
+        const sala = document.getElementById('nomeSalaENTRAR').value;
+
+        if (!sala) return alert('Preencha tudo');
+
+        // Salvar os dados para a próxima página
+        localStorage.setItem('nome', nome);
+        localStorage.setItem('sala', sala);
+        // Envia para o servidor a entrada na sala
+        socket.emit('entrarNaSala', { sala, nome });
+
+        // Redireciona para a sala correta
+        window.location.href = `sala.html`; // ex: salaCastelo.html
+    }
+
+    function criarSala() {
+        const dados = {
+            nomeSala: document.getElementById('nomeSala').value,
+            descricao: document.getElementById('descricaoSala').value,
+            maxJogadores: parseInt(document.getElementById('maxJogadores').value),
+            senha: document.getElementById('senhaSala').value,
+            criador: sessionStorage.NICKNAME_USUARIO
+        };
+        console.log(dados);
+        if (!dados.nomeSala || isNaN(dados.maxJogadores)) {
+            return funcao_alerta("Preencha os campos obrigatórios.")
+        }
+        socket.emit('criarSala', dados);
+        // Aguarda resposta do servidor
+        socket.on('salaCriada', (sala) => {
+            localStorage.setItem('nome', dados.criador);
+            localStorage.setItem('sala', sala.nomeSala);
+            window.location.href = `sala.html`;
+        });
+    }
+</script>
